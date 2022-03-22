@@ -1,0 +1,25 @@
+Das up-Tool:
+git clone git@github.com:CondeNastDigital/GitUP2.git
+--
+Die up-config: ~/.gitup/configs/general.yaml
+projectPath: "/Users/[user]/Development"
+endpoints:
+    jira: "https://cngermany.atlassian.net"
+    github: "CondeNastDigital"
+docker:
+  images:
+      MongoDB: 523937681572.dkr.ecr.eu-west-1.amazonaws.com/mongodb
+      proxy: 523937681572.dkr.ecr.eu-west-1.amazonaws.com/proxy:latest
+      DNS: 523937681572.dkr.ecr.eu-west-1.amazonaws.com/dns:latest
+      MySQL: 523937681572.dkr.ecr.eu-west-1.amazonaws.com/mysql:latest
+  network: local-dev
+--
+.profile:
+
+--
+Die aws-tools:
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+--
+docker:
+https://docs.docker.com/desktop/mac/install/
+--
