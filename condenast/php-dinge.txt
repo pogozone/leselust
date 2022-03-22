@@ -1,0 +1,14 @@
+========
+Undefined array key:
+array_key_exists($key, $table) ? $table[$key] : null;
+========
+request manipulieren
+$requestClosure = function() use ($decryptedJson) {
+    $this->content = $decryptedJson;
+    return $this;
+};
+$request = $requestClosure->call($request);
+========
+phpstorm Tricks:
+Verzeichnisse von der Indexierung (und damit auch der Suche) ausschließen:
+File -> Settings -> Directories -> Use Exclude button on folder

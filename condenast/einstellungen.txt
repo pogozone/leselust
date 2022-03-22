@@ -1,0 +1,6 @@
+VPN
+Connection Name: CNGermany
+Description: CN Germany
+Remote Gateway: vpn.condenast.de
+Username: WOLDT@condenast.de
+

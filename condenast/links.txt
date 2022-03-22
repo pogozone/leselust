@@ -1,0 +1,29 @@
+CoPilot US:
+https://stg-copilot-app.condenast.io/
+https://copilot.condenast.io/
+CoPilot EU:
+https://eu-stg-copilot.condenast.io/
+https://eu-copilot.condenast.io/
+https://flyway-dashboard.prod.cni.digital/de/migrate
+
+Storybook:
+https://verso-components.conde.io/?path=/story/documentation-introduction-about--page
+
+Irgendwas mich Cache und verso:
+http://purge.conde.io/
+
+Jenkins:
+https://jenkins-v2.conde.io/
+https://leeroy.condenastdigital.de/
+
+OKTA Startseite:
+https://condenast-hub.okta-emea.com/app/UserHome
+
+Repository for interactive overrides (io) for glamour germany:
+https://github.com/CondeNast/glamour-de-interactive-override
+
+Shopify
+Shopify Storefront API GraphiQL explorer:
+https://shopify.dev/custom-storefronts/tools/graphiql-storefront-api
+https://shopify.dev/graphiql/storefront-graphiql
+
