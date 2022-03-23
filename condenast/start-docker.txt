@@ -18,7 +18,10 @@ docker:
 
 --
 Die aws-tools:
-https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+Version kleiner 2 installieren.
+https://docs.aws.amazon.com/cli/v1/userguide/install-macos.html#awscli-install-osx-pip
+vi ~/.bash_profile
+export PATH=~/Library/Python/3.9/bin/:$PATH
 --
 docker:
 https://docs.docker.com/desktop/mac/install/

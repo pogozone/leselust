@@ -1,0 +1,13 @@
+Alle Tags und wieviele Artikel jeweils vertagt sind:
+
+db.getCollection('content').aggregate([
+    {$match: { "source.name": "glamour"}},
+    {$unwind: "$meta.tags"  },
+     { $sort: {"meta.tags": -1}},
+    { $group: { _id: {"tag": "$meta.tags"}, myCount: { $sum: 1 } } }
+]).forEach(function(el){
+    
+    print('"' + el._id.tag + '", "' + el.myCount + '"');    
+    
+})
+=====================================================================

@@ -4,3 +4,23 @@ Description: CN Germany
 Remote Gateway: vpn.condenast.de
 Username: WOLDT@condenast.de
 
+mongodb:
+local/docker:
+mongodb://cndbuser:donotletmein@localhost:27018/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
+
+Dev:
+mongodb://mongoAdmin:*****@10.2.0.200:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
+
+Live Kraken:
+live-cluster-shard-00-01-pri.has6c.mongodb.net
+live-cluster-shard-00-00-pri.has6c.mongodb.net
+live-cluster-shard-00-02-pri.has6c.mongodb.net
+
+mongodb+srv://mongoAdmin:*****@live-cluster.has6c.mongodb.net/admin?authSource=admin&readPreference=primary&authMechanism=SCRAM-SHA-1&appname=MongoDB%20Compass&ssl=true
+
+Live KrakenPIM:
+services-eu-shard-00-00.has6c.mongodb.net
+services-eu-shard-00-01.has6c.mongodb.net
+services-eu-shard-00-02.has6c.mongodb.net
+
+mongodb+srv://mongoAdmin:*****@services-eu.has6c.mongodb.net/admin?authSource=admin&readPreference=primary&authMechanism=SCRAM-SHA-1&appname=MongoDB%20Compass&ssl=true

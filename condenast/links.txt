@@ -1,5 +1,5 @@
 CoPilot US:
-https://stg-copilot-app.condenast.io/
+https://stg-copilot.condenast.io/all/dashboard
 https://copilot.condenast.io/
 CoPilot EU:
 https://eu-stg-copilot.condenast.io/
