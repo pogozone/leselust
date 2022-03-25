@@ -27,3 +27,6 @@ Shopify Storefront API GraphiQL explorer:
 https://shopify.dev/custom-storefronts/tools/graphiql-storefront-api
 https://shopify.dev/graphiql/storefront-graphiql
 
+Verso
+PullRequest:
+https://github.com/CondeNast/verso/blob/master/CONTRIBUTING.md
