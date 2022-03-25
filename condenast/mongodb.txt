@@ -11,3 +11,6 @@ db.getCollection('content').aggregate([
     
 })
 =====================================================================
+Damit können angeblich mysql-Abfragen in mongo übersetzt werden:
+https://nosqlbooster.com/downloads
+
