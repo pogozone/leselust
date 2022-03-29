@@ -5,6 +5,8 @@ CoPilot EU:
 https://eu-stg-copilot.condenast.io/
 https://eu-copilot.condenast.io/
 https://flyway-dashboard.prod.cni.digital/de/migrate
+https://copilot.condenast.io/
+https://stg-copilot.condenast.io/all/dashboard
 
 Storybook:
 https://verso-components.conde.io/?path=/story/documentation-introduction-about--page
@@ -30,11 +32,3 @@ https://shopify.dev/graphiql/storefront-graphiql
 Verso
 PullRequest:
 https://github.com/CondeNast/verso/blob/master/CONTRIBUTING.md
-
-Condé Nast Dokus:
-Access:
-https://cnissues.atlassian.net/wiki/spaces/PLAT/pages/1071579484/Developer+Access+Runbook+Self+Service
-
-CookBook:
-https://cnissues.atlassian.net/wiki/spaces/ENG/pages/1247641676/Cookbook
-
