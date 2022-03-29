@@ -13,4 +13,6 @@ db.getCollection('content').aggregate([
 =====================================================================
 Damit können angeblich mysql-Abfragen in mongo übersetzt werden:
 https://nosqlbooster.com/downloads
-
+=====================================================================
+Ein einfacher Datenbankupdate:
+db.getCollection('content').updateMany({'source.name': 'allureshop'},{$set: {'product.affiliates.0.name': 'Allure Shop'}})
