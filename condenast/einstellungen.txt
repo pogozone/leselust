@@ -24,3 +24,18 @@ services-eu-shard-00-01.has6c.mongodb.net
 services-eu-shard-00-02.has6c.mongodb.net
 
 mongodb+srv://mongoAdmin:*****@services-eu.has6c.mongodb.net/admin?authSource=admin&readPreference=primary&authMechanism=SCRAM-SHA-1&appname=MongoDB%20Compass&ssl=true
+
+
+===================================================================
+Verso starten:
+npm login --scope condenast
+===================================================================
+CoPilot starten: https://github.com/CondeNast/copilot
+npm run start:eu
+===================================================================
+
+
+
+
+
+
