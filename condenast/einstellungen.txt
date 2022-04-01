@@ -28,10 +28,16 @@ mongodb+srv://mongoAdmin:*****@services-eu.has6c.mongodb.net/admin?authSource=ad
 
 ===================================================================
 Verso starten:
-npm login --scope condenast
+npm run dev
+http://localhost:7777/glamour-de
 ===================================================================
 CoPilot starten: https://github.com/CondeNast/copilot
+Wenn man einen neuen branch ausgeheckt hat:
+npm install
+Wenn man den Rechner neu gestartet hat (~/:bash_profile ist auch ein guter Tipp):
+export VAULT_ADDR=https://prod.vault.conde.io:443
 npm run start:eu
+http://copilot-local.condenast.io:4200/
 ===================================================================
 
 
