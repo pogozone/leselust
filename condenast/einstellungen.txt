@@ -28,6 +28,9 @@ mongodb+srv://mongoAdmin:*****@services-eu.has6c.mongodb.net/admin?authSource=ad
 
 ===================================================================
 Verso starten:
+(Und immer ganz wichtig: Geht nur im PulseSecure VPN)
+nvm use
+npm install
 npm run dev
 http://localhost:7777/glamour-de
 ===================================================================
