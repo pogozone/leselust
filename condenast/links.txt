@@ -5,8 +5,9 @@ CoPilot EU:
 https://eu-stg-copilot.condenast.io/
 https://eu-copilot.condenast.io/
 https://flyway-dashboard.prod.cni.digital/de/migrate
-https://copilot.condenast.io/
-https://stg-copilot.condenast.io/all/dashboard
+
+verso local:
+
 
 Storybook:
 https://verso-components.conde.io/?path=/story/documentation-introduction-about--page
@@ -32,3 +33,18 @@ https://shopify.dev/graphiql/storefront-graphiql
 Verso
 PullRequest:
 https://github.com/CondeNast/verso/blob/master/CONTRIBUTING.md
+
+commercetools
+https://mc.us-central1.gcp.commercetools.com/cn-commerce-test/welcome
+https://docs.commercetools.com/docs/
+https://docs.commercetools.com/api/
+https://cnissues.atlassian.net/wiki/spaces/~413683738/pages/15030845462/Commerce+Tools+Training+and+introduction
+
+Condé Nast
+HR Infoseite:
+https://sites.google.com/condenast.de/hrinfoseite/
+
+DataTables
+https://datatables.net/examples/index
+
+
