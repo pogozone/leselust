@@ -1,0 +1,40 @@
+=====================================
+PRODUKTE abrufen:
+
+projectKey=cn-commerce-test
+token=c6q4DJ9yd4gBasz165utq_yFCSoBwSS1
+baseUrl=https://api.us-central1.gcp.commercetools.com/${projectKey}
+tokenHeader="Authorization: Bearer ${token}"
+curl -H "${tokenHeader}" "${baseUrl}/products"
+
+oder in einer Zeile:
+curl -H "Authorization: Bearer c6q4DJ9yd4gBasz165utq_yFCSoBwSS1" "https://api.us-central1.gcp.commercetools.com/cn-commerce-test/products"
+
+product by productid:
+curl "https://api.us-central1.gcp.commercetools.com/cn-commerce-test/products/1f52803c-2bb5-4b3d-b5ed-b0f3a8376de7" \
+  -H "Authorization: Bearer c6q4DJ9yd4gBasz165utq_yFCSoBwSS1"
+
+=====================================
+TOKEN abrufen:
+curl https://auth.us-central1.gcp.commercetools.com/oauth/token \
+     --basic --user "Gjpq9prSzldbYRjPkiAxkuO9:dap5f5b3yuzaWmxpINuzXOIlhyKTrDOP" \
+     -X POST \
+     -d "grant_type=client_credentials&scope=view_api_clients:cn-commerce-test manage_stores:cn-commerce-test create_anonymous_token:cn-commerce-test manage_product_selections:cn-commerce-test introspect_oauth_tokens:cn-commerce-test manage_api_clients:cn-commerce-test manage_categories:cn-commerce-test manage_products:cn-commerce-test"
+=====================================
+     
+
+https://api.us-central1.gcp.commercetools.com
+
+https://api.us-central1.gcp.commercetools.com/products
+curl https://api.us-central1.gcp.commercetools.com/products
+
+
+
+
+curl https://auth.us-central1.gcp.commercetools.com/oauth/token -X POST \
+    --basic --user "XjyY0cao0FuM-eUB7yHqFpn-:JNZj5vVzB9geJvH4rlfDXE9LVzcqf7Q8" \
+    -d "grant_type=client_credentials&scope=manage_project:cn-commerce-test"
+
+
+
+

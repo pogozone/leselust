@@ -1,0 +1,8 @@
+Nodemon installieren:
+npm install nodemon
+
+Express starten:
+DEBUG=express:* nodemon start
+
+Aufruf im Browser:
+http://localhost:3000/

@@ -1,0 +1,40 @@
+
+BACKEND
+
+nestjs
+
+Beispielabfragen:
+
+GET all
+curl -X GET http://localhost:3000/shortlink/
+
+GET one
+curl -X GET http://localhost:3000/shortlink/[ID]
+curl -X GET http://localhost:3000/shortlink/628d049a0f005bb2cfdda74a
+
+INSERT / POST
+curl -X POST -d '[get parameter]' http://localhost:3000/shortlink
+curl -X POST -d 'name=SchallUndRauch&site=glamour&slug=SlugOmat&target=TaretIngerMeier&code=301&expireDate=20230101&creator=GeistlBerger' http://localhost:3000/shortlink
+
+DELETE:
+curl -X DELETE http://localhost:3000/shortlink/[ID]
+curl -X DELETE http://localhost:3000/shortlink/628de04b8c986aa3681146e3
+
+UPDATE / PATCH
+curl -X PATCH -H "Content-Type: application/json" -d '[json]' http://localhost:3000/shortlink/[ID]
+curl -X PATCH -H "Content-Type: application/json" -d '{"name": "VollGeilerName"}' http://localhost:3000/shortlink/628d049a0f005bb2cfdda74a
+
+==================================================
+FRONTEND
+http://localhost:3001/dashboard
+
+
+==================================================
+
+
+Harpoon:
+- Favicon
+- tables vielleicht?
+- Bearer Authentication dokumentieren
+
+

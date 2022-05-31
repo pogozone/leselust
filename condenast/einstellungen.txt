@@ -4,6 +4,18 @@ Description: CN Germany
 Remote Gateway: vpn.condenast.de
 Username: WOLDT@condenast.de
 
+===================================================================
+start verso:
+Ganz wichtig: Im US VPN anmelden
+nvm use
+npm run clobber
+npm run clean
+npm install
+npm run dev
+Seiten aufrufen (Benennung wie unter /src/tenants):
+http://localhost:7777/glamour-de
+
+===================================================================
 mongodb:
 local/docker:
 mongodb://cndbuser:donotletmein@localhost:27018/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
@@ -24,8 +36,22 @@ services-eu-shard-00-01.has6c.mongodb.net
 services-eu-shard-00-02.has6c.mongodb.net
 
 mongodb+srv://mongoAdmin:*****@services-eu.has6c.mongodb.net/admin?authSource=admin&readPreference=primary&authMechanism=SCRAM-SHA-1&appname=MongoDB%20Compass&ssl=true
-
-
+===================================================================
+Mysql
+live
+    username: cnglamourhorosco
+    password: '%MYSQL_PW%'
+    databasename: cnglamourhoroscope
+    host: other-bolt.czhed6o8dc4d.eu-west-1.rds.amazonaws.com
+DEV
+    username: cnglamourhorosco
+    password: '%MYSQL_PW%'
+    databasename: cnglamourhoroscope
+    host: other-dev.czhed6o8dc4d.eu-west-1.rds.amazonaws.com
+Docker
+    username: cnglamourhoroscope
+    password: cnglamourhoroscope
+    databasename: cnglamourhoroscope
 ===================================================================
 Verso starten:
 (Und immer ganz wichtig: Geht nur im PulseSecure VPN)
@@ -42,8 +68,109 @@ export VAULT_ADDR=https://prod.vault.conde.io:443
 npm run start:eu
 http://copilot-local.condenast.io:4200/
 ===================================================================
+Node.js
 
+Eine bestimmte Version installieren:
+nvm install 14.17.0
+===================================================================
+Projekt:
+cn-commerce-test
 
+project_key
+cn-commerce-test
+
+client_id
+uhGVkRG1Cymld-64nD-zv-C6
+
+secret
+0hQMhHANbue8t3k4PQkz-nV4aeb0dkMa
+
+scope
+manage_categories:cn-commerce-test manage_product_selections:cn-commerce-test manage_products:cn-commerce-test manage_stores:cn-commerce-test
+
+API URL
+https://api.us-central1.gcp.commercetools.com
+
+Auth URL
+https://auth.us-central1.gcp.commercetools.com
+
+access_token
+ilJDP_YIEGFmwfylaQk3hxp3ixhd58rg
+
+CURL::
+curl https://auth.us-central1.gcp.commercetools.com/oauth/token \
+     --basic --user "uhGVkRG1Cymld-64nD-zv-C6:0hQMhHANbue8t3k4PQkz-nV4aeb0dkMa" \
+     -X POST \
+     -d "grant_type=client_credentials&scope=manage_categories:cn-commerce-test manage_product_selections:cn-commerce-test manage_products:cn-commerce-test manage_stores:cn-commerce-test view_products:cn-commerce-test view_customers:cn-commerce-test"
+
+POSTMAN::
+{
+  "id": "171dbdb3-dc91-44ae-be3d-c6664dd77662",
+  "name": "cn-commerce-test",
+  "values": [
+    {
+      "key": "host",
+      "value": "https://api.us-central1.gcp.commercetools.com",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "auth_url",
+      "value": "https://auth.us-central1.gcp.commercetools.com",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "projectKey",
+      "value": "cn-commerce-test",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "client_id",
+      "value": "XjyY0cao0FuM-eUB7yHqFpn-",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "client_secret",
+      "value": "JNZj5vVzB9geJvH4rlfDXE9LVzcqf7Q8",
+      "enabled": true,
+      "type": "text"
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2022-04-12T11:44:32.228Z",
+  "_postman_exported_using": "Postman/6.0.10"
+}
+===================================================================
+github
+Wenn die Berechtigungen bei krakenPIM im docker mal wieder nicht stimmen, muss der Token gelöscht werden:
+vi ~/.composer/auth.json
+===================================================================
+DESIGN EXTENSION: grunt deploy
+
+git clone git@github.com:CondeNastDigital/cnBolt-Extensions-Designs.git
+cd cnBolt-Extensions-Designs/
+git branch [branch]
+git checkout [branch]
+npm install grunt
+grunt deploy
+git add .
+git commit -m '[message]'
+git push origin [branch]
+
+git clone git@github.com:CondeNastDigital/cnGlamourHoroscope.git
+cd cnGlamourHoroscope
+git branch [branch]
+git checkout [branch]
+
+then change the file /extensions/composer.json line 48 to:
+"cnd/designs": "dev-[branch]",
+
+git add /extensions/composer.json
+git commit -m '[message]'
+git push origin [branch]
 
 
 
