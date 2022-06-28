@@ -171,6 +171,13 @@ then change the file /extensions/composer.json line 48 to:
 git add /extensions/composer.json
 git commit -m '[message]'
 git push origin [branch]
+===================================================================
+KrakenPIM
+
+Wenn das BierServer Deployment fehl schlägt weil .environment nicht gefunden wird, rät der Fachmann, dieses Kommando auf odev2 auzuführen:
+
+doProvision
+===================================================================
 
 
 

@@ -6,8 +6,12 @@ https://eu-stg-copilot.condenast.io/
 https://eu-copilot.condenast.io/
 https://flyway-dashboard.prod.cni.digital/de/migrate
 
-verso local:
+verso: local
+http://localhost:7777/glamour-germany/
+http://localhost:7777/allure/
 
+verso: multiverso
+https://multiverso.conde.io/list#
 
 Storybook:
 https://verso-components.conde.io/?path=/story/documentation-introduction-about--page
@@ -29,6 +33,9 @@ Shopify
 Shopify Storefront API GraphiQL explorer:
 https://shopify.dev/custom-storefronts/tools/graphiql-storefront-api
 https://shopify.dev/graphiql/storefront-graphiql
+https://shopify.dev/api/admin-graphql
+https://shopify.dev/apps/tools/graphiql-admin-api
+https://nodetestdyse.myshopify.com/admin
 
 Verso
 PullRequest:
@@ -47,4 +54,6 @@ https://sites.google.com/condenast.de/hrinfoseite/
 DataTables
 https://datatables.net/examples/index
 
-
+Dokumentationen:
+SSO - Neues Benutzerkonto einrichten
+https://support.condenastint.com/sp?id=kb_article&sys_id=6fd87ec7db1b6450adc7fba6689619ae
