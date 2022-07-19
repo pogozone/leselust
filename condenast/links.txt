@@ -6,7 +6,7 @@ https://eu-stg-copilot.condenast.io/
 https://eu-copilot.condenast.io/
 https://flyway-dashboard.prod.cni.digital/de/migrate
 
-verso: local
+verso: local (have a view at the tenant.ts for a specific tennant)
 http://localhost:7777/glamour-germany/
 http://localhost:7777/allure/
 
@@ -57,3 +57,14 @@ https://datatables.net/examples/index
 Dokumentationen:
 SSO - Neues Benutzerkonto einrichten
 https://support.condenastint.com/sp?id=kb_article&sys_id=6fd87ec7db1b6450adc7fba6689619ae
+
+regex:
+https://www.phpliveregex.com/#tab-preg-match
+
+Google Merchant Center
+https://www.google.com/basepages/producttype/taxonomy.en-US.txt
+https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt
+
+
+
+

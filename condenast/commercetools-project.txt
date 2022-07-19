@@ -1,0 +1,48 @@
+project to learn how commercetools work
+
+
+
+connect to commercetools
+    - get products
+    - get products by params
+    - get single product (by id)
+    - store single product
+    - store product list
+detail pages to edit products
+edit list of products
+    - prioritising
+    - enable/disable products
+
+technologies
+    - node.js
+    - react
+    - whatever needed
+
+
+Ich habe mir ein paar Gedanken zu commercetools gemacht und hätte folgenden Vorschlag:
+Wir starten ein Projekt um Interfaces für CT zur Verfügung stellen zu können.
+Das beinhaltet im einzelnen:
+
+connect to commercetools
+    - get products
+    - get products by params
+    - get single product (by id)
+    - store single product
+    - store product list
+detail pages to edit products
+edit list of products
+    - prioritising
+    - enable/disable products
+
+Als Technologie sollen node.js und react zum Einsatz kommen.
+Ziele:
+- Lernen, wie CT funktioniert
+- Einarbeiten in node.js und react
+- Gemeinsames Projekt für das ganze Team
+
+Vorgehen:
+Epic in jira. Erstellen einzelner, möglichst kleinteiliger Tickets. Umsetzung im Sprint. Tickets können von allen bearbeitet werden.
+Product Owner: Ich :-)
+
+
+Was sagst du dazu?

@@ -1,0 +1,24 @@
+Glamour
+- Gewinnspiele
+    https://www.glamour.de/gewinnspiele/bolt
+- Service
+    https://www.glamour.de/service/bolt
+- Horoskope
+    https://www.glamour.de/horoskope/bolt
+Vogue
+- Gewinnspiele
+    https://www.vogue.de/gewinnspiele/bolt
+- Service
+    https://www.vogue.de/service/bolt
+- Horoskope
+    https://www.vogue.de/horoskope/bolt
+GQ
+- Gewinnspiele
+    https://www.gq-magazin.de/gewinnspiele/bolt
+- Service
+    https://www.gq-magazin.de/service/bolt
+AD
+- Gewinnspiele
+    https://www.ad-magazin.de/gewinnspiele/bolt
+- Service
+    https://www.ad-magazin.de/service/bolt
