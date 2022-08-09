@@ -9,6 +9,11 @@ https://flyway-dashboard.prod.cni.digital/de/migrate
 verso: local (have a view at the tenant.ts for a specific tennant)
 http://localhost:7777/glamour-germany/
 http://localhost:7777/allure/
+view configs:
+http://localhost:7777/config/glamour
+
+amp/autopilot: local
+http://localhost:3000/glamour-de/artikel/inlineteaser-test-christian-woldt-august-4-2022/amp
 
 verso: multiverso
 https://multiverso.conde.io/list#
@@ -64,7 +69,4 @@ https://www.phpliveregex.com/#tab-preg-match
 Google Merchant Center
 https://www.google.com/basepages/producttype/taxonomy.en-US.txt
 https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt
-
-
-
 
