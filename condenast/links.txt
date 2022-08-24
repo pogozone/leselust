@@ -1,14 +1,18 @@
 CoPilot US:
 https://stg-copilot.condenast.io/all/dashboard
 https://copilot.condenast.io/
+
 CoPilot EU:
 https://eu-stg-copilot.condenast.io/
 https://eu-copilot.condenast.io/
 https://flyway-dashboard.prod.cni.digital/de/migrate
+https://stg-copilot.condenast.io/glm/category-manager/roots
 
 verso: local (have a view at the tenant.ts for a specific tennant)
 http://localhost:7777/glamour-germany/
+http://localhost:7777/glamour-germany-staging/
 http://localhost:7777/allure/
+http://localhost:7777/glamour-staging/
 view configs:
 http://localhost:7777/config/glamour
 
@@ -17,6 +21,7 @@ http://localhost:3000/glamour-de/artikel/inlineteaser-test-christian-woldt-augus
 
 verso: multiverso
 https://multiverso.conde.io/list#
+https://multiverso-amp.conde.io/list#
 
 Storybook:
 https://verso-components.conde.io/?path=/story/documentation-introduction-about--page
@@ -70,3 +75,12 @@ Google Merchant Center
 https://www.google.com/basepages/producttype/taxonomy.en-US.txt
 https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt
 
+===
+copilot development:
+
+Publishing a pre-release of the copilot-core-monorepo:
+https://cnissues.atlassian.net/wiki/spaces/ENG/pages/14916256633/Publishing+a+pre-release+of+the+copilot-core-monorepo
+
+How to run Copilot & Monorepo locally
+https://cnissues.atlassian.net/wiki/spaces/ADG/pages/14971896022/How+to+run+Copilot+Monorepo+locally
+===
