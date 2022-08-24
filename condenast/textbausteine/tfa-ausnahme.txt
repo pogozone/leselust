@@ -1,0 +1,2 @@
+Ich schalte dir die Code-Prüfung jetzt für 6 Stunden aus. Bitte melde dich einmal unter https://sso.condenastdigital.de mit einer beliebigen 6-stelligen Nummer an, sie wird nicht validiert. Danach gleich links oben im Menü auf "Meine Daten" gehen und dort den QR-Code mit der Okta-App im Handy scannen und bestätigen.
+Danach kannst du dich wieder ganz normal mit dieser neuen Nummer anmelden.
