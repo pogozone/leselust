@@ -17,7 +17,7 @@ then post the PR to #copilot-devs channel like this:
 -> MERGE should be bold... cause otherwhise you'll get just an approval but no merge.
 ===================================================================
 
-3. add new release to copilot
+3. add the new release to copilot
 
 -> add the release version to copilot/package.json
 -> create a PR
@@ -26,3 +26,9 @@ because of npmjs search does not work just add the package to the url manually.
 for instance:
 https://www.npmjs.com/package/@condenast/copilot-brand-overrides
 ===================================================================
+
+4. release copilot
+
+after merging have a look at https://copilot-release.condenast.io/
+-> it might last about 10 to 20 minutes until the PR is visible here
+-> go to https://departures.conde.io/takeoff/copilot and click "Approve"
