@@ -1,0 +1,28 @@
+1. create a prerelease
+
+Publishing a Prerelease Version
+-> https://github.com/CondeNast/copilot-core-monorepo/blob/main/README.md
+-> add the prerelease version to copilot/package.json
+===================================================================
+
+2. merge feature branch of copilot-core-monorepo to main
+
+to get a copilot-core-monorepo feature branch merged to main you should do following:
+
+git fetch && git merge main
+git push
+
+then post the PR to #copilot-devs channel like this:
+"I would be very grateful if someone could MERGE this PR:"
+-> MERGE should be bold... cause otherwhise you'll get just an approval but no merge.
+===================================================================
+
+3. add new release to copilot
+
+-> add the release version to copilot/package.json
+-> create a PR
+
+because of npmjs search does not work just add the package to the url manually.
+for instance:
+https://www.npmjs.com/package/@condenast/copilot-brand-overrides
+===================================================================
