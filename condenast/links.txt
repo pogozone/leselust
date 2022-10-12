@@ -12,7 +12,9 @@ verso: local (have a view at the tenant.ts for a specific tennant)
 http://localhost:7777/glamour-germany/
 http://localhost:7777/glamour-germany-staging/
 http://localhost:7777/allure/
+http://localhost:7777/allure-staging/
 http://localhost:7777/glamour-staging/
+http://localhost:7777/glamour-uk-staging/
 view configs:
 http://localhost:7777/config/glamour
 
@@ -25,6 +27,7 @@ https://multiverso-amp.conde.io/list#
 
 Storybook:
 https://verso-components.conde.io/?path=/story/documentation-introduction-about--page
+https://verso-components.conde.io/snapshots/[branch]/?path=/story/documentation-introduction-about--page
 
 Irgendwas mich Cache und verso:
 http://purge.conde.io/

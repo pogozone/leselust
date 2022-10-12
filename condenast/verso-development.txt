@@ -1,0 +1,2 @@
+run a single test local:
+npm run test-unit-component [/path/to/test]
