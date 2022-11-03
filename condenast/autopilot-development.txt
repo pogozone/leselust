@@ -3,3 +3,8 @@ Das geht schon beim Starten los. Um an die staging Daten zu gelangen, muss autop
 
 NODE_ENV=staging npm run dev
 
+===
+Deployment
+don't forget to aaprove here:
+https://departures.conde.io/takeoff/autopilot-services-amp
+
