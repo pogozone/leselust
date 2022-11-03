@@ -1,0 +1,4 @@
+Wo Infos zu finden sind
+
+PIM & Content API
+https://cnissues.atlassian.net/wiki/spaces/CPE/pages/15133737614/Integrating+external+content+with+Copilot+Content+API

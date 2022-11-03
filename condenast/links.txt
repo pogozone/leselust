@@ -14,12 +14,17 @@ http://localhost:7777/glamour-germany-staging/
 http://localhost:7777/allure/
 http://localhost:7777/allure-staging/
 http://localhost:7777/glamour-staging/
-http://localhost:7777/glamour-uk-staging/
+http://localhost:7777/glamour-uk-staging/homepage
+http://localhost:7777/glamour-mexico-y-latinoamerica-staging
 view configs:
 http://localhost:7777/config/glamour
 
 amp/autopilot: local
 http://localhost:3000/glamour-de/artikel/inlineteaser-test-christian-woldt-august-4-2022/amp
+
+amp/autopilot: multiverso
+http://multiverso-amp.conde.io/[brand]/[path to page]/amp?branch=[branch]
+http://multiverso-amp.conde.io/allure/story/dove-cameron-dip-dyed-yellow-bob-bangs/amp?branch=COMB-309
 
 verso: multiverso
 https://multiverso.conde.io/list#

@@ -1,0 +1,5 @@
+autopilot liefert die AMP Seiten aus und beinhaltet ein paar undokumentierte Fallstricke.
+Das geht schon beim Starten los. Um an die staging Daten zu gelangen, muss autopilot mit diesem Kommando gestartet werden:
+
+NODE_ENV=staging npm run dev
+
