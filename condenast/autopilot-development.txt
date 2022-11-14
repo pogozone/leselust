@@ -5,6 +5,6 @@ NODE_ENV=staging npm run dev
 
 ===
 Deployment
-don't forget to aaprove here:
+don't forget to approve here:
 https://departures.conde.io/takeoff/autopilot-services-amp
 
