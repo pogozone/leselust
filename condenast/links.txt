@@ -8,6 +8,10 @@ https://eu-copilot.condenast.io/
 https://flyway-dashboard.prod.cni.digital/de/migrate
 https://stg-copilot.condenast.io/glm/category-manager/roots
 
+CoPilot feature flags:
+https://stg-copilot.condenast.io/glm/feature-flags
+https://copilot.condenast.io/glm/feature-flags
+
 verso: local (have a view at the tenant.ts for a specific tennant)
 http://localhost:7777/glamour-germany/
 http://localhost:7777/glamour-germany-staging/
@@ -16,6 +20,7 @@ http://localhost:7777/allure-staging/
 http://localhost:7777/glamour-staging/
 http://localhost:7777/glamour-uk-staging/homepage
 http://localhost:7777/glamour-mexico-y-latinoamerica-staging
+http://localhost:7777/self-staging/
 view configs:
 http://localhost:7777/config/glamour
 
