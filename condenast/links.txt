@@ -35,6 +35,13 @@ verso: multiverso
 https://multiverso.conde.io/list#
 https://multiverso-amp.conde.io/list#
 
+verso: the new multiverso
+https://github.com/CondeNast/verso/actions/workflows/multibranch-start.yml?query=glm
+https://kube-dashboard.gp-nonprod-na-0.conde.digital/#/pod?namespace=commerce
+
+verso: rollout
+https://interfaces.conde.io/apps/versorollout
+
 Storybook:
 https://verso-components.conde.io/?path=/story/documentation-introduction-about--page
 https://verso-components.conde.io/snapshots/[branch]/?path=/story/documentation-introduction-about--page
@@ -80,6 +87,8 @@ https://datatables.net/examples/index
 Dokumentationen:
 SSO - Neues Benutzerkonto einrichten
 https://support.condenastint.com/sp?id=kb_article&sys_id=6fd87ec7db1b6450adc7fba6689619ae
+LinkBanner
+https://cnissues.atlassian.net/wiki/spaces/CEX/pages/745504937/Link+Banner+recirculation+unit
 
 regex:
 https://www.phpliveregex.com/#tab-preg-match
