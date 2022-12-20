@@ -1,2 +1,5 @@
 run a single test local:
 npm run test-unit-component [/path/to/test]
+
+to fix some node_module issues:
+npm run clean && npm run clobber && npm i
