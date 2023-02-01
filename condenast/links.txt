@@ -42,6 +42,9 @@ https://kube-dashboard.gp-nonprod-na-0.conde.digital/#/pod?namespace=commerce
 verso: rollout
 https://interfaces.conde.io/apps/versorollout
 
+verso GraphQL playground:
+https://content.conde.io/graphql
+
 Storybook:
 https://verso-components.conde.io/?path=/story/documentation-introduction-about--page
 https://verso-components.conde.io/snapshots/[branch]/?path=/story/documentation-introduction-about--page
