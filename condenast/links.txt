@@ -109,3 +109,8 @@ https://cnissues.atlassian.net/wiki/spaces/ENG/pages/14916256633/Publishing+a+pr
 How to run Copilot & Monorepo locally
 https://cnissues.atlassian.net/wiki/spaces/ADG/pages/14971896022/How+to+run+Copilot+Monorepo+locally
 ===
+contenttypes
+Welcher Content Typ wird von welcher Marke verwendet:
+https://docs.google.com/spreadsheets/d/1-ptILdZcRsVFgRPC5L5Z-tdNSPRhHElIqiRb0Hk6L1g/edit#gid=0
+===
+
