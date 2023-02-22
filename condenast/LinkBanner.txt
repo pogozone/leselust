@@ -1,0 +1,11 @@
+Ein paar vielleicht wichtige Dateien rund um die LinkBanner Geschichte.
+FALLS MAL WIEDER JEMAND DANACH FRAGT...
+
+
+https://github.com/CondeNast/content-service/blob/main/src/graphql/query/link-banner/index.ts#L61
+
+https://github.com/CondeNast/verso/blob/main/src/plugins/link-banner/fetchers.ts#L62
+https://github.com/CondeNast/verso/blob/main/src/plugins/link-banner/queries.js
+
+https://stg-self-api.aws.conde.io/search?types=curatedlists&curationSubType=LinkBannerMarquee,LinkBannerMultipleLinks,LinkBannerVisual&hierarchy=channels/fitness&sort=publishDate%20asc
+
