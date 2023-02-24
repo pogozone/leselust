@@ -3,6 +3,8 @@
 Publishing a Prerelease Version
 -> https://github.com/CondeNast/copilot-core-monorepo/blob/main/README.md
 -> add the prerelease version to copilot/package.json
+-> at copilot: npm install
+-> add package.json AND package-lock.json to feature branch
 ===================================================================
 
 2. merge feature branch of copilot-core-monorepo to main
