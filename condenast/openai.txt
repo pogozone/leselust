@@ -1,2 +1,8 @@
 Secret Key:
-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
+it is not commitable to github
+
+Organization ID:
+org-tioIrsJY4wLzSMXtw2yPyXVz
+
+Organization name:
+Condé Nast Germany
