@@ -1,5 +1,7 @@
 run a single test local:
+for transformers:
 npm run test-unit-server [/path/to/test]
+for components:
 npm run test-unit-component [/path/to/test]
 
 to fix some node_module issues:
@@ -31,4 +33,17 @@ rm -rf ~/.aws
 I shouldn't do that anymore:
 aws configure sso
 aws-us
+==============================
+Wenn man Änderungen am content-service gemacht hat, dann muss verso zum Testen mit diesen Einstellungen gestartet werden.
+
+content-service local:
+CONTENT_SERVICE_URI=http://0.0.0.0:8080/graphql npm run dev
+
+content-service auf nonprod/staging:
+CONTENT_SERVICE_URI=https://nonprod-content.conde.io/graphql npm run dev
+
+==============================
+If eslint complains and gives you the advice to use --fix:
+npx eslint --fix [path/to/file]
+
 ==============================

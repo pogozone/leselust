@@ -1,0 +1,106 @@
+
+As I investigated (and discussed with ChatGPT ;-) ) we need following:
+a service that provides our actual contents to openai. cause openai only has contents up to september 2021.
+a service that posts userinput to openai and visualizes the request. best in verso.
+create prompts(*) that fits best to our requirements
+
+(*) promts mean more or less complex context to user input that says openai to search just for content of a specific, defined webpage (eg. http://glamour.de ). something like:
+"return three of the newest URLs and a short summary to each URL from the domain http://glamour.de  based on the question: [user input]"
+
+
+Some experiments with ChatGPT:
+
+ChatGPT has no informations newer than 2021
+ChatGPT is not able to scrap given URLs
+ChatGPT is not able to scrap given rss feed
+
+
+OpenAI Workshop
+
+Step I (meeting 1 or 2 hours)
+Brainstorming:
+- How to create our own model with Condé Nast content
+  Some keywords:
+  - rss feed (nautilus)
+  - page scraping
+- How to query OpenAI to get useful content.
+  Some keywords:
+  - SummaryItem (at least title, summary and link)
+  - create OpenAI prompt
+- Standalone service as embed vs. native verso service
+- etc...
+DoD: Have a clear idea what a OpenAI application should do
+Step II (ticket)
+Engineers and Milene collect and prepare as much information as possible:
+- from Condé Nast
+- from Google
+DoD: Have a google sheet with a collection of documents, links and software about OpenAI
+
+Step III (peer programming & tickets)
+Two groups: model & prompt
+Create a small node application
+DoD: Two working applications
+
+Step IV (followup ticket)
+Let ChatGPT build an application to feed the model and to generate SummaryItems
+DoD: Let ChatGPD do the job of the engineers...
+
+
+Contact Marco Vigano:
+- allure model
+- can we use it
+
+
+Hi Marco,
+
+As we want to learn to understand how OpenAI works and how we can use it for our purposes on our websites I have seen your whitepaper and what you already have found out and tested so far.
+
+Now I wonder if you have any sample code that shows how to create a page-specific model. Or if you have a model with our content that we can use for further tests.
+
+By the way, "we" is the team "sevenseas" from Munich. Our focus is "Livestyle", especially the brands Allure, Glamour and Self.
+
+=====================================================================================
+Some Links
+
+API Reference:
+https://platform.openai.com/docs/api-reference
+
+How to built an AI that can answer questions about your website:
+https://platform.openai.com/docs/tutorials/web-qa-embeddings
+
+chatbot-kickstarter (python):
+https://github.com/openai/openai-cookbook/tree/main/apps/chatbot-kickstarter
+
+=====================================================================================
+Some Infos:
+
+curl https://api.openai.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer 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" \
+  -H "OpenAI-Organization: org-j2lDu47NsZgihO8h1k7VK5tW" \
+  -d '{
+     "model": "gpt-3.5-turbo",
+     "messages": [{"role": "user", "content": "Say this is a test!"}],
+     "temperature": 0.7
+   }'
+
+curl https://api.openai.com/v1/models \
+  -H "Authorization: Bearer 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" \
+  -H "OpenAI-Organization: org-j2lDu47NsZgihO8h1k7VK5tW"
+
+org-j2lDu47NsZgihO8h1k7VK5tW
+=====================================================================================
+Unterhaltung mit ChatGPT zum Thema node.js Applikation:
+
+Vertiefen wir Punkt 1:
+Ich habe eine URL zu einem rss-feed:
+https://nautilus.condenastdigital.de/api/feed/glamour-latest
+
+Ich möchte jetzt die verlinkten Webseiten aufrufen, den Inhalt extrahieren und an ChatGPT übermitteln.
+Dazu brauche ich:
+- Eine Funktion, die den rss-feed aufruft
+- Eine Funktion, an die die URLs aus dem Feed übergeben werden
+- Eine Funktion, mit der die URLs aufgerufen werden und die den body zurück gibt
+- Eine Funktion, die den body an ChatGPT zur weiteren Verarbeitung übergibt
+
+Dabei ist zu beachten, dass es noch keine ChatGPT-Implementierung gibt. Entsprechend benötige ich auch hierfür den Code.
