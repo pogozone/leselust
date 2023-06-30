@@ -5,7 +5,7 @@ for components:
 npm run test-unit-component [/path/to/test]
 
 to fix some node_module issues:
-npm run clean && npm run clobber && npm i
+nvm use && npm run clean && npm run clobber && npm i
 
 clear fastly cache:
 https://interfaces.conde.io/apps/fastlypurge
@@ -47,3 +47,14 @@ If eslint complains and gives you the advice to use --fix:
 npx eslint --fix [path/to/file]
 
 ==============================
+Verso Settings at interfaces:
+https://interfaces.conde.io/apps/versosettings
+
+navigation for instance.
+
+==============================
+Wenn cypress mal wieder nicht will... hier sind die Prozesse aufgelistet und können neu gestartet werden:
+
+https://github.com/CondeNast/verso/actions/workflows/cypress.yml
+==============================
+

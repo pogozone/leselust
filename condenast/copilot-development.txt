@@ -40,3 +40,7 @@ after merging have a look at https://copilot-release.condenast.io/
 check the status of build here:
 https://github.com/CondeNast/copilot/actions/workflows/copilot-build.yml
 ===================================================================
+feature-flags can be found here:
+
+https://copilot.condenast.io/glmde/feature-flags
+===================================================================
