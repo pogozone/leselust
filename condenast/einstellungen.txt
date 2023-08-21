@@ -172,11 +172,22 @@ git add /extensions/composer.json
 git commit -m '[message]'
 git push origin [branch]
 ===================================================================
-KrakenPIM
+environment
 
-Wenn das BierServer Deployment fehl schlägt weil .environment nicht gefunden wird, rät der Fachmann, dieses Kommando auf odev2 auzuführen:
+Wenn das BierServer Deployment fehl schlägt weil .environment nicht gefunden wird, rät der Fachmann, dieses Kommando auf odev2 auszuführen:
 
 doProvision
+
+...or create the file with content:
+APP_ENV=dev
+===================================================================
+satis and docker
+
+If jenkins complains something like "Got permission denied while trying to connect to the Docker daemon socket" do the following:
+
+connect to FortiVPN
+ssh odocker0
+docker exec -i satis /usr/local/bin/rebuild_satis
 ===================================================================
 
 

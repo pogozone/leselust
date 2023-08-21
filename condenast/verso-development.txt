@@ -16,6 +16,8 @@ npm run test-update-snapshot
 just one specific:
 npm run test-update-snapshot [name]
 
+if you want to see what's inside:
+console.log(component.debug());
 ==============================
 Wenn die Authentifizierung mal wieder gar nicht will:
 https://github.com/CondeNast/labs/blob/master/FAQs/aws-sso.md
@@ -56,5 +58,17 @@ navigation for instance.
 Wenn cypress mal wieder nicht will... hier sind die Prozesse aufgelistet und können neu gestartet werden:
 
 https://github.com/CondeNast/verso/actions/workflows/cypress.yml
+==============================
+Functional Labels at GitHub:
+
+Ready for Review: start multibranch
+Multibranch Start: start multibranch
+Cypress Start: start multibranch, start cypress
+Accepted: start multibranch, start cypress
+==============================
+If you want to change the URL. eg. to get rid of the "/verso-bundle/" part:
+1. unpublish
+2. wait a few minutes
+3. publish again and remove the part
 ==============================
 
