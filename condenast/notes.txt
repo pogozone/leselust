@@ -1,0 +1,4351 @@
+nvm -v: 0.39.1
+npm -v: 6.14.8
+nvm use
+node -v: v18.15.0
+npm install
+
+
+
+When I run a test like this:
+npm run test-unit-server ./src/[path/to/test].spec.ts
+
+What can I do to output something?
+console.log('something'); does not work. And I think I remember someone saying the other day what you have to do.
+
+
+
+
+console.log('workflowContext::', workflowContext);
+console.log('transformedEntity::', transformedEntity);
+
+
+For the published site of this bundle:
+https://stg-copilot.condenast.io/all/bundles/6345ed304e0095fbc81d2d5a
+
+I get either a timeout or a page not found:
+https://stag.allure.com/holiday-gift-guides
+
+Same for you?
+
+
+1024
+
+
+Das finde ich auf der einen Seite sehr schade, zumal GPTD meine Abteilung ist und wir da vielleicht wieder etwas hätten zusammen machen können. Auf der anderen Seite natürlich sehr nachvollziehbar.
+Eine große Company kann leider nicht auf das Wollen und die Stärken der Einzelnen Rücksicht nehmen. Und Condé Nast macht das leider sehr konsequent...
+Nachdem man sich ja immer zweimal im Leben über den Weg läuft und wir das bei Condé Nast ja eigentlich erst das erste Mal sind, stehen die Chancen gut...
+Würde mich freuen, wenn wir zumindest zum Abschied noch einmal die Tassen kreuzen würden.
+
+
+
+I am waiting nearly half an hour for cypress running for this PR:
+https://github.com/CondeNast/verso/pull/22896
+https://sorry-cypress-gateway-verso-services.gp-nonprod-na-0.conde.digital/run/8ad995891f11f13d76dd5bb3cc25d175
+
+But nothing happens.
+Can someone please have a view.
+
+
+Zu der TCS Anfrage:
+1.
+Wollen die jetzt einen Dump oder wollen die die Zugangsdaten?
+Bei beidem weiß ich nicht, ob ich das zeitnah beibringen kann. Mein letzter Kontakt mit der Datenbank war noch zu Nandos Zeiten und nach den vielen Umstellungen, die seither passiert sind, kann ich nicht sagen, ob ich die aktuellen Zugangsdaten und Einstellungen überhaupt habe.
+2.
+Ich denke nicht, dass ich einen Redirect von cnx.condenast.de nach condenast.de einrichten kann.
+Weder weiß ich, wo das gemacht wird, entsprechend habe ich auch keine Zugangsdaten, noch wen ich da fragen könnte.
+
+
+
+http://other-bolt.czhed6o8dc4d.eu-west-1.rds.amazonaws.com/
+
+
+
+
+9. Juni ist Granits letzter Tag.
+
+https://multiverso.allure.com/holiday-gift-guides?branch=LS4-556
+https://multiverso.allure.com/test-features-collage-one?branch=LS4-556
+
+1280
+1600
+
+Augustinum - Richtung Großhadern.
+
+
+
+
+
+"I really don't think it affects a handful of devs. This problem should definitely be fixed."
+
+...feel free to discuss it with Nate Laws. I am a bit digusted about the way Condé Nast handles painfull problems verso engineers have. I got the lapidary answer that I could take care of the problem myself. But I am not the one to debug npm build process.
+
+
+shouldShowSlimNewsletter=false && no matching tags
+
+
+
+
+
+
+x = 60398
+100% = 57.650,00
+
+
+57650
+
+
+
+Hallo Brigitte, ich schreibe dir dies zu deiner Funktion als Kulturrätin:
+
+Ich bin ja nun bekanntlicherweise kein Kulturrat mehr. Und doch erreichen mich gelegentlich so Gedanken... und die möchte ich an euch weiter reichen:
+Im Rahmen dieses Merit Prozesses bekommen wir ja dieser eine Lohnerhöhung und da ergeben sich ein paar Fragen.
+
+Zum Beispiel ist diese Erhöhung für alle gleich?
+Ich habe dazu unabhängig voneinander zwei verschiedene Aussagen bekommen.
+Einmal die, dass es mehrere Stufen gibt, die besagen, dass wer mehr verdient weniger Erhöhung bekommt.
+Und einmal von jemandem, der definitiv weniger verdient als ich, dass er weniger Erhöhung bekommt als ich.
+Könnt ihr aus Kelly herauskitzeln, was nun richtig ist?
+
+Oder die Frage, ob es HR bewusst ist, dass Sätze wie diese:
+
+"wir freuen uns sehr, dass Condé Nast auch in diesem Jahr wieder einen standardisierten “Merit-Prozess” für
+alle Kolleg:innen ermöglicht."
+
+"Wir möchten Dir im Namen von Condé Nast für Dein persönliches Engagement im Jahr 2022 von Herzen
+danken und freuen uns auf unseren weiteren gemeinsamen Erfolg im Jahr 2023."
+
+bei einer Gehaltserhöhung von 3-4 Prozent bei einer Inflation von um die 8% etwas komisch ankommen könnten?
+
+Wobei es schön wäre, zur ersten Frage eine klare Antwort zu bekommen.
+Die zweite Frage möchte ich eher als Stimmungsbild an euch weiter geben.
+
+
+
+
+In Sachen Gehalt gibt es ja drei Herangehensweisen:
+- Einmal der Tarifvertrag, der sehr transparent darlegt, wer wann was verdient und auf den man sich jederzeit berufen kann.
+- Dann die individuelle Gehaltsverhandlung, die dem Tarifvertrag vorzuziehen ist, so lange man in der Situation ist, weit übertarifliche Gehälter auszuhandeln.
+- Und zuletzt die reine Willkür des Arbeitgebers.
+
+
+
+A question about something wired if seen at the moment:
+https://github.com/CondeNast/verso/pull/23319/files#diff-9e6316bfa21da0c9b12fb387e72e2d2175108245f54f055bf6386e00ccf3b93d
+Does that mean tis is a way to change or override brand identity settings?
+
+The EventBanner component depends on two settings in the tenant config:
+Firstly, the EventBanner must be activated for the BasePage:
+
+
+shouldDisplayEventBanner: true
+
+
+And then a complete EventBanner configuration is required.
+If shouldDisplayEventBanner is set to true and the EventBanner configuration is missing, then not only the EventBanner is not displayed, but the whole page breaks. This must be prevented.
+
+Tech Note
+A required prop should be queried. If it is not available, then null should be returned:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/event-banner/EventBanner.js#L182-L189
+
+DoD
+If the EventBanner configuration is missing, the page is displayed without an EventBanner.
+
+
+Can someone please go to the openai account, create a token:
+
+https://platform.openai.com/account/api-keys
+
+And test it with this command:
+
+curl https://api.openai.com/v1/chat/completions \
+   -H "Content-Type: application/json" \
+   -H "Authorization: Bearer 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" \
+   -d '{
+      "model": "gpt-3.5-turbo",
+      "messages": [{"role": "user", "content": "Say this is a test!"}],
+      "temperature": 0.7
+    }'
+
+
+
+
+
+Regarding this Ticket:
+https://cnissues.atlassian.net/browse/LS4-567
+I have some question from a technical view:
+- What exactly is the difference to the anchor link banner (exept the layout)
+- Why only "external links"?
+
+
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/22894/files
+
+You asked for following test:
+nodeIndexForNewsletterPosition is empty
+
+But how to test it?
+nodeIndexForNewsletterPosition has to be a number -> empty is not a number -> the template returns an error
+
+this test is not possible because the template will allways return a message that nodeIndexForNewsletterPosition is not a number:
+nodeIndexForNewsletterPosition is empty
+
+contributorData
+contributorListData
+
+
+
+Hi team,
+
+following issue:
+
+In here verso tries to get the author of a bundle:
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/queries.js#L95
+
+but graphql returns an incomplete object like this:
+
+allContributors:: [
+  {
+    id: '5a43f4f110f12b2a2a4c1d04',
+    bio: '',
+    email: '',
+    name: 'Petra Collins',
+    url: 'contributor/petra-collins',
+    photo: null,
+    socialMedia: [],
+    title: 'Photographer',
+    type: null
+  }
+]
+
+Incomplete because the type is missing. It has to be "author" but its null.
+
+Here is a testpage on staging:
+https://stg-copilot.condenast.io/all/bundles/644a5cc76c38da955dbb3cc2
+https://stag.allure.com/test-bundle-in-river
+
+Here I can see the incomplete contributor object:
+https://github.com/CondeNast/verso/blob/main/src/fetcher-helpers/graphql-to-copilot-bundles/copilot-entities/copilot-sub-bundle.ts#L75
+
+Has anyone an idea how and where to fix this?
+Is it a verso issue? Or content-service? Or CoPilot?
+
+
+
+Can someone tell me for what we need such an amount of bundle types on staging:
+https://stg-copilot.condenast.io/all/bundles/create
+
+And why they are so complete different to the bundle configurations on prod?
+
+
+
+It should be more like this:
+LineAboveLineBelowTextCenterButOnlyIfisSingleFeatureIsFalseOtherwhiseNothingIsCentered
+
+Or better:
+LineAboveLineBelowTextCenterButOnlyIfisSingleFeatureIsFalseOtherwhiseNothingIsCenteredAndHasNoDek
+
+PaginatedContainers
+
+Ich denke, dass das hier:
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/article/schema.graphql#L73
+
+Dort fehlt:
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/bundle/schema.graphql
+
+
+
+I think this:
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/article/schema.graphql#L73
+
+is missing in there:
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/bundle/schema.graphql
+
+
+
+
+https://www.glamour.de/horoskope/bolt/sso-login-success?token=ucmdeqtems5k3fal&secret=egthUO9ByQ/oc5PTlRyMKFpsxsrXE5TEQy5awaHIBuPDONEd0OB+oBXribMiC1dxDQf2cj5jd08APJfORwjpM4hrwKAiytbEJ7/LVp7KQDV7d7Gegfe3/RT4DAyT9dbvfEM/z/fXGsCj8u3YLSDrV6/MIIX8HYBhHk6J2THwY22jcdwRhI4TeBLezYM7ylyRCwy7SyVgLpuFc6X2QxYl5ZRDv6XL0vvqxqD9jrjaY1z9p9hSbs3YB1zhpVD15QIM4J3I4lGm8Wqt3GifcmFhXavd4lf2nMu4sXrUOBzqWmLm/pNh7LyTvpn0iP7H4xn+Nnn3Lv+bdAGG/LHgeY6zPw==
+
+
+But this are three different images:
+
+https://copilot.condenast.io/all/photos/63e6614297cb8fb78f924026
+https://copilot.condenast.io/all/photos/644b471c614f6cd5613117f2
+https://copilot.condenast.io/all/photos/644b471bd1e53035ba2f69d3
+
+The last two appear at the article.
+Loren Savini uploaded or edited them.
+But I don't know what happened. If Loren uploaded the wrong images or if CoPilot did something nasty.
+Maybe Ian can help?
+
+
+
+Hi team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/22980
+Its about shouldDisplayDangerousDek for SummaryCollageOne.
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-559
+Can someone explain to me how I can find out which type is being applied here?
+
+
+
+
+versoPLPFilterableFeatureDiffRatio
+versoPLPFilterableFeature
+
+jatin???
+
+Hi Jatin,
+as you can see here https://stag.self.com/test-renditionsizes-for-versoplpcuratedvisual the SummaryItem images appear in different sizes.
+So far I have not been able to find out where and how I can set the renditions for the pictures for this component.
+Can you help me further?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-559
+
+Is it like this what you want to have:
+https://multiverso.self.com/self-2023-good-vibes-workout?branch=LS4-558
+
+As we have about three tickets in the sprint and each of them says 1:1 I am pretty sure Milene wants to have 1:1.
+https://cnissues.atlassian.net/browse/LS4-558
+https://cnissues.atlassian.net/browse/LS4-559
+https://cnissues.atlassian.net/browse/LS4-560
+
+
+
+Nur um das jetzt zu verstehen:
+Wir haben eine Komponente versoPLPCuratedVisualCarousel, die mit dem Template ProductCardCarousel gerendert wird.
+Und die SummaryItem Bilder werden über die Option productVisual definiert. Die Benamung gibt durchgehend zu verstehen, dass es sich um Produkte handelt. Weil uns die Benamung aber
+
+
+As I didn't have lunch break today I am off now.
+For tomorrow: Can someone explain me how storybook works?
+Because I have to add the shouldDisplayDangerousDek for Summary Collage One.
+
+
+
+TODO:
+- Urlaub eintragen
+- Storybook for Collage One
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/IM-2190
+
+As all Glamour horoscope pages are now available and routet to verso why should we unpublish the bolt pages?
+We can shut down bolt and the associated servers.
+
+
+
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/summary-collage-one/SummaryCollageOne.stories.js#L18
+
+https://verso-components.conde.io/?path=/story/components-discovery-summarycollage-summarycollageone--default
+
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/22980
+I added a test and a storybook knob. Please take a look. Is it ok for you?
+
+
+
+
+Too bad... "only lovers left alive" can no longer be found in the mediathek. The film is still available on Amazon Prime for 3.99 euros.
+
+
+And here you can see that you cannot see the dek 'cause shouldDisplayDangerousDek isn't set:
+https://multiverso.epicurious.com/verso-channel/test-feature-collage-one-with-dek?branch=LS4-562
+https://multiverso.vogue.com/verso-channel/test-feature-collage-one-with-dek?branch=LS4-562
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/22980
+
+I added two more links. If its enough for you its pretty fine. If you want to have more links please let me know.
+All Tenants and Design Review are also added.
+
+
+About the issue Milene just reported:
+
+
+https://www.glamour.de/service/bolt/editcontent/pages/14
+https://www.glamour.de/service/page/shoppingweek-deals
+
+
+When I get a CORS error is there something I can do?
+Or is it a devops job?
+It's about the shopfinder integration.
+
+Acess to fetch at 'https://glamour-app.westeurope.cloudapp.azure.com/contents/v1/deals?ordered=true&eventType=shopping-week' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+
+Zum Thema
+
+https://interactive.glamour.de/glammy-2022/index.html
+
+Zum Thema shopfinder:
+Wenn ich den Quelltext vom shopfinder in ein Verzeichnis für die interactive overrides packe:
+https://interactive.glamour.de/shopfinder/
+Und dann in CoPilot einen iFrame mit der URL https://interactive.glamour.de/shopfinder/public/index.html anlege, meinst du, das kann funktionieren?
+
+
+can someone tell me how I can reach the BierServers for shopfinder?
+in former times I just did a ssh connect to odev[0|1|2] but now I cannot get a connection.
+I am at the office so I should not need a forti connection. right?
+
+
+
+
+const SummaryCollectionRowSectionTitle = styled.div.withConfig({
+  displayName: 'SummaryCollectionRowSectionTitle'
+})`
+  ${SectionTitleHed} {
+    ${getTypographyStyles(
+      'typography.definitions.discovery.subhed-section-collection'
+    )};
+  }
+`;
+
+
+Hi there,
+
+I try to embed our shopfinder application within a iframe to our new cms.
+But when the shopfinder tries to connect to the API URLs we get the CORS error.
+
+Access to fetch at 'https://glamour-app.westeurope.cloudapp.azure.com/contents/v1/deals?ordered=true&eventType=shopping-week' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+Please can you fix that for all endpoints:
+https://glamour-app.westeurope.cloudapp.azure.com/contents/v1/deals
+https://glamour-app.westeurope.cloudapp.azure.com/v1/shops
+https://glamour-app.westeurope.cloudapp.azure.com/contents/v1/brands
+
+This is the shopfinder:
+https://www.glamour.de/shopfinder2021
+
+And this is the page where it should work:
+https://stag.glamour.de/verso-channel/test-bundle-with-shopfinder
+
+I have seen we had the same issue last year.
+Thank you for taking care.
+
+
+
+
+
+Bevor ich micht gleich wieder bei den internationalen Kollegen beliebt mache, fange ich mal klein bei euch an:
+
+In diesem Ticket soll ein ExternalLink per FunctionalTag gesteuert werden:
+https://cnissues.atlassian.net/browse/LS4-573
+
+Jetzt hat der ExternalLink in verso allerdings keinen FunctionalTag. Und wenn ich mir die graphql Query dazu ansehe, dann wird da auch kein FunctionalTag abgefragt:
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/queries.js#L518
+
+Und ja, ich habe auch schon versucht FunctionalTags zur Query hinzuzufügen. Mit dem Ergebnis, dass die ganze Query nicht mehr funktioniert.
+
+functionalTags {
+    name
+    slug
+}
+
+Hat jemand eine Idee?
+
+
+
+Sometimes I feel so tired...
+
+The functionalTags are still missing at content-service.
+It should look like this:
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/article/schema.graphql#L189
+
+But for ExternalLink it's not in place:
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/external-link/schema.graphql
+
+
+
+If you are negatively amazed, then in German you say "it takes my shoes off".
+
+I don't know what you can say in English... but when I see something like this:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/scrolling-navigation/ScrollingNavigation.js#L604
+
+...it takes my shoes off.
+
+
+Es ist leider oft so, dass viele Kollegen im Stillen leiden, anstatt bestehende Probleme offen auszusprechen.
+
+
+
+Hat von euch schon mal jemand Änderungen am content-service und kann mir sagen, wie ich das am besten machen kann?
+
+
+A question on top:
+Can you tell me why the dek at collage three is looking quite different than dek at carousel and collage one?
+Is it a bug or a feature?
+
+
+
+https://interactive.glamour.de/shopfinder-2021/dist/index.html
+https://interactive.glamour.de/glammy-2022/index.html
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-568
+
+
+https://stag.glamour.de/artikel/test-article-with-shopfinder
+https://stag.glamour.de/verso-channel/test-bundle-with-shopfinder
+
+
+
+Hat jemand eine Idee, warum das hier funktioniert:
+https://interactive.glamour.de/shopfinder-2021/index.htm
+https://stag.glamour.de/artikel/test-article-with-shopfinder
+https://stg-copilot-app.condenast.io/glmde/articles/6454d0195cdf9ebdb11e4a4d
+
+Und das hier nicht:
+https://stag.glamour.de/verso-channel/test-bundle-with-shopfinder
+https://stg-copilot.condenast.io/glmde/bundles/6452556f5cdf9ebdb11e487e/verso-embed/6452556f5cdf9ebdb11e4871
+
+
+I am playing around with this external link, product and bundle:
+https://stg-copilot-app.condenast.io/all/externallinks/5f134540137b730008a817ca
+https://stg-copilot.condenast.io/all/bundles/63f72d66d014d0646cc956a1/verso-plp-manual-curated/63f72d66d014d0646cc95698
+https://stg-copilot.condenast.io/all/products/64535a856c38da955dbb41b9
+
+the product appears with functional tag, the external link doesn't.
+I tested this query:
+
+
+And when I tried the functionalTags thing on externalLinkData the query breaks.
+So I found out that functionalTagsare not available by graphql... what a pitty.
+
+
+
+Here some infos from munich:
+
+I am connected via PulseSecure with the untrusted networks.
+
+aws version:
+aws-cli/2.9.17 Python/3.11.1 Darwin/22.4.0 source/arm64 prompt/off
+
+macOS: Ventura 13.3.1
+
+cat ~/.aws/config
+[profile gp-nonprod-verso-ro_local]
+sso_session = aws-us
+sso_account_id = 166755036155
+sso_role_name = eks-tenant-verso-ro
+region = us-east-1
+[sso-session aws-us]
+sso_start_url = https://cn-us.awsapps.com/start
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
+[profile gp-nonprod-copilot-ro_local]
+sso_session = aws-us
+sso_account_id = 166755036155
+sso_role_name = eks-tenant-copilot-ro
+region = us-east-1
+
+
+
+
+(running around the office screaming):
+
+In about 532 templates the dek is called dek or (no one can explain me why) dangerousDek. And the props around the dek are called somethig like hideDangerousDek or showDangerousDek.
+You don't have to understand that, but you can deal with it.
+
+And then... there is a 533rd template and in there the dek is called strapline. why? Why? WHY? WHY?
+
+
+
+https://interactive.glamour.de/shopfinder-2021/index.htm
+https://interactive.glamour.de/shopfinder-2021/dist/bundle.js
+https://interactive.glamour.de/shopfinder-2021/dist/index.html
+
+[#iframe: https://interactive.glamour.de/shopfinder-2021/index.htm](100%x1100)
+[#iframe: https://interactive.glamour.de/shopfinder-2021/dist/bundle.js](100%x1100)
+[#iframe: https://interactive.glamour.de/shopfinder-2021/dist/index.html](100%x1100)
+
+
+
+Weil du ja schon einige Erfahrung mit dem Shopfinder und der appsfactory hast, vielleicht kannst du mir weiter helfen.
+Hier ist der Shopfinder als embed eingebunden und ich bekommen den CORS error:
+https://stag.glamour.de/verso-channel/test-bundle-with-shopfinder
+
+appsfactory sagt:
+
+We currently allow access from this origins
+
+https://glamour.de,
+https://www.glamour.de,
+https://static.condenast.de,
+*.staticdev.condenast.de,
+*.custompages.dev.glamour.de
+
+So for your test we could add a
+https://*.glamour.de,
+to the list.
+
+Und das funktioniert hier als override ganz gut:
+https://stag.glamour.de/artikel/test-article-with-shopfinder
+
+Warum aber nicht als embed?
+Hast du eine Idee?
+
+
+
+Zu diesem Ticket:
+https://cnissues.atlassian.net/browse/LS1-166
+
+So weit ich das verstanden habe, geht es in diesem Ticket darum, dass auf den Seiten ein schema.org Block eingebunden wird, der Links zu allen verbundenen Objekten enthält. Da nicht alle Objekte (wie zum Beispiel Produkte) eine eigene Seite haben, sollen einzelne Content Typen per tenant Konfiguration aus dem schema.org Block ausgeschlossen werden können.
+Ist das richtig so?
+
+
+
+Ich muss jetzt noch einmal anknüpfen... diese SummaryCollage[1,2,3,whatever] sind ja alle irgendwie unterschiedlich gebaut. Wenn es da jetzt für die wired exklusiv für eine einzige Variante (SummaryCollageThree) eine Sonderlocke für margin-bottom gibt, muss das berücksichtigt werden oder hat die wired einfach Pech gehabt?
+
+
+
+
+Hi Jordan,
+Maybe you can help me. In the course of the template revision with the focus on standardisation and brand agnostic solutions, I came across the fact that wired is the only brand that sets a different margin-bottom for SummaryCollageThree and SummaryCollageFive.
+Can you tell me if this is absolutely necessary?
+Or can you tell me who can decide to remove this special path?
+I am grateful for any advice.
+
+https://github.com/CondeNast/verso/blob/main/src/tenants/wired/channels/_default.ts#L508
+https://github.com/CondeNast/verso/blob/main/src/tenants/wired/channels/_default.ts#L529
+https://github.com/CondeNast/verso/blob/main/src/tenants/wired/channels/videogames.ts#L23
+https://github.com/CondeNast/verso/blob/main/src/tenants/wired/channels/climate.ts#L20
+
+
+
+one more about this ticket:
+https://cnissues.atlassian.net/browse/LS4-562
+
+I should cleanly refactor the template for collage three. And I guess the template works for all tenants the same way. For all tenants? No. For all tenants but wired. The wirend want to have a different margin-bottom at the subheadline/dek as all other tenants.
+
+Now my questions. You can find out:
+- Why is it like that?
+- Whether it necessarily has to be like that?
+- Who can I ask these questions?
+- Or whether I can simply delete this special path?
+
+
+
+@Esha has specifically requested that the type-token: discovery.subhed-section-collection should be used so that CollageOne works exactly like Carousel.
+If I am now to use consumptionEditorial.description-core for CollageOne, then I will of course make the change for Carousel as well.
+And of course, this is a global change and we will need approvals from all brands accordingly. However, in order to do this, I need to get approval from my manager because the effort is not covered by my current ticket.
+
+
+
+SectionTitle dek type token from
+consumption.description-core to
+discovery.description-page.
+
+consumptionEditorial.description-core
+
+
+Uhh... at the moment I've seen there is a plan to change the token again globally for all SectionTitle dek.
+Not discovery.subhed-section-collection should be used neither consumptionEditorial.description-core. For CollageOne (and hopefully for all Section SubHead) in the near future discovery.description-page will be the right token.
+
+For now I will use discovery.subhed-section-collection as token for CollageOne AND Carousel.
+Because of:
+- the tokens for both templates have to be the same
+- as SectionTitle at CollageOne is a new feature I have to use the already exiting token
+
+I am aware the uppercase is not a good thing. A short deepdive shows me that discovery.subhed-section-collection is falsely used for SectionTitle or Disclaimer at different places so I cannot simply remove the uppercase style as I would love to do.
+
+
+HasContributors
+ContentToContributorConnection
+
+Zu diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-562
+
+Ich diskutiere gerade mit Esha Patel, Joshua Ezrick und Joseph Bergdoll wegen des Tokens für SubHeadline und alle drei wollen irgendwie was anderes... oder auch nicht. Und es gibt diese Ankündigung von Anette Cheung, das bald sowieso ein ganz ganz anderer Token genutzt werden soll. Ich stecke also in einer Zwickmühle.
+Kann mir von euch jemand sagen, wer da den Hut auf hat?
+Oder kann ich das selbst entscheiden?
+Ich würde mein Ticket langsam weiter kriegen.
+
+
+
+npm run test-unit-component -- -u
+const showImageOnly = child.props.children?.props?.functionalTags.includes('edpicks-eczema') ? true : false;
+
+
+
+"can you share the functional tag name we created? So we can observe photo asset type functionality when functional tag name is added"
+
+As we first have to deal with other issues we did not create a functional tag until now.
+But what do you mean with "photo asset type functionality".
+
+
+
+createStore();
+<Provider store={store}>
+
+
+
+Following issue:
+
+I get functionalTags from graphql:
+https://github.com/CondeNast/verso/blob/d023a63f2f0a490d277280a07af255d26aea33cf/src/presenters/bundles/queries.js#L533
+
+And I have the functionalTags here:
+https://github.com/CondeNast/verso/blob/d023a63f2f0a490d277280a07af255d26aea33cf/src/components/scaffolding/grid/Grid.js#L101
+
+But I need them at SummaryItem:
+https://github.com/CondeNast/verso/blob/d023a63f2f0a490d277280a07af255d26aea33cf/src/components/patterns/summary-item/SummaryItem.js
+
+So how do I pass the functionalTags?
+At least that's not how it works:
+
+{React.cloneElement(child, { functionalTags })}
+
+
+
+TODO:
+- check Autor
+- how to pass a prop via react.clone
+- how to fix unit test errors
+- view tickets for grooming
+
+
+Can someone tell me what I can do to fix this errors:
+https://github.com/CondeNast/verso/actions/runs/4945429829/jobs/8842169627?pr=22980
+
+I did "npm run test-unit-component -- -u" as suggested. And I can't get rid of the feeling that there have been more mistakes since then.
+
+
+
+I will say a big THANK YOU to Granit. For all the time he spent with us... with me.
+I will say thank you for teaching me some react/verso/javascript thingi.
+And I would like to thank him for the little insights into the life and culture of Kosovo.
+I say thank you for putting up with all my complaining and cursing calmly.
+
+http://localhost:7777/allure-staging/test-bundle-in-river
+https://multiverso.allure.com/test-bundle-in-river?branch=LS4-557
+https://multiverso.vogue.com/verso-homepage/test-for-bundles-in-sections?branch=LS4-557
+http://multiverso.vogue.com/verso-homepage/test-for-bundles-in-section-features?branch=LS4-557
+
+https://multiverso.glamourmagazine.co.uk/travel?branch=LS4-587
+
+https://multiverso.glamour.com/?branch=cs-nonprod-verso-nonprod
+https://multiverso.glamour.com/?branch=LS4-557
+http://localhost:7777/vogue-staging/verso-homepage/test-for-bundles-in-sections
+
+TODO:
+ok - Genossenschaftsverband Bescheid geben
+ok    -> der donnergang bescheid geben
+- Meinung wenn Habeck hinter dir steht
+- Artikel verfacebooken
+- Gedanken zum Kochevent
+- Bewerbung raus hauen
+- Nachforschen, wo die Flaschen bleiben
+  -> die habe ich wohl nicht bestellt
+ok - Weiterleitungen für Milene ausbauen
+
+
+
+afídios
+
+Das sind Blattläuse, da bin ich mir sicher.
+https://pt.wikipedia.org/wiki/Af%C3%ADdio
+
+Die kannst du mit den Fingern (Spülhandschuhe) zerdrücken. Wenn dir das zu eklig ist, dann geht auch Seifenlauge:
+
+Lösen Sie 20 Gramm Seife in einem Liter lauwarmem Wasser auf, geben Sie 1 Teelöffel Alkohol oder Spiritus dazu und füllen Sie die Seifenlauge in eine Sprühflasche. Dann die betroffenen Pflanzen mit dem Gemisch besprühen.
+
+
+
+They are afídios, I'm sure.
+https://pt.wikipedia.org/wiki/Af%C3%ADdio
+
+They are not dangerous.
+They don't sting, don't bite and they are not poisonous.
+
+You can crush them with your fingers (washing-up gloves). If that's too disgusting for you, soapy water works too:
+
+Dissolve 20 grams of soap in a litre of warm water, add 1 teaspoon of alcohol or spirit and pour the soapy water into a spray bottle. Then spray the affected plants with the mixture.
+
+
+CONTENT_SERVICE_URI=https://nonprod-content.conde.io/graphql
+
+
+Ich muss das jetzt mal sortieren...
+
+1. Author der bundles im Teaser
+http://0.0.0.0:8080/graphql
+-> funktioniert astrein
+https://nonprod-content.conde.io/graphql
+-> funktioniert nicht
+https://github.com/CondeNast/content-service/actions/runs/4937136740
+-> sagt, da ist was deployed worden
+https://github.com/CondeNast/content-service/pull/1827
+-> PR: accepted and deployed
+
+2. functionalTags im Teaser
+
+https://nonprod-content.conde.io/graphql
+-> funktioniert
+
+
+Hi there,
+my PR is accepted and deployed as I can see here:
+https://github.com/CondeNast/content-service/pull/1827
+
+But I cannot see/test my changes about allContributors.
+
+Neither here https://nonprod-content.conde.io/graphql nor in my local verso instance started with CONTENT_SERVICE_URI=https://nonprod-content.conde.io/graphql npm run dev
+
+What is missing? What did I wrong?
+
+
+=======================
+I need especially the author of a bundle to show it at SummaryItem.
+
+This is the bundle with an autor:
+https://stg-copilot.condenast.io/vogue/bundles/64393dfb7fd21ced7c4e6c9c
+
+This is the bundlepage where the author should be shown at SummaryItem:
+https://stg-copilot.condenast.io/vogue/bundles/645e129da0331d7954740417/verso-features/643e88f6293b99b58a828e6f
+
+This is my query:
+
+This are my variables:
+
+Local it works fine and I get the author:
+http://0.0.0.0:8080/graphql
+
+"allContributors": {
+  "edges": [
+    {
+      "node": {
+        "id": "6367e4a1c8046ed9061341c4",
+        "bio": "",
+        "email": "",
+        "name": "Olivia Petter",
+        "url": "contributor/olivia-petter",
+        "socialMedia": [],
+        "title": null,
+        "type": "AUTHOR"
+      }
+    }
+  ]
+}
+
+But on nonprod I get an empty object:
+https://nonprod-content.conde.io/graphql
+"allContributors": {
+  "edges": []
+}
+
+Here I can see contributorsAuthor (search for "Olivia Petter"):
+https://stg-vogue-api.aws.conde.io/bundles/645e129da0331d7954740417
+
+I assume that this page returns an error 500 because something is wrong with allContributors:
+https://multiverso.vogue.com/verso-homepage/test-for-bundles-in-section-features?branch=LS4-557
+
+When I start my local verso together with my local content-service everything works fine:
+CONTENT_SERVICE_URI=http://0.0.0.0:8080/graphql npm run dev
+
+
+external link / image
+LS4-573
+
+Author:
+LS4-557
+
+
+I added getAllcontributors to content-service:
+https://github.com/CondeNast/content-service/pull/1827/files
+
+When I query graphql on https://nonprod-content.conde.io/graphql I can see getAllcontributors.
+
+I also updated the query on verso:
+https://github.com/CondeNast/verso/pull/23191/files
+
+In local verso everything works fine ans I get the author.
+On multiverso I receive 500 error:
+https://multiverso.allure.com/test-bundle-in-river?branch=LS4-557
+https://multiverso.vogue.com/verso-homepage/test-for-bundles-in-sections?branch=LS4-557
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-573
+
+We need a name for a functional tag that controls the output of a SummaryItem as an image only variant.
+The name should be meaningful and self-explanatory.
+
+What do you think of _image_only?
+
+
+
+LS4-573
+src/components/patterns/summary-item/SummaryItem.js
+src/components/scaffolding/grid/Grid.js
+src/tenants/allure/channels/_default.ts
+
+
+
+I will add the error as text so it can be found with the slack search.
+
+Oops! Something went wrong! :(
+ESLint: 8.40.0
+verso/node_modules/eslint-plugin-jsdoc/dist/rules/informativeDocs.js:77
+    descriptionReported ||= tag.description === description && tag.line === lastDescriptionLine;
+                        ^^^
+SyntaxError: Unexpected token '||='
+
+Because I am facing the same error and could not find this post.
+
+
+
+
+
+
+Uh.. now I get this error:
+Cannot find module '@condenast/autopilot-payment' or its corresponding type declarations.
+Can you help me there too?
+Or should I post this again in the channel?
+
+
+When you do:
+git checkout main
+git pull
+npm run clean && npm run clobber && npm i
+Do you also get errors like this:
+Cannot find module '@condenast/autopilot-payment' or its corresponding type declarations.
+
+
+
+
+http://localhost:7777/allure-staging/plp-with-photo
+http://multiverso.allure.com/plp-with-photo?branch=LS4-573
+
+npm run test-unit-component src/components/patterns/summary-item/SummaryItem.spec.js
+npm run test-unit-component src/components/compositions/contributor-spotlight/ContributorSpotlightMainSection/ContributorSpotlightMainSection.spec.js
+
+
+Hi Team,
+as I have to test changes at content-service I need a multiverso branch runnign with https://nonprod-content.conde.io/graphql. Can someone if there’s a way to pass env vars to multiverso?
+
+As you can see here the prod environment is fix:
+https://github.com/CondeNast/verso/blob/LS4-557/src/fetcher-helpers/content-service/content-service.ts#L5
+
+...but the process.env.CONTENT_SERVICE_URI variable makes me think that somehow env variables can be defined and used.
+Adding files like .env, .env.dev or .env.local to the root directory does not work.
+
+
+
+http://0.0.0.0:8080/graphql
+https://nonprod-content.conde.io/graphql
+
+const CONTENT_SERVICE_URI =
+process.env.CONTENT_SERVICE_URI || 'https://api.condenast.io/content/graphql';
+
+
+Nocheinmal für mich, dass ich das richtig verstehe.
+Wenn ich verso lokal laufen lasse, dann wird das graphql schema von https://api.condenast.io/content/graphql genommen.
+Auf multiverso wird das schema von https://nonprod-content.conde.io genommen.
+Ist das richtig?
+
+
+Can someone help me with following two issues:
+1. Why does the green image of billie eilish funny linking. I cannot see any link there.
+2. What do I have to configure tha the image is just as high as the product SummaryItem at the first place.
+https://multiverso.allure.com/plp-with-photo?branch=LS4-573
+
+
+
+
+
+1. https://api.condenast.io/content/graphql
+2. https://nonprod-content.conde.io/graphql
+3. https://content-service-content.gp-nonprod-ap-0.conde.digital/graphql
+4. http://0.0.0.0:8080/graphql
+
+This is the tag:
+slug: summary-item-image-only
+name: _summary_item_image_only
+
+This is a testpage:
+https://multiverso.allure.com/plp-with-photo?branch=LS4-573
+
+
+
+
+      {showImageOnly && (
+        <SummaryItemImage
+          image={image}
+          url={url}
+          layoutPlacement={layoutPlacement}
+          showImageOnly={showImageOnly}
+        />
+      )}
+      {!showImageOnly && SummaryItemContainer(isSticky)}
+
+npm run test-update-snapshot src/components/compositions/summary-spotlight/SummarySpotlight.spec.js
+
+
+I could cry with rage again. Every second verso deployment fails. Sometimes because the content service is gone, sometimes because the unit tests fail.
+Sometimes an update of the tests helps. Sometimes a merge main helps. Sometimes nothing helps at all.
+It is despairing. I now have two 5-point tickets, each of which I must have spent 8 points on. And I can't get them any further.
+Some international colleagues (especially Connor, Andre and Norman) are trying very hard to support me with my problems. But I still don't feel like I'm getting any further.
+
+
+
+
+
+
+Hi Teams,
+I need to test a change to the content service on multiverso. Does anyone have experience with this, because I don't want to succeed.
+My changes are available here:
+https://nonprod-content.conde.io/graphql
+My test pages work fine locally. Multiverso, on the other hand, returns a 500 error.
+Can anyone help me further?
+
+The responding PRs:
+https://github.com/CondeNast/verso/pull/23191
+https://github.com/CondeNast/content-service/pull/1827/files
+
+The testpages:
+https://multiverso.vogue.com/verso-homepage/test-for-bundles-in-sections?branch=LS4-557
+https://multiverso.allure.com/test-bundle-in-river?branch=LS4-557
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hi Teams,
+
+I need to test a change to the content service on multiverso. Does anyone have experience with this, because I don't want to succeed.
+My changes are available here:
+https://nonprod-content.conde.io/graphql
+
+My test pages work fine locally. Multiverso, on the other hand, returns a 500 error.
+Can anyone help me further?
+
+The responding PRs:
+https://github.com/CondeNast/verso/pull/23191
+https://github.com/CondeNast/content-service/pull/1827/files
+
+The testpages:
+https://multiverso.vogue.com/verso-homepage/test-for-bundles-in-sections?branch=LS4-557
+https://multiverso.allure.com/test-bundle-in-river?branch=LS4-557
+
+
+
+
+Can you try to get my two branches with the content-service change running at your local machine?
+
+If yes you should do following:
+
+1. Start the main branch nof content-service
+The graphql api/sandbox should now be available at:
+http://0.0.0.0:8080/graphql
+
+2. Start verso with your local graphql api:
+CONTENT_SERVICE_URI=http://0.0.0.0:8080/graphql npm run dev
+
+3. Test (the simple one) the branch with authors for bundle-SummaryItem
+git checkout LS4-557
+Call:
+http://localhost:7777/allure-staging/test-bundle-in-river
+-> "The Allure Summer Shop" should show up with author "by Jae'lynn Chaney"
+http://localhost:7777/vogue-staging/verso-homepage/test-for-bundles-in-sections
+-> "Channel without DEK" should show up with "by Olivia Petter"
+
+4. Test the external link image at components
+git checkout LS4-573
+Call:
+http://localhost:7777/allure-staging/plp-with-photo
+-> There should be an image only SummaryItemwith Billie Eilish
+
+If that works you can also test it wit nonprod graphql. I was told multiverso is using it:
+CONTENT_SERVICE_URI=https://nonprod-content.conde.io/graphql npm run dev
+
+But none of the testpages work on multiverso:
+https://multiverso.allure.com/plp-with-photo?branch=LS4-573
+https://multiverso.allure.com/test-bundle-in-river?branch=LS4-557
+https://multiverso.vogue.com/verso-homepage/test-for-bundles-in-sections?branch=LS4-557
+
+I am pretty sure that it is not worth splitting the two tickets. If you somehow manage to get multiverso working with the right content-service version, then the ticket with the author is actually already done.
+The imageOnly ticket still needs some work, because I haven't managed to display the image in the right size yet.
+
+Of course I will continue working on it until I find a solution or until it's four o'clock.
+
+Responding tickets and PRs:
+https://cnissues.atlassian.net/browse/LS4-573
+https://github.com/CondeNast/content-service/pull/1823
+https://github.com/CondeNast/verso/pull/23160
+
+https://cnissues.atlassian.net/browse/LS4-557
+https://github.com/CondeNast/content-service/pull/1827
+https://github.com/CondeNast/verso/pull/23191
+
+
+Now I created two PRs where I force verso to use https://nonprod-content.conde.io/graphql:
+https://github.com/CondeNast/verso/pull/23245
+https://github.com/CondeNast/verso/pull/23247
+
+And there you go... everything works as it should.
+This leads me to believe that multiverso is not using nonprod.
+
+
+Thats a lot of information. About content-service, graphql and the author for bundles:
+https://condenast.slack.com/archives/C0SU8V086/p1683890034656469
+Be careful by reading. A lot of the issues there are already fixed.
+
+
+
+Hopefully my last call regading this two content-service PRs:
+
+https://github.com/CondeNast/content-service/pull/1823
+https://github.com/CondeNast/content-service/pull/1827
+
+What do I have do do to get them on prod?
+Can you help me with it?
+
+
+
+
+nothing is being put to prod at the minute unfortuntely
+Departures cannot be modified, so we cannot release to it
+GP has blockers surrounding zero trust and auth mechanisms
+
+we are aware that this is blocking other teams now and are working with CP to provide a solution that isn't breaking to downstream applications
+
+
+
+
+@here
+Back to my question from yesterday because now you can see what I mean...
+
+Can someone help me with following two issues:
+1. Why does the green image of billie eilish funny linking. I cannot see any link there.
+2. What do I have to configure that the image is just as high as the product SummaryItem at the first place.
+https://multiverso.allure.com/plp-with-photo?branch=LS4-573-nonprod
+
+
+
+
+
+To get this work locally:
+
+1. Start the main branch nof content-service
+The graphql api/sandbox should now be available at:
+http://0.0.0.0:8080/graphql
+
+2. Start verso with your local graphql api:
+CONTENT_SERVICE_URI=http://0.0.0.0:8080/graphql npm run dev
+
+3. Test the external link image at components
+git checkout LS4-573
+Call:
+http://localhost:7777/allure-staging/plp-with-photo
+-> There should be an image only SummaryItemwith Billie Eilish
+
+
+line 405
+
+
+
+https://stag.vogue.de/plp-test
+https://stag.vogue.com/plp-test
+https://stag.vogue.co.uk/plp-test-1
+
+https://multiverso.vogue.de/plp-test?branch=LS4-573
+https://multiverso.vogue.com/plp-test?branch=LS4-573
+https://multiverso.vogue.co.uk/plp-test-1?branch=LS4-573
+
+https://multiverso.vogue.de/plp-test?branch=comi-1015
+https://multiverso.vogue.com/plp-test?branch=comi-1015
+https://multiverso.vogue.co.uk/plp-test-1?branch=comi-1015
+
+
+
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/22925
+
+We had a merge conflict with your changes.
+We resolved the conflict and I ask you to check if your changes still work in our branch:
+
+https://multiverso.vogue.de/plp-test?branch=LS4-573-nonprod
+https://multiverso.vogue.com/plp-test?branch=LS4-573-nonprod
+https://multiverso.vogue.co.uk/plp-test-1?branch=LS4-573-nonprod
+
+
+
+
+
+https://multiverso.allure.com/test-plp-with-photo?branch=LS4-573-nonprod
+https://multiverso.vogue.co.uk/test-for-images-as-plp-asset?branch=LS4-573-nonprod
+https://multiverso.vogue.com/plp-test-images?branch=LS4-573-nonprod
+
+Channel > Vogue World > Metallic Moments
+
+
+
+Regarding this issue:
+https://cnissues.atlassian.net/browse/LS4-573
+
+As we have to wait for the migration from content-service to global-platform I cannot finish this ticket.
+We will close it and create a deployment ticket for it as soon as the migration is done.
+
+
+
+
+
+
+console.log('container::', container);
+console.log('dangerousHed::', container.dangerousHed);
+console.log('MultiPackageContainer::', MultiPackageContainer);
+
+Hello! We have scheduled GA4 TRAINING sessions starting next week with our Google Analytics partner Adswerve on the following dates (also with timezone conversions):
+Group A: London, Mexico City, NYC (all times are in Central Standard Time)
+Please register for Adswerve | Condé Nast: Remote Training (GROUP A) via:
+https://attendee.gotowebinar.com/register/7552318203343761757
+Google Analytics 4 Introduction (1 hr) - May 15, 2023, 9:00am - 10:00am
+Google Analytics 4 Customized Reporting (2 hrs) - May 16, 2023, 9:00am - 11:00am
+Google Analytics 4 Ecommerce Overview (1 hr) - May 18, 2023, 9:00am - 10:00am
+Google Analytics 4 Campaigns, Channels & Attribution (1 hr) - May 24, 2023, 9:00am - 10:00am
+Google Analytics 4 Gotchas (1 hr) - May 25, 2023, 9:00am - 10:00am
+Google Analytics 4 Consent (1 hr) - May 31, 2023, 9:00am - 10:00am
+Introduction to Google Tag Manager (1 hr) - May 30, 2023, 10:00am - 11:00am
+Group B:  Taipei, Tokyo, Bengaluru (all times are in Pacific Standard Time)
+Please register for Adswerve | Condé Nast: Remote Training (GROUP B) via:
+https://attendee.gotowebinar.com/register/2930181326894816860
+Google Analytics 4 Introduction (1 hr) - May 15, 2023, 6:00pm - 7:00pm
+Google Analytics 4 Customized Reporting (2 hrs) - May 16, 2023, 7:00pm - 9:00pm
+Google Analytics 4 Ecommerce Overview (1 hr) - May 18, 2023, 7:00pm - 8:00pm
+Google Analytics 4 Campaigns, Channels & Attribution (1 hr) - May 23, 2023, 6:00pm - 7:00pm
+Google Analytics 4 Gotchas (1 hr) - May 24, 2023, 6:00pm - 7:00pm
+Google Analytics 4 Consent (1 hr) - May 30, 2023, 8:00pm - 9:00pm
+Introduction to Google Tag Manager (1 hr) -  May 29, 2023, 7:00pm - 8:00pm
+Please register via the above links if you are interested in attending. We will send out reminders closer to the above dates. Once you register, you will be registered for all sessions within the specific group. After registering, you will receive a confirmation email containing information about joining the webinar. (edited)
+
+
+When I run the test:
+npm run test-unit-component src/components/templates/bundle-page/BundlePage.spec.js
+
+I receive an error:
+
+<BundlePage /> › <BundlePage /> with universalBundle namespace › renders a single <UniversalBundlePage />
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      158 |
+      159 |     it('renders a single <UniversalBundlePage />', () => {
+    > 160 |       expect(component.find('UniversalBundlePageWrapper')).toHaveLength(1);
+          |                                                            ^
+      161 |     });
+      162 |   });
+      163 | });
+
+      at Object.toHaveLength (src/components/templates/bundle-page/BundlePage.spec.js:160:60)
+          at runMicrotasks (<anonymous>)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 15 passed, 16 total
+
+Do you have an idea how can I see what component is looking like?
+Because a simple console.log('component', component); does not work.
+
+
+glamour.de
+ok - article:
+https://multiverso.glamour.de/frisuren/artikel/lockiges-haar-auf-welche-inhaltsstoffe-verzichten-1?branch=LS4-604
+ok - gallery:
+https://multiverso.glamour.de/miniroecke-shoppen?branch=LS4-604
+
+glamour.com
+ok - article:
+https://multiverso.glamour.com/story/hailey-bieber-looks-like-a-hot-fish-in-her-after-after-party-dress?branch=LS4-604
+gaga - gallery:
+https://multiverso.glamour.com/gallery/best-gifts-for-teens?branch=LS4-604
+
+glamour.es
+ok - article:
+https://multiverso.glamour.es/articulos/victoria-federica-botas-chonis?branch=LS4-604
+ok - gallery:
+https://multiverso.glamour.es/productos-descuento-sephora-black-friday?branch=LS4-604
+
+glamour.co.uk
+ok - article:
+https://multiverso.glamourmagazine.co.uk/article/pamela-anderson-boss-runway?branch=LS4-604
+ok - gallery:
+https://multiverso.glamourmagazine.co.uk/scalp-scan-review?branch=LS4-604
+
+glamour.mx
+ok - article:
+https://multiverso.glamour.mx/articulos/memo-ochoa-y-karla-mora-su-historia-de-amor-mas-alla-del-futbol?branch=LS4-604
+ok - gallery:
+https://multiverso.glamour.mx/galerias/mtv-vma-2022-mejores-beauty-looks-de-las-famosas-en-la-alfombra-roja?branch=LS4-604
+
+
+
+
+
+
+
+:loudspeaker: Hi Team, Sprint 37 of @sevenseas Team hosted by @cwoldt now ends with 28SP done.
+We could not complete 1 ticket with about 3SP.
+The unexpected complexity of verso leads to delays in removing duplicate source code.
+The next sprint is hosted by @niclas and starts now.
+
+
+
+Hi Team,
+Please take a look and give me a review for the new amazing an clean Universal Bundle Page:
+https://github.com/CondeNast/verso/pull/23517
+Thanks a lot.
+
+
+you can see className "versoUniversalBundle" at SummaryItemWrapper:
+http://multiverso.glamour.com/test-verso-universal-bundle?branch=LS4-597
+
+you can see className "versoUniversalBundle-commerceevent" at SummaryItemWrapper:
+http://multiverso.glamour.com/test-verso-universal-bundle-template-commerceevent?branch=LS4-597
+
+http://localhost:7777/glamour-staging/test-verso-universal-bundle
+http://localhost:7777/glamour-staging/test-verso-universal-bundle-template-commerceevent
+
+
+
+
+    background: {
+      adContainer: [Object],
+      black: 'a2',
+      brand: 'c11',
+      dark: 'c1',
+      light: 'c11',
+      white: 'a3'
+    },
+
+
+
+
+This is about the template config itself:
+https://github.com/CondeNast/verso/pull/23610
+
+And this is about the custom theme(s):
+https://github.com/CondeNast/verso/pull/23611
+
+So I thought I will build an example config like this:
+https://github.com/CondeNast/verso/blob/eb42b17c93953898bb448aebf928514c7f2df7ba/src/tenants/glamour/channels/_default.ts#L30-L53
+
+And checks like this:
+- does a custom template exist
+- does a custom theme exist
+
+And I would like to create the tests in here:
+https://github.com/CondeNast/verso/blob/eb42b17c93953898bb448aebf928514c7f2df7ba/src/core/config-resolvers/configResolvers.spec.js
+
+
+
+
+
+Some bundle without any theme: we need to make sure it still works.
+
+Theme that is set on bundleType level.
+
+Themes that are set both on bundleType and Template level - we need to make sure priorities are ok.
+
+Article with custom theme
+
+channel configs:
+- contentType level:
+  - bundle
+  - versoUniversalBundle
+  - article
+- contentType & Template level
+
+test links:
+
+- without any custom things (no channel config)
+  versoUniversalBundle shows up with the glamour theme:
+  http://multiverso.glamour.com/test-verso-universal-bundle-plain?branch=LS4-598-testing-only
+
+- with custom theme on contentType level (channel config culture)
+  versoUniversalBundle shows up with the the new yorker theme:
+  http://multiverso.glamour.com/test-verso-universal-bundle?branch=LS4-598-testing-only
+  article shows up with the the new yorker theme:
+  https://multiverso.glamour.com/story/test-slim-newsletter?branch=LS4-598-testing-only
+
+- with custom theme on template level (channel config culture)
+  versoUniversalBundle shows up with the glamour-international international theme:
+  http://multiverso.glamour.com/test-verso-universal-bundle-template-commerceevent?branch=LS4-598-testing-only
+
+
+versoUniversalBundle shows up with the glamour theme:
+http://multiverso.glamour.com/test-verso-universal-bundle-plain?branch=LS4-598-testing-only
+
+versoUniversalBundle shows up with the the new yorker theme:
+http://multiverso.glamour.com/test-verso-universal-bundle?branch=LS4-598-testing-only
+
+versoUniversalBundle shows up with the glamour-international international theme:
+http://multiverso.glamour.com/test-verso-universal-bundle-template-commerceevent?branch=LS4-598-testing-only
+
+https://multiverso.glamour.com/story/test-slim-newsletter?branch=LS4-598-testing-only
+
+
+
+http://localhost:7777/glamour-staging/test-verso-universal-bundle-plain
+http://localhost:7777/glamour-staging/test-verso-universal-bundle
+http://localhost:7777/glamour-staging/test-verso-universal-bundle-template-commerceevent
+http://localhost:7777/glamour-staging/story/test-slim-newsletter
+
+
+
+
+import scThemeWired from '../../../components/themes/brands/wired/_default';
+import scThemeGlamourInternational from '../../../components/themes/brands/glamour-international/_default';
+
+
+    versoUniversalBundle: {
+      componentConfig: {
+        SummaryItem: {
+          settings: {
+            className: 'versoUniversalBundle'
+          }
+        }
+      },
+      templates: {
+        default: {
+          scTheme: scThemeGlamourInternational
+        },
+        commerceevent: {
+          scTheme: scThemeWired,
+          componentConfig: {
+            SummaryItem: {
+              settings: {
+                className: 'versoUniversalBundle-commerceevent'
+              }
+            }
+          }
+        }
+      }
+    },
+
+Maybe you can take a look at this:
+http://localhost:7777/glamour-staging/test-verso-universal-bundle
+
+As far as I can figure out the error, it has something to do with subchannelLinks and UniversalBundlePageSubchannelNavigation:
+https://github.com/CondeNast/verso/blob/main/src/components/templates/universal-bundle-page/templates/default/header/index.js#L40
+
+The error appears as soon as a channel is selected:
+https://stg-copilot.condenast.io/glm/bundles/6486d8296c3005aebec92485
+
+
+
+Hi Team,
+I need some reviews for this ticket:
+https://github.com/CondeNast/verso/pull/23404
+It's about showing the author name at SummaryItem for bundle pages at allure.
+
+
+
+@nate I will believe you but...
+Do you have an explanation for the fact that a different author (Erin Vanderhoof) is output on multiverso (on the first SummaryItem) than is entered in CoPilot?
+https://multiverso.allure.com/test-bundle-in-river?branch=LS4-557
+https://stg-copilot.condenast.io/all/bundles/6464cb936c38da955dbb4f03
+
+
+
+
+https://multiverso.vogue.com/verso-homepage/test-for-bundles-in-sections?branch=LS4-557
+https://stag.vogue.com/verso-homepage/test-for-bundles-in-sections
+https://multiverso.vogue.com/verso-homepage/test-for-bundles-in-sections?branch=LS4-557
+
+
+
+
+
+
+now I cannot say pana cotta & tiramisu because Aditi did so.
+So I say Matcha Ice ;-)
+
+
+
+
+
+
+I like cars
+I like pizza
+I like beer
+
+
+I am in gardening
+I drive fast cars
+I cooked at restaurant
+
+
+TODO:
+check this testlinks:
+Vogue US: https://multiverso.vogue.com/test-upc-commerce-products?branch=LS4-573
+Vogue UK: https://multiverso.vogue.co.uk/test-upc-commerce-products?branch=LS4-573
+Vogue DE: https://multiverso.vogue.de/test-upc-commerce-products?branch=LS4-573
+
+Ask Ramya for a review of get-plp-curated-data.ts
+https://github.com/CondeNast/verso/pull/23160/files?file-filters%5B%5D=.js&file-filters%5B%5D=.ts&show-viewed-files=true#diff-15662409155b9dde61ebecdd3397f0f900e9c0856eb8825288bc4cc2fe07e521
+
+
+Hi Ramya,
+we made changes to the file that have several merge conflicts with your changes:
+src/transformer-helpers/get-plp-curated-data.ts
+We have tried our best to resolve the merge conflicts. In doing so, we also had to make some changes to your code. So please review this PR and check these test links to see if your changes still work as expected:
+Vogue US: https://multiverso.vogue.com/test-upc-commerce-products?branch=LS4-573
+Vogue UK: https://multiverso.vogue.co.uk/test-upc-commerce-products?branch=LS4-573
+Vogue DE: https://multiverso.vogue.de/test-upc-commerce-products?branch=LS4-573
+
+
+
+GitHub complains:
+Conflicting files
+src/components/compositions/summary-spotlight/__snapshots__/SummarySpotlight.spec.js.snap
+When I try to update the snapshot:
+npm run test-update-snapshot src/components/compositions/summary-spotlight/__snapshots__/SummarySpotlight.spec.js.snap
+npm complains:
+Pattern: src/components/compositions/summary-spotlight/__snapshots__/SummarySpotlight.spec.js.snap - 0 matches
+...and nothing happens.
+Any idea how to resolve this?
+
+
+2898,72
+4.473,93
+57.727
+
+
+7313,99
+54.928
+
+*k%R9epf'4x`<^eRM!a/
+
+
+
+Hi Fran,
+
+maybe you can help me with my two Pull Requests as I need minimum one verso-em review:
+
+https://github.com/CondeNast/verso/pull/23160
+It is about the rendering of an external link as an asset only SummaryItem.
+
+https://github.com/CondeNast/verso/pull/23404
+It's about showing the author name at SummaryItem for bundle pages at allure.
+
+If you are too busy can you point me to someone who can do the review?
+
+
+
+
+npm run test-unit-server src/plugins/base-page/transformers.spec.js
+
+
+npm run test-update-snapshot src/components/compositions/summary-spotlight/SummarySpotlight.spec.js
+
+
+Maybe someone can help me with my two Pull Requests as I need minimum one verso-em review:
+
+https://github.com/CondeNast/verso/pull/23160
+It is about the rendering of an external link as an asset only SummaryItem.
+
+https://github.com/CondeNast/verso/pull/23404
+It's about showing the author name at SummaryItem for bundle pages at allure.
+
+
+
+I just created releases of the extension and deployed them in our test environment:
+eb0a191.custompages.dev.vogue.de/service
+eb0a191.custompages.dev.gq-magazin.de/service
+eb0a191.custompages.dev.glamour.de/service
+eb0a191.custompages.dev.ad-magazin.de/service
+
+Please test your changes well and let me know if everything works well.
+Then I will deploy all pages live.
+
+
+
+eb0a191.competitions.dev.ad-magazin.de/gewinnspiele
+eb0a191.competitions.dev.glamour.de/gewinnspiele
+eb0a191.competitions.dev.gq-magazin.de/gewinnspiele
+eb0a191.competitions.dev.vogue.de/gewinnspiele
+
+https://eb0a191.competitions.dev.vogue.de/gewinnspiele/amp/competition/gewinnen-sie-eine-loungwear-aus-kaschmir-und-pyjama-ausstattung-von-karl-lagerfeld
+https://eb0a191.competitions.dev.gq-magazin.de/gewinnspiele/amp/competition/fotos-bearbeiten-wie-ein-profi
+https://eb0a191.competitions.dev.glamour.de/gewinnspiele/amp/competition/das-glamour-gewinnspielspecial-200-shopping-cashback
+https://eb0a191.competitions.dev.ad-magazin.de/gewinnspiele/amp/competition/bolia
+
+
+
+
+
+
+
+
+
+
+
+
+Universal Bundle Page
+
+At CoPilot is a select box to choose different templates (scroll down to "Publishing"):
+https://stg-copilot.condenast.io/glm/bundles/6486d8296c3005aebec92485
+
+At tenant config it is possible to define props for each template and for each new bundle type.
+And it is possible to define custom themes for templates and types. As you can see here:
+https://github.com/CondeNast/verso/pull/23629/files#diff-bdeef8b287ca98022ab60ea5a8da494952023bd5f7a48a186ca7f63c3f2950e9R25
+
+The configuration is built as a override/fallback chain:
+- first get template props
+- second get type props
+- third get default props
+
+I guess these are the two great, big benefits of the Universal Bundle Type.
+
+
+
+Usage of contenttype "External Link" as an asset (image) only SummaryItem at versoPLPManualCurated & versoPLPSearchCurated
+
+First
+Check if the required functional tag "summary-item-asset-only" exists.
+If not create it:
+name: _summary_item_asset_only
+slug: summary-item-asset-only
+
+Second
+Create an "External Link" and add the functional tag.
+If you want to show the image at several versoPLPSearchCurated sections you have to create one "External Link" for each appearence. Because a background functionallity suppresses duplicate appearence of the same object.
+
+Third
+Add the "External link" object to a versoPLPManualCurated section and/or create a corresponding query at versoPLPSearchCurated
+
+The "External link" object will be shown without hed, dek, link or any other additional information.
+It works with image as well as with clip.
+
+
+
+Hi hi, erst letztens eine Nachtwächter-Stadtführung durch die Münchner Altstadt mitgemacht.
+Als wir etwa dort standen, wo dereinst das Hintere Schwabinger Tor stand und als der Guide mitbekommen hat, dass ich aus Schwabing komme, setzte er direkt an, dem geneigten Auditorium darzulegen, dass "Swabinga the place where the dirty and smelly pigs life" ist und "the people over there mostly punks" seien.
+
+
+npm run test-update-snapshot src/transformer-helpers/get-plp-curated-data.ts
+
+
+Regarding your comment about tests for src/components/patterns/summary-item/sub-components/SummaryItemImage/index.js
+
+Because there have been no tests for this component so far and the ticket should go live as soon as possible, here is my offer:
+We leave out the tests in this PR and create a tech debt ticket to create tests in our next sprint.
+Do you agree?
+
+
+/article/jock-itch
+
+So it behaves in roughly exactly this way:
+The author image can be displayed per contenttype: showContributorImage.
+Independently of this, all the author information can be hidden: hideContributors. This means that there is no image.
+The author image can also be completely hidden from verso: hideBylineContributorImage. You can then activate as much as you want for the content types, nothing will be output.
+
+And now we have found something else... For mobile, the image has to be activated again: showContributorImageOnMobile
+
+Please offer me a Gin Tonic...
+
+
+
+========================================================
+TODO:
+ok - Tech Debt Ticket about tests for src/components/patterns/summary-item/sub-components/SummaryItemImage/index.js
+ok - Tests für scTheme: fallback/priority
+ok - Tests für config lookup
+
+========================================================
+
+========================================================
+TODO:
+https://cnissues.atlassian.net/browse/LS4-573
+https://github.com/CondeNast/verso/pull/23160
+http://localhost:7777/allure-staging/plp-with-photo
+ok - imageonly auslagern
+ok - storybook
+
+========================================================
+
+
+11.8. ab ca 15:00
+
+
+return from template
+from
+
+storybook
+test for SummaryItemImage...
+
+
+Regarding your comment:
+
+I'm not sure how I feel about wrapping all of SummaryItemContent in this conditional. This feels like a check that 99% of the time will be false, so I ask why should we be prioritizing this prop/flag within our most heavily utilized component? Can we justify running checkShowAssetOnlyTag on every rendered SummaryItem? Can this be moved to the transformer/helper instead of within the component?
+
+https://github.com/CondeNast/verso/pull/23160
+
+To be honest, I'm stuck. I have no glue what your idea is or how to implement it in verso/javascript.
+Since the functionalTag is also only present in the SummaryItem and can be evaluated, I don't know where anything is supposed to happen before...
+
+If we don't need SummaryItemContent, then I don't see any other possibility - at least not in this complex construct - than to hide SummaryItemContent by parameter. Exactly the way Elena did it.
+
+Do you perhaps have a rough idea of how I can implement this?
+
+Shall we meet for a short call?
+
+
+shouldHideDangerousDek
+shouldDisplayDangerousDek
+
+
+
+
+
+:facepalm: Es ist schlimm. Und ich weiß nicht, wo ich anfangen soll. Und habe eigentlich auch gar keine Zeit, anzufangen.
+Jedenfalls ist es irgendwie so, dass es da ein SectionTitleDek gibt, dass ich damals nicht gefunden habe. (Nach dek, dangerousDek und strapline ist SectionTitleDek eine mir bis dato unbekannte aber durchaus kreative Bezeichnung für das, was bei uns mal der Kicker war).
+Wir  (beteiligt waren du, ich, Nina und ich glaube im Hintergrund auch mal Cristy) haben uns darauf geeinigt, dass der token typography.definitions.discovery.subhed-section-collection (wie er beim carousel für strapline im Einsatz war) der am richtigsten ist. Unter anderem weil subhed-section-collection recht genau die Unterüberschrift einer Collection (one, two, three, usw) bezeichnet und eine Collection wiederum eine Section ist.
+
+
+
+
+For some reasons I created a SummaryDek template to display the dek consistently for all summary sections. But we were just able to implement this for carousel and collageOne. Now I've seen that the SectionTitle template does nearly the same.
+It would be appreciated if we could now remove SummaryDek and use SectionTitle consistently.
+If the effort for this is not justifiable, at least - and this requires binding agreements with Design - the Design Token should be standardised.
+
+Wrong token:
+typography.definitions.discovery.subhed-section-collection
+Right token:
+typography.definitions.discovery.description-page
+
+Remove:
+https://github.com/CondeNast/verso/tree/main/src/components/patterns/summary-dek
+Use:
+https://github.com/CondeNast/verso/tree/main/src/components/patterns/section-title
+
+DoD
+For the presentation of dec in the SummaryCollageOne and SummaryCarousel sections, SectionTitle should be used consistently and the typography.definitions.discovery.description-page token should be used for styling.
+
+
+
+
+
+showAssetOnly false
+
+showAssetOnly true
+dont render hed
+
+
+
+You mean we should create a new template "SummaryItemAssetOnly" that just displays the asset and decide at multipackage if SummaryItem or SummaryItemAssetOnly should be used?
+Hm ... we also thought about that.
+But...:
+We will have either a lot of redundant code or we will loose a lot of features (tracking for instance).
+That's why we dismissed the idea.
+
+
+
+http://localhost:7777/gq-staging/plp-test-images
+http://localhost:7777/allure-staging/test-plp-with-photo
+http://localhost:7777/allure-staging/plp-with-photo
+http://localhost:7777/vogue-uk-staging/test-for-images-as-plp-asset
+http://localhost:7777/vogue-staging/plp-test-images
+
+
+Kannst du mir einen prompt für ein Bild von Batman und Friedrich Merz für einen Bildgenerator erstellen?
+
+
+
+Have you seen the last comment from Fran:
+https://github.com/CondeNast/verso/pull/23160
+
+I just added a test for copilot-external-link:
+https://github.com/CondeNast/verso/pull/23160/files#diff-f442bf25802b89510af33ca83e51789919dda0d631508699dd26c36a0215586a
+
+And what about the test coverage for ProductCardCarousel?
+Should we add some tests (on monday) or new ticket?
+
+I guess we don't need this ticket anymore as we now use SummaryItemSimple and therefore I added already some tests:
+https://cnissues.atlassian.net/browse/LS4-609
+
+But for now I am off. Have a great weekend.
+
+
+
+
+-> commerce integration team team
+check empty functional tag
+resolvers:
+
+tests
+channel & theme
+some more tests scTheme auf allen Ebenen.
+
+
+rashmi rao
+soumya gundu
+bhumika
+ramya sb
+
+Hi commerce team,
+
+Fran has found that there is no test for ProductCardCarousel:
+
+ProductCardCarousel has no test coverage (this is not your issue directly, but we need to cut a ticket to provide test coverage for all the logic contained in this component and/or move refactor this logic out of the component into a helper/transformer)
+
+As you are the owners of the component, I would ask that you take up the task and create an appropriate ticket.
+Please let Fran and I know if you agree.
+Thank you very much.
+
+
+
+Regarding your comment about missing tests for ProductCardCarousel:
+The commerce team will take care and will add it to their todo list and prioritize it.
+
+
+I changed the comment/it texts for configResolvers tests.
+I added one more test to transformers. I guess now there are no more untested combination.
+https://github.com/CondeNast/verso/pull/23611/files
+
+
+
+
+
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/23611
+Should I ask fran and/or verso-em for approvals? Or is it ok to just post it at verso-pr-review channel?
+
+Not that Fran is upset that I don't have a daily challenge for him....
+
+
+
+And now for something completely different:
+https://github.com/CondeNast/verso/pull/23611
+As you had some comments and requirements I would ask you for a new review.
+I hope I have done everything in your mind.
+
+
+
+Hi Srishti,
+now the imageOnly feature is available on staging. Should be live as well.
+Here you can find a HowTo. Please share it with all colleagues who will work with it:
+https://cnissues.atlassian.net/wiki/spaces/~5aba4fb82ee5562aa6d2fb9b/pages/15606678100/External+Link+as+an+asset+image+only+SummaryItem
+
+
+When I call this URL local:
+http://localhost:7777/vogue-staging/plp-test-images
+I get an error:
+GraphQL cannot resolve content of the bundle: plp-test-images. (1) "error:execute - Cannot return null for non-nullable field RunwayShow.season." at "getBundle.containers.results.6.itemSets.0.items.edges.22.node.season".
+Any idea anyone?
+
+
+
+But... :slightly_smiling_face: it is not a component issue but
+
+
+Hi there,
+I've seen both of you did something with 'season' at bundle query:
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/queries.js#L1058
+
+When I call this page local:
+http://localhost:7777/vogue-staging/plp-test-images
+I get a graphql error:
+GraphQL cannot resolve content of the bundle: plp-test-images. (1) "error:execute - Cannot return null for non-nullable field RunwayShow.season." at "getBundle.containers.results.6.itemSets.0.items.edges.22.node.season".
+
+Do you have an idea what happens?
+Has someone removed 'seasons' from the schema?
+Is RunwayShow a deprecated contenttype?
+
+Or can you point me to soemone who migt be responsible for RunwayShow?
+Thanks a lot.
+
+
+
+Hi Kate,
+
+Tobi asked me to inform you about the new imageOnly feature as described here:
+https://cnissues.atlassian.net/wiki/spaces/~5aba4fb82ee5562aa6d2fb9b/pages/15606678100/External+Link+as+an+asset+image+only+SummaryItem
+
+Please feel free to ask me if you have questions about it.
+
+
+
+
+Hi Team,
+I need reviews for my PR:
+https://github.com/CondeNast/verso/pull/23611
+It is about the ne "Universal Bundle Type" and how to handle configuration and themes.
+
+
+http://localhost:7777/vogue-staging/fashion-shows/spring-2024-menswear/county-of-milan
+
+
+season {
+  name
+  uri
+}
+
+
+
+
+A question about the search feature for Sections:
+Here you can see at the second slot an external link object: "60+ Minimalist Fashion and Accessories to Get That Quiet Luxury Look"
+Now I want to add this external link to another section but I cannot find it anymore.
+When I put "60+ Minimalist Fashion and Accessories to Get That Quiet Luxury Look" to the search mask
+
+
+
+
+Is there a possibility to change this limit in the section afterwards?
+
+Because I am sure that the following has happened:
+The limit in the brand settings was set to 9. The section was created with this setting and 9 was saved.
+Then the limit in the Brand Settings was changed to 15. However, this change is not applied to existing sections. Not even when the page is republished.
+
+Is there any other way to get the updated limit into the section than deleting the section and creating a new one?
+
+
+
+
+
+Because I am pretty sure that the following has happened:
+
+The limit in the CoPilot Brand Settings was set to 9. And the section was created with this setting and 9 was saved.
+
+Then the limit in the Brand Settings was changed to 15. However, this change is not applied to existing sections. Not even when the page is republished.
+
+So I asked platform people:
+Is there any other way to get the updated limit into the section than deleting the section and creating a new one?
+
+The answer is:
+I do think you'll probably need to recreate the containers in each bundle.
+
+
+Hi Anthony,
+
+npm i -S glob inquirer lodash @formatjs/cli-lib
+
+
+https://www.glamour.de/glammy-gewinner-2022
+https://www.glamourmagazine.co.uk/beauty-powerlist-winners-2022
+https://www.glamourmagazine.co.uk/awards/women-of-the-year/winners-2022
+
+https://multiverso.glamour.de/glammy-gewinner-2022?branch=LS4-611
+https://multiverso.glamourmagazine.co.uk/beauty-powerlist-winners-2022?branch=LS4-611
+https://multiverso.glamourmagazine.co.uk/awards/women-of-the-year/winners-2022?branch=LS4-611
+
+
+
+https://vogue-api.aws.conde.io/bundles/60783f1cd1fa5faa8a980b0e/?raw=true
+curl -X PUT https://vogue-api.aws.conde.io/bundles/60783f1cd1fa5faa8a980b0e -H "Content-Type: application/json" -d "@bundle.json"
+itemsLimit
+
+
+
+https://stg-vogue-api.aws.conde.io/bundles/6495a5cb08cf33a4fe1f0fd3/?raw=true
+curl -X PUT https://stg-vogue-api.aws.conde.io/bundles/6495a5cb08cf33a4fe1f0fd3 -H "Content-Type: application/json" -d "@bundle.json"
+6495a5cb08cf33a4fe1f0fd3
+
+
+
+
+Wat we want to do:
+- create bundle
+- select template
+- add config for bundle to default
+- add config for template to default
+
+What we did 'til now:
+- add config to channel config
+- add channel config to bundle
+
+
+Hi Team
+...and again cypress will not do its job:
+https://github.com/CondeNast/verso/pull/23758
+Can someone help me with it?
+
+
+
+variations:
+1.:
+- lede
+- rubric (plain? or with magic props?)
+- hed
+- byline
+- published date
+- social
+- dek
+
+props:
+hide:
+- hideHed
+- hideDek
+- hideLede
+- hideByline
+- hideSocial
+- hideRubric
+- hideDate
+
+hideHed
+hideDek
+hideLede
+hideByline
+hideSocial
+hideRubric
+hideDate
+
+hideByline
+hideDate
+hideDek
+hideHed
+hideLede
+hideRubric
+hideSocial
+
+ContentHeaderLeadContentFullWidth
+
+module.exports = {
+  BundleHeaderHed,
+  BundleHeaderWrapper,
+  BundleHeaderSection,
+  BundleHeaderHedDekGrid,
+  BundleHeaderHedDekBlock,
+  BundleHeaderDekText,
+  SectionHeaderStyle,
+  BundleHeaderBylines
+};
+
+
+
+  BundleHeaderHedDekGrid,
+  BundleHeaderHedDekBlock,
+socialLinks
+socialShares
+
+const BundleHeaderPublishDate = styled('p').withConfig({
+    displayName: 'BundleHeaderPublishDate'
+})`
+    display: inline-block;
+    margin: ${calculateSpacing(0.5, 'px')} 0 0 0;
+    max-width: 42vw;
+`;
+
+BundleHeaderPublishDate.defaultProps = {
+    colorToken: 'colors.consumption.body.standard.body',
+    typeIdentity: 'typography.definitions.globalEditorial.context-tertiary'
+};
+
+
+contributors
+dek
+hed
+Hed
+hideByline
+hideDate
+hideDek
+hideHed
+hideLede
+hideRubric
+hideSocial
+lede
+publishDate
+rubric
+socialLinks
+
+Optional object containing data to create authors byline.
+optional dek
+Optional flag to hide component
+Optional flag to hide component
+Optional flag to hide component
+Optional flag to hide component
+Optional flag to hide component
+Optional flag to hide component
+Optional flag to hide component
+Optional Lede
+Optional publishDate
+Optional rubric
+Optional socialLinks
+
+hideDate
+hideHed
+hideSocial
+
+Can someone tell me how I can find this site image to add it to another testpage:
+https://stg-copilot.condenast.io/gq/bundles/5a00e9bc86f6024c37a46d7e
+
+
+npm run test-update-snapshot src/components/templates/universal-bundle-page/UniversalBundlePage.spec.js
+npm run test-update-snapshot src/components/patterns/cne-video-embed/variations.spec.js
+npm run test-update-snapshot src/components/templates/universal-bundle-page/UniversalBundlePage.spec.js
+npm run test-update-snapshot src/components/templates/bundle-page/BundlePage.spec.js
+npm run test-update-snapshot src/components/templates/directory-business-profile-page/DirectoryBusinessProfilePage.spec.js
+npm run test-update-snapshot src/components/scaffolding/grid/variations.spec.js
+
+
+isHidden
+affiliate disclaimer
+move header to template subfolder
+
+
+the so called "subnavigation" is a very interesting one.
+
+headerChipLinks
+toggleChipsWithLink
+
+
+Habe ich dir schon erzählt, dass es neben dieser sogenannten ChipLink Navigation noch eine zweite gibt?
+Nämlich die Subnavigation, die über die channel config gesteuert wird?
+Aber das wusstest du sicher schon...
+Ich schreibe das mal auf die Liste der Dinge, dieunbedingt refakturiert werden müssen.
+Ach ja... und dann gibt es natürlich noch die Subnavigation, die wir gebaut haben. Die mit der CuratedList funktioniert.
+
+Hi Cristy,
+
+I am working at the header for our new universal bundle type. It should look like or very similar to the existing headers such as BundleHeader. Now I found a very confusing mix of different design and color tokens. Maybe you can help me with it.
+
+At github (I guess you have access to it?) you can see the funny mix:
+https://github.com/CondeNast/verso/pull/23841/files#diff-da240000513cbd441b1792d81dcd1e40755e290745cadbddac5aa833df9da99b
+
+Can you tell me which are the rigt tokens for the components?
+BundleHeaderHed
+BundleHeaderDekText
+BundleHeaderBylines
+BundleHeaderPublishDate
+
+npm run test-unit-component src/components/templates/universal-bundle-page/UniversalBundlePage.spec.js
+
+
+Somethings missing? Yes...:
+- contributorImage
+- socialLinks
+
+Something to refactor? Yes of course:
+- HomePageDisclaimer
+- HeaderChipLinks
+- SubNavigation
+
+
+curl -X POST -d "{'uri': ''}" https://www.self.com/gallery/lauren-graham-weight-loss-weapon-slideshow/expire
+curl -X POST -d "{'uri': ''}" https://stag.self.com/gallery/lauren-graham-weight-loss-weapon-slideshow/expire
+
+https://stag.self.com/gallery/lauren-graham-weight-loss-weapon-slideshow/expire
+https://www.self.com/gallery/lauren-graham-weight-loss-weapon-slideshow
+
+57dc44bc6f1b1dac12e5bd66
+
+
+curl -X POST -d "{'uri': ''}" https://stg-self-api.aws.conde.io/gallery/57dc44bc6f1b1dac12e5bd66
+
+
+
+https://www.self.com/story/celeb-tweet-of-the-week-tk
+57d8e2cc46d0cb351c8c71ae
+curl -X POST -H "Content-Type: application/json" -d "{'uri': ''}" https://stg-self-api.aws.conde.io/story/57d8e2cc46d0cb351c8c71ae/expire
+
+
+
+    bundle: {
+      componentConfig: {
+        SummaryItem: {
+          settings: {
+            shouldHideDangerousHed: true
+          }
+        }
+      }
+    }
+
+compare river at end of page:
+https://multiverso.self.com/package/gift-ideas?branch=LS4-628
+https://www.self.com/package/gift-ideas
+
+compare river at start of page:
+http://multiverso.self.com/package/pantry-awards-2023?branch=LS4-628
+http://stag.self.com/package/pantry-awards-2023
+
+###############################################
+https://cnissues.atlassian.net/browse/LS4-617
+http://localhost:7777/allure-staging/test-feature-collage-one-with-dek
+
+https://multiverso.allure.com/test-feature-collage-one-with-dek?branch=LS4-562
+
+
+can someone explain me for what this is for:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/summary-collage-three/SummaryCollageThree.js#L170-L175
+
+it refers to some fancy style definitions just for collage three:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/summary-collage-three/styles.js#L328-L359
+
+in former times I would ask something like this:
+how many billions does Condé Nast earn because of this difference between the default behaviour and the customisation just for collage three?
+and if there is no one who says "at least two or three. I swear." I would get rid of this custom styling.
+
+but as we are not longer living in the past I have to ask a little more cautious:
+can someone ask bon appetit for what reasons they need this prop or if we can remove it.
+
+
+Weil wir über kurz oder lang mit dem Universal Bundle Type auch vor die Frage gestellt sein werden, wir wir die verschiedenen SummaryCollection anzeigen wollen, stellt sich mir die Frage, ob und wie wir die Standardisierung dieser Sections angehen können oder wollen. Nachdem ich mir jetzt erneut die SectionHeader von SummaryCollageOne, Carousel und SummaryCollageFour angesehen habe, würde ich die Templates so wie sie sind wegschmeissen und komplett neu aufbauen wollen. Jedes Template stellt den SectionHeader anders dar. Einmal mit Wrapper, einmal ohne. Einmal mit fünf props, einmal mit 3. Zwei Sections nutzend das selbe Template, die dritte Section teilt den Header auf zwei Templates auf.
+
+Was meinst du, gibt es eine reelle Chance, das Thema anzugehen? Oder sollen wir unsere Finger da raus lassen?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Testlinks needed for:
+- vogue.com / channel: tentpole-featured
+- vogue.de / channel: tentpole-featured
+https://multiverso.vogue.com/verso-channel/test-feature-collage-one-with-dek?branch=LS4-617
+https://stag.vogue.com/verso-channel/test-feature-collage-one-with-dek?verso=true
+
+https://multiverso.vogue.de/verso-channel/test-feature-collage-one-with-dek?branch=LS4-617
+https://stag.vogue.de/verso-channel/test-feature-collage-one-with-dek
+
+http://localhost:7777/vogue-staging/verso-channel/test-feature-collage-one-with-dek
+http://localhost:7777/vogue-germany-staging/verso-channel/test-feature-collage-one-with-dek
+
+
+###############################################
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-630
+We can offer a solution for the logo.
+But how should the text adjust to the screen size?
+
+
+13
+
+can you do following...:
+
+git checkout LS4-630
+
+and take a look at these two URLs in mobile view:
+
+http://localhost:7777/glamour-germany
+http://localhost:7777/glamour-germany-staging
+
+do you have an explanation for the different behaviour?
+
+I created a test environment at staging and it looks exactly the same as on prod:
+
+on prod:
+https://copilot-app.condenast.io/glmde/curatedlists/64a81d06fea7d384c2d06d4e
+https://copilot-app.condenast.io/glmde/externallinks/64a81de4fea7d384c2d06d4f
+
+on staging:
+https://stg-copilot-app.condenast.io/glmde/curatedlists/64ae60bff4666bf04b17828b
+https://stg-copilot-app.condenast.io/glmde/externallinks/64ae6158e2c93451a90e9d13
+
+
+and as I am the not only the sprint master but also the one who will rock the sprint I have to ask:
+@elena if my suggestion is
+
+
+Hi there,
+I need some reviews for this PR:
+https://github.com/CondeNast/verso/pull/23896
+It's about the image size at LinkBanner.
+
+###############################################
+https://cnissues.atlassian.net/browse/LS4-626
+Hi there,
+we need to activate the event banner for self. therefore we have to remove the fixed dimensions for the logo.
+https://github.com/CondeNast/verso/pull/23913/files
+@marissa Epstein @daniel Baldwin please have a quick view if we can do so.
+
+
+
+Hi Team,
+I need some reviews for this PR:
+https://github.com/CondeNast/verso/pull/23913
+It's about an EventBanner for SELF.
+
+
+156*48
+312*96
+###############################################
+
+###############################################
+https://cnissues.atlassian.net/browse/LS4-428
+https://stg-copilot.condenast.io/all/bundles/638f12183dc99c9dfc4d9f2e
+http://stag.allure.com/verso-homepage/allure-test
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-618
+We can manipulate the width of the embed with markdown tags as you can see here:
+https://stag.allure.com/verso-homepage/allure-test
+https://stg-copilot.condenast.io/all/bundles/638f12183dc99c9dfc4d9f2e/verso-embed/638f1b1a3dc99c9dfc4da146
+
+Is there anything that fits your needs? Or do you need something else?
+
+
++++feature-xsmall
+I love muffin sweet I love croissant powder cheesecake tiramisu croissant. Oat cake bonbon caramels lemon drops liquorice oat cake halvah croissant. Fruitcake toffee muffin sugar plum lollipop shortbread. Pastry jelly beans sweet roll chocolate bar gummi bears chupa chups. Jelly-o I love tiramisu I love cake candy canes jelly-o marzipan lollipop.
++++
++++portrait-justified
+I love muffin sweet I love croissant powder cheesecake tiramisu croissant. Oat cake bonbon caramels lemon drops liquorice oat cake halvah croissant. Fruitcake toffee muffin sugar plum lollipop shortbread. Pastry jelly beans sweet roll chocolate bar gummi bears chupa chups. Jelly-o I love tiramisu I love cake candy canes jelly-o marzipan lollipop.
++++
++++intro
+I love muffin sweet I love croissant powder cheesecake tiramisu croissant. Oat cake bonbon caramels lemon drops liquorice oat cake halvah croissant. Fruitcake toffee muffin sugar plum lollipop shortbread. Pastry jelly beans sweet roll chocolate bar gummi bears chupa chups. Jelly-o I love tiramisu I love cake candy canes jelly-o marzipan lollipop.
++++
++++inset-left
+I love muffin sweet I love croissant powder cheesecake tiramisu croissant. Oat cake bonbon caramels lemon drops liquorice oat cake halvah croissant. Fruitcake toffee muffin sugar plum lollipop shortbread. Pastry jelly beans sweet roll chocolate bar gummi bears chupa chups. Jelly-o I love tiramisu I love cake candy canes jelly-o marzipan lollipop.
++++
++++inset-right
+I love muffin sweet I love croissant powder cheesecake tiramisu croissant. Oat cake bonbon caramels lemon drops liquorice oat cake halvah croissant. Fruitcake toffee muffin sugar plum lollipop shortbread. Pastry jelly beans sweet roll chocolate bar gummi bears chupa chups. Jelly-o I love tiramisu I love cake candy canes jelly-o marzipan lollipop.
++++
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-618
+was there ever a feature, prop or whatever that provides the recommendet margin behaviour?
+because I cannot find any hint to this.
+
+Hi Team,
+I need approvals for this small PR:
+https://github.com/CondeNast/verso/pull/23935
+It's about: Embed component have paddings agains on Allure
+
+###############################################
+
+Wir haben mit Stadtauto ganz gute Erfahrung. Insbesondere, weil man sich da Autos zu jeder Gelegenheit nehmen kann.
+Transporter für Umzug oder Baumarkt.
+Kleinen Flitzer für in der Stadt.
+Familienkutsche für Überland.
+Allerdings sind die Fahrzeuge Standortgebunden und müssen zeitig reserviert werden.
+
+Our experience with Stadtauto is quite good. Especially because you can take cars there for any occasion.
+Transporter for relocation or hardware store.
+A small city car.
+A family car for the countryside.
+However, the vehicles are location-bound and have to be reserved well in time.
+
+
+
+###############################################
+https://cnissues.atlassian.net/browse/LS4-620
+https://stg-copilot.condenast.io/self/bundles/644bc14ef4408158e4f30012
+http://localhost:7777/self-staging/program/program-bundle
+https://stag.self.com/program/program-bundle
+
+hasMarginBottomMultiPackageRow: false,
+
+please have a view:
+https://github.com/CondeNast/verso/pull/23945/files
+
+I added this hasNoBottomMargin-option to default.
+I would like to add it just to programBundle but that does not work.
+do you have an explanation for this?
+
+
+Hi team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/23945
+It's about hasNoBottomMargin for MultiPackages at versoProgram
+
+
+###############################################
+
+I have no idea how this is in russia...
+
+But in germany when you say "awesome", "amazing", "monumental" or "game changing" then you mean "awesome", "amazing", "monumental" or "game changing".
+You say this because you are realy impressed and someone has done an extraordinary great job.
+No one says something like that just because they accidentally packed too many "awesomes" or "amazings" with their snack in the morning and want to get rid of them.
+Mainly because then we cannot distinguish whether we have done something really well or whether the "awesome" was just said.
+
+In Bavaria there is also a saying that goes:
+Not being scolded is enough appreciation
+
+....but it's not quite as bad as that ;-)
+
+And we all know in Britain and the US it's quite commom to say to everything awesome. A meeting without "awesome" was no good meeting...
+
+
+
+Vielleicht kann mir jemand weiter helfen:
+Auf dieser Seite wird ein LinksBanner angezeigt:
+https://multiverso.vogue.com/test-upc-bundle?branch=LS4-630
+
+Wie finde ich die dazugehörige Curated List in verso?
+Weil die Suche liefert mir kein Ergebnis und ich möchte ungern 266 Curated Lists manuell durchgehen müssen.
+
+
+Hi Elena,
+do you know how I can query our (staging aka nonprod) graphql API?
+
+Because this API endpoint seems no longer to exist:
+https://nonprod-content.conde.io/graphql
+
+And the playground thin is also down:
+https://content.conde.io/graphql
+
+
+
+Did you pay attention to that:
+
+If you want to show the image at several versoPLPSearchCurated sections you have to create one "External Link" for each appearence. Because a background functionallity suppresses duplicate appearence of the same object.
+
+https://cnissues.atlassian.net/wiki/spaces/~5aba4fb82ee5562aa6d2fb9b/pages/15606678100/External+Link+as+an+asset+image+only+SummaryItem
+
+I it doesn't work either pleas tell me and I will do a deep dive...
+
+
+Ich fürchte, dafür gibt es keine funktionierende Lösung.
+Die versoPLPSearchCurated Komponente lässt sich nicht so konfigurieren, wie du es gerne hättest.
+Wenn du zwei ExternalLink Objekte zu etwa der gleichen Zeit aktualisierst, dann werden die von der Komponente entsprechend direkt hintereinander angezeigt.
+Es gibt keine Möglichkeit, der Komponente zu sagen, dass nur jeweils ein ExternalLink genommen werden soll.
+
+Insofern ist leider auch der oben angeführte Satz aus dem HowTo irreführend, beziehungsweise falsch.
+
+
+I'm afraid there is no working solution for this.
+The versoPLPSearchCurated component cannot be configured as you want to have.
+If you update two ExternalLink objects at about the same time, the component will display them one after the other.
+There is no way to tell the component to take only one ExternalLink at a time.
+
+In this respect, the above sentence from the HowTo is unfortunately misleading or incorrect.
+
+
+
+It is a great example how CoPilot works... or even exact not works.
+We have each single functionallity needed (sometimes two or five times). But we don't have them in the right combination.
+In theory we can build something what Manika want's to have.
+
+FIRST:
+We have the versoPLPSeachCurated component where you can select products and external links (and all othe content types).
+But we cannot mark one specific item to appear exact at position n.
+
+SECOND:
+As you said we can combine verso-multy-package-feature with curated search and curated list to show fixed items together with search items.
+And we can activate verso-multy-package-feature for VERSO PLP CURATED bundle type.
+
+So everything is fine? NO!!! Of course not: At curated search you cannot choose products.
+
+
+
+As Elena said: it is not possible to fix external link to some particular position inside the versoPLPSearchCurated.
+I investigated if the ist a solution with some othe component... but no I didn't find anything.
+
+
+https://multiverso.glamour.de/?branch=LS4-630
+
+
+At the beginnig of the sprint I asked about this ticket:
+https://cnissues.atlassian.net/browse/LS4-630
+It didn't seem to be a big thing. And I thought I had the solution already.
+
+Now it costs me about one day just to get two test links up and running.
+It now looks like the LinkBanner works differently on AD Germany than it does on Vogue and Glamour Germany.
+
+
+
+https://multiverso.self.com/verso-channel/testlinkbanner?branch=LS4-630
+
+https://multiverso.ad-magazin.de/verso-channel/test-linkbanner?branch=LS4-630
+https://localhost:7777/architectural-digest-germany-staging/verso-channel/test-linkbanner
+http://localhost:7777/architectural-digest-germany-staging/verso-channel/test-linkbanner
+
+On AD yes it is:
+hideMobileMarqueeImage: true
+...but not on self. Once again, it is despairing.
+https://multiverso.self.com/verso-channel/testlinkbanner?branch=LS4-630
+
+
+https://multiverso.allure.com/test-linkbanner?branch=LS4-630
+
+Hi there,
+Please ... can someone tell my why staging:
+https://stg-copilot-app.condenast.io/vogue/curatedsearches/6350767f20d6500eda00e533
+is quite different to prod:
+https://copilot.condenast.io/vogue/curatedsearches/6350767f20d6500eda00e533
+Because on prod I can choose products. On staging I cannot.
+
+Regarding this ticket:
+https://github.com/CondeNast/verso/pull/23896
+I added two more test links. Do you need more?
+
+
+You asked me about my upcomming vacations.
+This is planned so far:
+11. August to 15. August
+15. September
+
+blitzgescheite und messerscharfe Analyse der bestehenden Verhältnisse
+
+
+
+https://multiverso.gq.com/universal-bundle-test-header?branch=LS4-585
+https://multiverso.gq.com/test-style?branch=LS4-585
+https://multiverso.allure.com/test-skin-care?branch=LS4-585
+https://multiverso.glamour.com/test-beauty?branch=LS4-585
+
+http://localhost:7777/allure-staging/test-skin-care
+
+Fran says:
+
+checking cypress https://sorry-cypress-gateway-verso-services.gp-nonprod-na-0.conde.digital/instance/e5f504e9-e702-4ad4-8e05-2e33468bd4ca/test/r13 and your PR’s diff, I’d always first bring this to your direct EM who can advise and approve of us skipping over cypress approval.
+
+So who is my direct EM in this case?
+
+
+
+As this is a critical issue...
+https://www.self.com is gone away I beg you to merge this PR:
+https://github.com/CondeNast/verso/pull/23987
+I am pretty sure that Elena and Tobi support this approach.
+Please excuse the inconvenience...
+
+
+
+
+
+The EventBanner component depends on two settings in the tenant config:
+Firstly, the EventBanner must be activated for the BasePage:
+shouldDisplayEventBanner: true
+And then a complete EventBanner configuration is required.
+If shouldDisplayEventBanner is set to true and the EventBanner configuration is missing, then not only the EventBanner is not displayed, but the whole page breaks. This must be prevented.
+
+Tech Note
+A required prop should be queried. If it is not available, then null should be returned:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/event-banner/EventBanner.js#L182-L189
+
+DoD
+If the EventBanner configuration is missing, the page is displayed without an EventBanner.
+
+
+
+
+
+Wenn du aber mal diese Seite vergleichst, siehst du gleich "Nein, so ganz passt das nicht":
+https://multiverso.self.com/verso-channel/test-feature-collage-one-with-dek?branch=LS4-617
+https://stag.self.com/verso-channel/test-feature-collage-one-with-dek
+
+Weil auf Staging wird dek im Karussell ausgegeben auf multiverso nicht.
+
+
+https://stag.vogue.de/verso-channel/test-feature-collage-one-with-dek
+https://multiverso.vogue.de/verso-channel/test-feature-collage-one-with-dek?branch=LS4-617
+
+
+
+Regarding this ticket:
+https://github.com/CondeNast/verso/pull/23989
+Test result says:
+Cypress — timed out - failed:1 skipped:0 passed:838 pending:2 flaky:34
+When I take a look at details it says 'yes, timeout':
+https://sorry-cypress-gateway-verso-services.gp-nonprod-na-0.conde.digital/run/c226c6f6a04f5d8891bef141377f5b11
+When I take a look at Actions I see a cypress workflow comleted by me with a green icon... that probably means everything is fine:
+https://github.com/CondeNast/verso/actions/workflows/cypress.yml?page=2
+When I take a look at details it says "Success":
+https://github.com/CondeNast/verso/actions/runs/5597176423
+...but nothing has happened.
+What to do?
+Any idea?
+
+
+https://cntme-api.aws.conde.io/bundles/6470d087d49d9911e8a60a22
+curl -X POST https://cntme-api.aws.conde.io/bundles/6470d087d49d9911e8a60a22
+
+curl -X POST  https://stg-self-api.aws.conde.io/articles/649b231b5b564c857fc3c87e/expire
+curl -X POST  https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae
+
+
+
+mit body:
+http://localhost:7777/gq-staging/universal-bundle-test-header
+mit chiplinks:
+http://localhost:7777/allure-staging/test-skin-care
+mit subnavigation:
+
+And a second PR where cypress does not work:
+https://github.com/CondeNast/verso/pull/23896
+
+
+
+Ich stell mir gerade vor, wie das wohl wäre, wenn dieser Vorgang mit berittenen Boten anstatt per Internet abgehandelt werden müsste.
+
+Maren verfasst einen Brief mit der Bitte um Einlass (inklusive Umschlag und Siegelwachs) und übergibt ihm dem wackeren Recken Hans.
+Hans fährt in Folge mit seiner Kutsche im Schloß der IT-Bevollmächtigten vor und übergibt den Brief dem staunenden und doch ratlosen Junker Ilyas.
+Ilyas, weil er keine Ahnung hat, von was die Rede ist, packt dem Brief zu den übrigen, die einmal die Woche das Schloß verlassen und sich auf die lange Reise um das Kap der guten Hoffnung ins ferne Land der teuren Gewürze machen.
+Dort angekommen wird der Brief mit zunehmender Verzweiflung von einer Hand zur nächsten gereicht. Es wird in alle Welt telegraphiert. Zuletzt wird denn ein berittener Bote um Hilfe gerufen, der sich auf dem Landweg zurück nach Mitteleuropa macht. Dabei rüttelt er an jeder Tür, klopt an jede Pforte. Bis ihm ein weiser Alter oder auch ein Magier oder Augur den Weg...
+...irgendwie so.
+
+
+https://www.allure.com/skin-care
+https://www.glamour.com/lipstick
+https://www.gq.com/style
+https://www.glamour.de/kategorie/beauty
+
+http://localhost:7777/gq-staging/test-style
+http://localhost:7777/allure-staging/test-skin-care
+http://localhost:7777/glamour-germany-staging/test-beauty
+http://localhost:7777/glamour-staging/test-beauty
+
+http://multiverso.gq.com/gq-staging/test-style?branch=LS4-585-ContentHeader
+http://multiverso.allure.com/allure-staging/test-skin-care?branch=LS4-585-ContentHeader
+http://multiverso.glamour.de/glamour-germany-staging/test-beauty?branch=LS4-585-ContentHeader
+http://multiverso.glamour.com/glamour-staging/test-beauty?branch=LS4-585-ContentHeader
+
+
+BTW: You added this page to the UBT header ticket:
+https://www.glamour.com/lipstick
+But this page uses HomePageHeader and not the ContentHeader.
+
+
+Wir haben uns doch gestern noch einmal über diese UBT Header Geschichte unterhalten und du hast gemeint, wir sollen den ContentHeader nutzen.
+Jetzt habe ich aber gesehen, dass alle Beispielseiten, die du in das Ticket gehängt hast den HomePageHeader nutzen. Das widerspricht sich doch etwas oder nicht?
+
+Ich habe testweise beide Header aktiviert, um den Unterschied zu verdeutlichen.
+Der jeweils erste Header ist der HomePageHeader, der jeweils zweite der ContentHeader.
+
+
+
+When I read something like this it's time to go an destroy some old furniture:
+
+If the user include 5 items [...] if no layout is selected then the SummaryCollectionGrid with FourColumns with Icon layout will be displayed.
+
+NO, if you want to have FourColumns ether select FourColumns (then it diesn't matter how many items the user includes) or add just four items.
+
+
+HomePageHeader doesnt support:
+- contributors
+- publishDate
+- breadcrumb
+...as far as I can see.
+
+
+I need a second review for this little change:
+https://github.com/CondeNast/spring-cloud-config-configuration/pull/439
+It's about increasing the self-recipe-bottom-recirc numberOfDays from -30 to -730
+
+
+npm run test-unit-component src/components/templates/universal-bundle-page/UniversalBundlePage.spec.js
+
+
+https://cabot.condenastdigital.de//reset/NA/6cs-31fd6cd7ba72755cbcbb/
+
+
+Starting content service seems to be as easy as it should be:
+nvm use && npm run dev
+
+Starting verso with the local content service is also easy:
+CONTENT_SERVICE_URI=http://0.0.0.0:8080/graphql npm run dev
+
+You may or may not have heard of Wladimir Kaminer.
+I always find his view of German society amusing and insightful. Born and raised in Moscow, he moved to Berlin during the turmoil at the end of the Soviet Union. He observes his environment quite closely and is surprised time and again by the mannerisms and quirks of the Germans.
+
+Now I have seen that at least one of his books has also been published in Russian:
+https://www.amazon.de/Russendisko-russische-Ausgabe-Wladimir-Kaminer/dp/5867935906
+https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BC%D0%B8%D0%BD%D0%B5%D1%80,_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87
+
+
+${({ theme }) => getColorStyles(theme, 'background-color')}
+
+const {
+    getColorStyles
+} = require('../../utils');
+
+${({ theme }) => getPattern(theme, 'main-background')}
+
+
+I guess this is wrong:
+https://github.com/CondeNast/verso/blob/main/src/components/templates/universal-bundle-page/styles.js#L8
+
+It must be this I guess:
+  ${({ theme }) => getPattern(theme, 'main-background')}
+
+Do you agree?
+
+
+I am proud to announce following:
+The SELF recipes have a "more from self" section:
+https://www.self.com/recipe/blueberry-oatmeal-muffin-mug-cake?verso=true
+
+
+  navigation: {
+    subchannelLinks: [
+      { text: 'Skin care', url: '/skincare', isActive: false },
+      { text: 'Hair', url: '/hair', isActive: false }
+    ]
+  }
+
+npm run test-update-snapshot src/components/templates/home-page/HomePage.spec.js
+
+src/components/templates/home-page/HomePage.spec.js
+
+
+
+https://stg-self-api.aws.conde.io/story/57d8e2cc46d0cb351c8c71ae/expire
+https://stg-self-api.aws.conde.io/story/57d8e2cc46d0cb351c8c71ae/expire
+
+curl -X POST -H "Content-Type: application/json" -d "{'uri': ''}" https://stg-self-api.aws.conde.io/story/57d8e2cc46d0cb351c8c71ae/expire
+curl -X POST -d "{'uri': ''}" https://stg-self-api.aws.conde.io/story/57d8e2cc46d0cb351c8c71ae/expire
+
+
+curl -X POST https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae/expire
+curl -X POST https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae/publish
+curl -X POST https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae
+curl https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae
+
+curl -X POST https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae/expire
+curl -X POST https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae/expire
+
+curl -X POST https://voguemx-api.aws.conde.io/bundles/6123ca411fb1a9024deccca7/publish
+curl -X POST https://voguemx-api.aws.conde.io/bundles/6123ca411fb1a9024deccca7
+
+
+curl -X POST https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae/expire
+curl -X POST https://stg-self-api.aws.conde.io/articles/57d8e2cc46d0cb351c8c71ae/publish
+curl -X POST -d "{'uri': 'khloe-kardashian-celeb-tweet-of-the-week'}" https://stg-self-api.aws.conde.io/story/57d8e2cc46d0cb351c8c71ae/publish
+
+
+read list
+list.map
+getId()
+expire id
+empty url??
+
+
+npx tsc --outDir build -w src/epi/bulk-unpublish.ts && cp ./src/epi/data.csv ./build/epi
+
+npx tsc --outDir build -w src/epi/bulk-unpublish.ts
+npx tsc --outDir build -w src/self/unpublish-stories/unpublish-stories.ts
+
+START_LINE=1 END_LINE=1000 PARALLEL=8 DRY=true NODE_ENV=staging node build/epi/bulk-unpublish.js | tee bulk-unpublish.log
+
+
+
+
+Hi Team,
+I need reviews for this ticket:
+https://github.com/CondeNast/verso/pull/24012
+It's about the header for the new Universal Bundle Tmeplate (UBT).
+May @fran can you have a look?
+
+
+
+Aber im Ernst: Wenn nicht jemand so lustig war, den Channel "homepage" irgendeiner anderen Seite zu geben, dann kann es da keine Probleme geben.
+Und wenn jemand so einen Mist gemacht ... dann ist es - ganz ehrlich... - nicht unser Problem.
+
+
+Regarding this PR:
+TNY interim homepage config
+https://github.com/CondeNast/verso/pull/24059/files?file-filters%5B%5D=.js&file-filters%5B%5D=.ts&show-viewed-files=true
+When you just take a look at the 'sectionTitleTypeToken'.
+I have the strange feeling that we try together with design to align the confusing token hodgepodge and this does exactly the opposite. It invents a new prop that allows more or less to set any random token.
+Am I right or do I missunderstand this totally?
+
+I don't know who of you has already done the cyber security training. But is it also the case that you are asked to download a document under the point "Security Operations Centre" and this document then wants to be saved under the strange name "German_SOC_Comms.pdf (copy)"? And if you want to change the name to "German_SOC_Comms.pdf" you get the following message.
+
+Is this a trick question? Or what do they want to achieve with this?
+
+
+German_SOC_Comms.pdf (copy)
+
+import scThemeGlamourInternational from '../../components/themes/brands/glamour-international/_default';
+
+versoUniversalBundle: {
+      scTheme: scThemeGlamourInternational
+    },
+
+
+
+The "children" in here has a prop called shouldHideDangerousDek:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/carousel/Carousel.js#L270
+
+But I cannot find the place where it's set.
+
+That means in theory it might be possible.
+In real world... I don't dare make a statement about that.
+
+Now I know why I couldn't find 'shouldHideDangerousDek' for the Carousel...
+For Carousel it's called just 'hideDangerousDek'.
+
+And as far as I can see we can set hideDangerousDek for VersoFeatures to hide the dek only at CarouselItems.
+It will work proper unless someone (maybe me ;-) ) will fix the bug and will hand over hideDangerousDek also to the FeaturesComposition:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/verso-features/VersoFeatures.js#L483
+
+
+https://staging-id.condenast.com/oidc/auth?client_id=condenast.identity.ec12d92d65fda3f0b654341df464e737&response_type=code&scope=openid+offline_access&redirect_uri=https%3A%2F%2Fstag.self.com%2Fauth%2Fcomplete&source=OIDC_LANDING_PAGE&prompt=select_account+consent
+
+:loudspeaker: Hi Team, Sprint 40 of @sevenseas Team hosted by @cwoldt now ends with 37SP done.
+We could not complete 1 ticket with about 5SP.
+The unexpected complexity of verso together with content service and graphql confronted us with unforeseen challenges.
+The next sprint is hosted by @cwoldt and starts now.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-634
+As far as I can see we have to create an entry for our brands like this:
+https://interfaces.conde.io/apps/oidc-admin/client-form?id=712&env=staging
+But for prod instead of staging.
+Do you have any idea what data we have to insert there?
+Or from whom we can get the data?
+
+I'm afraid we got the ticket wrong. This is not about activating Granit's changes for prod. It is more about creating new entries and then entering them into verso.
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-634
+As far as I can see we have to create an entry for our brands like this:
+https://interfaces.conde.io/apps/oidc-admin/client-form?id=712&env=staging
+But for prod instead of staging.
+Can you help me further what data we have to insert for the prod client?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-634
+
+As far as I understood we just have to add the ID to the tenant config and keep signInFeature disabled.
+So please review my PR:
+https://github.com/CondeNast/verso/pull/24091/files
+
+
+It's so suspiciously quiet here on Slack....
+Are we cut off from the rest of the Condé Nast world apart from our websites?
+
+Hi team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/24091/files
+It's abou adding IDs for oidcProvider but keep signInFeature disabled.
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/23319
+
+You were talking about "Gwen's new BI system". Can you tell me more of it?
+Because we built a mechanism to set custom scTheme (what is nothing else as a custom BI) as you can see here:
+https://github.com/CondeNast/verso/pull/23611/files#diff-7d59998bb958b3ac457178cc14a84c6dde71e25a890874ec24a3681e4d0b6eb7
+
+I would like to avoid building and running multiple functionalities in parallel that ultimately do the same or at least something very similar.
+
+Wenn wir jedesmal, wenn uns etwas auffällt, was zu verbessern wäre, etwas sagen... Tobi müsste sich ein, zwei Leute anstellen, die nur dem zuhören, was wir zu sagen haben.
+
+http://stag.gq.com/universal-bundle-test-header?branch=LS4-638
+http://stag.gq.com?branch=LS4-638
+
+
+It seems to be a bug at the json-editor.
+Please try it with an older version. Therefore change this line:
+https://github.com/CondeNastDigital/cnServicePatrick/blob/master/public/Gruntfile.js#L30
+to:
+https://cdn.jsdelivr.net/npm/@json-editor/json-editor@2.9.0/dist/jsoneditor.js
+...and of course test the editor.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-625
+and that PR:
+https://github.com/CondeNast/verso/pull/24107
+
+It is only about gallery icon. But I guess the problem is with other icons as well.
+...and there is no prop that allows us to just remove the gallery icon.
+Therefor I removed all.
+Do you agree?
+
+
+Can someone explain me why here the versoPLPCuratedVisual has negative top margings and overlaps the H1 headline:
+https://multiverso.self.com/test-gallery-icons-removed?branch=LS4-625
+https://stg-copilot.condenast.io/self/bundles/64c372a916bb2f47788d6be9/verso-plp-curated-visual/64c372a916bb2f47788d6be4
+
+
+Hi Team,
+can someone explain me why this multiverso link does not work:
+https://multiverso.glamourmagazine.co.uk/test-gallery-icons-removed?branch=LS4-625
+Maybe something wrong with the URL?
+
+CoPilot:
+https://stg-copilot.condenast.io/glmuk/bundles/64c38c6cb73d22d270cd880f
+
+Staging:
+https://stag.glamourmagazine.co.uk/test-gallery-icons-removed
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-621
+The Yield component uses a color token that is also used in several other templates:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/ingredient-list/styles.js#L50
+Therefore removing the color definition from the BI file might not be a appropriate solution.
+We can invent a prop like hideBackgroundYield. But we don't want to invent new props...
+I think we should tell Milene, reject the ticket and look for another solution.
+
+https://stag.glamourmagazine.co.uk
+
+
+
+
+Hi Saahithi,
+I was told you might have deeper knowledge about oidcProvider.
+So can you please take a look at my PR:
+https://github.com/CondeNast/verso/pull/24091/files
+Can you tell me if it's right or wrong?
+
+Ich würde ja ganz gerne mal ein Konzert mit ein paar Bands, bei denen ein paar Leute aus meiner Vergangenheit mitspielen, machen.
+Darum frage ich dich, wäre das möglich?
+Was wären die Bedingungen?
+Und: Ist es wahr, dass du beim Jens Praktikum machst?
+
+
+
+Das wären genau:
+- Trust Issues
+-
+
+Eranga
+Matiesha
+
+src/components/helpers/json-embeds-transform/helpers/content-helper/get-content-type.js
+const { default: getContentType } = require('./get-content-type');
+const contentType = getContentType(miniWorkFlowContext);
+
+
+npm run test-unit-component src/components/patterns/summary-item/variations.spec.js
+
+
+https://stg-copilot.condenast.io/glm/bundles/62f272d096e0a7ed71708f23
+https://stag.glamour.com/fashion/celebrity-style
+
+https://copilot.condenast.io/glm/bundles/62f272d096e0a7ed71708f23
+https://www.glamour.com/fashion/celebrity-style
+
+
+Do you know if it works to start multiverso again when I restore an old branch and add the Multibranch Start label:
+https://github.com/CondeNast/verso/pull/22666
+
+
+When I take a look at the video I see a very creative thing:
+At the body there is a transscript from the Video.
+And because
+https://www.architecturaldigest.com/video/watch/ad-open-door-amanda-seyfried
+
+
+
+For some reason the subnavigation on Glamour US Style and Culture channels are missing.
+But on staging it's working proper.
+
+In any case, I cannot detect any differing configurations of staging and prod.
+And anyway, on staging the SubNavigation is there, on prod it is not.
+Maybe someone of you sees more...:
+
+Staging:
+https://stg-copilot.condenast.io/glm/bundles/62f272d096e0a7ed71708f23
+https://stag.glamour.com/fashion/celebrity-style
+
+Production:
+https://copilot.condenast.io/glm/bundles/62f272d096e0a7ed71708f23
+https://www.glamour.com/fashion/celebrity-style
+
+Grateful for any advice.
+
+
+I have to revert some changes as soon as possible.
+Therefore I need approvals for this PR:
+https://github.com/CondeNast/verso/pull/24191
+It's about removing oidcProvider.
+
+
+Testszenarios:
+- Bundle in Bundle
+- CNVideo in Bundle
+- Ändern von HED und DEK beim Einfügen ins Bundle
+
+
+Hi There,
+I did following:
+
+Adding a CNVideo and a Bundle to features section:
+https://stg-copilot.condenast.io/vogue/bundles/63ef905e9a586b7ba85edd88/verso-features/643e88f6293b99b58a828e6f
+
+While adding I edited HED and DEK of both items.
+
+Now can someone explain me why the DEK of the Bundle shows up in the frontend but not the DEK of the CNVIdeo:
+https://stag.vogue.com/verso-homepage/test-for-bundles-in-sections
+
+And a second question especially for platform:
+How can I edit the customized HED and DEK in CoPilot?
+
+
+
+
+
+
+
+Es ist einmal wieder zum Verzweifeln:
+CNVideo enthält an den falschen Stellen falsche Informationen.
+Damit ist DEK in SummaryItem nicht nutzbar.
+Anstatt dass man nun hin geht und sagt: Dann richten wir das beim Import der Videos (oder noch viel besser, wir exportieren die Videos gleich mit nützlichen Daten), beschreiten wir den Condé Nast Weg und führen ein prop 'shouldHideVideoDek' ein, dass DEK ausblendet.
+Damit ist es auch nicht mehr möglich, das DEK in CoPilot zu ändern.
+
+Und fühlt mit mir den Schmerz, wenn ihr seht, was Condé Nast mit dem DEK bei fashionshow mach.
+
+
+
+Once again it is frustrating:
+CNVideo contains wrong information in the wrong places.
+This means that DEK cannot be used in SummaryItem.
+Instead of going and saying: let's fix this when importing the videos (or even better, let's export the videos with useful data), we go the Condé Nast way and introduce a prop 'shouldHideVideoDek' that hides DEK.
+This also makes it impossible to change the DEK in CoPilot.
+
+  const hideDangerousDek =
+    (shouldHideDangerousDek && contentType !== 'fashionshow') ||
+    (contentType === 'cnevideo' && shouldHideVideoDek);
+
+And feel the pain with me when you see what Condé Nast is doing with the DEK at fashionshow.
+
+
+
+
+"its an interesting point tobias. cne videos dont really have deks, so the description is being used here. but maybe that should be modified."
+
+That doesn't exactly sound like "yes you are right and we will fix it asap".
+That doesn't even sound like 'we'll think about it and create a ticket'.
+
+But what does it mean to us?
+
+If I understand correctly, Milene wants to use video carousels on the AD.
+We now have the option shouldHideVideoDek or DEK for completely hide.
+In other words, we can offer a bad solution.
+...or an even worse one.
+And I'm sure if we do that, the videos will never be fixed.
+
+
+
+Folgendes passiert:
+Wird DEK geändert, dann werden die Änderungen übernommen.
+Wird DEK gelöscht, dann holt sich CoPilot/verso das original DEK.
+Jetzt muss ich noch herausfinden, ob der Fehler in CoPilot oder in verso passiert.
+
+The following happens:
+If DEK is changed, then the changes are applied.
+If DEK is deleted, CoPilot/verso retrieves the original DEK.
+Now I have to find out whether the error happens in CoPilot or in verso.
+
+I'm pretty sure I cannot help you in this case.
+Because:
+The bolt taxonomy works following:
+When you add a taxonomy (tag or category) to an article bolt generates automatically a related overview page with the url '/tag/something' or '/category/something'.
+When you then create taxonomy page happens this:
+Bolt receives the URL '/tag/gadget' and show up the taxonomy page if exists. If not bolt shows the default overview page.
+And you also cannot redirect an existing page with the redirector extension.
+The only choice is to remove the taxonomy 'gadget' completely from the database. But I cannot say if someone of us has access to the database.
+Sorry for that.
+
+
+Schön... sehr schön:
+
+https://intercom.help/formation/en/articles/8201534-create-in-body-slideshows-in-copilot
+
+Ich fühle mich auf einen Schlag acht Jahre jünger. Ich kann mich noch an die lebhaften Diskussionen rund um all die verquasten inline Galerie Ideen erinnern.
+Als wir dann endlich eine leidlich funktionierende Lösung mit dem slick carousel gezimmert hatten, entschieden SEO und UX unisono, dass es sowohl für desktop, als auch für mobile viel geschickter ist, die Galleriebilder untereinander darzustellen.
+
+Jetzt also alles wieder von vorne.
+Bin gespannt, wann die Anforderung "Zeigt im SummaryItem wieder ein Galerie Icon. Auch dann, wenn es ein Artikel mit inline Galerie ist" kommt.
+Ich hohl schon mal das Popcorn...
+
+
+
+
+Placing a bundle inside a bundle is not supported
+P.J. Kryfko
+
+
+http://localhost:7777/newsletter/subscribe
+http://localhost:7777/auth/initiate?redirectURL=https%3A%2F%2Fwww.glamour.com
+http://localhost:7777/auth/initiate?redirectURL=%2F&source=VERSO_NAVIGATION
+
+
+
+In meinem Morgengrant ging es um diese Geschichte:
+https://condenast.slack.com/archives/G7QQUKZEZ/p1690917827192449
+
+Initial also nicht mal von uns.
+
+Aus meiner Sicht ist es so - völlig unabhängig von Designdingen - wenn ich etwas irgendwo lösche, dann hat das einen Grund: Ich möchte etwas löschen!
+Das ist das eine.
+
+Das andere ist:
+graphql ist so angelegt, dass man sich da sehr genau die Daten ziehen kann, die man braucht. Und da muss ich ausnahmsweise mal die Großen Alten von verso in Schutz nehmen, denn verso holt sich die Daten, die für einen Teaser gebraucht werden und nicht, was da vielleicht noch alles dran hängen könnte. Ist mit graphql zwar auch möglich, wird aber nicht gemacht.
+Wenn Gustavo also was von "due to the amount of requests that happen in the background" erzählt, dann redet er entweder von etwas ganz anderem... oder platform hat da einfach Murks gebaut.
+
+Das dritte dann (und vielleicht kommen da ganz, ganz viele unserer Probleme her):
+Wenn platform Murks gebaut hat und dann erwartet, dass verso das wieder gerade zieht, dann krieg ich echt 'nen Vogel. Sorry for that.
+
+
+Dann sag ich artig: Danke.
+
+Im speziellen geht es darum:
+Ich möchte dich zu unserem Sommerfest im Garten einladen.
+Das ist für den 26. August geplant.
+Kannst gerne mit dem Flo kommen... da muss die Alex dann durch :-)
+Und zum Anderen - ich weiß nicht, ob du davon gehört hast - bin ich jetzt unter die Brauer gegangen und würde dich da auch gerne hin einladen.
+Das wäre am 2. September
+Einzelheiten schicke ich dir - weil das ja jetzt wieder möglich ist - per Mail.
+
+
+Ich habe eine Frage hierzu:
+https://github.com/CondeNast/verso/blob/2479238ca435e6822ca5a280bc5a6500a88ea9f9/src/presenters/bundles/queries.js#L1473
+Wieso wird hier nach layouts gefiltert? Ist es denn möglich, dass container ohne layout gibt? Oder container mit einem unbekannten layout?
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-634
+
+
+==================================================================
+Abarbeiten:
+
+Thema CNVideo (Milene):
+https://condenast.slack.com/archives/C02NPQDA9L7/p1691062837784109
+-> erledigt
+
+Thema oidcProvider (Sahiti):
+https://cnissues.atlassian.net/browse/LS4-634
+
+Elenas PR weiter bingen:
+https://github.com/CondeNast/verso/pull/24086
+
+==================================================================
+
+Nach vielen Tests und Diskussionen stellt sich die Situation für uns wie folgt dar:
+
+Wenn in einer Section aus Layoutgründen kein DEK ausgegeben werden soll, dann ist das ein verso Thema.
+Die einzige Lösung die wir derzeit anbieten können ist, DEK im SummaryItem auszublenden. Das gilt dann allerdings für alle Sections.
+
+Wenn für ein einzelnes Item aus inhaltlichen Gründen kein DEK ausgegeben werden soll, dann darf in den Artikel / Bundle / whatever kein DEK eingetragen werden. Den DEK Text im Asset Finder zu löschen funktioniert nicht.
+
+
+
+
+Regarding this issue:
+https://condenast.slack.com/archives/C02NPQDA9L7/p1691062837784109
+
+Innocent question... hahaha... it's a question you ask in a verso universe.
+That means it is the start point of hundreds and thousands of discussions...
+
+The solution is:
+The video team fixes the error and writes into the DEK field what belongs into the DEK field.
+As we all know, this can take weeks or months.
+
+Grudgingly, we can tinker with a workaround using verso props via a channel config or something similar.
+
+"Grudgingly" because I'm sure in this case the video team will never fix the error.
+
+
+
+The main problem is that we always fix problems that arise somewhere else entirely. We shouldn't do that because it makes verso even more broken and unusable than it already is.
+
+
+
+its an interesting point tobias. cne videos dont really have deks, so the description is being used here. but maybe that should be modified.
+
+
+
+Hopefully, at Condé Nast, we're all partners in some way. And not competitors or even enemies.
+However, I often have the feeling that not all teams are as solution-oriented as we are.
+
+Because Ross sees the problem:
+
+"its an interesting point tobias. cne videos dont really have deks, so the description is being used here"
+
+
+His statement "but maybe that should be modified" doesn't sound like "Yes, we'll fix this as quickly as possible". It sounds more like "we'll have to do something about it someday". It is neither clear who "we" are, nor when "someday" will be.
+
+
+
+http://localhost:7777/auth/initiate?redirectURL=%2F&source=VERSO_NAVIGATION
+http://localhost:7777/auth/initiate?redirectURL=https%3A%2F%2Fwww.glamour.com
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/24091
+
+What we have missed: The redirectURL changes to something like:
+https://multiverso.self.com/auth/initiate?redirectURL=%2F%3Fbranch%3DLS4-634&source=VERSO_NAVIGATION
+
+You can see it here:
+https://multiverso.self.com/?branch=LS4-634
+
+Do you have an idea what happens there and how to solve it?
+
+
+
+Zu diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-648
+
+Ich hatte heute eine längere Diskussion mit Tobi, der mir klar gemacht hat, dass das ganz richtig so ist:
+Wenn man im Asset Finder HED oder DEK bearbeitet, dann wird das so ausgegeben.
+Wenn man jedoch den DEK Text löscht, dann wird als fallback auf den original DEK Text zurück gegriffen.
+
+Tatsächlich hatten wir in Bolt etwas sehr ähnliches. Da gab es für die Teaser auch eine Fallbackkette, die sagte, nimm den Teaser Kicker und wenn der nicht vorhanden ist, nimm den Kicker. Da war es auch nicht möglich, den Kicker für einzelne Teaser irgendwo redaktionell raus zu löschen.
+
+Insofern kann ich dir, respektive Clarissa nur anbieten, die DEK Texte komplett auszublenden. Also nicht nur für eine Section oder nur die Homepage, sondern für alle Bundle Seiten.
+Die Entscheidung liegt bei dir...
+
+
+
+Warum werden auf Vogue DE auf der Startseite keine DEK Texte ausgegeben und auf Vogue US schon?
+Ganz einfach:
+Es gibt eine tenant config "vogue-international", die bei vogue-de hineingemerged wird und bei vogue nicht.
+In vogue-international ist unter default shouldHideDangerousDek auf true gesetzt.
+
+
+I found a very interesting hack we live with since august 2022 and didn't recognize it.
+We can merge several tenant configs to one. It happens at Vogue DE and in some channels of the Vogues.
+That causes among other things the unexplainable different behaviour of SummaryItem at Vogue DE and Vogue US.
+To get to the bottom of it, you need - to use Klara's words - Sherlock skills or a persistent hardhead.
+
+For us this means at the moment we have at least four different ways to handle tenant configs.
+
+1. Standard
+The normal behaviour with tenant and channel config
+
+2. Patch
+To patch a tenenat config. For instance to add Kanjii like fonts to the global GQ config just for japan.
+https://github.com/CondeNast/verso/blob/90ccf316b6124d7fa3d6267dbe369fa7edca76dd/src/components/themes/brands/gq-japan/_default.js
+
+3. Content Type & Template
+Define special configuration for content types like the universal bundle type and the supportet templates.
+It overrides patches.
+https://github.com/CondeNast/verso/blob/51078ceb738148fe199aafdcdd1fa96c975c8f13/src/core/config-resolvers/configResolvers.ts#L266
+
+4. Merge
+Something similar to the patch thing but the other way round.
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue-de/channels/_default.ts#L41
+
+I'm going to let that sink in.
+
+Based on this information, we can now discuss a solution to your Vogue problem.
+
+TODO:
+- wegen review für Elenas Ticket nachhaken
+- review für mein Testticket einholen
+- channel fix für Glamour US
+- Mit Klara besprechen, was wir nun in Sachen Vogue US machen
+
+Hi Team,
+I need one more review for this PR:
+https://github.com/CondeNast/verso/pull/24172
+It's about adding some tests for SummaryItemImage
+
+
+
+
+https://www.glamour.com/inspired
+https://www.glamour.com/fashion
+
+https://multiverso.glamour.com/inspired?branch=LS4-647
+https://multiverso.glamour.com/fashion?branch=LS4-647
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-647
+Keep in mind (and please tell it to everyone who is working with channels):
+When renaming the slug on a channel at CoPilots Tag Manager we also have to rename the tenant channel config. Otherwise the configuration gets lost. Sometimes it might be a smaller issue such as "showMarginBottomAtThursdayWhenTheSunIsShining". Sometimes it's a major issue as SubNavigation, LinkBanner, EventBanner and a lot of custom props disappear.
+
+
+Has anyone an idea why this happens:
+
+ERR_TOO_MANY_REDIRECTS:
+https://stag.glamour.com/inspired
+https://multiverso.glamour.com/inspired
+
+I cannot find redirects like this.
+Nor at the old verso redirects, neither at CoPilot.
+
+
+Me again...
+When I try to access the Vogue US home page in CoPilot on staging, I get this error:
+
+Brand Code:	vogue
+User:      	cwoldt
+Route:     	/vogue/search?query=5f6df561205b48073c42f329
+Timestamp:	2023-08-07T13:19:52.382Z
+User Agent:	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+Stack:
+undefined
+
+I tried via the browser plugin and I also tried with the ID in the CoPilot search.
+
+https://stag.vogue.com/
+https://stg-copilot.condenast.io/vogue/search?query=5f6df561205b48073c42f329
+
+Can someone help me?
+
+
+git commit -m 'feat(vogue): hide dek text in SummaryItem'
+
+
+Thanks a lot. It works fine now.
+...but:
+https://stg-copilot.condenast.io/vogue/bundles/5f14be86c2e0bbfc52dde4de
+https://stg-copilot.condenast.io/vogue/bundles/60783f1cd1fa5faa8a980b0e
+https://stg-copilot.condenast.io/vogue/bundles/5f14c27637fe1b86b4b50861
+Different pages maybe the same issue?
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-647
+Do have an idea why the slugs are renamed and who did this?
+
+60.386
+
+And another bundle I cannot access:
+https://stg-copilot.condenast.io/glm/bundles/6470cd0f86a144c670493342
+I get this error:
+
+Brand Code:	glm
+User:      	cwoldt
+Route:     	/glm/bundles/6470cd0f86a144c670493342
+Timestamp:	2023-08-08T09:15:32.776Z
+User Agent:	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+Stack:
+TypeError: Cannot read properties of undefined (reading 'containers')
+
+Maybe broken items in one of the added sections?
+Can someone help me?
+
+
+
+532x399
+4:3
+1280x960
+
+548x411
+4:3
+1280x960
+
+
+Can someone explain me why a bundle should look quite different than article, gallery or other content types at SummaryItem
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/summary-item/SummaryItem.js#L112
+
+
+https://www.glamour.com/account/sign-in?redirectURL=https%3A%2F%2Fwww.glamour.com
+https://multiverso.glamour.com/auth/initiate?redirectURL=https%3A%2F%2Fwww.glamour.com&branch=LS4-634&source=VERSO_NAVIGATION
+
+
+
+
+For my understanding as I got more and more confused...
+
+The ticket says:
+
+ID Client for Glamour US, Allure and Self are enable in Prod and added on Verso.
+
+I guess I have to enable the 'Enable Sign In' featureFlag for prod.
+And I have to add the ID to the tenant config at verso.
+
+Is it right so far?
+
+
+Furthermore, the ticket says:
+
+Sign in item is disabled for now so the user do not see this option before the necessary QA.
+
+But how ist it possible to enable ID and featureFlag and have the Sign in item disabled at the same time?
+
+
+
+Milene said I should ask you directly...
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-634
+
+I was told to just add the production IDs for Glamour US, Allure and Self to verso tenant config:
+https://interfaces.conde.io/apps/oidc-admin
+
+As I did so - and Saahithi confirmed it is the right way - you added a comment to the ticket I don't get the point of it:
+
+the ticket description is fine but still i can see the error on glamour & self.
+Also i can see the sign in. links visible on Allure
+error screens shots while trying to complete the signin authentication
+& Glamour Production sites we were supposed to make this disabled and entire flow is also not tested yet
+
+So I have a few question to hopefully clearify it:
+
+i can see the error on glamour & self
+
+How can I reproduce the error?
+How is this error to fix?
+Maybe it will be fixed as soon as we enable the corresponding feature flag?
+
+Also i can see the sign in. links visible on Allure
+
+Can you tell me (screenshot & target URL) which link do you mean?
+Because there are so many different register/login/subscribe links I have no idea which ist the mentioned.
+
+Glamour Production sites we were supposed to make this disabled
+
+Does that mean we have to:
+- remove the ID from verso?
+- disable the feature flag?
+
+
+
+
+
+
+How can we ensure in the future that the tickets end up with the right teams? Because it is often not obvious to us - neither in grooming nor in planning - whether we are responsible for a topic or not.
+
+In particular, I am talking about two tickets from the current sprint:
+https://cnissues.atlassian.net/browse/LS4-634
+https://cnissues.atlassian.net/browse/LS4-648
+
+In one case, it is a topic that we have not been involved in before and about which we have no idea. Apparently, it is only about entering an ID in verso. In fact, this means discussions with half the world to somehow figure out what is supposed to happen and why it doesn't happen if we just add the ID.
+
+In the other case, it's about a brand that we don't actually look after. And there is a danger that a small change can have a big impact and can also lead to many discussions.
+
+For me, it is not about not wanting to do certain tasks. However, I see that there is a very unfavourable relationship between effort and benefit.
+
+
+
+I will set this ticket to blocked unless you have talked to Ad Tech team:
+https://cnissues.atlassian.net/browse/LS4-647
+
+When they say it is important to have slugs differing from the naming (and therefore we earn about 200 Billions and a washing machine with an outboard engine) I will merge the changed configs asap.
+If they say 'ups... for sure we revert our changes immediately' I will do nothing.
+
+
+I was able to get approvals for the summaryItemVariation PR:
+https://github.com/CondeNast/verso/pull/24199
+AND I was able to merge the PR.
+
+I am very proud that I geat at least one approval for the summary-river PR:
+https://github.com/CondeNast/verso/pull/24086
+But I was not able to merge it because of cypress.
+
+As you can see at the #verso-pr-review (and other) channel I tried it hard to get approvals.
+
+The hardest thing of all was/is my ticket about sign in area. I guess the last thing you realised was the revert of the IDs.
+At the moment I try to get valid informations from all over the world. About 5 people are working together with me just to get three lines of code online. Amazing and awesome.
+
+Thats enough for the moment.
+...but if you want I can tell you some more thrilling stories about DEK and how it can work.
+
+
+
+The problem arises in the video. Right?
+
+Then the video is also the place where the problem should be fixed. After all, it's not only the summary item that doesn't work like this. The video detail page is also far from optimal.
+If you or we now cover up this error on the verso side, so to speak, then we will never get a proper solution for it.
+
+It will only make things worse for us, because we will have to discuss the issue over and over again with our project people. And they, in turn, have to discuss it over and over again with the editors.
+
+Let's look for a sustainable solution - together, if you like - to solve the problem cleanly and permanently.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-642
+I have the strange feeling the imageAlignment prop is a special feature invented just for the New Yorker. 'cause the New Yorker is the only tenant who has other definitions than 'default' or 'top'.
+And I guess for the most tenants 'default' works because they either don't use the SummaryCollectionRow or don't have long HED text in there.
+So I am not sure if we should start a discussion about to get rid of this hack. Should we?
+
+
+
+When I try to create a new bundle container in here:
+https://stg-copilot.condenast.io/adin/sitesettings/content-types
+I get an error:
+Bundles.containers There are duplicate container values or types
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-643
+There is a container called "Trending Stories" at AD india that prevents me from creating the verso related component on staging:
+https://stg-copilot.condenast.io/adin/sitesettings/bundlecontainers/verso-related
+
+Do you have an idea for what it is for?
+Is it an old test that can be deleted/renamed?
+
+On prod it does not exist.
+
+
+
+https://stg-copilot.condenast.io/ades/bundles/60c72a36589517c2edfd01e7/verso-related/64d3922c1a996eb9ff0c6092
+https://stag.revistaad.es/verso-channel/diseno
+
+https://stg-copilot.condenast.io/adfr/bundles/60b02183ac4dea04548048c6/verso-related/64d393b5dca79a03087dfbe1
+https://stag.admagazine.fr/verso-channel/les-rendez-vous-ad?verso=true
+
+https://stg-copilot.condenast.io/adde/bundles/64b5047629cba53e8c33c1ef/verso-related/64d3944882983aa4f68b35dc
+https://stag.ad-magazin.de/verso-channel/test-linkbanner
+
+https://stg-copilot.condenast.io/adit/bundles/63ea11617401a3bf7fe3071c/verso-related/64d394a7c24bd634eb6ec0cf
+https://stag.ad-italia.it/verso-channel/hreflang-test-ad-it/
+
+https://stg-copilot.condenast.io/adin/bundles/6000a43f5185c350fcd4e9b0/verso-related/64d39de95af6f904f06108bb
+http://stag.architecturaldigest.in/verso-channel/perspective
+
+
+Can you explain me why we need the Verso Related component just for DE, ES, FR, MX and IT and not for IN and ME?
+
+
+
+Regarding this Ticket:
+https://cnissues.atlassian.net/browse/LS4-647
+Do you already have a decision?
+
+
+Please can sameone take care of the cypress thing in here:
+https://github.com/CondeNast/verso/pull/24259
+Would be very appreciated...
+
+
+Should we change the link? Then please tell us the correct link.
+If the link is correct but the target is down, this is not the right channel I guess. Then please try your luck at #platform-questions
+
+I have a question about channels and how the relation works:
+If I rename a channel slug, can I just do that or will relations to content items break?
+It's about the beauty channel on Glamour US, which has to have the slug 'lipstick'. This is a requirement from Ad Tech and SEO.
+https://copilot.condenast.io/glm/category-manager/5b0586efed1111562bd63f22/5b0586efc6f7b451a5492571/edit
+
+
+
+Hi there,
+that link for Self is there anyways, despite testing section in PR says it is now there? We are fixing it with temporary hack with Newsletter link, but would really appreciate if you fix it properly. It might also affect other tenants that like Self doesn't have Sign in link by default now.
+
+
+It looks like it is not so easy to simply rename a slug.
+
+This will have an impact. the existing Content Types which are tagged to this channel need to get reindexed for search to reflect the results
+
+I try to figure out what this means to us.
+
+
+
+
+
+
+
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-647
+As I commented it is necessary to do it together with platform (Srinivas Karthik).
+@elena I gues you have to do it because I will leave in about one and a half hour for vacation.
+And that's a bit tight in terms of time.
+I will still prepare the PR for the ticket so far.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-648
+Take a short look to the last comments...
+Please double check but I am pretty sure the PR will work as expected and as required.
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-647
+
+Now we have following URLS:
+Style:
+https://www.glamour.com/fashion
+Beauty:
+https://www.glamour.com/lipstick
+Culture:
+https://www.glamour.com/inspired
+
+And following taxonomy channels with slugs:
+Style -> fashion
+Beauty -> beauty
+Culture -> inspired
+
+And last but not least we have this channel configs:
+- beauty
+- culture
+- style
+
+It's crazy, maybe even stupid, but it is what it is.
+If we don't change anything in CoPilot and only change the names of the channel configuration files accordingly, then we can merge the PR and everything is fine. And above all, we don't need to re-index anything.
+Isn't that right?
+
+
+Du wolltest doch eine Erklärung, warum der Channel "Beauty" den Slug "lipstick" haben soll.
+Und die Erklärung besagt dieses:
+Es gibt diese URL:
+https://www.glamour.com/lipstick
+Nicht aber diese:
+https://www.glamour.com/beauty
+Und wenn der Channel "Beauty" jetzt den Slug "beauty" hat, dann linken alle Rubrik-Links auf die URL https://www.glamour.com/beauty.
+Beim Channel selber gibt es einen Redirect auf https://www.glamour.com/lipstick. Bei den SubChannels gibt es keinen Redirect, damit erzeugen die Links einen 404 Fehler.
+
+
+
+Seßlach
+
+I don't know if any of you will ever spend a night in Seßlach. Actually, the Winkler guesthouse is worth an overnight stay.
+
+If you ride into Sesslach on your bike, you'll immediately feel the breeze of the Middle Ages as you pass through the town gate. Around every corner you expect to see a knight or a squire.
+
+When you enter the Pension Winkler... The Middle Ages, that's for sure. In the reception hall, the smell of gun fat wafts around you. Swords, pieces of armour and pikes are hanging or lying everywhere. The master of the house awaits his guests on a throne-like armchair. Hospitality personified, he first offers sweaty cyclists a cool drink of water before going through the formalities.
+
+He is not that good on his feet. He hands over the front door key and says goodbye before the last - admittedly quite tight - staircase with the words "your room is upstairs on the right". And what a room.
+
+Biedermeier. Original or well copied. Biedermeier on the walls, Biedermeier furniture. Box beds and a bedpan hanging on the wall. A wash basin next to the bed. One would like to ask if one could not also inspect the other rooms...
+
+
+
+
+
+
+Hi Milene,
+isn't it wonderful to find the ticket that causes a lot of gray hair two weeks ago nearly untouched?
+...no it is not.
+I am very sorry but I have to start the discussion once more.
+
+It is about this ticket:
+https://cnissues.atlassian.net/browse/LS4-647
+
+Tobi told me following:
+It is forbidden by law and is punishable by very severe penalties to create taxonomy slugs which differ from the name except in lower case.
+The only exceptions are:
+- We earn at least 10,000,000 euros with it
+- Someone can explain to us exactly why the slug has to be different
+
+Just to say "we need..." or "it is our recommendation" is not enough explanation. We really must understand why.
+
+That means the taxonomies should look like this:
+Style -> style
+Beauty -> beauty
+Culture -> culture
+
+If the ad and/or the seo team needs another slug, then they have to explain to us:
+1. why they can't work with the "right" slugs
+2. why the slug needs to be named differently
+
+And they must note that regardless of the naming of the taxonomies, there are always the channel URLs:
+Style:
+https://www.glamour.com/fashion
+Beauty:
+https://www.glamour.com/lipstick
+Culture:
+https://www.glamour.com/inspired
+
+And what is very important: I don't want to have a meeting with the teams, but I would like the explanation to be short, brief and in writing.
+
+
+
+Adam Lifshiz
+
+
+Hi there,
+
+we have following channel URLs:
+Style:
+https://www.glamour.com/fashion
+Beauty:
+https://www.glamour.com/lipstick
+Culture:
+https://www.glamour.com/inspired
+
+And following taxonomy channels with slugs:
+Style -> fashion
+Beauty -> beauty
+Culture -> inspired
+
+Now we have the requirement to rename the slug of the channel beauty:
+Beauty -> lipstick
+
+My question:
+Can it cause issues at CoPilot if there are taxonomy slugs that are not matching with the taxonomy name?
+
+
+do you think from verso side any change is required if slug names is changed in copilot?
+
+
+Im finde Service orientiert wirklich gut, aber wenn sich ein 2h Ticket zu einem 3d Ticket entwickelt, der SEO impact absolut ungeklärt ist und wir riskieren noch viel schlimmere Folgeprobleme zu generieren, dann ist Service-Orientiert einfach nicht zukunfts-orientiert oder Kosten effizient
+10:45
+Da muss man einfach höllisch aufpassen und alles ins richtige Verhältnis setzen.
+
+SEO impact:
+Was für Informationen brauchen wir, um entscheiden zu können, wie groß der Impact ist?
+Bisher besagten meine Informationen, dass massenweise 404 Fehler ein ziemlich großes Problem darstellen.
+
+schlimmere Folgeprobleme:
+Welche Probleme genau siehst du da?
+Dann kann ich versuchen heraus zu finden, ob es die Probleme wirklich gibt.
+
+
+
+
+Die Frage ist ja, wenn wir den 404 durch gerade ziehen der Slugs lösen und damit nicht mehr "lipstick" in der URL haben
+Jetzt noch mal ganz von vorne:
+In fernster Vergangenheit hat jemand die Idee gehabt, aus beauty lipstick zu machen. Damit wurde keine Ahnung die Hälfte aller Glamourseiten mit einer "lipstick" Verlinkung bei Google indexiert. Diese Unschönigkeit wurde bei der letzten Migration mehrfach hinterfragt und immer war die Antwort, dass muss leider so bleiben, weil wir anderen Falles
+
+
+Nachdem du uns zwei Mal unterstützt hast, kann unser Team so schlimm nicht gewesen sein...
+Ich wünsche dir alle Gute für die Zukunft. Geniesse deinen Garten und schöpfe Kraft aus dem Buddeln in der Erde.
+Christian
+
+Schwupps schon sind die sechs Monate rum.
+Bleibt zu sagen Danke für Energie und Zeit, die du aufgebracht hast, unser Team zu unterstützen.
+Ich hoffe, du nimmst was mit und wünsche dir alles Gute.
+Christian
+
+summaryTitle
+shouldHideDangerousHed
+compare with: 4d27105fbb4c13808a8156b32b43b6a5ed010726
+
+Ich versuche das mal zusammen zu fassen:
+Die Metadaten eines River - also HED, DEK, whatever - werden nicht als Metadaten übergeben, sondern als erstes Item.
+Im SummaryItem wird dangerousHed ausgegeben, wenn es vorhanden ist und shouldHideDangerousHed nicht gesetzt ist.
+Wenn das Item im SummaryItem ein Contributor ist, dann wird zusätzlich zum dangerousHed noch der contributorName ausgegeben. Beide props haben den selben Inhalt.
+Um die Doppelung zu unterbinden habe ich vor längerer Zeit shouldHideDangerousHed auf true gesetzt.
+Dabei habe ich - und auch sonst niemand - bemerkt, dass nicht nur die unerwünschte Doppelung, sondern noch viel mehr verschwunden ist:
+- Der HED Text der River Section
+- Der Anker Link für die Section Jump Links
+Jetzt brauche ich erst einmal frische Luft...
+Und morgen eure Hilfe :-)
+
+
+
+
+738,50 Alex - Bamberg & Wasa
+125,00 Geist - Bamberg
+376,68 Geist - Prein
+1240,18 gesamt
+
+
+Kudos
+
+Tobi
+Ich möchte dir danken für deinen unerschütterlichen Glauben, dass wir verso besser machen können.
+Und ich möchte dir danken, dass du mich unermüdlich motivierst, auch daran zu glauben.
+
+Elena
+Ich möchte dir danken, dass du mich jederzeit unterstützt, wenn ich mal wieder drohe zu verzweifeln.
+
+Saahiti
+Ich möchte dir danken für deine Unterstützung und deine Geduld bei der Sache mit dem oidcProvider.
+
+Milene
+Ich möchte dir für deine stets gute Laune danken.
+
+Kudos
+
+Tobi
+I want to thank you for your unwavering belief that we can make verso better.
+And I want to thank you for tirelessly motivating me to believe it too.
+
+Elena
+I want to thank you for supporting me whenever I am in danger of despair.
+
+Saahithi
+I want to thank you for your support and patience with the oidcProvider.
+
+Milene
+I want to thank you for always being in a good mood.
+
+
+
+
+
+
+
+brutto 2022: 57.727 79
+
+
+Soweit ich das jetzt sehen kann - und da sind immer noch ein paar ungesicherte Vermutungen dabei - passiert folgendes:
+Ein Contributor hat keinen HED Text, sindern nur einen name. Auf seinem Weg durch die Institutionen wird irgendwo aus dem name ein dangerousHed UND ein contributorName.
+Wo dangerousHed entsteht, das habe ich jetzt auch nach vier Stunden Recherche nicht finden können. Der contributorName wird im SummaryItem aus den contributor Daten (contributor.name) genommen.
+
+Eine ordentliche Lösung würde folgendes bedeuten:
+- Die Daten für SummaryRiver müssen anders aufbereitet werden. Eine klare Trennung von Meta Daten und Items muss erfolgen.
+- Für verso-river muss ein ordentliches Template erstellt werden, dass eine klare Trennung von Meta Daten und Items beinhaltet.
+- Im SummaryItem muss entweder ein klare Trennung verschiedener Darstellungen geben oder die Darstellung des Contributors muss an den standard angepasst werden.
+- Eine klare, nachvollziehbare Definition, wie ein Contributor strukturiert zu sein hat, muss erfolgen.
+
+Ein schneller Workaround könnte so aussehen:
+- Wenn contributorName oder shouldHideDangerousHed gesetzt sind, wird dangerousHed nicht ausgegeben.
+
+const hideHed = !!(shouldHideDangerousHed || contributorName);
+
+
+Hi there,
+I cannot access the homepage of Vogue on staging:
+https://stg-copilot.condenast.io/vogue/bundles/5f6df561205b48073c42f329
+CoPilot says:
+
+Brand Code:	vogue
+User:      	cwoldt
+Route:     	/vogue/bundles/5f6df561205b48073c42f329
+Timestamp:	2023-08-23T12:40:01.899Z
+User Agent:	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36
+Stack:
+undefined
+
+Can someone tell me what happens?
+...and how to fix it?
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-660
+
+It is, as I feared...
+The script isn't working out of the box. When I run the script locally I allways get a timeout error.
+
+Maybe you can take a look at it....
+https://github.com/CondeNast/aviator-scripts/pull/529/files
+
+
+
+start on Sept 01st in the morning:
+1693558800000
+Friday, September 1, 2023 11:00:00 AM GMT+02:00
+Friday, September 1, 2023 07:00:00 AM EST
+
+change its content on Sept. 21 at 8AM (EST) (2PM GMT+2):
+1695290400000
+Thursday, September 21, 2023 12:00:00 PM GMT+02:00
+Thursday, September 21, 2023 08:00:00 AM EST
+
+staying live till October 1st at 11:59PM(EST):
+1696211940000
+Monday, October 2, 2023 3:59:00 AM GMT+02:00
+Monday, October 2, 2023 11:59:00 PM EST
+
+yesterday:
+1692745200000
+Wednesday, August 23, 2023 1:00:00 AM GMT+02:00
+Wednesday, August 22, 2023 9:00:00 PM EST
+
+
+Now I have one or two questions...
+We adopted the script for Allure:
+https://github.com/CondeNast/aviator-scripts/pull/529/files
+1. what do we have to do to create a build like the one you used (build/cnt/fetch-tags.js)
+2. when we run the script directely:
+NODE_ENV=production DEBUG=* node src/allure/fetch-tags.ts | tee taxonomies.allure.log
+we get an timeout error. did you had this problem either?
+
+Scott Cuhna,5b351db167eeb20b6fd0acca,2018-06-28T17:41:05.789Z,1,false,tags/scott-cuhna,1
+
+
+
+Sorry, dass ich noch nicht geantwortet habe. Irgendwie geht es gerade wieder etwas drüber und drunter.
+Aber ja, das hilft mir weiter und - so leid es mir tut - wirft auch weitere Fragen auf:
+
+Was bedeuten diese Begriffe: "Consumption, Discovery, Foundation, Interactive"?
+Sind das standards in der Designersprache?
+Oder beziehen sie sich auf irgendwas inhaltliches oder funktionales, das sich mir nicht erschliesst?
+
+Und dann auch so was wie "subhead" oder "link".
+Es gibt da so wunderbare html-tags, die repräsentieren Elemente. Zum Beispiel h2, href oder einfach a.
+Und es gibt CoPilot Benamsungen wie zum Beispiel HED oder DEK.
+Und schließlich gibt es wohl auch noch verso/react spezifische Bezeichnungen wie dangerousHed.
+Gibt es einen Grund, warum sich die Design Tokens an keiner dieser Spezifikationen orientiert?
+
+Ich würde das gerne verstehen. (Oder gibt's da gar nichts zu verstehen...)
+
+
+Zu diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-663
+
+Hier siehst du, dass bei "Lisa Aiken’s Summer Fashion Edit" Bundle ein Autor ausgegeben wird:
+https://stag.vogue.com/verso-homepage/test-for-bundles-in-sections
+Damit hat sich das Ticket eigentlich erledigt...
+
+Weil aber verso verso ist:
+Wenn dir irgendwo ein fehlender Autor auffällt, dann gib mir umgehend Bescheid, damit ich mir das wieder andehen kann.
+
+
+Das war nicht so geplant, aber die Doktorin hat mir gestern striktes Schonen meines Handgelenks verordnet:
+Kein Radfahren. Kein Tennis. keine Gartenarbeit. Und kein Arbeiten am Computer. Und das bis wenigstens Dienstag.
+
+
+As the teaser data for contributors is malformed we implemented a temporary hack to hide the duplicate HED text.
+
+The ticket:
+https://cnissues.atlassian.net/browse/LS4-655
+The hack:
+https://github.com/CondeNast/verso/pull/24512
+
+As soon as we can use the proper solution invented for "Travel Specialists" we have to remove the hack from SummaryItem.
+
+DoD
+
+The hack for contributors is removed.
+
+
+
+# report changes of UBT
+src/components/templates/universal-bundle-page/ @sevenseas
+
+# report changes of lifestyle tenants
+src/tenants/allure/  @sevenseas
+src/tenants/self/  @sevenseas
+src/tenants/glamour*  @sevenseas
+
+
+Wann und wo hätte das denn verkündet worden sein sollen, dass die Miriam geht?
+Weil Nina gerade ebenso verdutzt war, wie ich.
+
+
+
+
+Definition der nach oben offenen E.Richter-Skala:
+6 Augustiner Edelstoff entsprechen 10 Eibsi (geht gerade so)
+6 Augustiner Edelstoff und 8 Obstler entsprechen 20 Eibsi (= ganz furchtbar schlimm)
+
+Nach oben offen, weil auch noch viel ärgeres denkbar ist.
+Zum Beispiel 8 Oettinger und dazu 8 kurze. Das wären dann 22 Eibsi
+
+
+Siehste... ich habe gerade erfahren, dass es vor etwa zwei Wochen gewesen sein kann.
+Andere Quellen sagen etwa vier Wochen. Und dass das schon sehr plötzlich gewesen sein muss. Mit sofortiger Freistellung.
+Da drehen sich eben Flurfunk und Gerüchtekücke.
+
+
+
+
+Sorry for my late response. I was on sick leave 'til today.
+Thanks for your answer. Compiling works fine.
+But how can I run the script batch wise?
+I found a "limit" option at walkAndSearch:
+https://github.com/CondeNast/copilot-js-sdk/blob/master/lib/methods/walkAndSearch.js#L101
+But no "offset" to set the start point.
+
+https://all-api.aws.conde.io/search?types=categories&hierarchy=tags%2Fwallis&archived=false&size=10000&start=500
+https://all-api.aws.conde.io/search?types=categories&hierarchy=tags&start=50
+
+
+wednesday, august 23rd
+
+Can someone help me with cypress here:
+https://github.com/CondeNast/verso/pull/24427
+https://github.com/CondeNast/verso/actions/runs/6025414647
+And yes:
+- I updated the branch severals times
+- I startet all jobs several times
+
+
+
+http://localhost:7777/allure/account/profile
+
+
+
+
+
+Vielleicht kann mir jemand weiter helfen:
+Ich brauche ja verschiedene Anwendungen zum Entwickeln. Unter anderem node, nvm und npm.
+Die werfen allerdings Fehler wie diesen:
+Bad CPU type in executable
+Und wenn ich nach einer Lösung suche, dann lande ich immer wieder bei der Information, ich solle doch rosetta installieren. Wenn ich das dann versuche wie vorgeschlagen:
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+sagt der Rechner:
+Installing Rosetta 2 on this system is not supported.
+Ich drehe mich da also etwas im Kreis.
+Hat jemand eine Idee, wie ich an dieses rosetta ran komme?
+Oder was ich sonst machen kann, um meine Software wieder zum Laufen zu bringen?
+
+Mein System:
+macOS Monterey / Version 12.6.7
+MacBook Pro
+Processor: 2,6 GHz 6-Core Intel Core i7
+
+
+summaryListWithAside
+hasRail
+
+
+summaryList
+
+WARN [15:12:25.158] (config-manager/34229): Network error while querying config service. fetch failed
+WARN [15:12:25.158] (config-manager/34229): Error while retrieving config for conde-nast-traveler-staging default workspace.
+ERROR [15:12:25.159] (verso/34229): Resolved config not found
+
+The mystery of the River:
+The component is called River.
+But River is no configured component but a construct within MultiPackages.
+At contentTypes in the channelsConfig we can configure SummaryRiver.
+At the renditions part it's called summaryList... and I am pretty sure this summaryList is not only for SummaryRiver.
+And if the hasRail prop isset - again - it's completely different.
+It drives me crazy... it's time for GinTonic
+
+
+
+
+SummaryRiver: {
+  settings: {
+    shouldShowRiverHed: true,
+    summaryItemRubricVariation: 'DiscoveryItem',
+    sectionTitleVariation: 'TextCenter',
+    summaryItemVariation: 'TextBelowLeft',
+    chunkSize: 6
+  }
+},
+
+summaryList: {
+  sm: {
+    aspectRatio: '1:1',
+    width: 768
+  },
+  lg: {
+    aspectRatio: '1:1',
+    sizes: '25vw',
+    width: 1280
+  },
+  xxl: {
+    aspectRatio: '1:1',
+    sizes: '25vw',
+    width: 1600
+  }
+}
+
+
+
+
+AD:
+http://localhost:7777/architectural-digest-staging/test-river
+https://stag.architecturaldigest.com/test-river?verso=true
+https://stg-copilot.condenast.io/ad/bundles/64f7116170afeb95ba1644a0
+https://multiverso.architecturaldigest.com/test-river?branch=LS4-652
+AD de:
+http://localhost:7777/architectural-digest-germany-staging/verso-channel/test-river
+https://stag.ad-magazin.de/verso-channel/test-river
+https://stg-copilot.condenast.io/adde/bundles/64f9d41e6f2330b2804dc791
+https://multiverso.ad-magazin.de/verso-channel/test-river?branch=LS4-652
+AD es:
+http://localhost:7777/architectural-digest-espana-staging/verso-channel/test-river
+https://stag.revistaad.es/verso-channel/test-river
+https://stg-copilot.condenast.io/ades/bundles/64f9d7a33e95b5e739c4fbc0
+https://multiverso.revistaad.es/verso-channel/test-river?branch=LS4-652
+AD in:
+http://localhost:7777/architectural-digest-india-staging/verso-channel/test-river/
+https://stg-copilot.condenast.io/adin/bundles/64f9e0d5f47a89ebb59fe06e
+https://stag.architecturaldigest.in/verso-channel/test-river/
+https://multiverso.architecturaldigest.in/verso-channel/test-river?branch=LS4-652
+AD it:
+http://localhost:7777/architectural-digest-italia-staging/verso-channel/test-river/
+http://stag.ad-italia.it/verso-channel/test-river
+https://stg-copilot.condenast.io/adit/bundles/64fec8658d04d8a73b50394b
+http://multiverso.ad-italia.it/verso-channel/test-river?branch=LS4-652
+AD me:
+http://localhost:7777/architectural-digest-middle-east-staging/verso-channel/test-river
+https://stag.admiddleeast.com/verso-channel/test-river
+https://stg-copilot.condenast.io/adme/bundles/64fede2fe8d1ce775ad4d46f
+https://multiverso.admiddleeast.com/verso-channel/test-river?branch=LS4-652
+AD mx:
+http://localhost:7777/architectural-digest-mexico-y-latinoamerica-staging/test-river
+http://stag.admagazine.com/test-river
+https://stg-copilot.condenast.io/admx/bundles/64fed062633c67a5751f924b
+http://multiverso.admagazine.com/test-river?branch=LS4-652
+
+Allure:
+http://localhost:7777/allure-staging/test-river
+https://stag.allure.com/test-river
+https://stg-copilot.condenast.io/all/bundles/64f8948aaa1b122c97be5f34
+https://multiverso.allure.com/test-river?branch=LS4-652
+
+CNT:
+http://localhost:7777/conde-nast-traveler-staging/verso-channel/test-river
+http://stag.cntraveler.com/verso-channel/test-river
+https://stg-copilot.condenast.io/cnt/bundles/64f897e03aa02b31f026af63
+http://multiverso.cntraveler.com/verso-channel/test-river?branch=LS4-652
+CNT espana:
+http://localhost:7777/conde-nast-traveler-espana-staging/verso-channel/test-river
+http://stag.traveler.es/verso-channel/test-river
+https://stg-copilot.condenast.io/cntes/bundles/64ff107eff09ad10f5810f28
+http://multiverso.traveler.es/verso-channel/test-river?branch=LS4-652
+CNT india:
+http://localhost:7777/conde-nast-traveler-india-staging/verso-channel/test-river/
+https://stag.cntraveller.in/verso-channel/test-river/
+https://stg-copilot.condenast.io/cntin/bundles/64ff15265d6a0e8e6469cd52
+https://multiverso.cntraveller.in/verso-channel/test-river/?branch=LS4-652
+CNT me:
+http://localhost:7777/conde-nast-traveller-me-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/cntme/bundles/64ff17b2a87d12d51aee272a
+https://stag.cntravellerme.com/verso-channel/test-river
+https://multiverso.cntravellerme.com/verso-channel/test-river?branch=LS4-652
+CNT uk:
+http://localhost:7777/conde-nast-traveler-uk-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/cntuk/bundles/64ff1befc322bc5b345c0d56
+http://stag.cntraveller.com/verso-channel/test-river
+http://multiverso.cntraveller.com/verso-channel/test-river?branch=LS4-652
+
+Glamour:
+http://localhost:7777/glamour-staging/verso-channel/test-river/
+https://stg-copilot.condenast.io/glm/bundles/64ff221ea7cdf430fa5adc70
+https://stag.glamour.com/verso-channel/test-river
+https://multiverso.glamour.com/verso-channel/test-river?branch=LS4-652
+Glamour de:
+http://localhost:7777/glamour-germany-staging/verso-channel/test-river/
+https://stg-copilot.condenast.io/glmde/bundles/64ff22120fae2077c625b773
+https://stag.glamour.de/verso-channel/test-river
+https://multiverso.glamour.de/verso-channel/test-river?branch=LS4-652
+Glamour es:
+http://localhost:7777/glamour-espana-staging/verso-channel/test-river/
+https://stg-copilot.condenast.io/glmes/bundles/64ff2216ea8696fe71326db8
+https://stag.glamour.es/verso-channel/test-river
+https://multiverso.glamour.es/verso-channel/test-river?branch=LS4-652
+Glamour mx:
+http://localhost:7777/glamour-mexico-y-latinoamerica-staging/test-river/
+https://stg-copilot.condenast.io/glmmx/bundles/64ff220e909d02f02f108e62
+https://stag.glamour.mx/test-river
+https://multiverso.glamour.mx/test-river?branch=LS4-652
+Glamour uk:
+http://localhost:7777/glamour-uk-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/glmuk/bundles/64ff220970cf741b455be173
+https://stag.glamourmagazine.co.uk/verso-channel/test-river
+https://multiverso.glamourmagazine.co.uk/verso-channel/test-river?branch=LS4-652
+
+GQ:
+http://localhost:7777/gq-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gq/bundles/64ff2f83b5268961ddadcc5f
+https://stag.gq.com/verso-channel/test-river?verso=true
+https://multiverso.gq.com/verso-channel/test-river?verso=true
+GQ de:
+http://localhost:7777/gq-germany-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gqde/bundles/64ff2f7260be61ec9087c039
+http://stag.gq-magazin.de/verso-channel/test-river
+http://multiverso.gq-magazin.de/verso-channel/test-river?branch=LS4-652
+GQ espana:
+http://localhost:7777/gq-espana-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gqes/bundles/64ff2f7e28df8aefb3c918a6
+http://stag.revistagq.com/verso-channel/test-river
+http://multiverso.revistagq.com/verso-channel/test-river?branch=LS4-652
+GQ france:
+http://localhost:7777/gq-france-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gqfr/bundles/64ff2f7811052c3508391272
+https://stag.gqmagazine.fr/verso-channel/test-river
+https://multiverso.gqmagazine.fr/verso-channel/test-river?branch=LS4-652
+GQ in:
+http://localhost:7777/gq-india-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gqin/bundles/64ff2f6d59f27c0a0d3a60c1
+http://stag.gqindia.com/verso-channel/test-river
+http://multiverso.gqindia.com/verso-channel/test-river?branch=LS4-652
+GQ italia:
+http://localhost:7777/gq-italia-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gqit/bundles/64ff2f66834aac91c42ca9e3
+http://stag.gqitalia.it/verso-channel/test-river
+http://multiverso.gqitalia.it/verso-channel/test-river?branch=LS4-652
+GQ jp:
+http://localhost:7777/gq-japan-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gqjp/bundles/64ff2f631f4cec379ea40c0d
+http://stag.gqjapan.jp/verso-channel/test-river
+http://multiverso.gqjapan.jp/verso-channel/test-river
+GQ mx:
+http://localhost:7777/gq-mexico-y-latinoamerica-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gqmx/bundles/64ff2f5d15fc7f8851c80981
+https://stag.gq.com.mx/verso-channel/test-river?verso=true
+https://multiverso.gq.com.mx/verso-channel/test-river?branch=LS4-652
+GQ tw:
+http://localhost:7777/gq-taiwan-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gqtw/bundles/64ff2f592ef4c22d92d819ad
+http://stag.gq.com.tw/verso-channel/test-river
+http://multiverso.gq.com.tw/verso-channel/test-river?branch=LS4-652
+GQ uk:
+http://localhost:7777/gq-uk-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/gquk/bundles/64ff2f53b27dadf48e874d25
+http://stag.gq-magazine.co.uk/verso-channel/test-river
+http://multiverso.gq-magazine.co.uk/verso-channel/test-river?branch=LS4-652
+
+Self:
+
+29
+8
+
+Guido:
++49 177 6881017
+
+Ich habe selber noch nicht ganz verstanden, warum das so ist, aber in Programmiersprachen gibt es mehrere Zustände einer Variablen, die zum Ausdruck bringen, dass es etwas nicht gibt:
+- ''
+- empty
+- undefined
+- null
+Im speziellen Fall passiert etwa dieses:
+Wenn die URL eines Contributors empty, '' oder undefined ist, dann soll '', also keine URL, zurück gegeben werden.
+Wenn die URL jedoch null ist, dann
+
+I haven't quite understood myself why this is, but in programming languages there are several states of a variable that express that something doesn't exist:
+- ''
+- empty
+- undefined
+- null
+In this particular case, something like this happens:
+If the URL of a contributor is empty, '' or undefined, then '' - that means no URL - should be returned.
+However, if the URL is null, then
+
+
+’cause you said for Allure the River layout is already fixed:
+Allure has the hasRule: false prop set.
+I would like to remove this and replace it with the rendition config for summaryList.
+
+
+Du wartest bestimmt schon sehr gespannt auf die Frage, die ich letzte Woche Mittwoch angekündigt habe.
+Ich versuche sie so vorsichtig wie möglich zu stellen....
+
+Es geht um das River layout für die Varianten ThreeColumns und OneColumn.
+Natürlich ist es so, dass jede Marke und ebenso jeder tenant seine einge Konfiguration hat. Das sind also 29 tenants und entsprechend 29 Konfigurationen.
+
+Jetzt die Frage:
+Was und wie sehr können wir da vereinheitlichen?
+
+Ich habe ein paar Beispielseiten für AD, Allure und CNT angelegt.
+Vielleich können wir uns die kurz zusammen anschauen?
+
+
+And again my question:
+Isn't there a way to standardise the naming?
+In this case:
+- dangerousBundleDek -> dangerousDek
+- bundleTitle -> dangerousHed
+or
+- dangerousBundleDek -> dek
+- bundleTitle -> hed
+or
+- dangerousBundleDek -> bundleDek
+- bundleTitle -> bundleHed
+or
+- dangerousBundleDek -> dangerousBundleDek
+- bundleTitle -> dangerousBundleHed
+
+https://github.com/CondeNast/verso/pull/24669/files#diff-582ead0248bba5dc1a2915a190568053184318bfe52800abdc535782030ea5f3R34
+
+
+Nachdem mir bislang niemand erklären konnte, warum die tokens so benannt sind, wie sie benannt sind, vermute ich, dass du das auch nicht kannst...
+Warum zum Beispiel wird hier ein color token aus der Sektion 'consumption' genommen und ein Design token aus der Section 'discovery'.
+
+
+Ich könnte ja schon wieder heulen.
+Auf der Allure werden die quadratischen Bilder mit dem hasRule prop erzeugt, von dem ich immer noch nicht weiß, was der eigentlich macht und für was der gut ist.
+Wenn ich den prop entferne und dafür renditions für summaryList setze, dann sind die Bilder zwar auch quadratisch. Im OneColumn layout allerdings viel größer.
+Trotzdem würde ich hasRule gerne bei allen brands/tenants entfernen, weil ich gesehen habe, dass dieser prop auf anderen Seiten andere renditions erzeugt.
+Fällt dir vielleicht was ein, wie die Bilder für OneColumn und ThreeColumn unterschiedlich erzeugt werden können?
+
+Ach... es ist alles noch viel schlimmer.
+Wenn ich das richtig sehe, dann stellt dieses hasRule: false die rendition config von summaryList auf summaryListWithAside. So weit, so schlecht.
+Die default config von summaryListWithAside erzeugt Bilder im Verhältnis 1:1. Damit funktioniert das auf der Allure.
+Bei einigen (wohlgemerkt: nicht bei allen) tenants war irgendjemand der Meinung, default ist immer schlecht und hat die renditions in der tenant config überschrieben. Das dann aber nicht einheitlich, sondern sehr, sehr wild.
+Ich würde mich ja am liebsten mit Milene zusammen setzen und versuchen, dass tenant für tenant zu richten.
+
+Oh... it's all much worse than that.
+If I see it correctly, this hasRule: false sets the rendition config from summaryList to summaryListWithAside. So far, so bad.
+The default config of summaryListWithAside creates images in a 1:1 ratio, so that works on the Allure.
+With some (not all, mind you) tenants, someone thought that default is always bad and has overriden the renditions in the tenant config. But this was not done consistently, but very, very wildly.
+I would love to sit down with Milene and try to fix that tenant by tenant.
+
+renditionConfig:: homepage.summaryListWithAside
+
+
+
+
+
+        SummaryRiver: {
+          settings: {
+            summaryItemVariation: 'SideBySideDesktopOnlyThirds',
+            summaryItemRubricVariation: 'DiscoveryItem',
+            sectionTitleVariation: 'TextCenter',
+            shouldShowRiverDek: true,
+            shouldShowRiverHed: true,
+            hasLineAboveBelowInTitle: true,
+            hasRail: true,
+            chunkSize: 6
+          }
+        },
+        SummaryCollectionGrid: {
+          variation: 'ThreeColumnsWithAdSection',
+          settings: {
+            summaryItemRubricVariation: 'DiscoveryItem',
+            summaryItemVariation: 'SideBySideMobileOnlyThirdsImageRight',
+            shouldTreatTabletLikeMobile: true
+          }
+        },
+
+
+
+
+
+
+
+
+
+
+        SummaryCollectionGrid: {
+          settings: {
+            summaryItemRubricVariation: 'DiscoveryCard'
+          }
+        },
+
+
+
+Because in here https://www.glamour.com/gallery/celebrity-hair-changes I see link to https://www.glamour.com/beauty/hair but it should be https://www.glamour.com/lipstick/hair
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-660
+
+Please clone this repository:
+https://github.com/CondeNast/aviator-scripts
+
+In the branch LS4-660 you can see two scripts fetch-tags.ts and fetch-categories.ts
+Both are more or less copies from the script mentioned in the ticket.
+https://github.com/CondeNast/aviator-scripts/tree/LS4-660/src/allure
+
+Both are working in a way. But as the Allure has a huge amount of tags/categories the scripts run into a timeout, breaks and will generate no output.
+One idea was to call the script with a limit and loop throug the taxonomies.
+It is possible to set limit and start like this:
+const criteria = {
+    types: COLLECTION_NAME,
+    hierarchy: hierarchy,
+    archived: false,
+    start: 0
+};
+const options = {
+    limit: 5
+};
+...but it's just an idea. I don't know if it's possible.
+
+Please take a look.
+And don't hesitate to ask me... but I will not know ;-)
+
+
+Please add this script https://github.com/CondeNastDigital/cnBolt-Extensions-Designs/pull/31/files
+here:
+
+
+
