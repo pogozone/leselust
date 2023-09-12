@@ -189,6 +189,53 @@ connect to FortiVPN
 ssh odocker0
 docker exec -i satis /usr/local/bin/rebuild_satis
 ===================================================================
+Auf welchem Server liegt was?
+
+odev0:
+cnAd2017
+cnAdChoice
+cnAdCustom
+cnAllEditors
+cnAllNewsletters
+cnAllSsoCustomer
+cnAllSsoInternal
+cnCnx2020
+cnCnxTechblog
+cnCondenast2020
+cnCondenastLeitbild
+cnGlamour2020
+cnGlamourComp
+cnGlamourCustom
+cnGlamourEditors
+cnGlamourHoroscope
+cnGlamourPilic
+cnGqComp
+cnGqCustom
+cnGqEditors
+cnGqMoty
+cnGqStyleguide
+cnGqTechnik
+cnMarciProxy
+cnServiceHarpoon
+cnServiceKraken
+cnServiceNautilus
+cnServicePatrick
+cnServiceSSO
+cnShopFinder
+cnShopFinder2021
+cnStatic
+cnVogueArchive
+cnVogueComp
+cnVogueCustom
+cnVogueEditors
+cnVogueHoroscope
+frVogueHoroscope
+
+odev1:
+
+odev2:
+
+===================================================================
 
 
 
