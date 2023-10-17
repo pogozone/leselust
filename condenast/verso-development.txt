@@ -55,9 +55,18 @@ https://interfaces.conde.io/apps/versosettings
 navigation for instance.
 
 ==============================
+Cypress
+
 Wenn cypress mal wieder nicht will... hier sind die Prozesse aufgelistet und können neu gestartet werden:
 
 https://github.com/CondeNast/verso/actions/workflows/cypress.yml
+
+Actions
+In einer cypress action findet man unter
+-> Check Labels
+-> Run
+-> pr_number
+die Nummer des Pull Requests
 ==============================
 Functional Labels at GitHub:
 
