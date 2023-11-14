@@ -1,9 +1,20 @@
+GitHub
+
+Teams:
+All lifestyle engineers
+https://github.com/orgs/CondeNast/teams/lifestyle-all-engineers/members
+
+===================================================================
 VPN
 Connection Name: CNGermany
 Description: CN Germany
 Remote Gateway: vpn.condenast.de
 Username: WOLDT@condenast.de
 
+===================================================================
+CondeNastGuest
+If the guest network does not open the login page by itself call it manually:
+http://192.168.1.1/
 ===================================================================
 start verso:
 Ganz wichtig: Im US VPN anmelden
@@ -235,6 +246,9 @@ odev1:
 
 odev2:
 
+===================================================================
+Durchwahl (wer weiss, wozu's gut ist):
+874
 ===================================================================
 
 

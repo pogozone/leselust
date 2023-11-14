@@ -1,0 +1,14 @@
+Templatestruktur:
+
+Features:
+MultiPackageRow
+    VersoFeatures
+        SummaryCollectionGrid
+            SummaryCollectionGridItems
+                SummaryItem
+
+Contributors:
+MultiPackageRow
+    SummaryCollectionGrid
+        SummaryCollectionGridItems
+            SummaryItem
