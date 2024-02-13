@@ -43,13 +43,23 @@ verso: rollout
 https://interfaces.conde.io/apps/versorollout
 
 ===============================
+Funny things with interfaces.
+Mostly the apps have a staging/production switch. But not all.
+For example User Management. If you want to grant access for staging you must go to the staging interfaces:
+https://stag-interfaces.conde.io/apps/usermanagement
+===============================
 GRAPHQL
 
 Doku:
 https://graphql.org/learn/queries/
 
+GraphQL new APIs:
+https://nonprod-content.conde.io/graphql
+https://content.conde.io/graphql
+
 verso GraphQL playground:
 https://content.conde.io/graphql
+https://stg-copilot-app.condenast.io/gql
 
 Another - better working - Playground:
 https://studio.apollographql.com/sandbox/explorer

@@ -1,0 +1,79 @@
+locale: locale
+url: non button style link; before event; visible on the right
+    - shouldOverrideDefaultText: override default text from source code [true|false]
+    - text: alternative/additional link text
+    - href: link
+
+timeUpUrl: link shown during the event; non button style; visible on the right
+    - shouldOverrideDefaultText: override default text from source code [true|false]
+    - text: alternative/additional link text
+    - href: link
+
+notifyButton: button style link; before event; visible on the right
+    - href: link
+    - label: text
+
+eventTimeStamp: time when the event starts; timestamp 13 digits
+bannerStartTimeStamp: time when the banner should start; timestamp 13 digits
+bannerExpiryTimeStamp: time when the baner expires; timestamp 13 digits
+
+timeUpMessage: center text during event
+timeZone: time zone
+timeFormat: time format
+
+logo: image shown on the right
+    - altText: alt text for logo
+    - sources:
+        - sm:
+            - url: path to logo; aspect ratio: 13:4
+logoBaseUrl: logo link
+
+sponsorLogo: k.a.
+sponsorBaseUrl: k.a.
+
+shouldShowCloseButton: shows a buttion to remove the banner temporarily
+shouldHideCloseButtonDuringEvent: hides the button during event
+shouldEnableBundleComponentAnalytics: true|false
+trackingNamespace: text
+
+
+
+Example from Glamour Germany:
+
+locale: 'de-DE',
+url: {
+    shouldOverrideDefaultText: true
+    text: 'Erfahre mehr',
+    href: 'https://www.glamour.de/woty'
+},
+timeUpUrl: {
+    shouldOverrideDefaultText: true,
+    text: 'Jetzt auf GLAMOUR.de',
+    href: 'https://www.glamour.de/woty'
+},
+eventTimeStamp: 1698831405000, // Thursday, November 2, 2023 6:30:00 PM GMT+01:00
+bannerStartTimeStamp: 1698831405000, // Monday, October 23, 2023 7:00:00 AM GMT+02:00
+bannerExpiryTimeStamp: 1761989805000, // Friday, November 10, 2023 11:59:00 PM GMT+01:00
+timeUpMessage: 'Lernt die Gamechanger und feministischen Heldinnen kennen, die uns jeden Tag inspirieren',
+timeZone: 'Europe/Berlin',
+timeFormat: 'LL',
+logo: {
+    altText: 'Women of the Year 2023',
+    sources: {
+        sm: {
+            url: '/verso/static/glamour-international/assets/de/woty-logo-2023-with-dyson.png'
+        }
+    }
+},
+sponsorLogo: null,
+notifyButton: {
+    href: 'https://www.glamour.de/woty',
+    label: 'Erfahre mehr'
+},
+sponsorBaseUrl: '',
+logoBaseUrl: 'https://www.glamour.de/service/page/shoppingweek-deals',
+shouldShowCloseButton: true,
+shouldHideCloseButtonDuringEvent: true,
+shouldEnableBundleComponentAnalytics: true,
+trackingNamespace: 'Women of the Year 2023'
+

@@ -1,0 +1,28 @@
+Installation:
+https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon
+
+Basic models:
+https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon#downloading-stable-diffusion-models
+
+=================
+
+The error:
+RuntimeError: “upsample_nearest2d_channels_last” not implemented for ‘Half’
+
+The solution:
+edit “stable-diffusion-webui/webui-user.sh”
+
+find COMMANDLINE_ARGS variable
+
+Use the following configuration：
+export COMMANDLINE_ARGS="--skip-torch-cuda-test --upcast-sampling --opt-split-attention --lowvram --no-half --use-cpu all"
+
+=================
+
+Tobis favourite keywords to add to prompts:
+
+positive:
+photorealistic, photo, masterpiece, realistic, realism, photorealism, high contrast, photorealistic digital art trending on Artstation 8k HD high definition detailed realistic, detailed, skin texture, hyper detailed, best quality, ultra high res, (photorealistic:1.4), high resolution, detailed, raw photo, rich colors hyper realistic lifelike texture dramatic lighting unrealengine trending on artstation cinestill 800
+
+negative:
+(bad art, low detail, pencil drawing:1.4), (plain background, low quality, mutated hands and fingers:1.4), (watermark, thin lines:1.2), (deformed, signature:1.2), (blurry, ugly, bad anatomy, extra limbs, undersaturated, low resolution), disfigured, deformations, out of frame, amputee, bad proportions, extra limb, missing limbs, distortion, floating limbs, out of frame, poorly drawn face, poorly drawn hands, text, malformed, missing fingers, cropped, multiple images, Scribbles, Low quality, Low rated, Mediocre, 3D rendering, anime, cartoon, Screenshot, Software, UI, watermark, signature

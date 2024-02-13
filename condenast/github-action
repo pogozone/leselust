@@ -1,0 +1,23 @@
+GitHub Action "Auto Assign"
+
+The Action
+
+Action consists of
+- some information about the action. like name and description
+- inputs
+    parameters handed over from a corresponding workflow
+- runs
+    one or more steps processed one after another
+    each step can
+    - call another action
+    - include a shell like script
+    - hand over informations to the next step
+
+The Workflow
+
+Workflow consists of
+- name of the workflow
+- events that triggers the action
+    such as labeling or unlabeling a pull request
+- some initial actions
+- all "inputs" information for the action

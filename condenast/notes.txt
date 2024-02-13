@@ -4185,9 +4185,63 @@ http://stag.gq-magazine.co.uk/verso-channel/test-river
 http://multiverso.gq-magazine.co.uk/verso-channel/test-river?branch=LS4-652
 
 Self:
+http://localhost:7777/self-staging/verso-channel/test-river
+https://stg-copilot.condenast.io/self/bundles/65001f91f209dde107a0e4c3
+http://stag.self.com/verso-channel/test-river
+http://multiverso.self.com/verso-channel/test-river?branch=LS4-652
+
+
 
 29
 8
+
+
+        SummaryCollectionGrid: {
+          variation: 'ThreeColumnsWithAdSection',
+          settings: {
+            summaryItemVariation: 'SideBySideMobileOnlyThirdsImageRight',
+            summaryItemRubricVariation: 'DiscoveryCard'
+          }
+        },
+        SummaryRiver: {
+          settings: {
+            shouldShowRiverDek: true,
+            shouldShowRiverHed: true,
+            hasLineAboveBelowInTitle: true,
+            hasRule: false,
+            summaryItemRubricVariation: 'DiscoveryItem',
+            chunkSize: 6
+          }
+        },
+
+
+
+About this bundle:
+https://stg-copilot.condenast.io/gq/bundles/64ff2f83b5268961ddadcc5f
+Can anyone explain me the differences between the preview:
+https://stag.gq.com/preview/bundle/64ff2f83b5268961ddadcc5f?status=draft&t=1694509412132
+And the published version:
+https://stag.gq.com/verso-channel/test-river?verso=true
+I am missing about 10 items...
+
+
+In an ideal world you should only add this:
+https://github.com/CondeNast/verso/blob/main/src/tenants/gq-in/tenant.ts#L171
+profileContent: {
+  showEntitlementsModule: false
+}
+to the tenant files of Glamour US, Allure and Self:
+https://github.com/CondeNast/verso/blob/main/src/tenants/allure/tenant.ts#L268
+https://github.com/CondeNast/verso/blob/main/src/tenants/glamour/tenant.ts#L223
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/tenant.ts#L278
+
+To test it you have to create an account with your google profile here:
+http://stag.allure.com/auth/initiate
+Then you can call the local profole page:
+http://localhost:7777/allure/account/profile
+But there is a unwanted redirect.
+So you have to call Saahithi if there is a solution to prevent the browser from redirecting.
+
 
 Guido:
 +49 177 6881017
@@ -4344,8 +4398,4128 @@ Please take a look.
 And don't hesitate to ask me... but I will not know ;-)
 
 
-Please add this script https://github.com/CondeNastDigital/cnBolt-Extensions-Designs/pull/31/files
-here:
+
+The first part is very common for you I'm pretty sure:
+You create a feature branch with the ticketnumber. In this case:
+git branch LS4-653
+git checkout LS4-653
+Make your changes and add them to the branch:
+git add .
+Then make a commit with a message like this:
+feat|fix(brand): what you have done
+In this case for example:
+git commit -m 'feat(allure/glamour-us/self): remove subscription message'
+Push to remote:
+git push
+Then there will be a message you have to define the remote branch. Do it.
+After pushing there will be a link to create  a pull request.
+And now it's a bit Condé Nast specific:
+Take cate taht the PR title is the same as the commit message.
+Add the linkt to the jira ticket.
+Write one or two lines (for example the DoD of the ticket).
+Add some testlinks. They should look like this:
+http://multiverso.[brand domain]/[path]?branch=[branch]
+In this case maybe:
+http://multiverso.allure.com/auth/initiate?branch=LS4-653
+Add following labels:
+work in progress, allure, self, glamour, multibranch start
+Then you have to wait some time (no one can tell us what "some time" means) then the multiverso link will be available.
 
 
 
+Just a suggestion:
+
+@gapur if you mind to take this two tickets (of course after you finished your actual tickets):
+https://cnissues.atlassian.net/browse/LS4-668
+https://cnissues.atlassian.net/browse/LS4-666
+
+I can tell you fairly exact what to do.
+And I will take the subnavigation thing:
+https://cnissues.atlassian.net/browse/LS4-651
+To do this, I go to a convent for a week, where I can explore the depths of verso completely undisturbed, secluded from the world.
+What do you think?
+
+
+
+
+https://multiverso.cntravellerme.com/verso-channel/test-river?branch=LS4-652
+https://multiverso.admiddleeast.com/verso-channel/test-river?branch=LS4-652
+https://stg-copilot.condenast.io/gqfr/bundles/64ff2f7811052c3508391272
+https://multiverso.gqmagazine.fr/verso-channel/test-river?branch=LS4-652
+
+
+This image reminds me of a small but interesting episode when I visited Okinawa:
+
+Usually, cyclists weave their way through the mass of pedestrians at breakneck speed.
+I was present at the historic moment when the first lane was opened for cyclists only. For this, the police closed a lane for cars and a policeman had instructed all cyclists to move from the footpath to the lane.
+In the middle of the route, the cyclists were then stopped - also by the police - and asked by a television crew what they thought of the cycle path.
+
+
+Kann mir jemand erklären, was hier passiert:
+
+https://stg-copilot.condenast.io/cntme/bundles/64ff17b2a87d12d51aee272a
+https://stag.cntravellerme.com/verso-channel/test-river
+
+https://stg-copilot.condenast.io/adme/bundles/64fede2fe8d1ce775ad4d46f
+https://stag.admiddleeast.com/verso-channel/test-river
+
+Wenn ich die Einstellungen in CoPilot richtig interpretieren, dann sollten auf der Seite jeweils 12 SummaryItems zu sehen sein.
+Warum ist das nicht der Fall?
+Kann sich das mal jemand ansehen?
+ich wäre sehr dankbar.
+
+
+https://stg-copilot.condenast.io/gqfr/bundles/64ff2f7811052c3508391272
+https://multiverso.gqmagazine.fr/verso-channel/test-river?branch=LS4-652
+
+
+https://stag.allure.com/account/profile?branch=LS4-653
+https://stag.self.com/account/profile?branch=LS4-653
+https://stag.glamour.com/account/profile?branch=LS4-653
+
+
+Regarding this PR:
+https://github.com/CondeNast/aviator-scripts/pull/529/files
+I guess you used the fetch-tags_2.ts script. Am I right?
+If so please remove the other two scripts (fetch-category.ts and fetch-tags.ts).
+Because they don't work and only lead to confusion.
+
+
+I would have appreciated it very much if we could have had our meeting on site at the office. Unfortunately, nothing will come of it. So I will join you via zoom.
+
+Why is that? A little story about that:
+
+Six stepts to becomming a fish:
+
+1. Step
+Leaving home. The sky is clear. The sun is shining.
+2. Step
+Oh, was that a raindrop on my nose.
+3. Step
+It might be better to put on the jacket.
+4. Step
+The decision to turn back.
+5. Step
+Halfway back I start growing fins.
+6. Step
+Returning back to my home I can start breathing by gills
+
+...now I have to put myself in the tumble dryer to become human again....
+
+
+
+Now you have two approvals and the next steps are up to you:
+
+You have to remove the label "Ready to Review" and add the label "Approved".
+Then the cypress test will (hopefully) start.
+If cypress is done the PR should be ready for merging and you can merge it.
+
+
+Unfortunately, the cypress test fails very often and has to be restarted.
+You can do this by either updating the branch in GitHub or by searching for your cypress test in the GitHub Actions and restarting it:
+https://github.com/CondeNast/verso/actions
+
+If you did so two or three times and cypress still fails you have to post the PR at the verso-support channel and ask for help.
+
+
+
+Do you have an idea how to add a featureFlag here:
+https://interfaces.conde.io/apps/versosettings/#/gq-staging/settings/featureFlags
+Something like "hasChannelNavigation".
+
+
+hasChannelNavigation
+headerChipLinks
+
+
+
+https://stg-copilot-app.condenast.io/cntuk/galleries/611bea2e042ccafe9a9adf18
+https://stg-copilot-app.condenast.io/cntuk/galleries/610a4c37a291a93935c8ab5b
+
+
+Interesting thing... very interesting.
+When I call the page on staging it works fine. So packpub works:
+https://stag.cntraveller.com/gallery/best-greek-islands-beaches
+When I call - doesn't matter if staging or prod - the page local it does not work.
+When I query
+
+
+Dan Haller
+
+
+        SubNavigation: {
+          settings: {
+            hasBackgroundColor: true
+          }
+        },
+
+
+
+
+Indeed thats not working. The right URL is:
+http://localhost:7777/glamour-germany
+
+
+<meta property="og:image" content="https://media.vogue.com.tw/photos/65090d8ca7457be8a8df84bb/16:9/w_1280,c_limit/VOGUE%20FB%E9%A1%AF%E5%9C%961.png">
+https://media.vogue.com.tw/photos/65090d8ca7457be8a8df84bb/16:9/w_1280,c_limit/VOGUE%20FB%E9%A1%AF%E5%9C%961.png
+https://media.vogue.com.tw/photos/64e5664231ec0990df7c7190/master/w_1600%2Cc_limit/800234.png
+<meta property="og:image" content="https://media.gq.com.tw/photos/650166ecbf0d73b25f0447cd/16:9/w_1280,c_limit/MON_335792_KV_OOH_Cropped_RGB.jpg">
+https://media.gq.com.tw/photos/650166ecbf0d73b25f0447cd/16:9/w_1280,c_limit/MON_335792_KV_OOH_Cropped_RGB.jpg
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-652
+As the GQ's behave incomprehensible different as all other sides... and GQ US behave incomprehensible different as all other GQ sides... I would prefer to fix them within another ticket.
+So let me fix the last page: Glamour US. And you can test AD, Allure, Glamour, Traveller and Self.
+Then we need a new ticket for GQ.
+Is that OK for you?
+
+And for GQ we need some desicions:
+- should it work like all other pages?
+- or should we keep all special curls?
+Because GQ uses a different default behaviour than all other pages. Maybe we should discuss this with Elena and/or design?
+
+
+Es ist mal wieder so weit und ich möchte nachfragen, wie der Stand beim SSO ist.
+Ich werde regelmässig (gestern bestimmt 8 Mal, heute bereits 3 Mal) mit dieser Meldung raus geworfen und muss mich neu anmelden:
+"The SSO session associated with this profile has expired"
+Mir wurde vor etwa 6 Monaten gesagt, das Problem wäre bekannt und auch die Lösung sei bekannt, Condé Nast hätte allerdings momentan (also vor 6 Monaten) keine Ressourcen frei, um die Lösung umzusetzen.
+Gibt es denn eine Prognose ob und wann das Problem angegangen wird?
+
+It's that time again and I would like to ask what the status of the SSO is.
+I am regularly thrown out (yesterday at least 8 times, today already 3 times) with this message and have to log in again:
+"verso error with starting server: CredentialsProviderError: The SSO session associated with this profile has expired. To refresh this SSO session run aws sso login with the corresponding profile.".
+I was told about 6 months ago that the problem was known and that the solution was also known, but that Condé Nast did not have any resources available at the moment to implement the solution.
+Is there a prognosis if and when the problem will be addressed?
+
+
+This is the page at bolt:
+https://www.glamour.de/service/bolt/editcontent/pages/18
+...but the form has to be edited at silthru. Maybe you can ask Matthias or Areti.
+...or Marc.
+
+
+
+In here PR you mean it should look like that in storybook. Isn't it?
+This variation is so aweful... but yes, I will take a look.
+https://github.com/CondeNast/verso/pull/24651/files/d1633db363f783e4bc9e29cf180f3e798319d09d#diff-6ba217cd4bba575c9973f2e5cf6db9c223c1db4a2332ae5aefaf4950ce3df21c
+http://verso-components.conde.io/?path=/story/components-discovery-summaryitem--summary-item-side-by-side-mobile-only-thirds-image-right&globals=theme:glamour&knob-Active%20bookmark%20icon=%3Csvg%20class=%22icon%20icon-bookmark%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ctitle%3ESaved%20to%20library%3C/title%3E%3Cpath%20class=%22icon-bookmark--activated-fill%22%20d=%22M11.7661%2016.3228L4.5%2020.1695V3.5H19.5V20.1695L12.2339%2016.3228L12%2016.199L11.7661%2016.3228Z%22%20stroke-linecap=%22square%22/%3E%3C/svg%3E&knob-Active%20bookmark%20label=bookmarkSavedToLibrary&knob-Default%20bookmark%20icon=%3Csvg%20class=%22icon%20icon-bookmark%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ctitle%3ESave%20this%20story%3C/title%3E%3Cpath%20class=%22icon-bookmark-stroke%22%20d=%22M11.7661%2016.3228L4.5%2020.1695V3.5H19.5V20.1695L12.2339%2016.3228L12%2016.199L11.7661%2016.3228Z%22%20stroke-linecap=%22square%22/%3E%3C/svg%3E&knob-Default%20bookmark%20label=bookmarkSave&knob-In%20progress%20icon=%3Csvg%20class=%22icon%20icon-loader%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20class=%22icon-loader-track%22%20fill-rule=%22evenodd%22%20clip-rule=%22evenodd%22%20d=%22M12%2020C16.4183%2020%2020%2016.4183%2020%2012C20%207.58172%2016.4183%204%2012%204C7.58172%204%204%207.58172%204%2012C4%2016.4183%207.58172%2020%2012%2020ZM12%2021C16.9706%2021%2021%2016.9706%2021%2012C21%207.02944%2016.9706%203%2012%203C7.02944%203%203%207.02944%203%2012C3%2016.9706%207.02944%2021%2012%2021Z%22%20/%3E%3Cpath%20class=%22icon-loader-progress%22%20d=%22M12%2021C7.07368%2021%203%2016.9263%203%2012H3.94737C3.94737%2016.4526%207.54737%2020.0526%2012%2020.0526C16.4526%2020.0526%2020.0526%2016.4526%2020.0526%2012C20.0526%207.54737%2016.4526%203.94737%2012%203.94737V3C16.9263%203%2021%207.07368%2021%2012C21%2016.9263%2016.9263%2021%2012%2021Z%22%20/%3E%3CanimateTransform%20attributeName=%22transform%22%20attributeType=%22XML%22%20type=%22rotate%22%20dur=%221s%22%20from=%220%200%200%22%20to=%22360%200%200%22%20repeatCount=%22indefinite%22/%3E%3C/svg%3E&knob-align=left&knob-direction=down
+
+
+      @media (max-width: ${BREAKPOINTS.sm}) {
+background: pink;
+    }
+      @media (max-width: ${BREAKPOINTS.max}) {
+background: gray;
+    }
+
+
+http://localhost:7777/glamour/lipstick
+
+https://multiverso.glamour.com/lipstick?branch=LS4-651
+https://multiverso.self.com/health?branch=LS4-651
+https://multiverso.admagazine.com/estilo-de-vida/agenda?branch=LS4-651
+
+hasLineAboveBelowTitelHead
+
+SubNavigationCarousel
+
+Here you can see the correct summaryItemVariation: TextBelowDesktopOnlyThirds:
+https://github.com/CondeNast/verso/blob/LS4-652/src/tenants/gq/channels/_default.ts#L551
+But here it is SideBySideDesktopOnly:
+https://github.com/CondeNast/verso/blob/LS4-652/src/components/compositions/summary-collection-grid/SummaryCollectionGrid.js#L354
+And I have no idea why.
+
+
+  margin-top: -43px;
+    ${applyGridSpacing('padding')};
+    ${universalGridCore()};
+  padding-left: 16px;
+
+
+
+Regarding this ticket (about the river layout):
+https://cnissues.atlassian.net/browse/LS4-652
+
+I have removed all changes for GQ.
+
+@milene Please test and write a new ticket for GQ.
+Please add the GQ testlinks to the new ticket and I will update them in time.
+
+@elena I made all recommended changes. Please check in PR:
+https://github.com/CondeNast/verso/pull/24651
+
+If we manage to put the ticket live today, that would be really great.
+
+
+
+
+
+Der Linkbanner funktioniert folgendermassen:
+Wenn eine CuratedList und ein Bundle den selben Channel haben und in der Tenant Konfiguration für den Channel der LinkBanner aktiviert ist, dann wird er angezeigt.
+
+Im Umkehrschluss heisst das also es gibt drei Möglichkeiten (ungetestet):
+1. Der Channel wird aus der CuratedList entfernt
+2. Der Channel wird aus dem Bundle entfernt
+3. Es wird in der Tenant Konfiguration des PrimaryChannel des Bundles der LinkBanner deaktiviert
+
+Wenn alle drei nicht in Frage kommen, dann benötigt es ein gutes Konzept, wie LinkBanner ein- und ausgeschaltet werden können und ist mit etwas Entwickleraufwand verbunden.
+
+...ich bin jederzeit für weitere Vorschläge offen.
+
+
+Conclusion: If you can remove "Architecture + Design" either from the CuratedList or from the Page it will work easily.
+
+
+
+As unfortunate as it is, the fact is, I have not been able to complete my two tickets. And believe me, I really tried hard.
+So I would now publish the following message and start the next sprint:
+
+:loudspeaker: Hi Team, Sprint 44 of @team-sevenseas hosted by @cwoldt ended with 19P done and 15SP (three tickets) not completed.
+In a ticket that looked like a simple copy-and-paste task - 29 tenant configs were to be adjusted - it turned out that 20 tenants could indeed be adjusted simply by copy-and-paste, but 19 could not. This resulted in incalculable additional work for implementation as well as for review and testing.
+This led to a delay in a second ticket. However, both tickets are mostly completed and can go live in the next few days.
+Another ticket was delayed due to external dependencies.
+The next sprint is hosted by @cwoldt and starts now.
+
+
+So schade wie es ist, es ist so, ich habe meine beiden Tickets nicht abschließen können. Und glaubt mir, ich habe mir wirklich Mühe gegeben.
+Insofern würde ich jetzt folgende Meldung veröffentlichen und den nächsten Sprint starten:
+
+
+Bei einem Ticket, dass nach einer einfachen Copy&Paste Aufgabe ausgesehen hatte - es sollten 29 tenant configs überarbeitet werden - stellte sich heraus, dass 20 tenants tatsächlichg einfach per Copy&Paste angepasst werden konnten, 19 jedoch nicht. Daraus ergab sich unabsehbare Mehraufwand bei der Umsetzung ebenso wie bei Review und Testing.
+Daraus folgte eine Verzögerung bei einem zweiten Ticket. Beide Tickets sind jedoch weitgehend abgeschlossen und können die nächsten Tage live gehen.
+Bei einem weiteren Ticket gab es Verzögerungen auf Grund externer Abhängigkeiten.
+
+
+Hi team,
+can someone help me with this:
+
+On SELF staging the channelpages are not reachable:
+
+https://stg-copilot.condenast.io/self/bundles/61d3e11b4fb9276b68926bd9
+https://stag.self.com/sex-love
+-> ERR_TOO_MANY_REDIRECTS
+
+https://stg-copilot.condenast.io/self/bundles/57d0caf1f71ce8751f6b3fed
+https://stag.self.com/health
+-> ERR_TOO_MANY_REDIRECTS
+
+https://stg-copilot.condenast.io/self/bundles/61d3e447ee23ef59f3545620
+https://stag.self.com/beauty
+-> ERR_TOO_MANY_REDIRECTS
+https://stag.self.com/health-conditions
+-> 500
+
+https://stag.self.com/culture
+-> ERR_TOO_MANY_REDIRECTS
+
+https://stag.self.com/food
+-> 504 Gateway Time-out
+
+https://stag.self.com/fitness
+-> 500
+
+Before someone asks:
+Yes, I have deleted the cookies.
+I republished the health channel.
+I purged the fastly cahe.
+
+Preview works fine:
+https://stag.self.com/preview/bundle/6391d7e1608a1fe471a228e8?status=draft&t=1695278645952&type=channel
+
+
+
+https://stg-copilot.condenast.io/self/bundles/61d3e11b4fb9276b68926bd9
+https://stg-copilot.condenast.io/self/bundles/57d0cb8146d0cb351c8c443d
+
+https://stag.self.com/sex-love/
+https://stag.self.com/sex-love
+
+
+
+But let's not spend too much time on trivialities. I already have the next problem:
+
+I can't publish this page:
+https://stg-copilot.condenast.io/all/bundles/6464ac40fee52032e7f7edb0
+
+I get a timeout error:
+
+Gateway Time-out: An internal server error occurred; 504
+
+I have added a site image, created a slug and removed the faulty image in the embed section.
+
+Can you help me with this?
+Or should I go back and post my issue to the channel?
+
+
+
+Jetzt habe ich eine naive, unschuldige kleine Frage:
+
+Meinst du, man kann hier bei vertsoRiver die layoutOptions auf muliselect umstellen:
+https://stg-copilot.condenast.io/all/sitesettings/bundlecontainers/verso-river
+
+
+
+
+I asked because SummaryList works with an array of SummaryItemVariations that takes either an array summaryItemVariationList from tenant config or a string summaryItemVariation from CoPilot and converts it to an array.
+
+SummaryList:
+https://github.com/CondeNast/verso/blob/d1633db363f783e4bc9e29cf180f3e798319d09d/src/components/compositions/summary-list/SummaryList.js#L213
+
+summaryItemVariationList:
+https://github.com/CondeNast/verso/blob/d1633db363f783e4bc9e29cf180f3e798319d09d/src/tenants/allure/channels/package-bundle.ts#L17
+
+So my idea was/is: Why not switch CoPilot to something like a multiselect and everything is done.
+
+
+
+
+        SubNavigation: {
+          settings: {
+            layout: 'SubNavigationDropdown'
+          }
+        },
+
+
+
+
+But seriously... because I don't think we'll get a multiselect like that in CoPilot...
+My idea looks something like this:
+We add a new layout variant 'RightLeftAndAgain' to versoRiver and create a matching table for the SummaryList.
+
+const variations = [
+  {'RightLeftAndAgain': [
+    'SideBySideCenterImageLeft',
+    'SideBySideCenterImageRight'
+  ]}
+]
+
+
+
+Highlight
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-651
+
+
+
+Please do following:
+git checkout LS4-651
+
+Call this page:
+http://localhost:7777/glamour/lipstick/hair
+
+Open that PR:
+https://github.com/CondeNast/verso/pull/24735/files
+
+Here you can see what I already did.
+
+And please open this file on GitHub:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/scrolling-navigation/sub-navigation/SubNavigation.js
+
+...and I will try to explain something.
+
+
+
+I am afraid there is a big missunderstanding now... but thats not a big issue. It's just a verso issue... ok, it's a big issue.But that should not bother us any further. Not for the moment. Not at least because I saw that Karstadt sells Caipi and Long Island Iced Tea in a can.
+Why two tickets:
+At the moment we have this so called scrolling navigation that has a really wired and disturbing template at verso. And we have to create a proper, new one that fits the existing layout requirements as well as your new requirements. Thats an issue just for templating.
+This navigation uses the tenant config for now.
+When we have the proper template - and at the moment I am in discussion with Elena and Gapur how to create a proper template - we can look out how to change the backend from tenant config to interfaces.
+
+
+Gapur told me that you don't like the version way for the SubChannelNavigation very much. So let's start a discussion how to make it better.
+
+What is important to me in this context is that we do not invent another navigation on top of the already existing ones. That was my approach, using the scrolling navigation as a guide. When the new navigation goes live, the old scrolling navigation has to be remov
+
+
+
+
+Ich fürchte, wir haben beim Grooming des SubChannelNavigation Ticket nicht besonders gut aufgepasst. Denn dort ist die Rede davon, dass das Menu die Taxonomien Channel und Subchannel nutzen und gleichzeitig über Interfaces gesteuert werden kann. So wie ich dass sehe, geht das nicht.
+Ich habe mit Milene gesprochen und ihr gesagt, dass wir das diskutieren und ihr einen Vorschlag machen.
+
+
+Folgende Überlegung:
+1. Ich überarbeite mit Milene das Ticket so, dass wir damit sauber arbeiten können. Im engeren Sinne heisst das:
+  in diesem Ticket bauen wir die Navigation
+  in einem Folgeticket bauen wir eine Funktionalität, die es erlaubt, verschiedene Quellen (e.g. tenant config or interfaces) zu nutzen
+2. Ich überarbeite die Templates so, dass sie folgender Struktur folgen:
+components
+  compositions
+    sub-navigation
+  patterns
+    scrolling-navigation
+    dropdown-navigation
+3. Gapur mach sich Gedanken darüber ob und wie es möglich ist, die Templates (inklusive des "my account" Menus) mehr generisch zu gestalten.
+
+
+Following thoughts:
+1. I revise the ticket with Milene so that we can work with it cleanly. In a narrower sense this means:
+  in this ticket we build the navigation
+in a follow-up ticket we build a functionality that allows us to use different sources (e.g. tenant config or interfaces).
+2. I change the templates so that they follow the following structure:
+components
+  compositions
+    sub-navigation
+  patterns
+    scrolling-navigation
+    dropdown-navigation
+3. Gapur is thinking about if and how it is possible to make the templates (including the "my account" menu) more generic.
+
+
+
+Gut, dass wir darüber gesprochen haben...:
+https://cnissues.atlassian.net/wiki/spaces/LIF/pages/15675326471/Lifestyle+Engineering+-+2024+Draft#Subchannel-Config-to-Verso-Settings-medium-in-grooming
+
+So wie ich das sehe, ist das doch eine etwas größere Geschichte, die da auf uns zu rollt.
+Allemal zu groß um jetzt einfach zu sagen, wir nehmen mal eben den subchannelLinks Teil aus der Channel Konfiguration raus und popeln die irgendwie in die interfaces rein.
+
+Auch weil so etwas wie Channel bezogene Links in interfaces gar nicht vorgesehen und umsetzbar sind.
+
+Oder siehst du das anders?
+
+
+ChannelNav
+  Channel 'beauty':
+    - name: Beauty
+    - slug: beauty
+    SubChannel 'whatever'
+      - name: Whatever
+      - slug: whatever
+  Channel 'fashion':
+    - name: Fashion
+    - slug: fashion
+    SubChannel 'whatever'
+      - name: Whatever
+      - slug: whatever
+
+
+
+Because of configuring Channel and SubChannel within interfaces I talked with Tobi an he told me there is a topic on the roadmap for 2024:
+https://cnissues.atlassian.net/wiki/spaces/LIF/pages/15675326471/Lifestyle+Engineering+-+2024+Draft#Subchannel-Config-to-Verso-Settings-medium-in-grooming
+So I told him to contact you. It seems to be a bigger issue than just do it by ourselves at one of the next sprints.
+
+
+In diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-464
+steht:
+Name for the layout: Tobe please help us
+
+Hier die Benamsungen der bestehenden Layouts:
+
+      "layoutOptions": [
+        "Paginated",
+        "PaginatedOneColumn",
+        "PaginatedThreeColumns",
+        "OneColumn",
+        "ThreeColumns"
+      ]
+
+Das neue Layout zeigt abwechselnd Bild/Text links/rechts. Ich hätte also einen ersten Vorschlag:
+LeftRightAlternating
+
+Was meinst du?
+
+
+
+We are talking about three different solutions for a source for the naviagation.
+1. channel config
+This is what we actual have. It is working but it causes engeniering efford to change topics
+2. taxonomy
+We have the CoPilot channel taxonomy. I guess we can use this. Therefore we have to create an API. Maybe there is an API and we just have to find it.
+Then you and all users can manage it by CoPilots Tag Manager:
+https://copilot.condenast.io/glm/category-manager/5b0586efed1111562bd63f22
+3. interfaces
+We can try to create a solution for interfaces. But that might last a little longer as the roadmap has plans for it in 2024.
+
+So I guess we should do the actual ticket with the existing channel config.
+Create a second ticket to update and adjust SubChannelNavigation.
+Discuss further development with Tobi because of roadmap things.
+
+
+
+
+http://localhost:7777/glamour-uk-staging/awards/women-of-the-year/winners-2022
+http://localhost:7777/glamour-uk-staging/verso-channel/test-river
+http://localhost:7777/glamour-uk-staging/test-sidebysidealternating
+
+VersoRiverGridList
+SideBySideAlternating
+
+
+    console.log('SummaryRiver::layout::', layout);
+    console.log('SummaryRiver::summaryItemVariation::', summaryItemVariation);
+    console.log('SummaryRiver::summaryItemVariationList::', summaryItemVariationList);
+
+
+  console.log('SummaryList::LAYOUT::', layout);
+  console.log('SummaryList::summaryItemVariation::', summaryItemVariation);
+  console.log('SummaryList::summaryItemVariationList::', summaryItemVariationList);
+  console.log('SummaryList::SummaryItemVariations::', SummaryItemVariations);
+  console.log('==================================');
+
+  const setSummaryItemVariations = () => {
+    console.log('summaryItemVariationList::', summaryItemVariationList);
+    console.log('summaryItemVariation::', summaryItemVariation);
+    console.log('SUMMARY_ITEM_VARIATION_MAP::', SUMMARY_ITEM_VARIATION_MAP);
+
+    if (summaryItemVariationList)
+      return summaryItemVariationList;
+    if (summaryItemVariation && SUMMARY_ITEM_VARIATION_MAP[summaryItemVariation])
+      return SUMMARY_ITEM_VARIATION_MAP[summaryItemVariation]
+    if (summaryItemVariation)
+      return [summaryItemVariation];
+  }
+
+  const summaryItemVariationList = (container.layout && SUMMARY_ITEM_VARIATION_MAP[container.layout]) ? SUMMARY_ITEM_VARIATION_MAP[container.layout] : '';
+
+
+Hi there,
+is it possible that CoPilot on staging isn't working well?
+Because I am pretty sure this is page in verso:
+https://stag.glamourmagazine.co.uk/verso-channel/test-river
+is this page in CoPilot:
+https://stg-copilot.condenast.io/glmuk/bundles/64ff220970cf741b455be173
+But changes I make in CoPilot don't appear at verso.
+
+
+############################################################
+============================================================
+TODO:
+- River Layout
+- Subnavigation layout check
+ok - ask channel because of team dinner
+- Brautermin. Auch an Katrin und Michael Hintennach
+ok - color token for navigation background
+- Kudos for tomorrow...
+- presentation of subnavigation
+- Tisch reservieren im Iveria
+============================================================
+############################################################
+
+
+Ich möchte mich bei Gapur bedanken, dass er da ist und uns bei unserer Reise durch die Untiefen von verso unterstützt.
+
+Auch möchte ich mich erneut bei Elena bedanken, die mich manchmal mit einem wohlwollenden "I like that ... but..." in die richtige Richtung stupst.
+
+Ich möchte mich bei Milene bedanken, die es versteht, mit einem erfrischenden 'I have a innocent question...' ganz Condé Nast in Aufruhr zu versetzen.
+Meist dreht sich die Frage um etwas, bei dem man sich denkt, warum ist da nicht schon früher jemand drauf gekommen.
+Darauf einen Caipirinha.
+
+Gapur
+I would like to thank Gapur for being there and supporting us on our journey through the depths of verso.
+
+Elena
+I would also like to thank Elena again, who sometimes pokes me in the right direction with a well meaning "I like that ... but...".
+
+Milene
+I would like to thank Milene, who knows how to get the whole of Condé Nast in a tizzy with a refreshing 'I have an innocent question...'.
+Usually the question is about something that makes you think, why didn't someone think of that before?
+A caipirinha on that.
+
+
+Please can you help me...
+In here I added two sections. A list and a river section:
+https://stg-copilot.condenast.io/glmuk/bundles/6511887c05ae809668510898
+
+Both sections have the attribute "Layout" respective layoutOptions. I added to both sections the option SideBySideAlternating as you can see here:
+https://stg-copilot.condenast.io/glmuk/sitesettings/content-types
+
+Both sections are rendered by SummaryRiver:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/summary-river/SummaryRiver.js
+
+BUT...
+the river section shows up with the expected layout "SideBySideAlternating".
+the list section on the other hand has an empty layout.
+why? Why? WHY?
+
+
+====
+river-layouts.ts:
+
+export const MAPPED_LAYOUTS = ['SideBySideAlternating'];
+
+export const ALL_LAYOUTS = ['', ...PAGINATED_LAYOUTS, ...NONPAGINATED_LAYOUTS, ...MAPPED_LAYOUTS];
+====
+SummaryRiver or SummaryList somthing lieke this:
+
+const setSummaryItemVariations = () => {
+  if (summaryItemVariationList)
+    return summaryItemVariationList;
+  if (summaryItemVariation && SUMMARY_ITEM_VARIATION_MAP[summaryItemVariation])
+    return SUMMARY_ITEM_VARIATION_MAP[summaryItemVariation]
+  if (summaryItemVariation)
+    return [summaryItemVariation];
+}
+
+or:
+
+const summaryItemVariationList = (container.layout && SUMMARY_ITEM_VARIATION_MAP[container.layout]) ? SUMMARY_ITEM_VARIATION_MAP[container.layout] : '';
+====
+components/utils/constant.js
+
+const SUMMARY_ITEM_VARIATION_MAP = {
+  'SideBySideAlternating': [
+   'SideBySideCenterImageLeft',
+    'SideBySideCenterImageRight'
+  ]
+}
+====
+
+A question about listContainer:
+https://copilot.condenast.io/glmuk/sitesettings/bundlecontainers/list
+
+As we have a lot of well working sections now - like versoRiver - do we still need listContainer?
+Or is it a deprecated section and noone should use it further now?
+I ask because of the new SideBySideAlternating layout:
+https://cnissues.atlassian.net/browse/LS4-464
+
+I am pretty sure it's a huge efford to add this feature to listContainer because it has to be completely refactored.
+On the other hand the versoRiver is more or less prepared for new layouts.
+
+
+
+Ganz ehrlich... wenn man sich auf der Condé Nast DE Webseite umsieht, dann schämt man sich doch für seinen Laden.
+https://www.condenast.de/de
+Unter "Key People" stehen eine Menge Leute, die schon lange nicht mehr dabei seind.
+"Weitere Geschäftsbereiche" ist einfach leer.
+"CNX" wird wieder auf die Startseite weitergeleitet.
+Die neueste News ist von Mai.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-651
+
+Maybe you can help me with the SubChannelNavigation again?
+https://github.com/CondeNast/verso/pull/24735
+
+As you can see here (mobile view) the active link is underlined.
+But the line should appear laft of the link instead of below.
+https://multiverso.glamour.com/lipstick/hair?branch=LS4-651
+
+Do you have an idea how to do so?
+
+Maybe a child definition depending on isActive in this file?
+https://github.com/CondeNast/verso/pull/24735/files#diff-abc7d7ccb9e9390661b814555c761f63fc8486f5c315ac1693f85c9d330470bcR26
+
+
+Da es immer super schwierig ist, mit vielen Leuten einen Termin aus zu machen, versuche ich es erst einmal mit wenigen.
+Wir sprachen ja schon davon, mal als Team zusammen zum Abendessen zu gehen. Und zwar ins Iveria:
+https://www.iveria-muenchen.de/
+Wie sieht es denn zum Beispiel in der Woche vom 9. bis 13. Oktober aus. Können wir uns da auf einen Abend einigen?
+Wenn wir einen Termin für uns haben, können wir gerne den Rest des Teams dazu einladen.
+Was haltet ihr davon?
+
+Since it's always super difficult to make an appointment with a lot of people, I'll try with just a few first.
+We've already talked about going out to dinner together as a team. To go to Iveria:
+https://www.iveria-muenchen.de/
+What about the week from 9 to 13 October, for example? Can we agree on one evening?
+If we have a date for ourselves, we can invite the rest of the team.
+What do you think?
+
+
+Hi there,
+your beloved engineers want to go for dinner at 10th of october to Iveria:
+https://www.iveria-muenchen.de/
+We would be very pleased if some of you want to join us. Let me know soon and I will reserve a table.
+
+Kannst du mir sagen, ob und wie ich aus dem figma File herauslesen kann, welchen Color Token dieses SubMenu nutzen soll:
+https://www.figma.com/file/IN1CQczCVV3EUPw7fnoX5r/%E2%8F%B3-Bundle-Page-Type?type=design&node-id=401-4573&mode=design&t=iOjGgOxoI5hXXYy4-0
+
+
+
+
+foundation/menu-bg/expanded
+
+Wenn wir am 21. Oktober ausschenken, dann werden wir im Angebot haben:
+- 4 Kegs Weißbier
+- 5 Kegs Wiener Lager
+- 5 Kegs durcheinander (Berliner Weiße, Mischmasch, Unbekannt)
+Und das, was du letztes Wochenende gebraut hast. Ein Pale Ale, richtig?
+Und vielleicht sogar das IPA, das ich am Samstag brauen möchte.
+Ist das dann so richtig? Oder habe ich was durcheinander gebracht?
+
+Magst du für den 21. Oktober wieder eine Einladungskarte machen?
+Im Angebot werden sein:
+- Weißbier
+- Wiener Lager
+- Pale Ale
+- IPA
+
+
+
+14. Oktober: fällt aus
+21. Oktober: Brauen mit Ausschank
+- Weizenbock
+4. November: Brauen
+- nach Wetterlage/Temperatur Brown Ale (obergärig) oder Finsternis (untergärig)
+18. November: Brauen mit Ausschank
+- Weihnachtsbock
+2. Dezember:  Brauen
+- Wiener Lager
+16. Dezember:  Brauen
+
+
+Regarding this ticket (once more):
+https://cnissues.atlassian.net/browse/LS4-651
+
+I have now crossed out everything that cannot be implemented in this ticket and accordingly need more precise definitions or grooming.
+I am sorry that this has led to such confusion. I think we didn't pay enough attention during the grooming process, because we should have noticed it by then.
+What we need next:
+1. A precise definition of the source and structure for the sub-navigation. This can be interfaces.
+2. When it is clear what the source looks like (especially the structure), then we can improve the functionality and layout of the menu.
+
+@milene is it ok for you
+@elena now you might be able to review our PRs
+
+
+
+https://www.glamourmagazine.co.uk/
+https://multiverso.glamourmagazine.co.uk/?branch=LS4-652-fix
+
+https://www.glamour.mx/
+https://multiverso.glamour.mx/verso-homepage/oldversion?branch=LS4-652-fix
+
+https://www.glamour.es/
+https://multiverso.glamour.es/?branch=LS4-652-fix
+
+https://www.glamour.com/
+https://multiverso.glamour.com/?branch=LS4-652-fix
+
+https://www.glamour.com/
+
+
+Bitte öffnen sie diese beiden Seiten (desktop for the moment) und richten ihr Augenmerk auf die "Latest News" Sektion:
+https://www.glamour.com/
+https://stag.glamour.com/
+
+Kann mir jemand erklären, warum sich die beiden Ansichten unterscheiden?
+
+Wenn ich mir die Seiten in CoPilot ansehe, dann kann ich dort keine unterschiedlichen Einstellungen feststellen:
+https://stg-copilot.condenast.io/glm/bundles/5c2e2a5f4c04672cc06b505f/verso-related/63077f87239b03931b39b2cc
+https://copilot.condenast.io/glm/bundles/5c2e2a5f4c04672cc06b505f/verso-related/63077f87239b03931b39b2cc
+
+
+Ich weiß jetzt, warum die beiden Ansichten unterschiedlich sind und das stimmt mich ein wenig nachdenklich...
+Ihr kenn diese Szene aus dem Film "Once Upon a Time in the West"? Ganz am Anfang, wo nichts passiert...
+So etwa fühle ich mich gerade...
+Boa...
+Diese Section "Multi Package Feature" verhält sich unterschiedlich, je nachdem wie viele Items sich in den Listen unter Items befinden.
+Ich sags euch...
+
+
+
+Bad thing: homepage redesign feature is lost
+But good thing is that now appearance of the component is aligned
+
+
+
+https://multiverso.glamourmagazine.co.uk/verso-channel/test-river?branch=LS4-464
+http://localhost:7777/glamour-uk-staging/test-sidebysidealternating
+http://localhost:7777/glamour-uk-staging/verso-channel/test-river
+
+
+SummaryRiver::layoutForItem:: [ 'SideBySideCenterImageLeft', 'SideBySideCenterImageRight' ]
+SummaryRiver::layout:: OneColumnAlternating
+SummaryRiver::summaryItemVariation:: SideBySideDesktopOnly
+SummaryRiver::summaryItemVariationList:: undefined
+SummaryList::summaryItemVariation:: SideBySideDesktopOnly
+SummaryList::summaryItemVariationList:: [ 'SideBySideCenterImageLeft', 'SideBySideCenterImageRight' ]
+SummaryList::SummaryItemVariations:: [ 'SideBySideCenterImageLeft', 'SideBySideCenterImageRight' ]
+=======================================================
+SummaryRiver::layoutForItem:: [ 'OneColumn' ]
+SummaryRiver::layout:: OneColumn
+SummaryRiver::summaryItemVariation:: SideBySideDesktopOnly
+SummaryRiver::summaryItemVariationList:: undefined
+SummaryList::summaryItemVariation:: SideBySideDesktopOnly
+SummaryList::summaryItemVariationList:: [ 'OneColumn' ]
+SummaryList::SummaryItemVariations:: [ 'OneColumn' ]
+=======================================================
+SummaryRiver::layoutForItem:: [ 'ThreeColumns' ]
+SummaryRiver::layout:: ThreeColumns
+SummaryRiver::summaryItemVariation:: SideBySideDesktopOnly
+SummaryRiver::summaryItemVariationList:: undefined
+
+
+
+
+SummaryRiver::layoutForItem:: [ 'SideBySideCenterImageLeft', 'SideBySideCenterImageRight' ]
+SummaryRiver::layout:: OneColumnAlternating
+SummaryRiver::summaryItemVariation:: SideBySideDesktopOnly
+SummaryRiver::summaryItemVariationList:: undefined
+SummaryList::summaryItemVariation:: SideBySideDesktopOnly
+SummaryList::summaryItemVariationList:: [ 'SideBySideCenterImageLeft', 'SideBySideCenterImageRight' ]
+SummaryList::SummaryItemVariations:: [ 'SideBySideCenterImageLeft', 'SideBySideCenterImageRight' ]
+=======================================================
+SummaryRiver::layoutForItem:: undefined
+SummaryRiver::layout:: OneColumn
+SummaryRiver::summaryItemVariation:: SideBySideDesktopOnly
+SummaryRiver::summaryItemVariationList:: undefined
+SummaryList::summaryItemVariation:: SideBySideDesktopOnly
+SummaryList::summaryItemVariationList:: undefined
+SummaryList::SummaryItemVariations:: [ 'SideBySideDesktopOnly' ]
+=======================================================
+SummaryRiver::layoutForItem:: undefined
+SummaryRiver::layout:: ThreeColumns
+SummaryRiver::summaryItemVariation:: SideBySideDesktopOnly
+SummaryRiver::summaryItemVariationList:: undefined
+
+
+console.log('SummaryRiver::layoutForItem::', layoutForItem);
+console.log('SummaryRiver::layout::', layout);
+console.log('SummaryRiver::summaryItemVariation::', summaryItemVariation);
+console.log('SummaryRiver::summaryItemVariationList::', summaryItemVariationList);
+
+console.log('SummaryList::summaryItemVariation::', summaryItemVariation);
+console.log('SummaryList::summaryItemVariationList::', summaryItemVariationList);
+console.log('SummaryList::SummaryItemVariations::', SummaryItemVariations);
+console.log('=======================================================');
+
+
+export const MAPPED_LAYOUTS = {
+    "OneColumnAlternating": {
+        "summaryItemVariationList": [
+            "SideBySideCenterImageLeft",
+            "SideBySideCenterImageRight"
+        ]
+    }
+};
+
+export const ALL_LAYOUTS = ['', ...PAGINATED_LAYOUTS, ...NONPAGINATED_LAYOUTS, MAPPED_LAYOUTS];
+
+
+
+    const layoutForItem = MAPPED_LAYOUTS[layout]
+      ? MAPPED_LAYOUTS[layout]
+      : summaryItemVariationList;
+
+
+
+
+npm run test-unit-component src/components/compositions/summary-river/SummaryRiver.spec.js
+if layout === OneColumnAlternating
+layoutForItem === [ 'SideBySideCenterImageLeft', 'SideBySideCenterImageRight' ]
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/24862
+
+I experimented a lot, built, rebuilt, made mistakes, fixed mistakes and ultimately failed again and again because I couldn't manage to merge the ALL_LAYOUTS array with the MAPPED_LAYOUTS hash in a proper way.
+When you're back, I'll be happy to look at this again with you and I don't have any problem with us creating a Tech Debt ticket for this.
+For this sprint, this solution has to do it now.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-651
+
+Are you any closer to a solution? Do you have any questions?
+I would like to add you as Responsible Engineer and Assignee in the ticket.
+Not because I want to shift the responsibility away from me, but because I have full confidence in you to solve the ticket.
+Is that okay with you?
+
+https://multiverso.glamour.com/lipstick/skincare?branch=LS4-651-refactoring
+
+821 672
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-464
+1. Feel free to test it
+2. I've seen a lot of tenants (not only ours) are using that layout but on the channel config level. What to do with them? Will you inform them about the new feature?
+
+A list of all tenenants I found:
+GQ US
+Allure
+AD US
+Bon Appetit
+Epicurious
+Glamour DE
+Glamour ES
+Glamour MX
+Glamour UK
+Glamour US
+Self
+Teen Vogue
+TNY
+Them
+Vanity Fair
+Vogue US
+
+
+About multiverso:
+
+To get testlinks for a PR you have to add the "Multibranch Start" label to the PR.
+After a few (or a lot) of minutes a multiverso instance will be available.
+
+Then you can create a multiverso link like this:
+https://multiverso.[domain]/[path]?branch=[branch]
+
+For example:
+https://multiverso.glamour.com/lipstick/skincare?branch=LS4-651-refactoring
+
+
+Unser zweites ZKG ist in Kirchheim :-)
+Magst du mit Rhenus einen Liefertermin ausmachen?
+Die Nummer ist: 08999147243
+...oder soll ich?
+
+kirchheim
+rhenus
+
+npm run test-unit-component src/components/patterns/dropdown-navigation/DropdownNavigation.spec.js
+
+Was kann man statt carahell nehmen?
+
+Jetzt sagt mein Rezept, dass da 800 g Carahell mit rein sollen, wir haben aber kein Carahell. Was wäre denn deine Empfehlung, was wir stattdessen nehmen können?
+Ich spiele gerade mit dem Gedanken, je 400 g Caraamber und Caramünch. Oder Caraamber und Carawheat.
+
+About the Technology Town Hall:
+I only know the second guy from the right. It is Sanjay Bakhta. It's our bossboss.
+
+Wenn in Amerika nach wie vor 30% des Traffics über Legacy Systeme stattfindet, hat sich da denn schon mal jemand die Frage gestellt, ob die Migration zu verso vielleicht der ganz falsche Weg ist?
+Ich frag für'nen Freund ;-)
+
+Das heisst, wenn man sich das Gefälle auf der nach unten offenen Grottenscala ansieht, dann sieht das etwa so aus:
+85 -> bolt
+43 -> eZ Publish
+27 -> WordPress, Drupal & co
+-33 -> verso
+-272 -> autopilot
+und US, die alle zwingen, ein echt schlechtes System zu nutzen... nutzen ein weit aus schlechteres?
+Wow... das nenne ich Abwärtsspirale.
+
+
+Ich sehe das so:
+Wir haben uns bislang als Team verstanden und im Teamzusammenhang dafür gesorgt, dass das Wissen vorhanden ist, das benötigt wird. Und ich finde - ich kann natürlich auch falsch liegen - wir haben das die letzte acht Jahre ganz gut hinbekommen. Und zwar sehr kollegial. Ohne Gamechanger Awards, Learning Hubs und lauter so SchnickSchnack. In dem Moment, wo so Dinge wie Awards (aka Mitarbeiter des Monats) eingeführt werden, wird der Teamgedanke aufgehoben und der Ellenbogen wird wichtig. Das finde ich sehr schade.
+
+Was auch immer da gerade erzählt und diskutiert wird...
+Wir brauchen zunächst mal dieses:
+- Wie erstellen wir mit unseren Daten schnell, effektiv (und von mir aus auch kostensparend) ein Model mit all unseren Inhalten.
+- Wie bauen wir eine Engine, mit der wir User Eingaben in gute Prompts umbauen.
+- Wie können wir weitere Meta- oder Steuerdaten automatisiert an die Prompts dran hängen.
+Und dann könne wir weiter machen. Und vielleicht auch sinnvolle Fragen für so ein Meeting formulieren.
+Aber das hier ist Zeitverschwendung.
+
+
+Wenn ich versuche, diese Seite bei mir likal aufzurufen:
+http://localhost:7777/self/health-conditions
+
+Bekomme ich permanent Time Out Fehler im Browser:
+504 Gateway Time-out
+
+Und einen graphql Fehler in der Konsole:
+GraphQL failed due to network error: This operation was aborted
+
+Kann sich das mal jemand ansehen?
+
+
+Hierarchy of tags
+config?
+
+Data doc
+
+
+
+  console.log('isContributor::', isContributor);
+  console.log('variationName::', variationName);
+  if (isContributor) {
+    console.log('summaryItemImage::', summaryItemImage);
+    console.log('contributorPhoto::', contributorPhoto);
+    console.log('image::', image);
+  }
+
+
+
+
+
+böse:
+SummaryItemWrapper-iwvBff
+eDuFjF
+
+
+summary-item--has-rule
+
+summary-item--has-small-image-mobile-only
+
+
+summary-item--layout-placement-side-by-side-mobile-only
+summary-item--layout-position-image-right
+summary-item--layout-proportions-33-66
+
+
+
+
+
+
+
+gut:
+SummaryItemWrapper-iwvBff
+lkQgTP
+
+summary-item--card
+
+
+summary-item--is-contributor
+summary-item--is-contributor-three-col
+
+
+summary-item--layout-placement-text-below
+summary-item--layout-position-image-left
+summary-item--layout-proportions-overlay-limited-height
+
+
+
+
+
+
+
+[Beauty | GLAMOUR](
+https://www.glamour.de/kategorie/beauty
+)
+[Beauty: Tips and Trends, Beauty Product Reviews](
+https://www.vogue.com/beauty
+)
+ [Frisuren, Mode, Trends, Stars - glamouröse Unterhaltung | GLAMOUR](
+ https://www.glamour.de/
+ )
+[Rihanna and A$AP Rocky Reveal the First Pictures of Their Son Riot Rose](
+https://www.vogue.com/article/rihanna-asap-rocky-riot-rose-first-pictures
+)  - wedding shop Link Banner
+[See All 391 Winners of Allure's 2023 Best of Beauty Awards](
+https://www.allure.com/best-of-beauty-2023-winners
+)  - Explore by Category uses Scrolling Navigation inside
+
+https://multiverso.glamour.de/kategorie/beauty?branch=LS4-651
+https://multiverso.vogue.com/beauty?branch=LS4-651
+https://multiverso.glamour.de/?branch=LS4-651
+https://multiverso.vogue.com/article/rihanna-asap-rocky-riot-rose-first-pictures?branch=LS4-651
+https://multiverso.allure.com/best-of-beauty-2023-winners?branch=LS4-651
+
+not working:
+https://www.gqjapan.jp/culture
+https://multiverso.gqjapan.jp/culture?branch=LS4-651
+
+working:
+not affected:
+https://stag.gq-magazine.co.uk/verso-channel/culture
+https://multiverso.gq-magazine.co.uk/verso-channel/culture?branch=LS4-651
+
+https://www.them.us/entertainment
+https://multiverso.them.us/entertainment?branch=LS4-651
+
+https://www.vogue.in/people
+https://multiverso.vogue.in/people?branch=LS4-651
+
+
+affected:
+https://multiverso.self.com/fitness?branch=LS4-651
+https://multiverso.self.com/fitness/runners?branch=LS4-651
+
+
+
+
+As cypress isn't willing to work for me and my ticket today I cannot merge today.
+Maybe tomorrow... or just another day.
+So I will send following message and start the next sprint.
+
+:loudspeaker: Hi Team, Sprint 45 of @team-sevenseas hosted by @cwoldt ended with 19P done and 13SP (two tickets) not completed.
+
+For one ticket (5 ponts) cypress refuses to work just for the last days. It is annoying but we have to live with it.
+And the last ticket (8 points) is mostly done. During the work it turned out that there are more dependencies in the template structure than were seen in grooming and refinement.
+
+The next sprint is hosted by @elena and starts now.
+
+
+Ok for you?
+
+Salzhubers:
+Jürgen
+Johanna
+Steffi
+Jens
+
+
+
+
+Following situation:
+I locked my computer to get a coffee. It lasts about three maybe five minutes.
+I unlocked the computer and all appgate connections were closed.
+After a while appgate reconnects automatically.
+It is a bit annoying to wait for the reconnection and it is a very bad thing when runnig a script that needs more then a couple of minutes.
+I send you appgate information and logfiles.
+
+
+Dan Alvarez
+
+
+Please re-review. Now the double DEK isn't hidden by tenant config but by isContributor prop.
+https://github.com/CondeNast/verso/pull/24930
+
+ai-services
+
+
+
+You can find the storybook regarding to you PR within the PR-timeline:
+https://github.com/CondeNast/verso/pull/24735
+
+The storybook:
+https://verso-components.conde.io/snapshots/LS4-651/
+
+There you can search for your component: SubNavigation
+
+
+To start storybook locally do this:
+npm run storybook
+
+If you get an error like this:
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+
+Try this:
+export NODE_OPTIONS="--max-old-space-size=8192"
+npm run storybook
+
+npm will start storybook directly in your default browser.
+
+
+
+At storybook the getKnobs probs should appear at the right column:
+https://verso-components.conde.io/snapshots/LS4-651/?path=/story/components-universal-navigation-subnavigation--carousel
+
+Maybe you must add it to the SubNavigation tag?
+
+
+npm run test-unit-component src/components/patterns/dropdown-navigation/DropdownNavigation.spec.js
+
+Der Gast/Die Gästin von mir aus gern.
+Aber GästInnen statt Gäste... ich weiß ja nicht.
+
+
+
+Regarding the contributor SummaryItem in here:
+https://multiverso.self.com/health-conditions?branch=LS4-691
+
+I'm comparing these two contributors right now:
+Laura Scholz:
+https://stg-copilot-app.condenast.io/self/contributors/61b925c3c587c4b97e9e87fd
+Sharonne N. Hayes, MD:
+https://stg-copilot-app.condenast.io/self/contributors/61dcafe0e04e702c2ced8cf6
+
+I can't find anything that causes a dangerousDek to appear in Sharonne's case and not in Laura's.
+Do you have an explanation?
+Maybe something got stuck in the database because there used to be a DEK text for the contributor?
+
+https://multiverso.self.com/verso-channel/test-contributor?branch=LS4-691
+
+
+
+
+https://condenast.slack.com/archives/C0SU8V086/p1696838103659619
+Ich hätte da eine Frage zu den letzten beiden Sätzen...
+Das heisst doch im weitesten Sinne, es ist bekannt, dass
+- Bundles so fragil sind, dass sie eigentlich nicht zuverlässig funktionieren (können)
+- Es ist bekannt, dass Subtypen und Kategorien gelöscht werden können und das ist großer Mist
+- Allerdings haben wir keine Zeit/keine Ressourcen/keinen Bock uns darum zu kümmern
+Verstehe ich das so richtig?
+
+
+Theoretisch mag ich dir beipflichten... praktisch aber widersprechen denn:
+1. Soweit ich weiß gibt es für uns keine Möglichkeit, Subtypen oder Channel zu löschen.
+2. Sollte ein so ausgefeiltes System wie unseres so etwas unter keinen Umständen zulassen. Und schon zweimal nicht, wenn bekannt ist, dass das zu Problemen führt.
+
+
+
+AI image:
+- beggars waiting for a soup
+- Auto, lustig zusammen gebaut
+
+
+Hi Sophia,
+
+erst mal herzlich willkommen in unserem Team.
+Ich möchte mich kurz vorstellen: Ich bin einer der EntwicklerInnen und der Dienstälteste im Team.
+Wir werden uns die nächsten Tage sicher im Büro oder in zoom sehen.
+Wenn du magst, können wir uns auch gerne mal eine Stunde Zeit nehmen und ich erzähle dir ein paar Geschichten über Condé Nast ;-)
+
+Mein eigentliches Anliegen aber: Du hast vielleicht gesehen, dass du zu einem "Dinner at Iveria" morgen Abend hinzugefügt worden bist.
+Da gehen wir - also vorwiegend die EntwicklerInnen - zusammen Abendessen. Ist das erste Mal, dass wir das in der aktuellen Zusammenstellung machen.
+Wenn du Lust hast, dann bist du herzlich eingeladen, mit zu kommen.
+Aber vorsicht, du sitzt dann mit reichlich Nerds am Tisch :-)
+
+
+git push --set-upstream origin LS4-676-test-3
+
+
+Please can someone do me a favour and clone/pull this repository:
+https://github.com/CondeNast/mayo-self-copilot-migration
+
+git checkout LS4-676
+git branch LS4-676-some-notes
+git checkout LS4-676-some-notes
+
+Change something. eg. add a text.txt file
+
+push the branch, create a PR and send me the link to the PR.
+
+Would be great :-)
+
+38.317
+
+Was ich herausfinden will/muss ist:
+- Wie sieht die Mail aus, die verschickt wird, so dass in GMail entsprechende Filter gesetzt werden können
+- Was bedeutet es, als Reviewer oder Assignee eingetragen zu sein
+- Wie kann ich einstellen, welche PRs gemeldet werden. Ich denke "includeLabels" ist geschickter, als Teams oder User
+Was meinst du?
+
+
+
+57727
+
+60398
+65000
+7,62
+
+Ich habe da doch noch eine Frage zum Thema Gehalt/Beförderung. Das ist prinzipiell sehr schön und ich möchte dir für deinen Einsatz auch sehr danken.
+Alledings steht in den neuen Arbeitsvertragsbedingungen ein Passus, den ich da gerne nicht drinnen hätte. Nämlich, dass mit der Gehaltserhöhung gleichzeitig eine Mehrarbeit von 20% abgegolten ist.
+Das entspricht nicht den Bedingungen in meinem Arbeitsvertrag und bedeutet im Ungünstigsten Fall eine Gehaltsminderung von 20%. Zwar war es bei uns über Jahre gängige Praxis, dass es zu keiner Mehrarbeit und keinen Überstunden gekommen ist. In Ausnahmefällen (zum Beispiel die Oscar Nacht) wurde Mehrarbeit/Überstunden, sowie ein Ausgleich vorab angekündigt oder verhandelt.
+Da wir jetzt allerdings nicht mehr das Condé Nast von vor drei Jahren sind, sondern ein internationales Unternehmen und die vorrangig US-Amerikanisch geprägte Unternehmenskultur eine andere ist, wäre mir daran gelegen, diesen Passus zu streichen.
+Kannst du da nachhaken? Oder soll ich?
+
+
+I will be unavailable for some time.
+I will put myself in a trance and, with a slight smile on my lips, add the new river layout to our 29 tenants.
+I'll be in touch again when I'm back from this trip.
+
+...and I have also found the right soundtrack for this journey:
+Inner Emigration from Dog Chasing Sun
+https://www.youtube.com/watch?v=J7Tykrn9QCI
+
+
+
+,
+        "OneColumnAlternating"
+
+#          usergroup_members=("GapurEvloev", "eunianina", "cwoldt") # Replace with your user group members
+
+
+
+19:00 Uhr - 6 Personen
+Woldt
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-676
+
+Now the GitHub action looks like this:
+https://github.com/CondeNast/mayo-self-copilot-migration/pull/72/files
+
+I created a GitHub team "lifestyle-all-engineers" where we should add all lifestyle engineers:
+https://github.com/orgs/CondeNast/teams/lifestyle-all-engineers/members
+
+I guess we need another team like "lifestyle-code-guards" as target. 'cause I guess there shouldn't be individiual users within the auto-assign.yml file.
+
+And we need a name for the label to be added. Maybe simply "lifestyle"?
+
+What do you mean?
+
+
+
+lifestyle-engineering
+
+
+Can someone add the two new teams lifestyle-all-engineers and lifestyle-code-guards as Collaborators to this repository:
+https://github.com/CondeNast/mayo-self-copilot-migration
+
+I am not allowed...
+
+Sag mal, kann ich da einfach ein Label "Lifestyle Monitor" hinzufügen:
+https://github.com/CondeNast/verso/issues/labels
+Oder muss das abgestimmt werden?
+Und wenn ja, mit wem?
+
+Is someone of you able to add this team:
+https://github.com/orgs/CondeNast/teams/lifestyle-all-engineers/members
+to verso collaborateurs?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-689
+Especially for tickets from Anthony it's often a good idea to call him via slack that he should test or sanity check.
+Because he is not so common using jira. At least not the way we do.
+
+
+GitHub Action to set a specific label and assign specific users to PRs that are created by a specific team
+
+Zu diesem Ticket:
+https://support.condenastint.com/now/nav/ui/classic/params/target/sc_task.do%3Fsys_id%3Dbd1175a91b3db150c753db12cd4bcb93
+
+
+13:51
+14:04
+
+Die Shopping Week, das einzige, dass die letzten 10 Jahre funktioniert hat und von Jahr zu Jahr gewachsen ist, innerhalb von nicht mal zwei Jahren Globalisierung so an die Wand zu fahren. Hut ab.
+
+
+Lets make it more generic and reusable: create an action and move all specific data like labels and team names to variables and from workflow we just launch the action with our data
+
+I'd love to. But can you tell me how to do that?
+How I can swap out the variables.
+How I can then access the variables.
+And how the action can then be started with our data.
+
+
+Ich bin mir ja sicher, Dan Haller verfolgt mit seiner Umfrage die besten Absichten.
+Allerdings scheint er von der alltäglichen Arbeit in der Entwicklung so weit entfernt, wie Anna Wintour von den nähenden Kids in Bangladesh. Sorry.
+
+$(curl -s -H "Authorization: token $gh_token" "https://api.github.com/orgs//teams")
+
+When you run npm run it says there are some cypress commands:
+cypress
+dev-cypress
+cypress-ci
+I tried them all but didn't get a glue how this may work.
+
+Es gibt ein wunderbares Tool, um GitHub Actions lokal auszuführen:
+https://github.com/nektos/act
+Der Vorteil: Es läuft lokal.
+Der Nachteil: Es braucht etwa 10 mal so lange wie einen commit zu pushen und auf das Ergebnis auf GitHub warten.
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-695
+
+Isn't that an issue for the design team?
+On the one hand, to find out whether this is possible and, on the other hand, to give us the right colour values?
+
+How can I get the teammembers when there is no github.repository.owner available?
+
+
+I like to sit in front of the screen and wait for cypress to finish... or not to finish.
+But wait... no I don't really like to do that.
+That's why I'm asking you:
+Would you like to merge the PR out of turn?
+https://github.com/CondeNast/verso/pull/25043
+
+
+          team_slug="${{ inputs.pr_team }}"
+          gh_token="${{ secrets.GH_TOKEN }}"
+          api_url="https://api.github.com/orgs/${{ org_name }}/teams/${{ team_slug }}"
+          echo "api_url:: ${{api_url}}"
+
+          team_api_url: "https://api.github.com/orgs/CondeNast/teams/lifestyle-all-engineers"
+
+#          gh_token="${{ inputs.gh_token }}"
+#          echo "team_slug:: ${{ team_slug }}"
+
+It's about what I expected.... only a little worse.
+So after waiting for four hours for the delivery... I now get an e-mail saying, "Oh, nonsense, not today, we've just kidding, we won't deliver until tomorrow... sometime between 8:00 and 16:00...
+Boah, I'm telling you...
+
+I don't understand the question...
+Händlmaier of course. Is there any other choice?
+
+Regarding this ticket:
+https://github.com/CondeNast/verso/pull/25071
+Why only for 'homepage'? Do we really need the hed tag as h2 at any place?
+
+
+Hi Dan,
+
+someone told me you are familiar with GitHub actions?
+If so may I ask you a few questions?
+
+
+So my first question:
+The documentation says I can get teammembers by curl:
+https://docs.github.com/en/rest/teams/teams?apiVersion=2022-11-28#get-a-team-by-name
+
+But when I try it like this:
+
+          gh_token="${{ secrets.GITHUB_TOKEN }}"
+          api_url="https://api.github.com/orgs/CondeNast/teams/lifestyle-all-engineers"
+
+          teams=$(curl -L -H "Authorization: Bearer $gh_token" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            $api_url)
+
+I get the response there is "Not Found":
+{ "message": "Not Found", "documentation_url": "https://docs.github.com/rest/teams/teams#get-a-team-by-name" }
+
+But the team exists:
+https://github.com/orgs/CondeNast/teams/lifestyle-all-engineers
+
+Do you have an idea what I'm doing wrong?
+
+I tried to test it here:
+https://github.com/CondeNast/mayo-self-copilot-migration/pull/72/files
+https://github.com/CondeNast/mayo-self-copilot-migration/actions/runs/6531501099/job/17732845026
+
+
+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
+
+
+
+      - name: Check PR Author Team
+        id: pr_author_team
+        run: |
+          pr_author="${{ github.event.pull_request.user.login }}"
+          gh_token=${{secrets.MONITORING_ACTION}}
+          api_url="https://api.github.com/orgs/CondeNast/teams/lifestyle-all-engineers/members"
+
+          team_members=$(curl -L -H "Authorization: token $gh_token" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            $api_url)
+
+          author_in_team=false
+          for team_member in $(echo "$team_members" | jq -r '.[] | .login');
+          do
+            if [[ "$pr_author" == "$team_member" ]]; then
+              author_in_team=true
+              break
+            fi
+          done
+
+          echo "::set-output name=author_in_team::$author_in_team"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+We have now got the following solution working:
+
+Elena created a personal access token with read:org permission and put its value to mayo repository secrets.
+But we are unsure if this is best practice to use a personal access token for GitHub workflows and actions.
+
+Especially because the action will finally be implemented on verso.
+
+You can see it here:
+https://github.com/CondeNast/mayo-self-copilot-migration/pull/72/files#diff-3df58dd42b351a284a19d2c3d3fe8c50db1cc811bb690ebbf402d1282bce9757R17
+
+What do you think?
+
+
+Hi Team,
+
+we need a personal access token with read:org permission and put its value to verso and mayo repository secrets.
+
+I was told:
+Ideally it would be a robot access token so that if XXX leaves the company, the workflow won’t break. I’m not sure if we have any robot accounts, though. Cloud platform might know
+
+So my question: Can anyone provide me this?
+
+
+Ich finde auf den Seiten zwei unterschiedlich falsche links:
+
+https://www.vogue.de/datenschutz
+https://www.vogue.de/service/artikel/datenschutz
+
+Die aber beide auf die richtige Seite weiter geleitet werden:
+https://www.vogue.de/info/datenschutz
+
+Insofern sollte das vom rechtlichen und von SEO her schon passen.
+Oder hast du noch irgendwo einen dritten falschen Link gefunden, der eien 404 Fehlermeldung hervor zaubert?
+
+Lifestyle
+
+pBf473ww
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-635
+
+Now that this has been on our bug board for a while, I have to ask what is the status.
+Should we continue to ignore it?
+Should the mentioned feature be implemented?
+Should the editor function be removed from the DEK?
+
+20
+
+image size:
+312x96
+
+https://multiverso.allure.com?branch=LS4-695
+https://multiverso.allure.com?branch=LS4-695-inverted
+
+Hi Emily,
+
+it is about this ticket:
+https://cnissues.atlassian.net/browse/LS4-676
+
+We want to add and inform specific users if a member of the lifestyle team creates a PR.
+
+Cool, so what's the problem you were trying to solve - is it that as admins of a repo you only want to be infomed when someone from lifestyle creates a PR, and not anyone else? Or is it to be able to approve workflows? What's the team name for those you want to inform?
+Or is the problem that there's multiple contributing teams to one repo so each team only wants to be reviewed by their own team?
+
+
+We already did this with the mayo repo:
+https://github.com/CondeNast/mayo-self-copilot-migration/pull/72/files
+
+There we use a personal access tokens and it works how we want it.
+But as I said we should not use personal access tokens. So I was told to create an app and create a token within the app.
+Now we have a token created by Dmitry. But itseems that this token has not the right permissions.
+
+So I guess it is at least one way to get done what we want to get done.
+
+is it that as admins of a repo you only want to be infomed when someone from lifestyle creates a PR, and not anyone else?
+-> yes
+
+What's the team name for those you want to inform?
+-> lifestyle-all-engineers
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/25020/files
+
+I still get the message:
+{ "message": "Bad credentials", "documentation_url": "https://docs.github.com/rest" }
+
+As you can see here:
+https://github.com/CondeNast/verso/actions/runs/6561394676/job/17820987784
+
+Can you tell me if I have to add the token in another format?
+'cause for mayo you created something like ${{secrets.MONITORING_ACTION}}
+
+I have no idea what I can help you by fixing this issue.
+But yes you can reach me tomorrow from
+9:00am til 4:00pm my time
+12:30 till 7:30pm your time
+
+
+a1 -> white
+c8 -> white
+c7 -> white
+c12 -> white
+a3 -> black
+
+black: rgba(0, 0, 0, 1);
+white: rgba(255, 255, 255, 1);
+
+"context-signature": "a1",
+"context-tertiary": "c8",
+"context-signature": "test-light",
+"context-tertiary": "test-light",
+
+"default": "c7",
+"hover": "a1"
+"default": "test-light",
+"hover": "test-light"
+
+"dividers": "c12"
+"dividers": "test-light"
+
+"collapsed": "a3",
+"collapsed": "test-dark",
+
+https://multiverso.allure.com/best-of-beauty-2023-draft?branch=LS4-695
+https://multiverso.allure.com/best-of-beauty-2023-draft?branch=LS4-695-inverted
+
+https://multiverso.allure.com/best-of-beauty-2023-winners/body?branch=LS4-695
+https://multiverso.allure.com/allure-test?branch=LS4-695
+
+https://multiverso.allure.com/best-of-beauty-2023-winners/body?branch=LS4-695-inverted
+https://multiverso.allure.com/allure-test?branch=LS4-695-inverted
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-695
+
+The inverted thing works very well.
+To change colors at brand-identity will be a bigger efford 'cause there are no color tokens especially for the header navigation.
+I created some test pages where you can see it.
+@milene: Enough information or do you need more?
+@elena: Or do you have another suggestion to change the colors?
+Here you can see the changes:
+https://github.com/CondeNast/verso/pull/25139
+https://github.com/CondeNast/verso/pull/25143
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-694
+
+Please have look at the EventBanner.
+Especially at the "active" version.
+Normally (or at least often) we have a button on the right side. But there is no button-information at the ticket. Is it right this way?
+
+As Elena is on sick leave I would post the sprint message:
+
+:loudspeaker: Hi Team, Sprint 46 of @team-sevenseas hosted by @Elena Unianina ended with 25P done and 12SP (two tickets) not completed.
+For one ticket (3 points) about cypress changes cypress refuses to work. It is annoying but we try to deal with it.
+The second ticket (8 points) has caused us major unforeseen problems and requires additional work to refactor and standardise basic functions in verso.
+The next sprint is hosted by @Elena Unianina has already started yesterday.
+
+Ok for you?
+
+@tobi Do you have a explanation for the differing points of the real sprint and the velocity chart?
+'cause we take exactly 12 pints over from the last sprint but velocity chart says there is a difference of 17 points:
+https://cnissues.atlassian.net/jira/software/c/projects/LS4/boards/1271/reports/velocity-chart
+
+
+Regarding your cypress ticket:
+https://cnissues.atlassian.net/browse/LS4-681
+I guess we should wait until Elena is back again and decide with her what to do.
+Today I tried to restart cypress a few times and it always failed at different tests. So it has nothing to do with your changes...
+
+Maybe you'd like to take a look at this ticket:
+https://cnissues.atlassian.net/browse/LS4-694
+It's already done, but it shows quite well which tasks we have to deal with from time to time.
+If you have any questions, please ask :-)
+
+
+Something went wrong:
+https://github.com/CondeNast/verso/actions/runs/6586558230/job/17895103299
+https://github.com/CondeNast/verso/pull/25020
+
+Regarding this error:
+secretOrPrivateKey must be an asymmetric key when using RS256
+
+
+=================================================================================================================
+As I said we should plan another dinner when our new colleague arrives I thought of traditional bavarian kitchen.
+But the I realized traditional bavarian kitchen is mostly based on pork.
+So I ask you first:
+May you take a look at this menu if there is something for you.
+https://cdn2.site-media.eu/images/document/6075365/EnglischeSpeisenStand2022-04.pdf
+If not I must think about another place...
+
+Weil das mit dem Teamdinner das letzte Mal so gut geklappt hat und wir obendrein im November einen neuen Kollegen haben werden - was mich sehr freut - schlage ich vor, wir suchen uns einen Termin in der Woche vom 13. bis 17. November.
+
+Und ich schlage vor, wir gehen ins "Weisse Bräuhaus" zu traditioneller Bayerischer Küche:
+https://www.schneider-brauhaus.de/de
+
+Für die ganz mutigen unter uns gibt es dort die Kronfleischküche, Gerichte, die sonst kaum noch angeboten werden:
+Kalbskron auch Nieren, Milz, Bries, Leber und Lunge.
+
+Mein ganz besonderer Tipp:
+Hopfenweisse - ein Weissbier mit ausgesprochenem Hopfenaroma.
+...aber bitte nur eins, weil mit 8,2% hat das ganz schön Wumms :-)
+
+Und wie letztes Mal: Wenn wir einen Termin gefunden haben, laden wir den Rest des Teams mit ein.
+
+Was meint ihr?
+
+===
+Because it worked so well with the team dinner last time and on top of that we will have a new colleague in November - which makes me very happy - I suggest we look for a date in the week from November 13 to 17.
+
+And I suggest we go to the "Weisse Bräuhaus" for traditional Bavarian kitchen:
+https://www.schneider-brauhaus.de/de
+
+For the very brave among us there is the Kronfleischküche, dishes that are hardly offered anywhere else:
+Veal crown also kidneys, spleen, sweetbreads, liver and lungs.
+
+My very special tip:
+Hopfenweisse - a wheat beer with a pronounced hop aroma.
+...but please only one, because with 8.2% it has quite a punch :-)
+
+And like last time: When we have found a date, we will invite the rest of the team.
+
+What do you think?
+===
+Because it worked so well with the sevenseas dinner last time and on top of that we will have a new colleague in November - which makes me very happy - we decided to have another dinner on November 15.
+
+And we will go to the "Weisse Bräuhaus" for traditional Bavarian kitchen:
+https://www.schneider-brauhaus.de/de
+
+For the very brave among us there is the Kronfleischküche, dishes that are hardly offered anywhere else:
+Veal crown also kidneys, spleen, sweetbreads, liver and lungs.
+
+My very special tip:
+Hopfenweisse - a wheat beer with a pronounced hop aroma.
+...but please only one, because with 8.2% it has quite a punch :-)
+
+And of coure we are happy to invite you all to join with us :-)
+=================================================================================================================
+
+Hopefully this is not the start of a funny pingpong match:
+https://github.com/CondeNast/verso/pull/25060
+
+
+
+Now I'm trying to get the aws samples running:
+https://github.com/aws-samples/amazon-kendra-langchain-extensions/tree/main/kendra_retriever_samples
+
+git clone
+...works proper
+
+cd [dir]
+...works proper
+
+pip install -r requirements.txt
+...crashes
+
+pip install -r requirements.txt
+dyld[1040]: Symbol not found: _mkfifoat
+  Referenced from: /opt/homebrew/Cellar/python@3.9/3.9.17/Frameworks/Python.framework/Versions/3.9/Python
+  Expected in: /usr/lib/libSystem.B.dylib
+Abort trap: 6
+
+In other words: I didn't get very far.
+
+Has anyone else been able to collect initial experience?
+
+
+python3.11 -m pip install --upgrade pip
+pip3.11 install -r requirements.txt
+pip3.11 install --force-reinstall "langchain>=0.0.306"
+pip3.11 install --force-reinstall "boto3>=1.28.57"
+
+
+In here:
+https://github.com/aws-samples/amazon-kendra-langchain-extensions/tree/main/kendra_retriever_samples
+
+Before I can run the sample, I need to deploy a Large Language Model (or get an API key if you using Anthropic or OPENAI).
+
+Can someone tell me if and how I can do that?
+
+Vielleicht wäre es besser, seine Mails erst am Dienstag zu lesen, dann ist die Woche nicht am Montag schon im Eimer.
+Ich hatte per ServiceNow gebeten, nachzusehen, warum ich in verso immer wieder aus dem SSO fliege. Die Antwort:
+
+In home networks the Okta timeout time is 2hrs , this is an expected behavior in the home networks
+
+Machen die das um uns zu ärgern?
+Hey, wir bauen hier Webseiten und entwickeln keine Raketentechnologie.
+
+
+The documentation of amazon kendra asks for a lot keys and config variables.
+https://github.com/aws-samples/amazon-kendra-langchain-extensions/tree/main/kendra_retriever_samples
+
+export AWS_REGION=<YOUR-AWS-REGION>
+export AWS_PROFILE=<AWS Profile>
+export KENDRA_INDEX_ID=<YOUR-KENDRA-INDEX-ID>
+
+export FLAN_XL_ENDPOINT=<YOUR-SAGEMAKER-ENDPOINT-FOR-FLAN-T-XL> # only if you are using FLAN_XL
+export FLAN_XXL_ENDPOINT=<YOUR-SAGEMAKER-ENDPOINT-FOR-FLAN-T-XXL> # only if you are using FLAN_XXL
+export FALCON_40B_ENDPOINT=<YOUR-SAGEMAKER-ENDPOINT-FOR-FALCON> # only if you are using falcon as the endpoint
+export LLAMA_2_ENDPOINT=<YOUR-SAGEMAKER-ENDPOINT-FOR-LLAMA2> #only if you are using llama2 as the endpoint
+
+export OPENAI_API_KEY=<YOUR-OPEN-AI-API-KEY> #  only if you are using OPENAI as the endpoint
+export ANTHROPIC_API_KEY=<YOUR-ANTHROPIC-API-KEY> #  only if you are using Anthropic as the endpoint
+
+Can someone tell me which I need and where to get them?
+
+
+      env:
+        GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/IM-2877
+Can you tell me what is the aim of it?
+Is it to sunset the old bolt version of https://www.menoftheyear.de/ ?
+Then it might be a great idea ask platform if they can provide it by server configuration.
+
+https://www.menoftheyear.de/article/du-zen-tekkal
+https://289604b.dev.menoftheyear.de/article/du-zen-tekkal
+
+Can someone explain me why The New Yorker has such an amount of different Bundle Types:
+https://copilot.condenast.io/tny/bundles/create
+
+Because Bundle Paged allways do exactly the same thing: They display the sections in a multipackage row.
+Or am I wrong?
+
+
+Vogue Archiv
+-> Cabot
+
+But you can add and remove as much components as you want/need... if you add them to a bundle.
+
+In this case for me it looks like this:
+
+We have a car that works wonderfully on the motorway as well as on the country road, in the city and off-road. It has a car radio, an ashtray and a fridge for snacks.
+But because someone doesn't like snacks, we build a completely new car. Only without a fridge.
+And because someone doesn't smoke, we build a completely new car. Just without an ashtray.
+We could simply remove the ashtray or the fridge from our car. Or - what would be even easier - simply not use them.
+But that wouldn't be Condé Nast like...
+
+https://d077797.dev.menoftheyear.de/
+https://d077797.dev.menoftheyear.de/article/die-highlights-der-grossen-gala
+d077797.dev.menoftheyear.de/
+
+~^menoftheyear.de? https://www.gq-magazin.de/men-of-the-year;
+menoftheyear.de https://www.gq-magazin.de/men-of-the-year;
+
+~^menoftheyear.de/article/die-highlights-der-grossen-gala? https://www.gq-magazin.de/men-of-the-year;
+menoftheyear.de/article/die-highlights-der-grossen-gala https://www.gq-magazin.de/men-of-the-year;
+
+~^menoftheyear.de? https://www.gq-magazin.de/men-of-the-year;
+menoftheyear.de https://www.gq-magazin.de/men-of-the-year;
+
+RedirectMatch 301 ~^menoftheyear.de/article/die-highlights-der-grossen-gala? https://www.gq-magazin.de/men-of-the-year;
+RedirectMatch 301 menoftheyear.de/article/die-highlights-der-grossen-gala https://www.gq-magazin.de/men-of-the-year;
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/IM-2877
+
+As we cannot redirect by header within index.php because then the hole domain isn't available anymore we must find a solution that just redirects the main page.
+
+I made some tests but cannot provide a solution.
+1. Unpublish homepage and redirect by bolt redirector extension does not work
+2. Redirect by .htaccess seems not to work either
+
+But feel free to test the .htaccess by yourself maybe you find a solution.
+
+${{ steps.pr_reviewers_team.outputs.reviewers }}
+steps.pr_author_team.outputs.author_in_team
+
+KUDOS:
+Ich möchte meinem Team danken. Denn mit euch macht das Arbeiten wieder richtig Spass.
+
+Ich möchte Milene und Tobi dafür danken, dass sie beim Thema AI dran bleiben und aufs Gas drücken.
+
+
+Totally forgot to send you this:
+https://www.emaz.de/article/estragon-sirup
+
+I'm pretty sure you will find a way to translate it in a proper way :-)
+
+
+From a developer's point of view, I have one or two questions of understanding:
+
+Proposed Color Tokens
+
+1. discovery
+What is the meaning of discovery in this case?
+2. lead
+In this all tokens start with primary.discovery.body but one that starts with primary.discovery.lead.
+Why?
+3. Linked Rubric
+This field is called "rubric" at CoPilot. And it is called "rubric" at verso. Why do you use the differing name "context-signature"?
+4. description
+Same here. It's called "dek" in CoPilot and it's called "dek" in verso. Why do you use the differing name "description"?
+
+Proposed CSS
+
+Many years of experience show that it is not a good idea to use colour names for colour definitions.
+Take 'white', for example. As soon as it turns out that pure white is not so good, 'white' is assigned a different colour value and then white is no longer white.
+
+
+    - name: Merge Include Labels
+      shell: bash
+      id: merge_include_labels
+      run: |
+        declare -a includeLabels
+        includeLabels='[${{ inputs.PR_LABEL }}, ${{ inputs.INCLUDE_LABEL }}]'
+        echo "includeLabels=$includeLabels" >> $GITHUB_OUTPUT
+
+        reviewers: ${{ steps.pr_reviewers_team.outputs.reviewers }}
+${{ fromJson('{"gp-nonprod-ap-0":"gp-nonprod","gp-prod-na-0":"gp-prod"}') }}
+${{ fromJson('{}') }}
+
+Regarding this ticket:
+https://github.com/CondeNast/verso/pull/25020
+What do you think should I ask someone specific for a review? Maybe Dan Haller?
+Or should is it enought when Gapur approves?
+Or should I post it at #verso-pr-review?
+
+Hi Dan,
+as you pointed me in the right direction and you know much about GitHub Actions I would be appreciated if you mind to review my PR:
+https://github.com/CondeNast/verso/pull/25020
+
+Hi team,
+please review this PR:
+https://github.com/CondeNast/verso/pull/25020
+It's about a GitHub Action that assigns members of a specific team to any PR that is created by a member of another specific team.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-703
+Have you now found a working solution to the problem? Or do you need further discussion?
+
+
+Long time no see...
+Now I have a request for you... can you look at this PR:
+https://github.com/CondeNast/verso/pull/25020
+It's about a GitHub Action that assigns members of a specific team to any PR that is created by a member of another specific team.
+Dan asked me to involve you because it’s a process thing.
+
+
+Do you have a moment for me to help me thinking... and maybe understanding?
+
+
+A short story about Contributors
+
+At MultiPackages the Contributor section is called like this: SummaryCollectionGrid.ContributorsInThreeColumnsWithButton
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/multi-packages/MultiPackages.js#L289
+
+The variation ContributorsInThreeColumnsWithButton should be rendered with summaryItemVariation: 'ContributorAsCard'
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/summary-collection-grid/variations.js#L87
+
+But... at tenant default config it's overriden by summaryItemVariation: 'SideBySideMobileOnlyThirdsImageRight' *)
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/channels/_default.ts#L239
+
+And again by channel config: summaryItemVariation: 'ContributorAsCard'
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/channels/health-conditions.ts#L96
+
+
+*) It happens because oft this alignment ticket:
+https://cnissues.atlassian.net/browse/LS4-652
+The 3 columns layout for AD, CNT, Glamour, GQ and Self, is following Allure’s pattern with:
+- headline enabled
+- square images in the top of the card
+- 3 content in each row
+
+
+Contributor to SummaryItem
+
+https://stag.allure.com/test-river
+https://stg-copilot.condenast.io/all/bundles/64f8948aaa1b122c97be5f34/verso-contributors/653a7dcc96b99dfcffba054d
+
+
+Hi there,
+long time no see...
+
+Please can someone help me to find this pages at CoPilot:
+https://www.vogue.com/photovogue/photographers
+https://www.vogue.com/photovogue/photographers/345179
+
+Both pages don't show up an ID.
+And the CoPilot search isn't very helpful at all.
+
+Regarding to your comments of this PR:
+https://github.com/CondeNast/verso/pull/25020
+
+1. naming convention
+
+Let me try to explain the scope of the action as generic as possible:
+
+We want to ensure that PRs meet the requirements of the corresponding ticket, do not conflict with similar requirements and meet our goals of standardisation, reusability and brand independence.
+
+For this purpose, all PRs that are created by developers from the lifestyle department are to be checked briefly, independently of the review process.
+For this, we need a GitHub team with all developers who work for Lifestyle (lifestyle-all-engineers) and a team with colleagues who do the check (lifestyle-code-guards).
+
+Of course, I am always ready to discuss a better and more generic naming of the teams. Especially, of course, if this is also interesting for other teams.
+
+However, I would like to do this only after this PR, so that I can close my ticket in time.
+
+2. documentation
+
+Where should the documentation be added?
+
+vscode
+Bitte schreibe einen Text im Stil von Max Goldt, der die Themen "Verkehrschaos nacht um halb drei", "Schuhschachtel", "Warum fährt der ICE nicht, der TGV aber schon" und "die Lieblingsfarbe des Maulwurfs ist gelb" beinhaltet. Der Text soll etwa zwei DIN A 4 Seiten lang sein.
+
+Weil das heute bei uns im Morning Meeting Thema war:
+Ihr könnt euch ja rein technisch gesehen mittels jamf jederzeit auf fremden Rechnern einloggen, ohne dass der User zustimmen muss. Also nicht wie beim Teamviewer, wo der User erst das Kennwort rausrücken musste. Jetzt stellt sich natürlich die Frage, ob das Datenschutzrechtlich abgeklärt ist. Und wenn ja, ob nicht die User explizit darauf hingewiesen werden müssen, dass das technisch geht.
+Weisst du, ob das geklärt ist? Oder kannst du dich mal um tun, wie das rechtlich aussieht?
+
+Normans suggests to rename folder and file names:
+
+Since this is lifestyle team specific, maybe indicate that in the folder and file names?
+
+What do you think of:
+lifestyle-engineering-auto-assign
+
+...for folder and file name.
+https://github.com/CondeNast/verso/pull/25020
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-699
+
+Let me think loud...
+
+As we have more than one prop for SubNavigation and layout isn't a flag but an array:
+
+contentTypes: {
+  default: {
+    componentConfig: {
+      SubNavigation: {
+        settings: {
+          hasBackgroundColor: true,
+          layout: 'SubNavigationCarousel'
+        }
+      }
+    }
+  }
+}
+
+Should we ignore that and implement a flag like:
+"Enable Dropdown SubNavigation" -> enableDropdownSubNavigation
+
+Or should we invent something like:
+SectionConfig:
+  - SubNavigation
+    layout: ['SubNavigationCarousel', 'SubNavigationDropdown']
+    hasBackgroundColor: bool
+
+SUB_NAVIGATION
+
+a5dc2ad7
+
+https://adpworld.adp.com/wps/myportal/ADPWorldVDL/Home/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziLQMsDDycLQy83L3cLQwcQ9yNfYODfAwNDIz0wwkpiAJKG-AAjgZA_VFgJQgTnF0dDRxdnM2dzXwDDQ3cDaAK8JhRkBthkOmoqAgA2OyMnw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/
+
+
+https://online.emea.adp.com/signin/v1?APPID=ADPworld&productId=d3012000-a7b7-6167-e053-f282530b58ef&returnURL=
+https://adpworld.adp.com/&callingAppId=ADPworld&TARGET=-SM-https://adpworld.adp.com/
+
+
+Ich denke, das mit der GitHub Action passt jetzt so.
+Weil es eigentlich egal ist, wann die Zuordnung passiert. In der Liste der PRs sehe ich dann ja, welcher auf Ready for Review steht. Ich für meinen Teil kann damit leben.
+Wir können aber gerne ein Tech Debt Ticket anlegen, um nach einer optimierten Lösung zu suchen.
+
+
+I've just seen this ticket:
+https://cnissues.atlassian.net/browse/LS4-711
+Do we have now all necessary credential to work with this kendra examples?
+Or is it once more a ticket to read some documentations and source code?
+
+
+Auf meine Frage, warum ich mehrmals täglich aus dem AWS SSO geschmissen werde, habe ich (erneut) diese Antwort bekommen:
+
+Hello Christian,
+As informed already in home networks the Okta timeout time is 2hrs , this is an expected behavior in the home networks who are all working in external network.
+We cross checked with MDS team, its a global settings. This can't be changed.
+Thanks for understanding,
+
+Muss sagen, ich bin jetzt etwas angepisst.
+Fällt das auch unter die Rubrik "Kämpfe keine Kämpfe, die du nicht gewinnen kannst" oder kann man das eskalieren?
+
+Weil: Es ist eine Einstellung, die jemand gemacht hat und Einstellungen, die jemand gemacht hat kann auch jemand ändern.
+Und wenn jemand der Meinung ist, KollegInnen im Homeoffice (btw auch im CNV-Guest Netz) so wenig zu trauen dass er ständige Neuanmeldung fordert, das zeugt nicht von einer besonders kollegialen Haltung.
+
+Nichtzuletzt: Wir liefern Webseiten aus und entwickeln keine Raketentechnologie (aber sagte ich ja bereits)
+
+Hi Team,
+Has someone an explanation for this:
+
+http://localhost:7777/glamour-staging/verso-channel/test-river/ redirects to https://stag.glamour.com/verso-channel/test-river
+http://localhost:7777/glamour-staging redirects to https://www.glamour.com/glamour-women-of-the-year-2023
+
+I cannot find anything that refers to that. Nor a CoPilot redirect neither an entry at verso departures
+
+
+While we can’t control platform algorithms or how AI may change search traffic, we believe our long-term success will be determined by growing the many areas that we can control
+We are prioritizing cost reductions through real estate/office space savings, closing open roles and re-phasing certain long-term projects across the business.
+
+4:3
+344 x 258
+900 x 675
+
+const applySideBySideVerticalAlign = ({
+  sideBySideVerticalPlacement,
+  layoutPlacement
+})
+sideBySideVerticalPlacement={sideBySideVerticalAlign}
+
+
+Hi there,
+before I start debugging... has someone an explanation why CoPilot an verso differes in this way:
+https://stag.gqmagazine.fr/verso-channel/test-river
+https://stg-copilot.condenast.io/gqfr/bundles/64ff2f7811052c3508391272
+...and how I can align backend and frontend?
+
+
+Bei uns in Bayern gibt es ja vor allem die Berg- uns Alpenquallen. Die werden am Welttag der Quallen auf den Salzalmen zusammengetrieben und dann in einem bunt geschmückten Festzug in die Täler zu den Winteraquarien geleitet. Dazu werde allerorten frische Jellybeans gereicht und mit ordentlich Enzian runter gespült.
+So oder so ähnlich begehen wir den Welttag der Quallen.
+
+
+=============================================
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-680
+
+This was not in the ticket, but because I believe that a OneColumn layout should also be displayed as such, I have included it. If this is explicitly not wanted, then I will of course undo this. However, I also recommend removing the corresponding layouts from CoPilot.
+
+The pages of the French GQ do not work. I am in dialogue with international colleagues about this.
+
+Test pages are now available for all other tenants. Please test them accordingly. In particular, please check whether the layout on other pages or in other sections has changed in an unwanted way.
+
+@Elena Unianina Here is the PR to the ticket:
+https://github.com/CondeNast/verso/pull/25326
+=============================================
+
+
+Ja... aber warum?
+In CoPilot gibt es keinerlei Einschränkungen, auf die das zurückzuführen ist.
+In den River Sections sollen jeweils 6 Artikel angezeigt werden:
+https://stg-copilot.condenast.io/gqfr/bundles/64ff2f7811052c3508391272
+Das funktioniert bei allen anderen GQs ganz wunderbar, nur bei der französischen GQ nicht.
+
+
+And now some of the most important rules and meetings of our team(s):
+Everyone has to bring some cake at birthday!!
+One time the month we have team brakfast. Either everyone brings along what he/she likes or wants to present or we get Weißwurst together.
+One time the month we try to have lunch together at a place near the office.
+A very new event: The developers meets in a restaurant somewhere in Munich and invites the rest of the team.
+We have a quarterly team event with changing high lights (ask Alex)
+We have (hopefully) a x-mas party together with Condé Nast Germany.
+We have (hopefully) a summer party together with Condé Nast Germany.
+Except the law with the cake, all events are optional.
+@channel Did I forget something?
+
+Hi there,
+has someone an explanation why CoPilot an verso differes in this way:
+https://stag.gqmagazine.fr/verso-channel/test-river
+https://stg-copilot.condenast.io/gqfr/bundles/64ff2f7811052c3508391272
+...and how I can align backend and frontend?
+
+Expected behavoir:
+Two River sections are shown at verso with 6 items each.
+But I just can see one River section with only three items.
+
+This works perfectly for all other GQs, but not for the French GQ.
+
+Query the page by graphql it responds that there ar totalResults of three.
+But I'm pretty sure there are more than three articles available.
+
+
+Um den Überblick zu wahren, hier eine kurze Zusammenfassung der nächsten Donnerbräu Termine:
+8.11. - ab 18:00 Uhr: Umdrücken
+16.11. Ostzonensuppenwürfelmachenkrebs im ImportExport
+18.11. - ab 16:00 Uhr: Ausschank
+21.11. Trappentroi im Unterdeck
+22.11. Ebis akustik Ding (hat das auch einen Namen?)
+2.12. - ab 16:00 Uhr: Ausschank
+16.12. - ab 9:00 Uhr:  Brauen
+31.12. Donnerbräu Silvester Party
+Wer ist denn zu den Terminen in der Brauerei anwesend?
+Von wegen Ausschenken und Dinge tun.
+
+
+Something about transformers:
+docs/topics/plugins.md
+
+rewrite for amazon
+https://wd5.myworkday.com/condenast/d/task/2998$8704.htmld#TABINDEX=0&SUBTABINDEX=0
+
+
+curl --location -g --request POST https://vogue-api.aws.conde.io/galleries/5c531bb75ffb2c2d215f84ff/index
+curl --location -g --request POST https://stg-gqfrance-api.aws.conde.io/bundles/64ff2f7811052c3508391272/index
+curl --location -g --request POST https://stg-gqfrance-api.aws.conde.io/articles/65401a632a9bff7d36f7e3cb/index
+curl --location -g --request POST https://stg-gqfrance-api.aws.conde.io/articles/653fdb7e143bfbb7115de6c2/index
+curl --location -g --request POST https://stg-gqfrance-api.aws.conde.io/articles/65411869561dc30b3c76440a/index
+curl --location -g --request POST https://stg-gqfrance-api.aws.conde.io/articles/6543a6dad81f393985145c84/index
+curl --location -g --request POST https://stg-gqfrance-api.aws.conde.io/articles/654500df42ac2e1db2771027/index
+
+I have a few questions about this issue:
+If this flag should be enabled for all brands, why do we need this flag at all.
+Or is there a risk that this feature might be deactivated again for individual brands?
+
+Ich werde das Gefühl nicht los, dass der Begriff "Künstliche Intelligenz" gerade sehr inflationär gebraucht wird.
+Mittlerweile ist bereits von künstlicher Intelligenz die Rede, wenn eine Software tut, was eine Software tun sollte: Ordentlich die Aufgabe erledigen, für die sie erstellt wurde.
+Es wird dem Extrahieren von Tonspuren aus alten Tonbändern künstliche Intelligenz nachgesagt.
+Dem stolperfreien Vorlesen längerer Texte.
+Demnächst vielleicht auch dem Wasserkocher, weil er zuverlässig abschaltet, wenn das Wasser kocht.
+
+
+Regarding the issue with GitHub CodeGuard Action:
+@tobe @elena now it's up to you to add all lifestyle engineers to the lifestyle-all-engineers team:
+@https://github.com/orgs/CondeNast/teams/lifestyle-all-engineers/members
+
+
+https://multiverso.gq.com/verso-channel/test-river-coronavirus?verso=true&branch=LS4-680
+https://multiverso.gq.com/verso-channel/test-river-gqsports?verso=true&branch=LS4-680
+https://multiverso.gq.com/verso-channel/test-river-homepage?verso=true&branch=LS4-680
+https://multiverso.gq.com/verso-channel/test-river-metaverse?verso=true&branch=LS4-680
+https://multiverso.gq.com/verso-channel/test-river-sponsored-content?verso=true&branch=LS4-680
+https://multiverso.gq.com/verso-channel/test-river-verso-multipackage-flip-flop?verso=true&branch=LS4-680
+https://multiverso.gq.com/verso-channel/test-river-modern-lovers?verso=true&branch=LS4-680
+
+https://stag.gq.com/verso-channel/test-river-coronavirus?verso=true
+https://stag.gq.com/verso-channel/test-river-gqsports?verso=true
+https://stag.gq.com/verso-channel/test-river-homepage?verso=true
+https://stag.gq.com/verso-channel/test-river-metaverse?verso=true
+https://stag.gq.com/verso-channel/test-river-sponsored-content?verso=true
+https://stag.gq.com/verso-channel/test-river-verso-multipackage-flip-flop?verso=true
+https://stag.gq.com/verso-channel/test-river-modern-lovers?verso=true
+
+
+Enable "One Column Alternating":
+https://multiverso.gq.com/verso-channel/test-river-modern-lovers?verso=true&branch=LS4-680
+https://stg-copilot.condenast.io/glmuk/bundles/64ff220970cf741b455be173/verso-river/6511526f1a8b78d51758c220
+
+I'm happy to present you the following pages:
+https://multiverso.gq.com/verso-channel/test-river-metaverse?verso=true&branch=LS4-680
+https://stag.gq.com/verso-channel/test-river-metaverse?verso=true
+
+On staging the OneColumn layout looks nearly like the OneColumnAlternating layout. But not exactly as you can see.
+On multiverso it looks exactly the same.
+
+For GQ US I have activated the OneColumnAlternating layout as you can see here:
+https://multiverso.gq.com/verso-channel/test-river-modern-lovers?verso=true&branch=LS4-680
+
+I would love to remove the completely wrong design for OneColumn. And from all channel configurations for all tenants. And set up OneColumnAlternating for all tenants instead. This is not part of the ticket, but somehow we have to make progress with standardisation.
+I would still like to leave the decision up to you...
+
+enableGqlForLinkBanner
+https://github.com/CondeNast/verso/blob/main/src/tenants/allure/channels/_default.ts#L921
+
+
+For LinkBanner there is a featureFlag.
+For GQ it is already enabled:
+https://copilot.condenast.io/gqde/feature-flags/6290d87aa6f2c40008e67b5d
+Now it has to enabled at verso also. As you can see here for Allure:
+https://github.com/CondeNast/verso/blob/main/src/tenants/allure/channels/_default.ts#L921
+And: Please, please, please do it with the featureFlag and not with channel config.
+
+When I am connected from an external ip other than corporate network I cannot work either. verso needs VPN or corporate network.
+
+https://stag.gq.com.mx/verso-homepage/homepage-test?verso=true
+4. Dezember
+
+
+Nachdem immer mehr Leute darüber informiert werden wollen, wann im Neuhauser Donnerbräu ausgeschenkt wird und ich langsam den Überblick verliere, würde ich dich/euch bitten, dich/euch in den "Brautag" Newsletter einzutragen, dann bekommst du/ihr die Termine automatisch mitgeteilt:
+
+https://www.emaz.de/info/newsletter
+
+Ansonsten sind die nächsten Ausschanktermine (diesmal ohne Brauen):
+18. November und der 2. Dezember - jeweils von 16:00 bis 21:00 Uhr
+
+Im Ausschank werden wir voraussichtlich haben:
+- Zwei verschiedene Pale Ale
+- Weißbier
+- Wiener Lager
+- Berliner Weiße
+
+
+
+I have a knot in my head right now... Please help me before the knot gets into my stomach:
+
+I can see just three channels here:
+https://copilot.condenast.io/gquk/category-manager/6277cfa7f071f01dee26963b
+
+But I have about 13 channel cofig files at verso:
+- culture
+- fashion
+- fitness
+- grooming
+- homepage
+- lifestyle
+- men-of-the-year
+- men-of-the-year-2021
+- moty
+- shopping
+- sport
+- video
+- watches
+
+Can someone explain me what happen there?
+Have the channels perhaps been accidentally deleted from CoPilot? Or even on purpose?
+Can the channel configurations be removed in verso?
+Or is there perhaps some magic that accesses the configs without the channels even existing?
+
+
+https://stag.gq-magazine.co.uk/verso-channel/test-river-homepage
+https://multiverso.gq-magazine.co.uk/verso-channel/test-river-homepage?verso=true&branch=LS4-680
+
+
+@Milene As you can see the header of the river section are now looking quite different:
+https://stag.gq-magazine.co.uk/verso-channel/test-river
+https://multiverso.gq-magazine.co.uk/verso-channel/test-river?verso=true&branch=LS4-680
+Should it be like this? Because we want to have the same config for all brands?
+Or should it stay left aligned and with border bottom?
+
+
+===============================================================
+https://cnissues.atlassian.net/browse/LS4-706
+
+Open questions
+Do we need both brandIdentitySlug and scTheme.meta.name props?
+
+Do we need to duplicate brandIdentity.typography object inside typography prop of scTheme ?
+
+Is base page plugin transformer a proper place to set the theme or there is a better place?
+
+What is a suggested approach for theme extension functionality considering we want to be able to extend BI, fonts and assets?
+
+Considering answers to the questions 1-4 what how can we change the current theme data structure?
+
+===============================================================
+
+Was bist du bereit zu tun?
+Werden wir sehen...
+
+The URLs are looking quite a bit different to the verso documentation...
+The port is 7777 instead of 8000. So this should work:
+http://localhost:7777/[organizationSlug]/[path]
+http://localhost:7777/self/contributor/carolyn-todd
+
+For the tenants you allways find the correct organizationSlug at tenant config. For example:
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/tenant.ts#L22
+
+
+For AD US it's already working as you can see here:
+https://stg-copilot.condenast.io/ad/bundles/654cb19876191aab0bd5f427
+https://stg-copilot-app.condenast.io/ad/curatedlists/653907cc9815a69c128a5bf8
+https://stag.architecturaldigest.com/test-linkbanner?verso=true
+
+Short HowTo:
+1. Create a CuratedList with Curation type "Link Banner - Multiple Links"
+2. Add a channel to the CuratedList
+3. Add the same channel to all pages where the LinkBanner should appear
+...thats it.
+
+And: It should work for all other ADs as well.
+
+
+Here a few URLs to Carolyn:
+
+production:
+https://www.self.com/contributor/carolyn-todd
+
+staging:
+https://stag.self.com/contributor/carolyn-todd
+
+local with production data:
+https://localhost:7777/self/contributor/carolyn-todd
+
+local with staging data:
+https://localhost:7777/self-staging/contributor/carolyn-todd
+
+And if you want do see the page at CoPilot you can serach by ID:
+https://stg-copilot.condenast.io/self/search?query=5a218eb0ed680b69dc7b1b64
+
+You will find the ID at source code:
+
+
+Let me try to explain my issue again:
+I am logged in to appgate VPN.
+I am working with verso. It is a node application. Therefore I need access to AWS SSO.
+This is handled by verso start script: npm run dev
+It leads me to an amazon page:
+https://device.sso.us-east-1.amazonaws.com/?user_code=[some code]
+It asks me to allow botocore-client-aws-us to access my data:
+https://cn-us.awsapps.com/start/user-consent/authorize.html?[some data]
+Then I can work with my local verso for some time. Maybe two hours. Bit more or less I cannot say. And after some time I get kicked out and have to login again.
+And I get this message:
+
+ERROR [14:26:17.934] (start/97614): verso error with starting server:
+CredentialsProviderError: The SSO session associated with this profile has
+expired. To refresh this SSO session run aws sso login with the
+corresponding profile.
+
+But I want to work the whole day without relogin.
+There is no tab to close.
+
+
+I guess we don't need the meeting at this point because I have not enough information.
+Please tell me what LinkBanner you waht to have on what pages.
+Then I will try to figure out what to do and then I can explain to you what happens and how it works.
+
+In here is a good explanation how LinkBanners work:
+
+https://cnissues.atlassian.net/wiki/spaces/CEX/pages/745504937/Link+Banner+recirculation+unit
+
+I am pretty sure you have read it anyway.
+
+There is just one little but very important information missing:
+When there are more than one CuratedLists tagged with a channel the LinkBanner does not work.
+Just because verso cannot decide which one is the right one.
+You can test is by yourself.
+
+https://stg-copilot-app.condenast.io/ad/curatedlists/654d14ad41a409adef41a441
+https://stg-copilot.condenast.io/ad/bundles/654cb19876191aab0bd5f427
+https://stag.architecturaldigest.com/test-linkbanner?verso=true
+
+When you tag CuratedList and Bundle with "Some Fancy Channel" you can see the LinkBanner.
+
+When I  try to start kendra with:
+streamlit run app.py bedrock_titan
+
+Kendra reclaims a KENDRA_INDEX_ID. Can someone provide me this?
+
+When I try to create an index here:
+https://us-east-1.console.aws.amazon.com/kendra/home?region=us-east-1#welcome
+I get the message:
+You don't have permission to create new IAM roles. Your user must have the IAMFullAccess policy to create new roles. - AccessDeniedException - 400 Request ID: 90620b57-b575-4611-ae77-df87f20ead83
+Or is that the wrong way to get an index ID anyway?
+
+AWS Bedrock Kendra and so on
+Dan Alvarez ist auf Slack erreichbar.
+Chris Prune
+
+verso Staging and Local are not usable at the moment. Permanent timeouts.
+Is this a known issue? Or am I the only one who has problems?
+If not, please can someone take care. I would be very thankful.
+
+
+GraphQL could not resolve content of the bundle
+
+============================================================================
+https://multiverso.architecturaldigest.com/adpro?branch=adpro-linkbanner
+
+Kimberley Baines an Alle (10. Nov. 2023, 10:49)
+And how do we enable the multi linkbanner
+
+Vivek an Alle (10. Nov. 2023, 10:50)
+https://cnissues.atlassian.net/browse/LS2-294
+
+Vivek an Alle (10. Nov. 2023, 10:55)
+If this can be picked up tomorrow that would be great! I am also having problems with enabling a regular linkbanner on AD PRO. here are the links in copilot:
+Brand new link:https://copilot-app.condenast.io/ad/curatedlists/654d14ad41a409adef41a441
+Old link which I have updated to see if this works: https://copilot-app.condenast.io/ad/curatedlists/64a7f5769f0252a6076c4164
+This should only be available on AD PRO and should include a single link to the directory application page (edited)
+
+
+
+https://stg-copilot.condenast.io/ad/search?query=64a7f5769f0252a6076c4164
+https://stg-copilot.condenast.io/ad/search?query=64a7f5769f0252a6076c4164
+
+I have a question. At some channel configs we have the shouldOverrideDefaultText prop. But I cannot find it anywhere else. Nor at EventBanner templates neither at transformers, presenters or plugins. Has this been removed sometimes in the past? And it was only forgotten to announce and remove the props from the tenant config? Do you have an idea?
+
+
+
+I'm getting nuts.
+Just a few minutes ago I called up the search link (without spaces) and nothing came up.
+To make you believe me, I have attached a screenshot...
+
+
+This LinkBanner should show up at AD Pro:
+https://copilot-app.condenast.io/ad/curatedlists/654d14ad41a409adef41a441
+
+It works with tenant config:
+https://multiverso.architecturaldigest.com/adpro?branch=adpro-linkbanner
+
+
+
+Can someone explain me what happens with this page:
+https://multiverso.architecturaldigest.com/adpro?branch=adpro-linkbanner
+
+It shows up with a LinkBanner.
+When I call this API URL:
+https://stg-ad-api.aws.conde.io/identifiers/lookup?uri=test-linkbanner
+
+I can see there is an LinkBanner with this ID:
+64a7f5769f0252a6076c4164
+
+But when I'm looking for the LinkBanner on CoPilot staging there is none:
+https://stg-copilot.condenast.io/ad/search?query=654d15b40d1a140c65851a29&types=curatedlist
+
+On production it is:
+https://copilot-app.condenast.io/ad/curatedlists/64a7f5769f0252a6076c4164
+
+My question now:
+How can it happen that a production LinkBanner appears on staging/multiverso?
+How can I prevent that?
+And what can I do to see the right, staging LinkBanner there?
+
+Right LinkBanner should be this one:
+https://stg-copilot-app.condenast.io/ad/curatedlists/654d14ad41a409adef41a441
+
+
+Annahmen:
+1. LinkBanner funktioniert nur zuverlässig, wenn nur eine CuratedList mit den Channel getaggt ist
+2. feature flags werden mit der channel config überschrieben
+3.
+
+
+Testscenatior und Erwartungen:
+1. One tagged CuratedList; no channel config
+-> LinkBanner appears
+2. One tagged CuratedList; no channel config
+-> LinkBanner appears
+
+============================================================================
+
+5.12. Nikolaus Feier
+16:00 Uhr
+11. - 15. Dezember:
+Weihnachtsfeier
+
+
+Bezüglich des linkBanners habe ich ein paar Vermutungen, die ich gerne testen würde.
+Leider funktioniert weder unser staging/multiverso System, noch ist mein lokales verso nutzbar.
+Es ist einmal mehr zum Heulen.
+Hatte ich am Freitag schon geflaggt und außer einer reichlich nutzlosen Antwort von Nate Laws keine weitere Hilfe bekommen.
+
+
+Letzter Aufruf für das SevenSeas Dinner im Weißen Bräuhaus am Mttwoch.
+Bitte den Termin annehmen, damit ich reservieren kann (wenn das nicht eh schon zu spät ist...)
+
+Sign in: 09:24
+
+
+Hi team,
+
+I need help.
+
+When I try to access this page locally:
+http://localhost:7777/architectural-digest-staging
+
+I get the "Resolved config not found" error.
+Our office network changed this weekend. May that cause the error?
+
+
+pBf473ww
+https://www.gq.com/gqsports
+https://www.gq.com/style
+
+https://multiverso.gq.com/gqsports?branch=LS4-680
+https://multiverso.gq.com/style?branch=LS4-680
+
+Here "Paginated" will change from "Paginated Three Columns" to "Paginated One Column":
+https://www.gqindia.com/live-well
+https://multiverso.gqindia.com/live-well?branch=LS4-680&verso=true
+
+Same here:
+https://www.revistagq.com/cuidados
+https://multiverso.revistagq.com/cuidados?branch=LS4-680&verso=true
+
+
+That's what makes it so exciting.
+For example, if you want to know why no image is displayed in the teaser for a contributor on Self, then the whole world is your oyster.
+This may be due to a configuration in verso. But also a configuration in CoPilot. Something may have been forgotten in the graphql query in verso. And when you have tested all of this, you realize that the content service still exists. The data is there processed again. As a black box, so to speak, and an intermediate step between CoPilot and verso.
+...and then of course it can also be the case that the data doesn't come from CoPilot at all... or isn't even rendered by verso.
+Oh, the world is so big.
+
+
+Ich benötige einen Nutzungsänderungsantrag für eine Ergeschoßwohnung in München Neuhausen.
+Aus der zwei Zimmer Wohnung soll ein Vereinsheim mit Schankraum, Büro und Lagerraum entstehen.
+
+Am Donnerstag zu Ostzonensuppenwürfelmachenkrebs ins ImportExport?
+https://import-export.cc/event/ostszonensuppenwuerfelmachenkrebs-schwemut-forest/
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-680
+My suggestion:
+We close this ticket now because the work is done and because of sprint reasons.
+I will create a go live ticket for the next sprint (starting today). And I will do that as soon as you have time for sanity check and say "go".
+If there are changes required feel free to write as much follow up tickets as needed.
+Is that ok for you?
+
+
+    console.log('ITEMS::', obj.items);
+
+My suggestion:
+As Milene does not reply I will close the river-layout ticket now because the work is done and because of sprint reasons.
+I will create a go live ticket with one point for the sprint starting today. And I will do that as soon as Milene has time for sanity check and say "go".
+If there are changes required we can write a change-ticket for the next sprint.
+Is that ok for you?
+
+
+:loudspeaker: Hi Team, Sprint 48 of @team-sevenseas hosted by @woldt ended with 24P done and 10SP (two tickets) not completed.
+One ticket (5 points) about an inception document for Subnavigation Settings is almost done and waiting for external approvement.
+The other ticket (also 5 points) is in progress and will be done within the upcomming sprint.
+This time we had to handle with onboarding and illness.
+The next sprint is hosted by @Gapur and starts now.
+
+
+
+Hier sind die Contributors noch vorhanden:
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/transformers.ts#L1355
+
+fragment contributorData
+fragment articleData
+
+
+
+    tout {
+      ...photoField
+    }
+    toutMedia {
+      node {
+        ...clipField
+        ...photoField
+      }
+    }
+    lede {
+      ...cNEVideoData
+      ...clipField
+      ...photoField
+    }
+
+
+
+May I give you an advice to create a PR?
+
+We try to keep the description for the PR as short and clear as possible.
+That means mostly its enough to add this informations:
+- Link to the jira ticket
+- DoD of the jira ticket as description
+- link to multiverso
+- Screenshot if possible (optional)
+
+In case of your PR:
+https://github.com/CondeNast/verso/pull/25527
+
+It would look like this:
+https://cnissues.atlassian.net/browse/LS4-715
+Drop cap is not overlapping the text anymore
+https://multiverso.allure.com/story/egg-freezing-stories?branch=LS4-715
+
+To get the multiverso link go to the page at staging:
+https://stg-copilot-app.condenast.io/all/articles/653a9f317b1c237222a5fbf2
+And publish the page and view live:
+https://stag.allure.com/story/egg-freezing-stories
+Replace stag by multiverso and add the branch at the end:
+https://multiverso.allure.com/story/egg-freezing-stories?branch=LS4-715
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/25541/files
+
+I found the image part for articles:
+https://github.com/CondeNast/verso/blob/effa3dc1baca8eadc966967182212fe520e17e12/src/fetcher-helpers/graphql-to-copilot-bundles/copilot-entities/copilot-article.ts#L124
+And I adapted it for contributors.
+Now contributors have
+
+And please let me know if I bother you with my know-it-all hints
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-709
+
+Along the way I found at least two other sections ("Verso River Grouped" & "Verso Contributors River") where Contributors are not working properly.
+"Verso River Grouped" works with a special custom configuration. So we can leave it untouched
+"Verso Contributors River" doesn't work at all. But I cannot find it somewhere in production. So I suggest we can leave it also untouched.
+What do you say?
+
+src/fetcher-helpers/graphql-to-copilot-bundles/copilot-entities/helpers/map-contributors.spec.js
+
+
+=======================================
+1. Dezember Team Conference - SevenSeas
+Topics till wednesday
+-> Ein Thema, dass die Absurdität von verso aufzeigt
+-> Ein Thema für Joel
+
+LinkBanner:
+Vorschlag für eine Verbesserung des LinkBanners erarbeiten
+- kurze Zusammenfassung, wie der LinkBanner funktioniert
+- neue Felder in CoPilot (hed & dek)
+- props
+  - welche gibt es
+  - sind die ein Thema für verso settings
+
+River:
+- discuss with Joel
+- naming with Elena
+=======================================
+
+
+
+Expected: [Function variation]
+Received: [Function SummaryList]
+
+
+const showRail = hasRail && RIVER_LAYOUTS[layout]?.hasRail;
+
+const layoutForItem = RIVER_LAYOUTS[layout]?.map || summaryItemVariationList;
+
+
+SevenSeas
+I want to say thank you to my team.
+Because it's really fun to work with you.
+
+Joel
+I would like to extend a warm welcome to Joel.
+And I would like to thank him for being persistent enough to overcome all the bureaucratic hurdles to join our team.
+
+Gapur
+I would like to thank Gapur for the cakes and biscuits.
+And for not hesitating to take on difficult tickets.
+
+Elena
+I'd like to thank Elena because I think she's doing a really good job as team lead.
+And with all the challenges that verso presents us with, it's certainly not an easy job.
+
+Milene
+Tobi
+
+Just to have seen it...
+https://github.com/CondeNast/verso/blob/main/src/plugins/link-banner/transformers.ts#L41
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/link-banner/LinkBanner.js#L155
+
+So in der Richtung:
+https://lederjacken24.de/punchball-herren-lederjacke-bikerjacke-kapuze-lammnappa-schwarz-13149-48
+https://lederjacken24.de/punchbal-herren-lederjacke-bikerjacke-lammnappa-schwarz-13143-48
+
+Größe so:
+62/6XL oder 102-106
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-670
+
+Mein Vorschlag wäre, die Änderungen, die in diesem Ticket gemacht wurden, rückgängig machen:
+https://cnissues.atlassian.net/browse/AG-3916
+
+Und die Met Gala Seite der Vogue mittels props so aussehen zu lassen, wie sie aktuell aussieht.
+Was meinst du?
+
+You have to add the staging organizationSlug from the tenant config to the URL:
+https://github.com/CondeNast/verso/blob/main/src/tenants/conde-nast-traveler/tenant.ts#L24
+
+This should be the right URL:
+http://localhost:7777/conde-nast-traveler-staging/travel-specialists
+
+Es gab ja eine Zeit, da war das Einrichten eines Druckers eine Wissenschaft für sich.
+Spezielle Kabel waren nötig. Und natürlich die Treiber der Hersteller. Da konntest du nicht einfach blind einen Drucker besorgen, da musstest du schon genau darauf achten, dass der Drucker auch von deinem Bertriebssystem unterstützt wird. Auch die Version des Betriebssystems war wichtig.
+Was war das für ein erhebender Augenblick, als der generische cups Treiber unter Linux so gut wie alle Drucker ansprechen konnte. Gut, mit speziellen Funktionen, wie beidseitigem Drucken oder Seitensortierung, das funktioniertze natürlich nicht. Aber hey, ich will mit einem Drucker drucken.
+
+Wenn dieser Till Lindemann riesige Vulvas auf die Leinwand hinter der Bühne projezieren lässt...
+Ist das peinlich? Ärgerlich? Pubertär? Oder provokant?
+Oder ist das einfach nur ein schlechter Altherrenwitz eines traurigen Altstars in den Wirrungen seiner Midlifecrisis?
+
+https://www.youtube.com/watch?v=UZ8wTccD45g
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-709
+Is it ok now? Some doubts?
+Can we move it to "to be merged"?
+
+
+====
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-670
+
+Now I have two approaches:
+
+The first is to create a new component called "verso-link":
+https://github.com/CondeNast/verso/pull/25610
+
+The other is to revert the met gala changes and write a proper tenant config for it:
+https://github.com/CondeNast/verso/pull/25613
+
+And yes, I definitely want the second approach to go live.
+====
+
+Genau da liegt der Hund begraben.
+Es war ursprünglich (bis zur Met Gala) so:
+Diese Komponente konnte ohne Konfiguration eingesetzt werden. Sie konnte aber auch so konfiguriert werden, dass sie keine top und bottom margins hat.
+Für die Met Gala wurde nun die Komponente so umgebaut, dass es nicht mehr möglicht, margins zu konfigurieren. Und damit ist die Komponente für die Lifestyle Brands unbenutzbar.
+Nun habe ich zwei möglichkeiten:
+Entweder richte ich die Komponente. Dazu wäre es jedoch zweckhaft zu wissen, ob und wo sie eingesetzt wird. Nicht dass ich dabei mehr kaputt mache.
+Oder ich erstelle eine neue Komponente mit den ursprünglichen Konfigurationsmöglichkeiten. Das möchte ich jedoch ncht, weil wir schon mehr als genug redundante Komponenten haben.
+
+Hi Team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/25613
+It's about restoring the margins of the CTA button
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/25613/files
+
+I've nade the changes for the layout option we talked about.
+It works well except the align-items. Because of:
+
+The display: block property prevents align-items from having an effect.
+Try setting display to something other than block.
+
+@kate We have already a solution for this.
+
+Please have a look at this ticket:
+https://cnissues.atlassian.net/browse/LS4-670
+
+And please test whether the Met Gala site still looks as it should:
+https://multiverso.vogue.com/tag/event/met-gala?branch=LS4-670
+
+
+
+I have a problem with the constant definition for RIVER_LAYOUTS:
+https://github.com/CondeNast/verso/pull/25569/files#diff-e93deb10d6e0f878f5e1860477f797a10b3a93c789371d5fbc12c3e4ef227eb2
+
+npm run test-prettier complains but does not say about what to complain:
+https://github.com/CondeNast/verso/actions/runs/7016141332/job/19087901048
+
+Any idea?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-680
+
+I have just merged this to production. As Milene is on vacation this week I will inform you about that.
+Please have a look (in a few minutes) if everything works fine.
+If not please inform me instantly.
+
+Hi there,
+can someone tell me - or point me to documenteation or source code - how to activate the 'Curation Type' at curated list:
+https://stg-copilot-app.condenast.io/all/curatedlists/654d79590eb4e3121055909a
+
+It is missing at AD ME.
+cc:
+
+3
+24
+
+Yesterday I bought boots at this shop:
+https://schuhbertl.com/en/home/
+
+They are a bit expensive. But they are very good and really handmade.
+
+One of the most common (and not so expensive) shoe shops is Tretter:
+https://www.tretter.com/herren/
+
+Can you live with the edge case?
+If not, we will have to refactor the component on a large scale. For example, pack all possible variants into the layout select:
+- hasMarginTop
+- hasMarginBottom
+- hasMarginTopAndBottom
+- hasNoMargins
+The templates must be modified accordingly. Maybe the special variant for the Vogue can be removed completely.
+Then all existing buttons must be configured accordingly.
+And finally, the tenant configs need to be cleaned up.
+That's a lot of work.
+But if you think it's worth it, I can bring it up with our team.
+
+
+Take a look at the 'Explore the Live Blog' Button.
+It should have the same margings on staging and multiverso:
+https://stag.vogue.com/tag/event/met-gala
+https://multiverso.vogue.com/tag/event/met-gala?branch=LS4-670
+
+https://multiverso.vogue.com/test-button-dinge?branch=LS4-670
+
+===========
+From Swami:
+
+Switched from default to One Col, but don't see the changes:
+https://copilot.condenast.io/gqin/bundles/606334420de6e71b7a991656/verso-river/606334420de6e71b7a991654
+
+I just noticed all the rivers in Intl GQ have switched from 3 col to 1 col.
+https://www.gqitalia.it/moda
+https://www.gq-magazine.co.uk/grooming
+https://www.gq-magazin.de/mode
+
+I think the default "paginated" layout gets the 1 col, while it should ideally be 3 col by default.
+
+===========
+
+
+Ich komme bei den unit tests für den CTA button nicht weiter. Vielleicht kann sich das von euch jemand ansehen und mir eine Stups in die richtige Richtung geben.
+
+So weit ich das verstanden habe, brauche ich zunächst einen Button, den ich in eine MultiPackage Komponente packe. Dann wird die MultiPackage Komponente von shallow/enzyme gerendert und ich kann mir mit component.find([something]) den button holen. Mit expect kann ich dann alles mögliche testen.
+
+So die Theorie. Richtig?
+
+In der Praxis habe ich das so versucht:
+https://github.com/CondeNast/verso/pull/25613/files#diff-139f0d2121b2a4d31a8627947cede7768cbbf462c162661bf3905525cb853c24
+
+...und weiß bisher vor allem, dass der button gar nicht erst in der MultiPackage Komponente ankommt.
+
+hasLink: true,
+
+OOWEZK
+
+Regarding the unit tests for verso-cta-link.
+
+When I have this object:
+
+<Connect(MultiPackageRowConfiguredComponent) alignItem="center" dataJourneyHook="row-content">
+  <MultiPackageRow template="verso-cta-link" ariaLabel="Load More Search Results" btnStyle="outlined" className="foo" form="newsletter-submit" href="http://www.condenast.com" hasPriceSection={false} hasLabelCount={false} hasLink={true} countValue={2} shouldUseFullWidth={false} isIconButton={false} isDisabled={false} cornerRadius="NoCornerRadius" hasEnableIcon={false} isInline={false} label="Load More" layout="hasMultiPackageRowWrapper" size="default" onClickHandler={[Function: onClickHandler]} priceLabel="$11" rel="link" target="_blank" />
+</Connect(MultiPackageRowConfiguredComponent)>
+
+I can test it like that:
+expect(component.find({template: 'verso-cta-link'})).toExist();
+
+But when I have the MultiPackageRow object without the wrapper:
+
+<MultiPackageRow template="verso-cta-link" ariaLabel="Load More Search Results" btnStyle="outlined" className="foo" form="newsletter-submit" href="http://www.condenast.com" hasPriceSection={false} hasLabelCount={false} hasLink={true} countValue={2} shouldUseFullWidth={false} isIconButton={false} isDisabled={false} cornerRadius="NoCornerRadius" hasEnableIcon={false} isInline={false} label="Load More" layout="default" size="default" onClickHandler={[Function: onClickHandler]} priceLabel="$11" rel="link" target="_blank" />
+
+How can I test that?
+Any idea?
+
+Maybe you have a few minutes after the workshop?
+
+Questions about the interfaces based EventBanner:
+- eventBannerTags: What are they for?
+- hasHiddenEventTimestamp: What does this do?
+- hasLowerCaseText: Why not: If you want lower case write lower case?
+- locale: What does it mean? What does it do?
+- sponsorBaseUrl: What is this for?
+- timeFormat: How should this look like?
+- timeZone: How should this look like?
+- trackingNamespace:  How should this look like?
+- Logo & Sponsored Logo url: Where should the logo be stored? (Engineer eford?)
+
+The namings weren't as self explaning as they should be and they aren't it now.
+In the past there was always an engineer that could explain what is what. And could add technical informations such as locale. But that is no longer the case.
+
+Doubts:
+- not sure that all fields are supported by verso
+- pretty sure editors and product people do not understand what the fields are for
+
+Suggestion:
+1. Whoever did the interfaces thing writes a confluence HowTo and links it to interfaces
+2. We test the EventBanner before it is used for the first time
+3. We add explanations to the confluence doc
+4. Make suggestions for namings and descriptions
+5. We refactor templates if needed
+
+
+
+What do you think is it to early to plan another team dinner for january?
+
+
+There is no issue with Homepage <-> CuratedList.
+Maybe I've choosen a bad, confusing example (but it was the only working one at staging).
+In this case 'Homepage' is just the channel (taxonomy) that connects the LinkBanner to any content type (bundle, article, and so on).
+At the end it's a very simple many to many relation:
+A content item can have many channels.
+A channel can have many contenttypes.
+
+Here is the example:
+
+verso:
+https://multiverso.allure.com/?branch=LS4-718
+CoPilot bundle:
+https://stg-copilot.condenast.io/all/bundles/631bbac47babfd3e0f99406a
+CoPilot CuratedList (= LinkBanner):
+https://stg-copilot-app.condenast.io/all/curatedlists/62dffc835d7c15ebe9ddf041
+
+The pain points are:
+- How to find which LinkBanner is active
+- Deactivate old/unused LinkBanner
+- LinkBanner cannot be tested with preview
+- LinkBanner cannot be tested on staging
+
+Sugestions for LinkBanner:
+1. Follow the rule: Only what is added at backend will be shown by verso
+2. Add necessary fields to CoPilot:
+  - title for CoPilot use only
+  - hed
+  - dek
+3. Remove all show/hide props from verso
+4. Check each verso prop if it is realy needed and in use. Otherwise remove it
+5. Clearify what is a "Curation Type". Maybe we need an additional field "layout"
+6. Define and add proper named layouts to "Curation Type" or "layout"
+7. Remove SEO information as they are not used (I guess)
+8. Remove Categories and Tags
+9. Maybe a timeStart and a timeEnd whould be a usefull option
+
+
+Let me explain how I think that this happens:
+Someone from the Design Team thinks about shadows: "Hm, shadows, what a fancy design gimmick. Let's try some"
+Someone from Product says: "Yehaw, shadows, what an awesome little feature" and writes a ticket.
+Someone of the engineers thinks: "Shadows, what a crap. We shouldn't do that."
+But someone of the engineers do a new prop "hasShadow" instead of reject it.
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/link-banner/LinkBanner.js#L82
+
+In former times we (the engineers) asked our design and product people: "How many billions will we earn when we add shadows?".
+Mostly the answer where: "None".
+Got the point?
+
+And now it's up to us to ask the question... and when the answer remains at "None" we should remove the prop.
+
+sys 149/
+dia 100/
+pulse 57
+
+Search isn't proper working.
+Some features like the LinkBanner isn't working at preview.
+Backpub to staging doesn't work proper:
+- broken relations
+- broken publish history
+- broken taxonomies
+CoPilot is very unflexible and intransparent by adding important (new) fields.
+
+hideFromUtilityNavigation: true,
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-670
+I will add the new options to our brands: Allure, Glamour, Self as requested.
+But what about all other brands?
+Should we add a ticket to update all brands?
+Should Milene inform them about the new option?
+
+But I have a question...
+For a long time I could test graphql with this API:
+https://stg-copilot-app.condenast.io/gql
+But it seems it has changed. Do you know where I can test graphql now?
+
+
+================
+For a long time I could test graphql with this explorer:
+https://studio.apollographql.com/sandbox/explorer
+and with this sandbox URL:
+https://stg-graphql.condenast.io/graphql
+
+But this does not work anymore.
+Can you provide me some informations how get it to work again?
+Maybe something with OIDC auth?
+Or does the URLs change?
+
+
+Here lede must be available:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/section-header/SectionHeader.js#L184
+
+BUT...
+...at the tagpage presenter lede is missing. At transformer as well as at queries:
+https://github.com/CondeNast/verso/blob/main/src/presenters/tagpages/transformers.ts
+https://github.com/CondeNast/verso/blob/main/src/presenters/tagpages/queries.js#L269
+
+At content service the schema says yes, there is a lede:
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/tagpage/schema.graphql#L60
+
+BUT...
+...I cannot find lede at the resolver:
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/tagpage/resolvers.ts
+
+For testing I added a story image to this tagpage:
+https://stg-copilot-app.condenast.io/glm/tagpages/6409c9d582b255ff558d7cba
+
+And I queried nonprod here:
+https://nonprod-content.conde.io/graphql
+
+TagPages are using SectionHeader and there is a wired linking at lede section:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/section-header/SectionHeader.js#L185
+
+It was implemented just for vanityfair:
+https://github.com/CondeNast/verso/pull/14624
+
+Maybe we can remove it or make it optional?
+Maybe we can change SectionHeader to BundleHeader?
+
+================
+
+
+These props for the BundleHeader show very clearly why we should actually refactor many templates from scratch, but can hardly do so because the dependencies are far too complex:
+
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/bundle-header/BundleHeader.js#L75
+
+[props.hasMarginBottom] - optional prop to apply additional margin in bottom of bundle header
+[props.shouldAddBottomSpacing] - Optional prop can be used to apply extra spacing to the bottom of dek
+[props.showHeaderOnBottom ] - optional prop can be used to apply brand specific header to show on bottom
+
+In an ideal world each section has the same margin bottom. In the verso universe each section has different margins - bottom as well as top - and mostly they can be removed when it conflicts with following section.
+
+In case of the BundleHeader the margin bottom was forgotten. Therefore someone invented the prop "hasMarginBottom" to add the margin. With false as default value to not destroy other pages.
+
+(By the way: The spelling of the props is also very arbitrary. After "hasMarginBottom" has been added, the equivalent for a distance to the top is not called "hasMarginTop", but "hasTopMargin".)
+
+Anyway, that worked until someone had the brilliant idea of removing hed and dek from the header wrapper and displaying them under the actual header.
+
+(To my shame, I have to say that our team did that.)
+
+But because the spacing at the bottom no longer works, they didn't go and fix the header. No. A new prop has been introduced: "shouldAddBottomSpacing".
+
+Tobi's question also arises here with the naming: Why "should"? Why not "hasMarginBottomSomething"?
+
+
+As we this morning meeting talked about wintermarkets here are some:
+
+Some classical ones:
+https://www.chinaturm.de/weihnachtsmarkt/
+https://www.christkindlmarkt-muenchen.de/
+
+Some alternative ones:
+https://www.tollwood.de/tollwood-winterfestival/
+https://maerchenbazar.de/
+https://www.bahnwaerterthiel.de/
+
+The medieval one:
+https://www.mittelaltermarkt-muenchen.de/en
+
+Some others:
+https://www.schwabingerweihnachtsmarkt.de/en/
+http://www.weihnachtsmarkt-muenchen-neuhausen.de/
+http://www.haidhauser-weihnachtsmarkt.de/
+
+foundation.link-primary
+
+Joel würde ja gerne das komplette System vom Kopf auf die Füße stellen.
+Das finde ich sehr gut und mehr als überfällig.
+Und doch muss ich - genau deswegen - mal nachfragen:
+Zum einen: Habt ihr das so abgesprochen? Weil doch sehr viel von dem, was er macht, aus unseren Tickets nicht ersichtlich wird.
+Zum anderen: Wie aussichtsreich sind denn seine Bemühungen und Ideen? Weil er ja sehr schnell eine ganze Menge Schwachstellen und Unsinnigkeiten in verso entdeckt hat und sich - zumindest in der Theorie - ganz gute Gedanken dazu macht, wie das zu verbessern ist.
+
+Hi there,
+I need reviews for this PR ...if it's the right channel for it:
+https://github.com/CondeNast/content-service/pull/2044
+It's about adding lede to tagpage.
+
+spring-cloud-config-configuration
+
+
+Regarding your comment for this PR:
+https://github.com/CondeNast/verso/pull/25835
+
+I think that if the transformer resolves lede only if shouldEnableLede is true, then the client side code would not need to change.
+
+I'm afraid I don't quite understand what you mean.
+The Transformer should always resolve the empty image and that's what it does.
+Which client side code do you mean?
+
+=============================================
+About BundleHeader for TagPage
+
+
+I have the strange feeling while we try to switch all bundle like content types to BundleHeader other teams do exactly the opposite.
+SectionHeader includes some features we also use. Such as toggle chip navigation. And SectionHeader has more recent changes than BundleHeader.
+So I will make a suggestion for BundleHeader for TagPage but I'm pretty sure we shouldn't do that without former duscussion how to handle missing features, colorings and stylings.
+We should talk about when all are back from hollyday.
+
+TagPage has the prop "headerChipLinks" but I cannot find any place where those are defined. Maybe a feature no one needs and no one uses?
+
+Uppercase does not work because of lint restrictions that says:
+Expected "text-transform" to come before "font-weight"
+...but we cannot set this order because of shouldOverrideTypeToken settings.
+
+Some test links:
+
+https://multiverso.glamour.com/about/billie-eilish?branch=LS4-738
+https://stag.glamour.com/about/billie-eilish
+
+https://multiverso.cntraveler.com/tag/weddings?branch=LS4-738
+https://stag.cntraveler.com/tag/weddings
+
+https://multiverso.houseandgarden.co.uk/topic/recipe-collection/december-seasonal-foods?branch=LS4-738
+https://stag.houseandgarden.co.uk/topic/recipe-collection/december-seasonal-foods
+
+=============================================
+
+
+Ask Milene if I can merge this:
+https://github.com/CondeNast/verso/pull/25797
+
+Discuss this with Elena/Tobi/Milene:
+https://github.com/CondeNast/verso/pull/25835
+
+
+robert mutschler 129
+0896885880
+
+
+=======
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-738
+
+I have the strange feeling while we try to switch all bundle like content types to BundleHeader other teams do exactly the opposite.
+SectionHeader includes some features we also use. Such as toggle chip navigation. And SectionHeader has more recent changes than BundleHeader.
+So I will make a suggestion for BundleHeader for TagPage but I'm pretty sure we shouldn't do that without former discussion how to handle missing features, colorings and stylings.
+We should talk about when all are back from holyday.
+
+TagPage has the prop "headerChipLinks" but I cannot find any place where those are defined. Maybe a feature no one needs and no one uses?
+
+Uppercase does not work because of lint restrictions that says:
+Expected "text-transform" to come before "font-weight"
+...but we cannot set this order because of shouldOverrideTypeToken settings.
+
+Some test links:
+
+https://multiverso.glamour.com/about/billie-eilish?branch=LS4-738
+https://stag.glamour.com/about/billie-eilish
+
+https://multiverso.cntraveler.com/tag/weddings?branch=LS4-738
+https://stag.cntraveler.com/tag/weddings
+
+https://multiverso.houseandgarden.co.uk/topic/recipe-collection/december-seasonal-foods?branch=LS4-738
+https://stag.houseandgarden.co.uk/topic/recipe-collection/december-seasonal-foods
+
+=======
+
+        BundleHeader: {
+          settings: {
+            headerType: 'section-header',
+          }
+        },
+
+
+DefaultHeader
+src/components/templates/universal-bundle-page/templates/default/template-header/index.js
+
+Bolo de Bolacha
+grim reaper. black and white. line drawing.
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-743
+
+Can you please try to create a page with feature and serach feature sections on staging.
+So we have an example to test and play with.
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-743
+
+I removed the "Health Conditions" channel from the test page and the preview looks like this:
+https://www.self.com/preview/bundle/647dda50fcf2662396c88571?status=draft&t=1704793654282&type=Verso%20Channel
+
+Is this the expected behaviour?
+
+
+Please can someone help me with this:
+
+The preview of this bundle works on production:
+https://copilot.condenast.io/self/bundles/647dda50fcf2662396c88571
+https://www.self.com/preview/bundle/647dda50fcf2662396c88571?status=draft&t=1704792832114&type=Verso%20Channel
+
+but not on staging:
+https://stg-copilot.condenast.io/self/bundles/647dda50fcf2662396c88571
+https://stag.self.com/preview/bundle/647dda50fcf2662396c88571?status=draft&t=1704792873818&type=Verso%20Channel
+
+I've seen that here at some point the entity is missing:
+https://github.com/CondeNast/verso/blob/main/src/transformer-helpers/get-image.ts#L21
+
+How can I find out which entity is missing and, more importantly, why?
+
+Sag mal, wie ist denn das mit Joel, der hat ja jede Menge guter Ideen und hängt sich da auch ganz schön rein. Allerdings spiegelt sich das im Sprint nicht wieder. Da gibt es keine Tickets dazu. Soll das denn weiterhin alles neben dem Sprint laufen?
+
+
+Is there any reason why calling this prop showLinkBannerDivider when it belongs to StackedNavigation and not to LinkBanner?
+And if it is necessary to set the border at StackedNavigation please rename the prop to something like showBorderTop or hasBorderTop.
+And please make it independent from LinkBanner. Both in the naming and in the style.js
+
+Another question... here we have a version of the StackedNavigation that already has a divider:
+https://www.vogue.com/shopping
+Is it possible to use this version?
+
+
+Evaluate if we need the showHealthConditions feature anymore.
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/channels/health-conditions.ts#L191
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/transformers.ts#L646
+If not we should remove that.
+If yes we should fix it.
+
+
+In short the ticket says let this page (channel 'Health Conditions'):
+https://stg-copilot.condenast.io/self/bundles/659d41fc2b8b3fc9861f9005
+https://stag.self.com/verso-channel/health-conditions-with-contributors
+
+look like that page (channel 'Health'):
+https://stg-copilot.condenast.io/self/bundles/61d3dc728f1b17c66e3ce717
+https://stag.self.com/health
+
+The long version says something like:
+Why the hell is the 'Health Conditions' page broken?
+And what happens when the undelying bug is fixed?
+And if something fancy is happening please get rid of all the fancyness.
+
+Am I right?
+
+I here we have some configurations belonging to contributors:
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/channels/health-conditions.ts
+defaultTypeForContributor for example.
+We should remove them all. When both example pages will look the same the ticket is done.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-743
+
+I added some tech notes. Please have a look and tell me if you understand what to do and if you are able to estimate.
+
+
+
+https://cdn2.site-media.eu/images/document/7385251/20234957_1_SCHNEIDER_Speisekarte_EN_zDF.pdf
+
+Additional info:
+We have to evaluate what this feature does: showHealthConditions.
+…and fix it.
+
+Any idea why this page works:
+https://www.self.com/health-conditions/cancer
+
+and the same page on staging not:
+https://stag.self.com/health-conditions/cancer
+
+
+Again... regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-743
+
+As I have the strange feeling that something on staging is massively broken and so I have no idea if there is a bug around the channel configuration I won't dare to estimate that ticket...
+
+Tech Note
+
+Not sure if you can help me with it... but I give you a try ;-)
+
+The situation:
+I see different newsletter forms. On prod and staging "Skin Check" and local "Your new favorite email".
+First question: Is it the same for you?
+Second question:
+If yes, do you have an explanation for this behaviour?
+If no, do you have an idea how I can get the same behavoiur also?
+
+Newsletter "Skin Check":
+https://www.allure.com/story/scarlett-johansson-entire-beauty-routine
+https://stag.allure.com/story/scarlett-johansson-entire-beauty-routine
+
+Newsletter "Your new favorite email":
+http://localhost:7777/allure/story/scarlett-johansson-entire-beauty-routine
+http://localhost:7777/allure-staging/story/scarlett-johansson-entire-beauty-routine
+
+
+As Lent begins this year on 14 February and I - the older ones among us will remember - won't be eating for a week or two, I suggest we look for a date in March for the next Team Dinner.
+
+I suggest the Vero Peso Bar for this time:
+https://www.veropesobar.de/
+
+Not quite cheap, but Brazilian. Please add your name to the doodle:
+https://doodle.com/meeting/participate/id/dGwvqK7d
+
+About Lent:
+
+This is the religious backgroud of the "Fastenzeit":
+https://en.wikipedia.org/wiki/Lent
+
+This is about "Fasching":
+https://en.wikipedia.org/wiki/Carnival_in_Germany,_Switzerland_and_Austria
+
+The last day of "Fasching" is the "Ash Wednesday/Aschermittwoch":
+https://en.wikipedia.org/wiki/Ash_Wednesday
+
+Some people in Germany try to it without something.
+Something can be food, alcohol, the use of media or whatever.
+Some of them do it because of religious reasons. Other do it just to calm down and rethink. Some do it for the shape.
+
+For me it's a time to calm down and rethink.
+
+
+Now we have a winner for the next engineers dinner:
+20. May
+
+Hi there,
+your beloved engineers want to go for the famous SevenSeas Engineers Dinner at 20th of march to Vero Peso Bar:
+https://www.veropesobar.de/
+We would be very pleased if some or all of you will to join us.
+Please let me know soon and I will reserve a table.
+
+Hello,
+I have a question:
+Can you tell my why you changed the inlineNewsletterModules in here:
+https://github.com/CondeNast/verso/pull/25651/files#diff-6fa1cac6fdcd7b3b505ee68ed144367110394b6da37caca9d69d4aeca07d594e
+
+And why did you change the disclaimer here:
+https://github.com/CondeNast/verso/pull/25651/files#diff-de0a5fdf659dde5967f4b825f0540a811cb4a7a5b16748bdf1661f5061a6ac1f
+
+Is it possible that this happened by mistake?
+Because, on the one hand, a completely different inline newsletter should appear on the pages. For comparison, here is the old, correct version at archive.org and the current version on production:
+https://web.archive.org/web/20231018025911/https://www.allure.com/story/scarlett-johansson-entire-beauty-routine
+https://www.allure.com/story/scarlett-johansson-entire-beauty-routine
+
+And on the other hand, the disclaimer refers to Wired.
+
+Can you please checkt that quickly.
+Thank you.
+
+2741,79
+3019,08
+277,29
+DE05 7015 0000 1001 4162 45
+
+Again this ticket:
+https://cnissues.atlassian.net/browse/LS4-738
+
+This two props are supported by SectionHeader but not by DefaultHeader:
+isHedUppercase={isHedUppercase}
+hasInvertedTheme={hasInvertedTheme}
+
+Should we ignore them?
+Or should we add them to DefaultHeader?
+
+
+Nachdem im Laufe der Bearbeitung des Tickets aufgefallen ist, dass es keine optimale Header Variante gibt, haben wir folgendes beschlossen:
+Vorübergehend bleiben wir bei der Variante (SectionHeader), die in diesem Ticket aktiviert wurde:
+https://cnissues.atlassian.net/browse/LS4-730
+
+Gleichzeitig starten wir einen Prozess, um eine saubere Header Variante zu erstellen, die zukünftig bei TagPages und UniversalBundlePage und vielleicht noch weiteren Bundle Typen eingesetzt werden soll.
+
+
+Kannst du dir das mal ansehen:
+https://cnissues.atlassian.net/browse/LS4-741
+Weil immerhin waren die Farbänderungen auf der Allure ja allem Anschein abgestimmt und wurden auch abgenommen.
+War das ein Missverständnis? Ein Versehen? Oder gibt es tatsächlich eine Entscheidung, die Änderungen wieder rückgängig zu machen?
+
+Can someone explain me for what Promotion "Site Headline" and Promotion "Site Dek" is for:
+https://copilot.condenast.io/adit/bundles/650d8220f65728ef98c3ff03
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-741
+
+Please compare multiverso and prod:
+https://multiverso.allure.com/?branch=LS4-741
+https://www.allure.com/
+
+I have to revert the token changes from this ticket:
+https://cnissues.atlassian.net/browse/LS4-718
+
+The issue is because of missuse of color tokens.
+I guess the "colors.consumption.lead" were invented for the header. But now they are also used at several other places.
+@nina Maybe you can think of a way to find a solution via the colour tokens. If not... then, for good or ill, we'll have to sit down together and look for a clean solution.
+
+
+
+Das heisst:
+- Der Header ist so in Ordnung, wie er jetzt aussieht
+- Das Product Carousels ist so in Ordnung, wie es jetzt aussieht (ohne pinkem Hintergrund)
+Richtig?
+
+Für Trending Stories heisst das:
+- Es ist richtig, dass die pinken Linien weg sind
+- Es fehlt der Hintergrund (taupe)
+Richtig?
+
+
+About Engineers Dinner...
+
+As Lent begins this year on 14 February and I - the older ones among us will remember - won't be eating for a week or two, I suggest we look for a date in March for the next Team Dinner.
+
+I suggest the Vero Peso Bar for this time:
+https://www.veropesobar.de/
+Not quite cheap, but Brazilian.
+
+And as it is important that you will join please add your name to the doodle:
+https://doodle.com/meeting/participate/id/dGwvqK7d
+
+
+
+
+https://stg-copilot.condenast.io/all/bundles/6389d997365aa1ce0ee81285
+https://stg-copilot.condenast.io/all/bundles/631bbac47babfd3e0f99406a
+
+
+
+
+equaliser
+- header
+- teaser
+- whatever
+is it possible??
+
+      "c1": "rgba(0,255,0,1)",
+bonapettit
+epicurious
+gq
+la-cucina-italiana-italy
+pitchfork
+vanity-fair-fr
+wired-es
+wired-uk
+wired
+
+
+17:15 Uhr
+23.1. 10:00 Uhr
+
+Allure:
+Die Linien rund um die Sections hängen mit dem Hintergrund der FilterableSummaryList (Produkt Karussell) und SummaryCollectionRow (Trending Stories) zusammen. Es ist also nicht möglich, diese Elemente unabhängig voneinander einzufärben.
+
+SummaryCollectionRow verwendet folgende Token:
+- hasBackgroundColor: colors.discovery.body.light.background
+- hasBackgroundColor & isInvertedTheme: colors.interactive.base.black
+
+FilterableSummaryList
+- Wrapper: border-bottom: colors.consumption.lead.standard.divider
+- homepage__plp-filterable-row: colors.discovery.body.light.background
+
+SectionTitleRoot
+- colors.consumption.lead.standard.context-signature
+- colors.discovery.body.white.divider
+- colors.discovery.body.white.border
+...abhängig davon, welche props in welcher Kombination gesetzt sind.
+
+
+fettes grün:
+rgba(50,205,50, 0.8)
+
+Eine Frage hierzu:
+https://cnissues.atlassian.net/browse/LS4-732
+Du schreibst in der DoD "Spreadsheet for all Lifestyle tennants is available".
+Was ist mit all den anderen Brands?
+Weil die werden wir wohl kaum ignorieren können. Oder ist das Ziel, eine neue Komponente zu bauen und die nicht Lifestyle Brands ihrem Schicksal zu überlassen ;-)
+
+POC: creation of a simple chatbot
+
+Specific
+Create a simple ChatBot based on OpenAI with data from glamour.com
+The ChatBot should provide answers from a data pool of glamour.com after entering a question.
+Measurable
+The page can be called up in the browser.
+Achievable
+Learning new technologies is always an attractive prospect in web development.
+Relevant
+It is crucial for a media company to keep up to date with the development of AI systems.
+Time-bound
+End of the year / Q4
+
+Kommentar
+Due to changed conditions, I have edited the target as follows:
+1. create a prompt input for OpenAI
+2. provided an overview of AWS Bedrock
+
+If someone asks: And what superpower do you have?
+Then I will answer: I can make banners work.
+
+
+
+
+POC: creation of a simple chatbot
+
+Specific
+Create a simple ChatBot based on OpenAI with data from glamour.com
+The ChatBot should provide answers from a data pool of glamour.com after entering a question.
+Measurable
+The ChatBot can be called up in the browser.
+Achievable
+Learning new technologies is always an attractive prospect in web development.
+Relevant
+It is crucial for a media company to keep up to date with the development of AI systems.
+Time-bound
+End of the year / Q4
+
+Zusammen mit dem Team habe ich einen kleinen ChatBot entwickelt, mit dem es möglich ist, eigene Daten abzufragen.
+Der ChatBot hat den Zweck, heraus zu bekommen, wie sich Prompts so optimieren lassen, dass sich das Ergebnis als Teaser darstellen lässt.
+Nach ersten Experimenten mit OpenAI wurde beschlossen, dass weitere Investigationen mit dem Tool Bedrock von AWS vorgenommen werden.
+
+Suggestion for the comment:
+
+Together with the team, I have developed a small ChatBot with which it is possible to query our own data.
+The purpose of the ChatBot is to find out how prompts can be optimised so that the result can be displayed as a teaser.
+After initial experiments with OpenAI, it was decided that further investigations would be made using the Bedrock tool from AWS. I read up on the topic and looked at various tools (like kendra). Further research and experiments are planned for the coming year 2024.
+
+
+Question:
+
+What about this page?
+
+It's working well on prod:
+https://copilot-app.condenast.io/self/tagpages/64ae2a0e74ee009d1f70fda7
+https://www.self.com/topic/rebecca-gayheart
+
+But not on staging:
+https://stg-copilot-app.condenast.io/self/tagpages/64ae2a0e74ee009d1f70fda7
+https://stag.self.com/topic/rebecca-gayheart
+
+Do I have to recreate it because of broken backpub?
+Can you tell me?
+
+It's not so easy....
+And it's quite difficult 'cause translation is the same but has a quite different meaning.
+
+Translation:
+Bist du heiß? -> Are you hot?
+Ist dir heiß? -> Are you hot?
+
+Meaning:
+Bist du heiß? -> Are you a real cool and freaky person?
+Ist dir heiß? -> Is the temperature too high for you?
+
+
+I have familiarised myself with the structure of verso and am able to further develop and improve functionalities.
+I am familiar with the interaction of content-service, graphql queries, the preparation of data and the output via verso.
+
+I have refactored some components - I would like to highlight LinkBanner, EventBanner and River - and standardised them for the lifestyle brands. It is now possible to further develop the components so that they can be configured either directly via CoPilot or via the verso settings in interfaces.
+
+Hi Gustavo,
+we have massive problems with staging and broken indexes. Dann Haller pointed me to this documentation:
+https://cnissues.atlassian.net/wiki/spaces/CPD/pages/1815052419/Indexing+Reindexing
+
+I'm not so familiar with elastic search and our APIs.
+How can I trigger the reindexing?
+
+Can I do something like this:
+curl -X POST https://stg-self-api.aws.conde.io/bundles/659d41fc2b8b3fc9861f9005/index
+
+What would be the right syntax? ...the right API URL?
+
+Can you help me with this?
+
+
+That would really make our work a lot easier. 'cause at the moment, every second page on Staging doesn't work...
+
+Here a few samples that might caused by broken indexes:
+
+Page works on prod and has error 404 on staging:
+https://www.glamour.mx/tags/denisse-guerrero
+https://stag.glamour.mx/tags/denisse-guerrero
+https://stg-copilot-app.condenast.io/glmmx/tagpages/654be8aab23d8e8aad8e0703
+
+Channel should show up with LinkBanner but does not:
+https://stag.allure.com/verso-channel/wellness
+https://stg-copilot.condenast.io/all/bundles/5fc936351aa00f06f3f70651
+https://stg-copilot-app.condenast.io/all/curatedlists/62dffc835d7c15ebe9ddf041
+
+Not working becauseof:
+Cannot destructure property 'modelName' of 'entity' as it is null.
+https://stag.self.com/verso-channel/health-conditions-with-contributors
+https://stg-copilot.condenast.io/self/bundles/659d41fc2b8b3fc9861f9005
+
+http://tny-api.aws.conde.io/meta
+http://stg-glmes-api.aws.conde.io/tagpages/659b234c79cefc381d35fe32
+https://stg-self-api.aws.conde.io/bundles/659d41fc2b8b3fc9861f9005
+
+curl -X POST https://stg-self-api.aws.conde.io/bundles/659d41fc2b8b3fc9861f9005/index
+
+
+Hi there,
+can someone help us with this...
+
+Why is this page not working and what can we do to make it work:
+
+https://stg-copilot.condenast.io/self/bundles/647dda50fcf2662396c88571
+https://stag.self.com/verso-channel/a-z-condition-test-or-do-not-publish
+
+
+Can someone explain for what then contenttype "Verso Package Bundle" is for?
+Because it seems it does exactly the same as "Verso Channel" or "Verso Subchannel".
+https://copilot.condenast.io/glmde/bundles/63871878e97eda022102203b
+
+Zu diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-733
+Wie machen wir da jetzt weiter?
+Sollen Milene und/oder Nina mit an Bord zum Testen?
+Gehst du die Testseiten alleine durch?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-733
+Can you help us with testing?
+There is a spreadsheet with a lot test links. It's about comparing staging with multiverso. Both pages should look like the same.
+
+Hi team,
+I need some reviews for this PR:
+https://github.com/CondeNast/verso/pull/26048
+It's about removing unnecessary props for lifestyle LinkBanner.
+
+?branch=LS4-733
+
+HiHo, is this ticket from the backlog ready for dev?
+And I can pick it up to the current sprint?
+https://cnissues.atlassian.net/browse/LS4-748
+Estimation... one point.
+
+FYI:
+I will take this ticket to the current sprint:
+https://cnissues.atlassian.net/browse/LS4-748
+
+features: {
+  enableGqlForLinkBanner: false
+}
+
+
+300x54
+
+156x40
+312x80
+468x120
+
+Hi Team,
+I need reviews for this PR:
+https://cnissues.atlassian.net/browse/LS4-782
+It's about enabling Allurev sign in area on prod
+
+shouldUseBookmarkV3
+
+
+https://www.allure.com/newsletter/subscribe
+
+Hi Saahithi,
+maybe you can take a look and help me?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-782
+
+Can you tell me why the bookmark icon is here available:
+https://multiverso.allure.com/gallery/january-allure-beauty-box-2024?branch=LS4-782
+
+And here not:
+https://multiverso.allure.com/story/saweetie-pink-chrome-nails?branch=LS4-782
+
+Here you can see my changes:
+https://github.com/CondeNast/verso/pull/26067/files
+
+Hi There,
+
+Can anyone tell me how I can log in to local sites?
+Because with this link it doesn't work:
+
+http://localhost:7777/allure/auth/initiate?_sp=97321c5d-469e-4992-a2c4-9352e5fd5bde.1705666978203&redirectURL=%2F&source=VERSO_NAVIGATION
+
+https://stag.allure.com/auth/initiate?_sp=ba279d4f-08a1-41d5-92de-b7cf5589d9af.1705667103500&redirectURL=%2F&source=VERSO_NAVIGATION
+
+https://id.condenast.com/oidc/auth?_sp=97321c5d-469e-4992-a2c4-9352e5fd5bde.1705666978203&client_id=condenast.identity.a318b40d8565866bb6fb642842b94566&response_type=code&scope=openid+offline_access&redirect_uri=https%3A%2F%2Flocalhost%3A8443%2Fallure%2Fauth%2Fcomplete&state=%7B%22redirectURL%22%3A%22%2F%3F_sp%3D97321c5d-469e-4992-a2c4-9352e5fd5bde.1705666978203%22%7D&prompt=select_account+consent&source=VERSO_NAVIGATION&xid=false
+
+
+Now here on staging you can see the homepage with the same LinkBanner as the article page:
+https://stag.vogue.co.uk/verso-homepage/homepage
+
+What to do:
+1. Add channel "Homepage" to tag manager:
+https://stg-copilot.condenast.io/vuk/category-manager/6231cd73c3fa7135720f3f1e
+
+2. Add channel "Homepage" to HomepageBundle and CuratedList:
+https://stg-copilot.condenast.io/vuk/bundles/605326f68d0dbfdec2f2a41e
+https://stg-copilot-app.condenast.io/vuk/curatedlists/636280bca5135f62603ab5b4
+
+tenants for testing:
+AD IN: ad-directory-apply
+AD IN: video
+AD ES: video
+AD IT: video
+AD ME: video
+AD MX: video
+bon-appetit: ba-coronavirus
+bon-appetit: basically-coronavirus
+bon-appetit: election-2020
+epicurious: coronavirus
+wired UK: video
+vogue: gift-guides
+
+Suchen nach:
+linkBanner:
+
+https://www.self.com/verso/static/self/assets/sign-in-modal.png
+https://www.allure.com/verso/static/allure/assets/sign-in-modal.png
+
+
+Do you have any idea where I can get the file that is missing here?
+https://www.self.com/verso/static/self/assets/sign-in-modal.png
+
+There is a logo for the Allure:
+https://www.allure.com/verso/static/allure/assets/sign-in-modal.png
+
+In this context, I assume that there should also be one for the Self.
+
+...or whom I may ask?
+...or in which channel I should ask?
+
+
+http://localhost:7777/glamour/story/not-getting-enough-sleep-wellness-hack
+http://localhost:7777/glamour/story/how-motherhood-transformed-tennis-great-naomi-osaka
+
+newsletterModules:
+https://github.com/CondeNast/verso/blob/main/src/tenants/glamour/tenant.ts#L121
+
+newsletterList:
+https://github.com/CondeNast/verso/blob/main/src/tenants/glamour/tenant.ts#L299
+
+
+Here you can see that I changed the sign-in-modal.png from allure logo to a colorful image:
+https://github.com/CondeNast/verso/pull/26067/files
+
+Shouldn't this also be visible on multiverso?
+Because the logo is still visible there:
+https://multiverso.allure.com/verso/static/allure/assets/sign-in-modal.png?branch=LS4-782
+
+Can someone help me with this?
+
+const SubNavigation = ({ hasBackgroundColor, layout, ...props }) => {
+
+https://id.condenast.com/interaction/BI-aPAWztEU5VVpPo8eZN/select-account?_sp=cb5fb6cd-924b-46c5-9c02-f0aa514b7055.1706196788672&xid=a46b5426-867b-46ec-9b04-cad6e09bfe42&scope=openid%20offline_access&state=%7B%22redirectURL%22%3A%22%2Fstory%2Fali-krieger%22%7D&prompt=select_account%20consent&source=VERSO_NAVIGATION&client_id=condenast.identity.fcbb99ce005faa120c9582b6fe02eca1&redirect_uri=https%3A%2F%2Fwww.self.com%2Fauth%2Fcomplete&response_type=code
+
+https://id.condenast.com/interaction/kGoq_BGyNMR8r77fXwWfF/select-account?_sp=cb5fb6cd-924b-46c5-9c02-f0aa514b7055.1706197405416&xid=a46b5426-867b-46ec-9b04-cad6e09bfe42&scope=openid%20offline_access&state=%7B%22redirectURL%22%3A%22%2F%22%7D&prompt=select_account%20consent&source=VERSO_NAVIGATION&client_id=condenast.identity.fcbb99ce005faa120c9582b6fe02eca1&redirect_uri=https%3A%2F%2Fwww.self.com%2Fauth%2Fcomplete&response_type=code
+
+
+Linux: NVIDIA¹ or AMD² graphics card (minimum 2 GB RAM), or run on your CPU.
+
+
+Hi Saahithi,
+wenn du mir noch einmal helfen könntest, wäre ich dir sehr dankbar.
+Ich habe die Änderungen live gestellt und bekomme den hier beschriebenen Fehler:
+
+https://cnissues.atlassian.net/wiki/spaces/ENG/pages/913343028/Enable+a+new+Verso+tenant+to+access+Identity+Platform+services#Missing-OIDC-configs
+
+Soweit ich sehen kann, ist die Konfiguration für verso so, wie es die Dokumentation beschreibt.
+Bitte schau dir das auch noch einmal an, vielleicht siehst du, was ich übersehe:
+
+https://github.com/CondeNast/verso/pull/26146/files
+
+In interfaces ist ein Eintrag für die Self angelegt und die clientID stimmt auch mit der verso Konfiguration überein:
+
+https://interfaces.conde.io/apps/oidc-admin
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-782
+
+The button is fixed.
+The I changed the image but multiverso refuses to show the new one.
+I added the Tooltip. But you cannot see it 'cause the navigation is't visible when the tooltip should appear?
+
+@abhay
+Can you somehow test if the sign in feature works for Allure?
+
+
+Hi Andre,
+this is Christian from munich and I have a question.
+Maybe you can help me or point me to the right channel or person...
+
+It is about versosettings.
+We need channel specific configurations for the SubNavigation:
+https://interfaces.conde.io/apps/versosettings/#/self/settings/subNavigation
+
+I have seen for EventBanner something similar exists:
+https://interfaces.conde.io/apps/versosettings/#/self/settings/eventBanner
+
+Here it is possible to add a "Global Defaults" EventBanner an another for "Homepage".
+I guess "Homepage" might be a Channel?
+But I cannot find where this "Homepage" is defined. Do you know that?
+Is it part of interfaces? Or part of application-config-service?
+Or am I completely barking up the wrong tree?
+
+http://verso-multibranch.gp-nonprod-na-0.conde.digital/<ORGANIZATION SLUG>/<COPILOT IDENTIFIER>
+x-multibranch-release: verso-mb-{branch-name}
+
+http://verso-multibranch.gp-nonprod-na-0.conde.digital/allure/assets/sign-in-modal.png
+x-multibranch-release: verso-mb-LS4-782
+
+curl --header "x-multibranch-release: verso-mb-LS4-782" http://verso-multibranch.gp-nonprod-na-0.conde.digital/allure/assets/sign-in-modal.png
+
+https://multiverso.allure.com/verso/static/allure/assets/sign-in-modal.png?branch=LS4-782
+
+
+curl --header "x-multibranch-release: verso-mb-LS4-782" http://verso-multibranch.gp-nonprod-na-0.conde.digital/allure/gallery/january-allure-beauty-box-2024
+
+https://multiverso.allure.com/gallery/january-allure-beauty-box-2024?branch=LS4-782
+
+6
+8
+-> 14
+
+npm run test-unit-component src/components/patterns/link-banner/LinkBanner.spec.js
+
+✕ should pass shouldHaveBottomMargin prop as true to LinkList if typesWithBottomMargin includes the type (13 ms)
+✕ should pass shouldHaveBottomMargin prop as false to LinkList if typesWithBottomMargin does not include the type (12 ms)
+
+✕ renders the link list view when type is `link-list` (7 ms)
+✕ does not render with hasCarouselControls (6 ms)
+✕ renders all the items from the linkBannerData store object as external links (5 ms)
+✕ renders the hed by default (7 ms)
+✕ adds `extra-space` class when `hasExtraSpace` is active (13 ms)
+✕ should pass shouldCenterAlignContent prop to LinkBannerWrapper when set to true (9 ms)
+✕ should pass shouldCenterAlignContent prop to LinkBannerWrapper when set to false by default (11 ms)
+
+✕ renders the visual link banner when the type is `visual-carousel` (10 ms)
+✕ renders the LinkBannerWrapper with hasNoStickyPosition as true when the type is `visual-carousel` (8 ms)
+✕ renders the correct number of images (4 ms)
+
+✕ tracks click events if the banner channel is set (8 ms)
+✕ does not track click events if the banner channel is not set (5 ms)
+✕ sends extra tracking fields with click events when it recieves attributes in tracking object (4 ms)
+
+✕ tracks impression events if the banner channel is set (8 ms)
+
+✕ sends extra tracking fields with impression events when it recieves attributes as key in tracking object (6 ms)
+✕ tracks impression events if the banner channel is set (6 ms)
+✕ sends extra tracking fields with impression events when it recieves attributes in tracking object (6 ms)
+✕ should not track click events if visual banner channel is not set (6 ms)
+
+
+
+    store = createStore({
+      linkBannerData: {
+        ...linkBannerData,
+        bannerType: 'visual-link-banner'
+      }
+    });
+
+    wrapper = getComponent(store, {
+      typesWithBottomMargin: ['visual-link-banner']
+    });
+
+Dieses appgate... ich stelle mir das ja ungefähr so vor:
+Wenn man sich verbinden will, dann klingelt appgate so ganz kleine Leute aus dem Bett, die dann aufstehen, sich gemütlich die Zähne putzen und anziehen. Dann mit der S-Bahn - und wir wissen ja, wie zuverlässig die S-Bahn ist - in ihre Stammkneipe fahren und dort bei Bier und Brotzeit die VPN Verbindung auskarteln...
+Das dauert...
+
+https://multiverso.glamour.com/story/the-benefits-of-walking-are-greater-if-you-do-this-one-thing?branch=LS4-785
+
+
+
+https://multiverso.glamour.com/story/sofia-vergara-is-serving-the-mob-wife-aesthetic-on-the-griselda-press-tour?branch=LS4-785
+
+https://multiverso.glamour.com/story/how-motherhood-transformed-tennis-great-naomi-osaka?branch=LS4-785
+
+https://multiverso.glamour.com/story/the-benefits-of-walking-are-greater-if-you-do-this-one-thing?branch=LS4-785
+
+https://multiverso.glamour.com/story/not-getting-enough-sleep-wellness-hack?branch=LS4-785
+
+https://multiverso.glamour.com/story/food-diary-health?branch=LS4-785
+
+
+Hi there,
+I disabled the Action Bar (enableActionBar) for Self about one and a half hours ago:
+https://interfaces.conde.io/apps/versosettings/#/self/settings/featureFlags
+
+But on production it's still active:
+https://www.self.com/story/how-to-eat-more-vegetables
+
+And yes I purged the page from fastly.
+Can someone take a look please.
+
+What I did:
+npm run new-config-set
+paste your code to sub-navigation-links.ts
+and tried to run:
+npm run codegen
+...that ended up with this error:
+Error: Cannot find module 'node:fs/promises'
+Did I forget one or two steps?
+
+SubNavigationLinks
+npm run config-service:new-config-set
+npm run config-service:codegen
+
+
+About the "add Subnavigation Links" tickets:
+
+2001:4860:7:210::E8
+88.217.185.187
+
+IPv6:
+2001:A61:344B:5B02:70C4:AE32:244E:FF6
+IPv4:
+88.217.185.187
+
+62.206.91.54
+2001:a61:344b:5b02:70c4:ae32:244e:ff6
+
+
+several tourists visiting a small church near a tall tower
+
+
+When I try to start application-config-service local at homeoffice I get this error:
+
+(node:34122) UnhandledPromiseRejectionWarning: MongoServerSelectionError: read ECONNRESET
+    at Timeout._onTimeout (/Users/woldt/Development/application-config-service/node_modules/mongodb/src/sdam/topology.ts:591:30)
+    at listOnTimeout (internal/timers.js:554:17)
+    at processTimers (internal/timers.js:497:7)
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+...and of course the service (http://localhost:4000/graphql) is not available.
+
+I have the suspicion that something at appgate is not working as it should.
+Can anyone help me further?
+Or tell me who I can contact?
+
+
+https://local.allure.com:8443/auth/initiate?redirectURL=%2F&source=VERSO_NAVIGATION
+https://local.self.com:8443/auth/initiate?redirectURL=%2F&source=VERSO_NAVIGATION
+
+To revisit this article, select My Account, then View saved stories
+
+
+
+Can someone help me with this:
+
+I want to singn in to Self on localhost.
+My attempt to do so by calling this URL fails:
+https://local.self.com:8443/auth/initiate?redirectURL=%2F&source=VERSO_NAVIGATION
+
+For Allure this works fine.
+For Self I get an error:
+
+Sorry, something went wrong.
+error: redirect_uri_mismatch
+error_description: redirect_uri did not match any of the client's registered redirect_uris
+state: {"redirectURL":"/"}
+
+
+Hi Team,
+
+can someone add this two enties to Self Redirect URIs:
+https://local.self.com:8443/auth/complete
+https://local.self.com:8443/auth/end
+
+for staging:
+https://interfaces.conde.io/apps/oidc-admin/client-form?id=76&env=staging
+
+Whould be great.
+
+SummaryCollageThree
+shouldHideBylines: true
+
+Yes url is a required prop:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/event-banner/EventBanner.js#L308
+
+And the banner will break at the latest here:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/event-banner/components/PostCountdownComponent.js#L49
+
+====
+Verso settings does not currently support a config set with "nodes".
+
+I don't understand that. There are a whole range of options in verso settings for specifying links. Primary links, for example. Or also FooterLinks. And everywhere there, links are entered as nodes - exactly as described for SubNavigationLinks.
+
+We would now like to add these nodes to the existing SubNavigation item.
+
+https://interfaces.conde.io/apps/versosettings/#/self-staging/settings/subNavigation
+====
+
+Ich hätte zwei Fragen zu diesem LinkBanner:
+1. Was stand im Title der CuratedList, als auf der Seite "Global Link Banner" ausgegeben wurde?
+2.
+
+Hi Andre,
+
+https://github.com/CondeNast/application-config-service/pull/276
+https://github.com/CondeNast/interfaces/pull/1816
+
+==============================================
+Info zu LinkBanner
+Die Typen und wie sie umgebogen werden:
+- Link Banner - Marquee -> marquee
+- Link Banner - Multiple Links -> link-list
+- Asset Only -> link-list
+Unterschied von marquee & link-list:
+maquee zeigt nur einen Link und Pfeile '>>'
+
+Testseiten:
+MultipleLinks / WOTY Banner:
+https://stg-copilot.condenast.io/glm/bundles/65c22b8484bc79d836c7d95c
+Marquee / Video
+https://stg-copilot.condenast.io/glm/bundles/65c22fe484bc79d836c7d95f
+AssetOnly / Gift Guides
+https://stg-copilot.condenast.io/glm/bundles/649c593c71d6d6d9a3519b5f
+
+
+With this configuration I can see the config together with the links in one formular:
+https://github.com/CondeNast/application-config-service/pull/277
+https://github.com/CondeNast/interfaces/pull/1819
+
+Doesn't that mean it's possible?
+
+
+Zur SubNavigation:
+Im Moment sieht es so aus, dass wir den application-config-service so konfigurieren können, wie wir das brauchen.
+Allerdings ist es schwierig oder unmöglich, das bei Interfaces abzubilden.
+
+==============================================
+
+
+==============================================
+Restaurant Liste für SevenSeas Engineer Dinner:
+Brasilianisch: https://www.churrascaria-muenchen.de/
+Irgendwas Kolumbianisches
+Etwas Portugiesisches
+Maybe vegan Sushi
+Australisch?
+Georgisch: Restaurant Vazi
+https://lafavela.de/speise-und-getraenkekarte/
+==============================================
+
+
+TODO:
+- Hopfen bestellen
+- Lichtermeer Artikel veröffentlichen
+- Leserbrief an AZ
+- Newsletter Adressen eintragen
+- Donnertermine für März
+- Whats App an Joel
+- Termin: ConDrops
+- Termin: Stürminger
+- Toto antworten
+- Stempel bestellen
+- Griegstraße: Wer muss Bad streichen?
+
+
+ok - Urlaub beantragen
+ok - Update Review Comments
+ok - Testpages for header image on tagpages
+ok - LinkBanner configs for Glamour UK
+ok - Termin für Team Dinner finden
+ok - Weißes Bräuhaus: Reservieren
+ok - Button: Tests
+ok - doku für legacy nach confluence
+ok - Fragen zum EventBanner
+ok - Einladung an Joel
+ok - River Ticket: Kommentar für Milene
+ok - curated type: Warum?
+ok - documentation for GitHub Action
+ok - Newsletter: emaz & Donnerbräu
+ok - Terminänderungen in die Donnergruppe
+ok - Wunschzettel an Janik
+ok - Check goals at workday
+ok - Text für Einladung ins Weiße Bräuhaus
+ok - remote control: Ilyas, ist das rechtlich ok so?
+ok - Tobi: Glamour Shopping Week
+ok - Milene: DEK bug...
+ok - GitHub Actions with teams
+ok - Check EventBanner with Gapur & Milene
+ok - Check Allure colors with Elena first. Then with Gapur & Milene
+ok - Janik: Wie ist der Status in der Griegstraße?
+ok - FollowUp Ticket: GitHub Action
+ok - Was ist mit der Braubestellung
+ok - Pötschke: Adventskalender bestellen
+ok - Markus wegen Garten vom Janik fragen
+
+Stempel:
+- Pale Ale
+- Weißbier
+- IPA
+- Wiener Lager

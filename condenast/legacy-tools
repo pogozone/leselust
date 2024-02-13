@@ -1,0 +1,47 @@
+Legacy Systems
+- SSO
+    https://github.com/CondeNastDigital/cnServiceSSO
+    https://sso.condenastdigital.de/
+    we sometimes receive emails requesting access to the individual tools and pages
+
+- bolt
+    https://legacy.glamour.de/
+    https://legacy.glamour.de/bolt
+    Data format: json
+    we maintained 27 bolts
+    we maintained 40 bolt extensions
+    the most important extension was the "design extension"
+        contains the base templates for all bolts
+        works with overrides and inheritance; to be flexible and prevent redundant code
+        bolt contains only options and overrides that are required for the specific needs of the use cases of the individual bolt was made for
+    the last extension was the "flyway extension"
+        to translate our json data from Bolt into the markdown format of CoPilot/verso.
+        And to map our fields (like "title" or "kicker") to CoPilot fields (like "hed" or "dek")
+
+- kraken
+    https://kraken.condenastdigital.de/dashboard
+    Content Syndication with external services
+    as our data pool where stored in different CMS like eZ publish, WordPress, bolt, tumblr and last but not least CoPilot we decided to create at tool to equalize all our data
+    the tools was called kraken and imports and converts all our data from whatever to json
+
+- nautilus
+    https://nautilus.condenastdigital.de/dashboard
+    nautilus is quite the opposite to kraken. I know both are Mollusks but they worked very different...
+    while kraken consolidates data, nautilus spreads data.
+    nautilus is able to convert our json format to whatever and provide the data in feed form
+    we had feeds for msn, Google News, Glamour App, Focus Online, Facebook Instant Articles and of course RSS
+
+- patrick
+    https://competitions.condenastdigital.de/dashboard
+    as we started to work with SailThru as our Newsletter provider we realized that SailThru forms are not usable for us
+    so we started to create a form creator for newsletter subscription and competition pages
+    we called it patrick like Patrick Star from Sponge Bob
+
+- harpoon
+    https://harpoon.condenastdigital.de/dashboard
+    redirects are allways pain in the ass
+    when I started at CondeNast eight years ago I found thousands of redirects
+    - for migration issues
+    - but also for editorial issues such as
+        "oh, sorry we already printet this URL in our magazine. we didn't know the page has a quite different URL"
+    so we built our own redirector and linkshortener that could be used by editiors as well as out product and project people

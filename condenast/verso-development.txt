@@ -80,4 +80,19 @@ If you want to change the URL. eg. to get rid of the "/verso-bundle/" part:
 2. wait a few minutes
 3. publish again and remove the part
 ==============================
+test-prettier
+
+If this test fails:
+npm run test-prettier
+
+try to prettify the marked file this way:
+Add a script call like this:
+"p": "prettier --write 'src/constants/*.{ts,tsx,js,jsx,json,md}'"
+to package.json and run:
+npm run p
+==============================
+Sign In at localhost:
+
+https://local.allure.com:8443/auth/initiate?redirectURL=%2F&source=VERSO_NAVIGATION
+==============================
 

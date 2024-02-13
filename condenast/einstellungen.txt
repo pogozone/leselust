@@ -1,3 +1,22 @@
+To run ApplicationConfigService/interfaces local
+
+interfaces
+we have to change some API endpoints to local:
+
+https://github.com/CondeNast/interfaces/blob/main/apps/versosettings/graphql/codegen.ts
+schema: 'http://localhost:4000/graphql'
+
+https://github.com/CondeNast/interfaces/blob/main/apps/versosettings/server/constants.js
+versoConfigGQL
+-> development: 'http://localhost:4000/graphql'
+
+https://github.com/CondeNast/interfaces/blob/main/apps/versosettings/graphql/codegen.ts
+GATEWAY_URI = 'http://localhost:4000/graphql';
+
+Add a new config-set:
+npm run config-service:new-config-set
+npm run config-service:codegen
+===================================================================
 GitHub
 
 Teams:
@@ -5,7 +24,7 @@ All lifestyle engineers
 https://github.com/orgs/CondeNast/teams/lifestyle-all-engineers/members
 
 ===================================================================
-VPN
+Forti VPN
 Connection Name: CNGermany
 Description: CN Germany
 Remote Gateway: vpn.condenast.de
@@ -253,7 +272,15 @@ Durchwahl (wer weiss, wozu's gut ist):
 Weitere Durchwahlen:
 https://docs.google.com/spreadsheets/d/1hZiv46AA1gvdnPfBmbV3un6BP3n8Z34ZBixTsWb6feo/edit#gid=0
 ===================================================================
+Slack
+Sollte der rote Benachrichtigungsböbbel mal wieder nicht verschwinden, rät das Support Team dieses:
 
+Use the shortcut shift+esc to update your read state and mark everything as read.
+Please follow-up by restarting Slack
+===================================================================
+run verso with local content-service:
+CONTENT_SERVICE_URI=http://0.0.0.0:8080/graphql npm run dev
+===================================================================
 
 
 

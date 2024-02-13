@@ -1,0 +1,296 @@
+LinkBanner
+
+How it works
+
+1. Create a CuratedList
+Choose "Curation type": either "Link Banner - Marquee" or "Link Banner - Multiple Links"
+"Link Banner - Marquee" shows only one link
+"Link Banner - Multiple Links" shows links from all added items
+
+Add on or more channels on which the banner should be visible to the CuratedList
+
+2. Bundle or Article
+Add a primary channel that is related to the CuratedList to all articles and bundles where the banner should be visible.
+Articles have a special function at section "Additional Content". There you can add a LinkBanner without channel relation.
+
+The code:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/link-banner/LinkBanner.js
+
+HowTo:
+https://intercom.help/formation/en/articles/6745101-how-to-create-link-banners-with-curated-lists
+
+Example:
+1. bundle
+https://stg-copilot.condenast.io/adme/bundles/64fede2fe8d1ce775ad4d46f
+https://stg-copilot-app.condenast.io/adme/curatedlists/6553a7f0235f330042859070
+http://localhost:7777/architectural-digest-middle-east-staging/verso-channel/test-river
+
+2. article
+https://stg-copilot-app.condenast.io/adme/articles/6454dd07331f058208a5c46a
+http://localhost:7777/architectural-digest-middle-east-staging/story/the-celebs-best-recap-moments-of-the-met-2023andnbsp
+
+The Props
+
+Complete list (37 props):
+
+@param {string} [props.bannerExpiryTimeStamp] - optional timestamp when the banner should be offline
+@param {string} [props.bannerStartTimeStamp] - optional timestamp when the banner should be online
+@param {string} [props.className] - Optional top-level class to add
+@param {boolean} [props.hasAllExternalLinks] - Optionally override all links to open in new tab
+@param {boolean} [props.hasBorder] - Optional flag to display border on container. Defaults to true
+@param {boolean} [props.hasCustomBackground] - Optional flag to display custom background. Defaults to false
+@param {boolean} [props.hasDivider] - Optional boolean flag to set divider
+@param {boolean} [props.hasExtraSpace] - Optional
+@param {boolean} [props.hasHedLinkColor] - Optional flag to set color of hed as link color
+@param {boolean} [props.hasUnderline] - Optional flag to give underline to the link
+@param {boolean} [props.hasLinkListGradient] - Optionally adds a gradient when the link list overflows the viewport
+@param {boolean} [props.hasMediumTypeface] - Optionally overrides font size in visual-carousel variation
+@param {boolean} [props.hasShadow] - Optional boolean flag to allow border bottom shadow
+@param {boolean} [props.hasSmallTypeface] - Optionally sets InPageNavigation variation to utilize a different type token
+@param {boolean} [props.hasSmallViewportTitle] - Optionally sets style to secondary type token for LinkBanner title
+@param {boolean} [props.hasWhiteText] - Optionally sets text color to white when theme is inverted
+@param {boolean} [props.isResponsive] - Optional
+@param {boolean} [props.hideHed] - Optional Flag to hide the hed from "link-list" variation of banner
+@param {boolean} [props.hideLinkListImage] - Flag to hide image of link list
+@param {boolean} [props.hideMarqueeHed] - Optional Flag to hide the hed from "marquee" variation of banner
+@param {boolean} [props.hideMobileDek] - Flag to hide dek in mobile view
+@param {boolean} [props.hideMobileMarqueeImage] - Flag to hide image of marquee banner in mobile view
+@param {boolean} [props.isCentered] - Optional flag to justify the container to the center of the viewport.
+@param {boolean} [props.isUnderSiteHeaderNavigation] - Optional Flag to display "visual-link-banner" when it leaves beneath SiteHeaderNavigation for International markets
+@param {string} [props.layout] - Optional layout configured from copilot container
+@param {string} [props.lightBgBannerType] - Optional banner type to set a light background
+@param {object} [props.linkBannerData] - link banner information from the redux store
+@param {string} [props.palette] - Standard or inverted, standard by default, ideally inherited from parent's nav component
+@param {boolean} [props.shouldCenterAlignContent] - Optional flag to center align the list items
+@param {boolean} [props.shouldEnableBundleComponentAnalytics] - Optional feature flag to append data-section-title attribute for analytics
+@param {boolean} [props.showMobileCompactView] - flag to enable compact view for mobile
+@param {boolean} [props.showBannerUnderNav] - Optional flag to determine linkBanner display when drawer is open
+@param {boolean} [props.shouldReplaceWithDropdown] - Flag to enable link banner to get replaced with NavDropdown
+@param {string} [props.theme] - Banner theme type
+@param {string} props.trackingNamespace - Tracking namespace
+@param {string} [props.type] - Banner display type
+@param {boolean} [props.hasDefaultChevron] - Optional boolean flag to set chevron by default
+@param {Array} [props.typesWithBottomMargin] - Optional types for which margin bottom should be applied
+
+Improvements
+
+- proper CoPilot field to verso mapping. That means mainly if a CoPilot field has a value the value will be displayed
+- try to remove as much props as possible
+- define props to move to CoPilot
+- define props to move to verso settings
+- remove the old, tenant config based functionalities and props
+
+
+
+Props ans Usages
+
+bannerExpiryTimeStamp
+bannerStartTimeStamp
+className
+
+hasAllExternalLinks
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue/channels/met-gala.ts#L23
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue/channels/tentpole-featured.ts#L43
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue/channels/tentpole-red-carpet.ts#L22
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue-international/channels/tentpole-featured.ts#L43
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue-international/channels/tentpole-red-carpet.ts#L22
+
+hasBorder
+GQ: video
+AD DE: video
+AD ES: video
+AD IN: video
+AD IT: video
+AD ME: video
+AD MX: video
+Allure: beauty-product-reviews
+Allure: beauty-products
+Allure: commerce-events
+Allure: hair
+Allure: makeup
+Allure: skin-care
+Allure: skin
+Allure: the-melanin-edit
+Allure: video
+Allure: wellness
+Glamour US: events
+Self: package-bundle
+Self: video
+Tatler: video
+Vogue US: default
+Vogue US: met-gala
+Vogue US: tentpole-featured
+Vogue US: tentpole-red-carpet
+
+hasCustomBackground
+Pitchfork: default
+
+hasDivider
+https://github.com/CondeNast/verso/blob/main/src/tenants/conde-nast-traveler/channels/commerce-events.ts#L34
+
+hasExtraSpace
+AD all
+GQ TW: fashion
+GQ TW: gadgets
+HouseAndGarden: default
+Wired IT: default
+Wired US: default
+Wired US: gear
+
+hasHedLinkColor
+Pitchfork: default
+BonAppetit: best-new-restaurants-2022
+
+hasUnderline
+GQ US: wellness
+AD US: shopping
+GQ DE: shopping
+GQ ES: compras
+GQ ES: cuidados
+GQ ES: gqtv
+GQ ES: la-buena-vida
+GQ ES: moda
+GQ ES: noticias
+GQ FR: bien-etre
+GQ FR: lifestyle
+GQ FR: montres
+GQ FR: pop-culture
+GQ FR: shopping
+GQ FR: style
+GQ FR: video
+GQ IN: default
+GQ IT: default
+GQ IT: shopping
+GQ JP: arts
+GQ JP: cars
+GQ JP: culture
+GQ JP: fashion
+GQ JP: lifestyle-and-culture
+GQ JP: lifestyle
+GQ JP: shopping
+GQ JP: sports
+GQ JP: watches
+GQ MX: ciudado-personal
+GQ MX: entretenimientos
+GQ MX: estilo-de-vida
+GQ MX: gq-sports
+GQ MX: moda
+GQ MX: watches
+GQ TW: fashion
+GQ TW: gadget
+GQ UK: culture
+GQ UK: fashion
+GQ UK: fitness
+GQ UK: grooming
+GQ UK: homepage
+GQ UK: shopping
+GQ UK: sport
+GQ UK: watches
+GQ US: culturegq-recommends
+GQ US: grooming
+GQ US: shopping
+GQ US: style
+GQ US: wellness
+
+hasLinkListGradient
+65 matches
+
+hasMediumTypeface
+CNT: commerce-events
+
+hasShadow
+CNT: commerce-events
+
+hasSmallTypeface
+CNT: commerce-events
+
+hasSmallViewportTitle
+CNT: commerce-events
+
+hasWhiteText
+none
+
+isResponsive
+BonAppetit: default
+Pitchfork: default
+
+hideHed
+100+ matches
+
+hideLinkListImage
+75 matches
+
+hideMarqueeHed
+Vogue US: default
+Vogie INT: default
+Vogue UK: default
+BonAppetit: make-your-own-noodles
+
+hideMobileDek
+none
+
+hideMobileMarqueeImage
+67 matches
+
+isCentered
+50 matches
+
+isUnderSiteHeaderNavigation
+none
+
+layout
+
+lightBgBannerType
+none
+
+linkBannerData
+none
+
+palette
+22 matches
+
+shouldCenterAlignContent
+Allure: commerce-events
+CNT: commerce-events
+
+shouldEnableBundleComponentAnalytics
+none
+
+showMobileCompactView
+100+ matches
+
+showBannerUnderNav
+Allure: default
+CNT: default
+CNT ME: default
+CNT UK: inspiration
+TennVogue: default
+
+shouldReplaceWithDropdown
+TNY: default
+VanityFair: default
+
+theme
+some
+
+trackingNamespace
+Vogue INT: tentpole-featured
+Vogue INT: tentpole-red-carpet
+Vogue US: met-gala
+Vogue US: tentpole-featured
+Vogue US: tentpole-red-carpet
+
+type
+some
+-> guess it comes now from CoPilot
+
+hasDefaultChevron
+CNT: commerce-events
+
+typesWithBottomMargin
+CNT: commerce-events
+
+
+
+
+
