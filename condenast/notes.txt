@@ -8459,35 +8459,659 @@ Zur SubNavigation:
 Im Moment sieht es so aus, dass wir den application-config-service so konfigurieren können, wie wir das brauchen.
 Allerdings ist es schwierig oder unmöglich, das bei Interfaces abzubilden.
 
+Daher schlage ich folgendes vor:
+Ich baue application-config-service wie wir die Struktur brauchen.
+In Interfaces wird es zwei Bereiche geben:
+- SubNavigation: Für die Props
+- SubNavigationLinks: Für die Links
+
+Wenn Interfaces irgendwann dahingehend erweitert wird, dass beide Datenkomplexe in einem Kontext behandelt werden können, dann können wir das entsprechend anpassen.
+
+Was meint ihr?
+
 ==============================================
 
+Hi Joel,
+
+if you have any questions about munich such as
+where is delicious vegan food
+https://secretgarden-muenchen.com/
+
+or where to go for fancy beer
+https://higginsaleworks.com/
+https://www.tap-house.de/
+...and of course Donnerbräu
+
+where to listen to Blues
+https://www.glockenbachwerkstatt.de/veranstaltungen/?date&category=fishnblues
+
+Feel free to ask.
+
+
+Ich habe jetzt ein neues config-set zu application-config-service hinzugefügt:
+SubNavigationLinks
+Und ich habe das ebenfalls in interfaces/versosettings integriert.
+Jetzt möchte ich das gerne testen.
+Ist es möglich und wenn ja, wie, interfaces/versosettings online zu testen?
+Vielleicht ähnlich wie multiverso bei verso?
+
+For tomorrow:
+Please try this two branches:
+https://github.com/CondeNast/interfaces/pull/1820/files
+https://github.com/CondeNast/application-config-service/pull/278/files
+
+And change just this constant to: http://localhost:4000/graphql
+https://github.com/CondeNast/interfaces/blob/main/apps/versosettings/server/constants.js#L5
+
+'cause for me adding, changing and saving works fine now.
+
+
+
+I can see there are subchannelLinks at channel travel defined:
+https://web.archive.org/web/20230823071856/https://www.houseandgarden.co.uk/topic/travel-lifestyle
+
+BUT:
+
+The channel travel was somehow renamed to travel-lifestyle in CoPilot:
+https://copilot.condenast.io/hg/category-manager/615b0b190153fa8c87a133c9/618936d09b2ce0e907b85d92/edit
+
+Maybe someone can have a look when this happened?
+
+For this reason there is no matching with the channel config at verso anymore.
+
+Two possible solutions for now:
+1. Rename the channel back to travel at CoPilot. Fast but might cause SEO troubles
+2. Rename the channel config to travel-lifestyle. Needs a ticket for your engineers.
+
+It has nothing to do our subnavigation config set work.
+
+24x24
+
+For verso:edit access:
+Is it for both the same: staging and production
+Or must the access granted separately for the environments?
+
+https://interfaces.conde.io/apps/versosettings#/conde-nast-traveler-espana-staging/configs
+https://interfaces.conde.io/apps/versosettings#/conde-nast-traveler-espana-staging/configs/
+
+Has someone an idea how to run integration test on application-config-service local?
+The command is npm run test:integration but that cannot connect to database...
+
+I can say we have several funny versions in verso. As like:
+dangerousHed={hed}
+hed={dangerousHed}
+but also:
+carouselTitle={dangerousHed}
+strapline={dangerousDek}
+and the mos dangerous:
+subHed={dangerousDek}
+
+engagement
+Ben French
+
+
+Es sind oft die kleinen Perlen, die einen den Kopf schütteln lassen.
+Zum Beispiel dieses hier:
+    hasHorizontalPadding,
+    hasHigherHorizontalPadding,
+Da juckt es mich in den Fingern, noch zwei weitere Props hinzuzufügen:
+    hasEvenHigherHorizontalPadding,
+    hasNotAsMuchHigherHorizontalPadding,
+
+
+
+20:00 Uhr - Rio Filmpalast / Rosenheimer Strasse 46
+17:45 Uhr - Monopol Kino / Schleissheimer Strasse 127
+
+
+Now I have docker running (with colima).
+...and I get some new errors:
+
+npm run test:integration
+
+> application-config-service@1.0.0 test:integration /Users/woldt/Development/application-config-service
+> MONGO_CONNECT=mongodb://localhost:27017/config-service jest ./integration
+
+{"level":50,"time":1707903332781,"pid":78355,"hostname":"XNNY7D500W","msg":"Internal error emitted on the WebSocket server. Please check your implementation. listen EADDRINUSE: address already in use :::4000"}
+{"level":50,"time":1707903332781,"pid":78355,"hostname":"XNNY7D500W","code":"EADDRINUSE","errno":-48,"syscall":"listen","address":"::","port":4000}
+ FAIL  integration/queries-integration.test.ts (15.565 s)
+
+What I did:
+
+brew install docker
+brew install docker-compose
+brew install colima
+colima start
+npm run mongo:start
+
+I can see docker is running:
+docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                            PORTS     NAMES
+43c45cb88771   redis:alpine   "docker-entrypoint.s…"   49 minutes ago   Exited (137) About a minute ago             redis
+727c44d1b28f   mongo:5        "docker-entrypoint.s…"   49 minutes ago   Exited (137) About a minute ago             mongo2
+086e8c37db64   mongo:5        "docker-entrypoint.s…"   49 minutes ago   Exited (137) About a minute ago             mongo1
+
+I can connect to mongodb via Compass:
+mongodb://localhost:27017
+
+
+hasDefaultAffiliateDisclaimer
+affiliate-disclaimer-default
+
+
+We have versosettings at interfaces and we have verso-settings at CoPilot taxonomy.
+
+
+https://github.com/CondeNast/verso/blob/main/src/core/config-resolvers/get-verso-settings.ts#L5
+https://github.com/CondeNast/verso/blob/main/src/core/config-resolvers/configResolvers.ts#L33
+
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/transformers.ts#L524
+
+
+When I want to call a local verso page I get this error:
+
+Resolved config not found
+
+What I did:
+
+git checkout main
+git pull
+git checkout mybranch
+git merge main
+
+nvm use && npm run clean && npm run clobber && npm i
+npm run dev
+
+I am connected via appgate VPN
+My public IP: 62.206.91.52
+
+Any ideas?
+
+
+        links: connected(relname: "subNavigationLinks") {
+          nodes {
+            text
+            url
+          }
+        }
+
+I have two query parts for subNavigation and subNavigationLinks:
+
+subNavigation {
+  configs {
+    attributes {
+      contentType
+      categoriesPath
+    }
+    className
+    hasBackgroundColor
+    hasBorders
+    isCentered
+    isSlim
+    layout
+    trackingNamespace
+  }
+}
+subNavigationLinks {
+  configs {
+    attributes {
+      contentType
+      categoriesPath
+    }
+    nodes {
+      text
+      url
+    }
+  }
+}
+
+Now I want to have one query like this:
+
+subNavigation {
+  configs {
+    attributes {
+      contentType
+      categoriesPath
+    }
+    className
+    hasBackgroundColor
+    hasBorders
+    isCentered
+    isSlim
+    layout
+    trackingNamespace
+    links: subNavigationLinks {
+      configs {
+        nodes {
+          text
+          url
+        }
+      }
+    }
+  }
+}
+
+Is this possible?
+If yes how can I do that?
+Somehow with fragments?
+Or is it better to query the parts separately and glue them together at transformers?
+
+
+As you are all mentioned in this ticket please take a look at my investigations (1. comment)
+https://cnissues.atlassian.net/browse/LS4-793
+
+Feel free to ask me whatever you want.
+Don't be afraid of my answers, no matter how absurd they may sound. Together we'll get it under control again. I am optimistic.
+
+The aim should be to make a proposal that Team Travellers can use to modify or create a new affiliate disclaimer save for the future.
+
+
+Before you disappear on holiday, please test these two tickets:
+https://cnissues.atlassian.net/browse/LS4-777
+https://cnissues.atlassian.net/browse/LS4-778
+
+Habt ihr auch einen Service, der dieses Kauderwelsch in menschliche Sprache übersetzt:
+BMDV, FIR, ED-R München und RMZ/TMZ
+Oder einem Laien erklären kann, was mit "Funkkommunikations- und Transponderpflicht" gemeint ist.
+Ich frage für einen Freund.
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-761
+We recognized that the easy fix for us is ti change the headline of the component from h2 to h3.
+But as I know this might have affects to SEO I will ask you if we can do so.
+
+
+        SummaryRiver: {
+          settings: {
+            layout: 'PaginatedThreeColumns',
+            summaryItemVariation: 'SideBySideDesktopOnlyThirds',
+            shouldHideDangerousDek: true,
+            shouldHideBylines: true,
+            hideRubricItemSummary: false,
+            summaryItemRubricVariation: 'DiscoveryItem'
+          }
+        }
+
+
+  tag: {
+    sm: {
+      aspectRatio: '1:1',
+      width: 724
+    }
+  },
+
+
+Please compare:
+https://multiverso.glamourmagazine.co.uk/topic/yoga?branch=LS4-760
+https://stag.glamourmagazine.co.uk/topic/yoga
+
+https://multiverso.glamour.com/about/billie-eilish?branch=LS4-760
+https://stag.glamour.com/about/billie-eilish
+
+https://multiverso.glamour.es/tags/lucia-pica-test?branch=LS4-760
+https://stag.glamour.es/tags/lucia-pica-test
+
+https://multiverso.glamour.de/video/series/bad-hair-day?branch=LS4-760
+https://stag.glamour.de/video/series/bad-hair-day
+
+https://multiverso.glamour.mx/video/series/chef-profiles-and-recipes-judith-jones?branch=LS4-760
+https://stag.glamour.mx/video/series/chef-profiles-and-recipes-judith-jones
+
+hideBottomBorders = true,
+hideVerticalBorders = true,
+hideBottomBordersforMainFour = true,
+showTopBorderInSummaryTitle
+
+hasBordersForFirstAndLastItem: true
+hideBottomBorders: true
+hideVerticalBorders: true
+
+
+Jetzt muss ich doch dich mal fragen:
+Es geht um dieses Ticket:
+https://cnissues.atlassian.net/browse/LS4-762
+
+Auf der Glamour Startseite sollen aus den SummaryCollage-Komponenten die borders entfernt werden:
+https://www.glamour.com/
+Wir haben, wie du weißt, jede Menge Props für alles mögliche.
+Für das entfernen der borders hingegen nicht oder nur teilweise.
+
+Sollen wir das gerade ziehen? Dann reichen die 3 Punkte im Ticket hinten und vorne nicht.
+
+Am Rande: Was da gebaut wurde, es treibt mir einmal mehr die Tränen in die Augen. Eine wilde Mischung aus verschachtelten Templates, default Einstellungen, Props und, als wäre das nicht schon schlimm genug, auch noch css-Klassen (die dann teilweise auch nichta machen)
+
+
+
+        SummaryCollageNine: {
+          settings: {
+            hasBordersForFirstAndLastItem: false,
+            hideBottomBorders: true,
+            hideVerticalBorders: true,
+            hideBottomBordersforMainFour: true
+          }
+        },
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-760
+Please have a view before I proceed.
+Does it look like expected?
+Are there any issues?
+
+
+Hi Nina,
+zu diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-762
+Leider ist es einmal mehr so, dass die Templates so gebaut sind, dass alles mögliche möglich ist, nur nicht das, was man braucht. Es gibt also keine no-border Option für die SummaryCollage-Komponenten, die alle Linien weg nimmt.
+Im Ticket siehst du das, was ich bieten kann.
+Könnt ihr damit leben?
+...lass uns reden :-)
+
+
+Regading this ticket:
+https://cnissues.atlassian.net/browse/LS4-762
+
+Unfortunately, it is once again the case that the templates are built in such a way that everything is possible, just not what we need.
+So there is no no-border option for the SummaryCollage components that takes away all the lines.
+In the ticket you can see what I can offer.
+
+Can you live with that?
+
+
+I would like to thank Gapur for showing me how application-config-service and versosettings work.
+
+I would like to thank Tobi for working tirelessly for us on the big stage and trying to get the sluggish Condé Nast steamer back on course.
+
+I would like to thank Rakshita for making an effort to organise our backlog.
+
+And I would like to thank Elena, who is working in the background to ensure that the shop doesn't fall apart.
+
+
+Hi there,
+
+please can someone have a look why these both pages return 404:
+
+https://stag.glamour.de/video/series/bad-hair-day
+https://stg-copilot-app.condenast.io/glmde/tagpages/640588aab81f0aef7fd5e3a5
+
+https://stag.glamour.mx/video/series/chef-profiles-and-recipes-judith-jones
+https://stg-copilot-app.condenast.io/glmmx/tagpages/64058b6acb45a5d3936014c1
+
+Nicht dass ihr meint, ich hätte euch vergessen.
+Ihr könnt euch schon mal diese beiden Termine in den Kalender eintragen.
+
+9. und 23. März
+
+Da öffnet Donnerbräu nämlich wieder seine Pforten.
+
+
+
+https://www.glamour.de/tag/5-people-test
+7x6
+3x12
+=
+
+5 -> 16
+2
+5
+24
+
+12
+
+https://multiverso.glamour.com/?branch=LS4-764
+https://multiverso.glamourmagazine.co.uk/topic/fashion?branch=LS4-764
+https://multiverso.glamour.mx/?branch=LS4-764
+https://multiverso.glamour.es/?branch=LS4-764
+
+
+Penny Dreadful
+
+In der Ampel gibt es zwei Parteien, die versuchen das, was unbedingt nötig ist, irgendwie hin zu bekommen.
+Und es gibt eine Partei, die will das partout nicht.
+Und dann gibt es eine Opposition, die will das auch nicht. Aber aus anderen Gründen.
+
+
+Hi Team,
+
+The element Button hast the prop cornerRadius:
+https://github.com/CondeNast/verso/blob/main/src/components/elements/button/Button.js#L63
+
+Now I want to set the value within the tenant config.
+When I try this as we always do with props:
+
+Button: {
+  settings: {
+    cornerRadius: 'RoundedCorner'
+  }
+},
+
+Nothing happens.
+What is missing?
+What am I doing wrong?
+Where is my error in thinking?
+What have I forgotten?
+
+Can anyone help me further?
+
+
+Ich mache jetzt mal einen Vorschlag:
+
+Am 23. April jährt sich unser erster Sud zum ersten Mal.
+Ich bin der Meinung, das ist ein Grund zusammen anzustoßen.
+
+Was haltet Ihr davon, wenn wir zum Eder Wirt gehen:
+https://www.ederwirt.de/
+
+Ein wenig schlemmen, ein wenig Trinken und uns feiern?
+
+
+A little bit background information.
+
+I had two suggestions how to manage the required behaviour:
+
+1. Add the prop cornerRadius to all involved templates... unless I recognized that this will impact about 10 or more tempaltes.
+Becaus our aim is to reduce complexity and decrease the amount of props this suggestion cannot be the way.
+2. Set cornerRadius at tenant config direct for the Button template. Bur it is not possible.
+
+Now we have a suggestion from Nate and Wayne to invent a new design token for this purpose.
+
+And it's not only us with glamour how needs this feature but also team travellers and Allure.
+
+https://www.emaz.de/thumbs/1000x1000r/2024-02/hammer-und-hefe.jpg
+
+
+Zu diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-764
+
+Die Ausgangslage:
+Design will eine Möglichkeit haben, die borders der Buttons an ihr Gesamtkonzept anzupassen. Also abgerundete borders.
+Technisch lässt sich das nur umsetzen, indem entweder
+1. ein vorhandener prop, der nicht bis zu Ende gedacht wurde, durch alle beteiligten Templates - und das mögen wenigstens 10 sein - geschleift wird, oder
+2. das Button Template dahingehend umgebaut wird, dass es sich über die tenant config steuern lässt.
+Beides bedeutet eine erhebliche Erweiterung der Komplexität und ist aus meiner sicht weder sinnvoll, noch vertretbar. Und widerspricht dem, was wir wollen.
+
+Wir haben jetzt folgendes entschieden:
+Es wird ein neues Design Token erstellt, dass für die Gestaltung der border für Buttons zuständig sein wird.
+Beschlossen zusammen mit Nina, Vivek, Tom, Wayne, Kyle und anderen.
+Von unserer Seite aus ist das der Weg des geringsten Aufwands.
+Warum so ein Aufhebens:
+- Den Designern scheint das sehr wichtig, auch für zukünftige Designentscheidungen.
+- Es betrifft aktuell nicht nur uns mit Glamour, sondern auch Travellers mit Allure.
+
+Das heisst für die Teams (sevenseas & travellers) die dazu gehörigen Tickets werden geschlossen.
+Es gibt ein neues Ticket: Implement new design token. Für uns oder Travellers, egal. Und ann können die Designer mit den Buttons machen, was sie wollen.
+
+...so der Plan.
+
+
+As discussed:
+1. We will close the existing Tickets:
+- https://cnissues.atlassian.net/browse/LS4-764 (sevenseas)
+- https://cnissues.atlassian.net/browse/LS2-510 (travellers)
+
+My suggestion:
+We need one follow up ticket:
+Implement the new design token for button borders and configure it for Glamour or Allure.
+It might be quite equal if Travellers or sevenseas will do the work.
+
+In meiner Phantasie ist das eine Abfrage, die etwa so aussieht:
+
+border-radius:
+if (NewToken) {
+  NewToken + 'px';
+}
+else { // deprecated. remove as soon as possible.
+  ${({ cornerRadius, size }) => {
+    if (cornerRadius === 'FullyRoundedCorner') return '50px';
+    if (cornerRadius === 'RoundedCorner')
+      return size === 'small' ? '2px' : '4px';
+    return '0px';
+  }};
+}
+
+Der Aufwand also gering.
+Ist aber verso...
+
+
+Aus meiner Sicht sieht das so aus:
+
+1. Wir bieten euch die Token Variante an. Wie flexibel die ist, liegt in eurer Verantwortung. Ist für uns wenig Arbeit und vom Code her sauber.
+2. Wir können gar nichts machen, weil verso einfach ein Klump ist.
+3. Wir bauen ein riesen Dings mit sehr viel Aufwand, das weder sauber, noch flexibel ist.
+
+Ich bin da so service-Orientiert, die erste Variante anzustreben.
+
+border-radius: ${({ cornerRadius, size }) => {
+  if (cornerRadius === 'FullyRoundedCorner') return '50px';
+  if (cornerRadius === 'RoundedCorner')
+    return size === 'small' ? '2px' : '4px';
+  return NewToken || 0 + pk
+}};
+
+
+Hi Rakshita,
+
+now I have two tickets for you to test:
+
+https://cnissues.atlassian.net/browse/LS4-760
+https://cnissues.atlassian.net/browse/LS4-762
+
+If you can handle that soon it whould be great as I'm on vacation from tomorrow 'till friday.
+If not... not problem at all.
+
+Bon Appetit
+
+Can someone point me to a documentation how to enable props for elements?
+
+I want to configure the Button element - especially the cornerRadius prop - within the tenant config:
+https://github.com/CondeNast/verso/blob/main/src/components/elements/button/Button.js#L63
+
+Button: {
+  settings: {
+    cornerRadius: 'RoundedCorner'
+  }
+},
+
+But the config isn't available at the template.
+
+...or tell me wich channel might be the best for ma question.
+
+
+
+Nina meinte auch, er sei möglicherweise etwas Überfordert.
+Trotzdem ist es nervig, wenn er erst im Planning und auch da erst nach gutem Zureden mal einen Blick auf sein Ticket wirft.
+Und da gab es auch keine Diskussionen im Vorfeld, sondern lediglich eine Anfrage von ihm, was mit Komponenten ist, die nicht auf der Testseite zu sehen sind und ich ihm eine Testseite gebaut habe, auf der die Komponenten drauf sind.
+
+btnStyle: 'filled',
+cornerRadius: 'RoundedCorner',
+showButtonForCallToActionLink: true,
+
+SummaryCollectionGrid:
+utility.button-utility
+
+SummaryCollectionList:
+utility.button-core
+
+Hab ich schon gesagt, wie schade ich es finde, dass du mit dem Suppi nicht mehr über eins gekommen bist?
+Habe ich nicht? Also jetzt: Ich finde das sehr schade.
+Immerhin habt ihr mich (oder ich euch) die letzten 30 oder mehr Jahre begleitet wie ein guter Freund.
+Ich möchte nicht, das unser Kontakt abreisst.
+Ich freue mich jederzeit, wenn du spontan im Garten vorbei kommst.
+Und wenn das mit dem Spontan nicht klappt, dann würde ich mich sehr freuen, wenn du zu meiner "Geist Geburtstag Nachholparty" am 22.6. kommst.
+Und auch würde ich mich freuen, wenn du zum Ausschank beim Donnerbräu kommst.
+
+
+Vielleicht kann jemand der mehr css-Erfahrung hat als ich einen Blick darauf werfen:
+Ist es möglich, den Abstand zwischen Bild 2 und Bild 3 in der SummaryCollageThree zu veringern?
+Ich finde nicht die richtige Stelle.
+Bitte nicht zu viel Zeit darauf verwenden... wenn es nicht geht, geht es nicht.
+
+And it's just one week ago where a "cc" causes a discussion with at least
+
+
+
+Ich für meinen Teil hätte überhaupt kein Problem damit, diese Bedingung einfach zu entfernen. Und wenn sich dann jemand beschwert, dass auf einer Seite plötzlich ein Text erscheint, wo er nicht soll, zu sagen: "Dann schreib da halt keinen Text rein".
+
+Und nein, ich sehe nicht, dass das eine Designentscheidung ist oder war. Für mich ist das ein grundsätzliches Architekturproblem: Steuer ich jeden Blödsinn über Props oder verfolge ich konsequent eine logische Linie. Denn auch wenn Desing etwas nicht ausgegeben haben will, muss die Antwort lauten: "Dann schreib da halt keinen Text rein"! Und niemals: "Gut, dann erfinden wir eben ein paar lustige Props mit denen das ausgeschaltet werden kann"!
+
+
+Mir ist nicht ganz klar, was es mit diesem eventTimeAndDateString auf sich hat.
+Auf den ersten Blick drängt sich mir die Frage auf, warum muss eine TimeDate-Information automatisch generiert und ausgegeben werden, wenn direkt daneben der Countdown zu sehen ist.
+Und: Wenn man das haben will, gilt für mich auch wieder: "Wenn du da was stehen haben willst, dann schreib da was rein". Eventuell muss dann auch ein entsprechendes Feld bei versosettings ergänzt werden.
+Zu sagen, wir schreiben da einfach mal was hin, von dem niemand so genau weiß, warum und erfinden dann einen lustigen Prop, um das wieder auszublenden, das kann es nicht sein.
+
+
+This is a very simplified description and I am aware that there are a few more requirements we have to care about.
+Generally speaking, this is how I think the EventBanner should be structured:
+
+There are two data sets in each case:
+Once for the period while the countdown is running.
+And once when the event takes place.
+
+In each case, exactly what is entered is displayed. No input -> no output.
+There are exactly two automatisms:
+
+1. a function that is responsible for switching from the countdown view to the event view.
+2. a function that displays the countdown.
+
+Everything else is entered manually.
+
+So, jetzt ist es Zeit für mich, den Arbeitsplatz zu verlassen.
+Wir können das gerne morgen weiter diskutieren (Und Andre weiß, wie gerne ich diskutiere ;-) )
 
 ==============================================
 Restaurant Liste für SevenSeas Engineer Dinner:
 Brasilianisch: https://www.churrascaria-muenchen.de/
-Irgendwas Kolumbianisches
 Etwas Portugiesisches
 Maybe vegan Sushi
-Australisch?
 Georgisch: Restaurant Vazi
 https://lafavela.de/speise-und-getraenkekarte/
 ==============================================
 
 
 TODO:
-- Hopfen bestellen
-- Lichtermeer Artikel veröffentlichen
-- Leserbrief an AZ
+- Newsletter für Konzert im Donnerbräu
+- Spiele Linux für Arcade Schrank
+- Einkaufen:
+  - Traubenzucker
+  - Zehnseide
+  - Mineralwasser
 - Newsletter Adressen eintragen
 - Donnertermine für März
-- Whats App an Joel
+- Termin Sommerfest
+- Termin Geistfest
 - Termin: ConDrops
 - Termin: Stürminger
-- Toto antworten
 - Stempel bestellen
 - Griegstraße: Wer muss Bad streichen?
 
 
+ok - Kinokarten kaufen
+ok - Toto antworten
+ok - Whats App an Joel
+ok - Hopfen bestellen
+ok - Lichtermeer Artikel veröffentlichen
+ok - Leserbrief an AZ
 ok - Urlaub beantragen
 ok - Update Review Comments
 ok - Testpages for header image on tagpages

@@ -2,12 +2,155 @@ Information Collection about Disclaimer:
 
 1. Article
     Props:
+    - article.affiliateDisclaimer
+    - article.hideAffiliateDisclaimer
+    - article.showAffiliateBelowContentHeader
+    - article.showAffiliateBelowContent
+    - article.hideAutoDisclaimer
+    - article.hideProductDisclaimer
+    - article.magazineDisclaimer
+    - hasDynamicDisclaimer
+    - shouldCenterDisclaimer
+    -
     Token:
+        ArticlePageDisclaimer (prop: showAffiliateBelowContent)
+        -> consumptionEditorial.citation
+        -> first override: discovery.subhed-section-collection
+        -> second override: consumptionEditorial.body-core
+        -> third override: globalEditorial.context-secondary
+        DisclaimerComponent:
+        -> consumptionEditorial.citation
+
+    Templates:
+    - DisclaimerWrapper
+    - DisclaimerComponent
+    - ArticlePageDisclaimerGrid
+    - ArticlePageDisclaimer
+
 2. Gallery
     Props:
+    - GalleryPageIntroDisclaimer
+    - GalleryPageDisclaimerGrid
+    - GalleryPageDisclaimer
+    - showDisclaimerOnTopOrBottom
+    - renderDisclaimer
+    - disclaimer
+    - hideAutoDisclaimer
+    - showDisclaimerOnTop
+    - hideAffiliateDisclaimer
+    - hideProductDisclaimer
+
     Token:
+        GalleryPageDisclaimer
+        -> consumptionEditorial.citation
+        -> first override: consumptionEditorial.body-core
+
+        GalleryPageIntroDisclaimer
+        -> consumptionEditorial.citation
+        -> first override: globalEditorial.context-secondary
+
+    Templates:
+    - GalleryPageIntroDisclaimer
+    - GalleryPageDisclaimer
+
 3. Bundle
-    Props:
-    Token:
+    - HomePage
+        Props:
+        - hasDisclaimerBackground
+        - hasDisclaimerBorderBottom
+        - hideAffiliateDisclaimer
+        - hasDefaultAffiliateDisclaimer
+        - showDisclaimer
+        Token:
+            HomePageDisclaimer
+            -> consumptionEditorial.citation
+            -> first override: globalEditorial.context-secondary
+
+        Templates:
+        - HomePageDisclaimer
 
 Templates:
+
+ArticlePage
+
+DisclaimerComponent:
+src/components/templates/article-page/ArticlePage.js
+-> src/components/compositions/disclaimer/index.js
+-> src/components/compositions/disclaimer/variations.js
+-> src/components/compositions/disclaimer/Disclaimer.js
+-> src/components/compositions/disclaimer/styles.js
+-> src/components/elements/textblock/index.js
+-> src/components/elements/textblock/Textblock.js
+-> src/components/elements/textblock/styles.js
+    -> consumptionEditorial.citation
+
+ArticlePageDisclaimer:
+src/components/templates/article-page/ArticlePage.js
+-> src/components/templates/article-page/styles.js
+    -> default: globalEditorial.context-secondary
+    -> showAffiliateBelowContent: consumptionEditorial.body-core
+
+GalleryPage
+
+GalleryPageIntroDisclaimer
+src/components/templates/gallery-page/GalleryPage.js
+-> src/components/templates/gallery-page/styles.js
+    -> globalEditorial.context-secondary
+
+GalleryPageDisclaimer
+src/components/templates/gallery-page/GalleryPage.js
+-> src/components/templates/gallery-page/styles.js
+    -> default: globalEditorial.context-secondary
+    -> showAffiliateBelowContent: consumptionEditorial.body-core
+
+BundlePages
+
+hasDefaultAffiliateDisclaimer
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/transformers.ts#L536
+
+HomePage.js
+-> src/components/templates/home-page/HomePage.js
+->
+->
+
+
+As there are a lot of additional props and functionallities where and how to render a disclaimer I am only able to list some of the most impressive things I have found:
+
+At bundle page the prop hasDefaultAffiliateDisclaimer controls if the disclaimer is shown by the bundle itself or by components of the bundle.
+hasDefaultAffiliateDisclaimer is set if the taxonomy verso-settings/affiliate-disclaimer-default is set.
+
+At article page the prop showAffiliateBelowContent controls if the diclaimer is shown above or below the header.
+
+On the gallery page, props such as showDisclaimerOnTop and showAffiliateBelowContent are used to specify which template is used and where it is placed.
+
+Templates & Tokens
+
+We have a lot of templates redering the affiliate diclaimer.
+They work very similar but not the same.
+
+Article templates:
+    - ArticlePageDisclaimer (prop: showAffiliateBelowContent)
+        -> consumptionEditorial.citation
+        -> first override: discovery.subhed-section-collection
+        -> second override: consumptionEditorial.body-core
+        -> third override: globalEditorial.context-secondary
+    - DisclaimerComponent:
+        -> consumptionEditorial.citation
+
+Gallery Templates:
+    - GalleryPageDisclaimer
+        -> consumptionEditorial.citation
+        -> first override: consumptionEditorial.body-core
+
+    - GalleryPageIntroDisclaimer
+        -> consumptionEditorial.citation
+        -> first override: globalEditorial.context-secondary
+
+Bundle Templates:
+    - HomePageDisclaimer
+        -> consumptionEditorial.citation
+        -> first override: globalEditorial.context-secondary
+
+Suggestion:
+
+The way affiliate disclaimers are presented needs to be completely revised. Legal issues across all countries must be clarified in advance. Then the placements must be planned precisely and finally a standardised design must be created.

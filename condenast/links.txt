@@ -53,7 +53,10 @@ GRAPHQL
 Doku:
 https://graphql.org/learn/queries/
 
-GraphQL new APIs:
+API for application-config-service
+https://config-service.gp-prod-na-0.conde.digital/graphql
+
+GraphQL new APIs for content service:
 https://nonprod-content.conde.io/graphql
 https://content.conde.io/graphql
 
