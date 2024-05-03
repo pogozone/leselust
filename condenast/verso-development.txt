@@ -18,6 +18,8 @@ npm run test-update-snapshot [name]
 
 if you want to see what's inside:
 console.log(component.debug());
+It that does not work, try this:
+console.log('Comment::', JSON.stringify([variable|string|object], null, 2));
 ==============================
 Wenn die Authentifizierung mal wieder gar nicht will:
 https://github.com/CondeNast/labs/blob/master/FAQs/aws-sso.md

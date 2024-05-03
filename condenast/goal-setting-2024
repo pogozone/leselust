@@ -1,0 +1,37 @@
+For goalsetting 2024:
+
+Move parts of tenant config to versosettigs
+
+Some configuration actually located at tenant config causes a lot of engineering efford.
+The aim is therefore to move more and more settings to the versosettings interface. To do this, I will analyse the tenant config to find out which settings are suitable for this.
+
+Goal:
+At least one config complex is moved to versosettings.
+The data from tenant config is migrated and it is used by stakeholders so engineering effort is reduced.
+Better understanding of versosettings and the associated components.
+
+
+Harmonization of at least one content type
+
+As we want to use the same template to render all contenttypes within the bundle page components we have to make sure all contenttypes provide the same dataset used at SummaryItem.
+For example the contenttype Contributor differs from other contenttypes such as article, gallery or bundle by some basic fields.
+Dek is missing. Additional the Contributor has some special fields like bio, shortBio or featuredBio. This makes it very difficult more or less impossible to handle Contributor within the standard components. It is highly required to align the contenttype to the over all standards.
+In addition to this Contributor differs from one tenant to another. It is also highly recommended to align Contributor over all tenants.
+
+Goal:
+To have at least one more contenttype for all tenants and this contenttype can be displayed with all standard components without customised configurations.
+All custom logic and tenant config customisation to display the SummaryItem for the specific contenttype is removed.
+
+
+Promoting innovation and creative thinking
+
+It is important to promote innovation and creative thinking within the team. Regular idea and brainstorming sessions should be organised for this purpose. To this purpose, a component is defined and presented. The issues and weak points are worked out and improvements and solutions are looked for together. Colleagues from other disciplines should be involved.
+Working in a stimulating and innovative environment where ideas are valued and encouraged can significantly increase job satisfaction.
+Involvement in cross-disciplinary collaboration with colleagues from other disciplines exposes to different viewpoints and approaches to problem-solving. This broadens perspective and fosters a more holistic understanding of complex issues.
+
+
+Goal:
+At least 2-3 meetings should take place in 2024. Organised and guided by me.
+At least one component that needs to be optimised has been identified and refactored.
+
+
