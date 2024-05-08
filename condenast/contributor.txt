@@ -1,0 +1,416 @@
+
+A short story about Contributors
+
+At MultiPackages the Contributor section is called like this: SummaryCollectionGrid.ContributorsInThreeColumnsWithButton
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/multi-packages/MultiPackages.js#L289
+
+The variation ContributorsInThreeColumnsWithButton should be rendered with summaryItemVariation: 'ContributorAsCard'
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/summary-collection-grid/variations.js#L87
+
+But... at tenant default config it's overriden by summaryItemVariation: 'SideBySideMobileOnlyThirdsImageRight' *)
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/channels/_default.ts#L239
+
+And again by channel config: summaryItemVariation: 'ContributorAsCard'
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/channels/health-conditions.ts#L96
+
+
+*) It happens because oft this alignment ticket:
+https://cnissues.atlassian.net/browse/LS4-652
+The 3 columns layout for AD, CNT, Glamour, GQ and Self, is following Allure’s pattern with:
+- headline enabled
+- square images in the top of the card
+- 3 content in each row
+
+=========================================================================
+Type Definition (verso):
+https://github.com/CondeNast/verso/blob/main/src/types.d.ts#L362
+
+export interface Contributor {
+  dangerousBio?: string;
+  dangerousTitle?: string;
+  name: string;
+  url: string;
+  socialMedia?: SocialMediaLink[];
+  photo?: MediaProps;
+  contributorType?: string; // alias for GQL 'type' field
+  featuredBio?: string;
+  relatedContent?: any;
+  selectedStories?: [];
+  title?: string;
+}
+
+=========================================================================
+GraphQL
+
+**Schema**
+https://github.com/CondeNast/content-service/blob/main/src/graphql/content-types/contributor/schema.graphql
+
+**Sandbox**
+https://nonprod-content.conde.io/graphql
+
+**Query**
+
+query(
+  $organizationId: ID!, $contentId: String!
+) {
+  getContributor(id: $contentId, organizationId: $organizationId) {
+    id
+    name
+    media {edges {node {id}}}
+    metadata {contentType}
+    email
+    title
+    socialMedia {
+      handle
+    	network
+    }
+    bio
+    featuredBio
+    shortBio
+    canonicalUrl
+    revisionInfo {version}
+    type
+    tout {
+      id
+    	filename
+    }
+    toutMedia {node {id}}
+    organizationId
+    lang
+    pubDate
+    publishedRevisions {page}
+    publishInfo {authorName}
+    uri
+    recommendationsTrackingUrl
+    connected {edges {node {id}}}
+    syndication {canonicalUrl}
+    contextualCaption
+    contextualCredit
+    contextualTitle
+  }
+}
+
+
+**Query Variables**
+
+{
+  "organizationId": "4gKgcF6nVvtKX5y2VznaJcDBuD47",
+  "contentId": "61dda72ae238ec3d29d9a3ad"
+}
+
+
+**Result**
+
+{
+  "data": {
+    "getContributor": {
+      "id": "61dda72ae238ec3d29d9a3ad",
+      "name": "Sabrina Romanoff, PsyD",
+      "media": {
+        "edges": [
+          {
+            "node": {
+              "id": "61e082ee808d098c8ccc3a2f"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "contentType": "contributor"
+      },
+      "email": "",
+      "title": "SELF Medical Review Board",
+      "socialMedia": [],
+      "bio": "Sabrina Romanoff, PsyD, is a Harvard-trained clinical psychologist [...]",
+      "shortBio": null,
+      "canonicalUrl": null,
+      "revisionInfo": {
+        "version": 19
+      },
+      "type": null,
+      "tout": {
+        "id": "61e082ee808d098c8ccc3a2f",
+        "filename": "Sabrina-Romanoff-headshot-02.jpg"
+      },
+      "toutMedia": {
+        "node": {
+          "id": "61e082ee808d098c8ccc3a2f"
+        }
+      },
+      "organizationId": "4gKgcF6nVvtKX5y2VznaJcDBuD47",
+      "lang": "en-US",
+      "pubDate": "2022-01-18T16:10:01.525Z",
+      "publishedRevisions": {
+        "page": 1
+      },
+      "publishInfo": {
+        "authorName": "Amy Eisinger"
+      },
+      "uri": "contributor/sabrina-romanoff",
+      "recommendationsTrackingUrl": null,
+      "connected": {
+        "edges": [
+          {
+            "node": {
+              "id": "61153112bfb5af2f85f19ad7"
+            }
+          },
+          {
+            "node": {
+              "id": "61e082ee808d098c8ccc3a2f"
+            }
+          }
+        ]
+      },
+      "syndication": {
+        "canonicalUrl": null
+      },
+      "contextualCaption": null,
+      "contextualCredit": null,
+      "contextualTitle": null
+    }
+  }
+}
+
+=========================================================================
+Contributor at copilot-core-monorepo
+
+**Default**
+    - name
+    - title
+    - email
+    - bio
+    - socialMedia
+    - photosTout
+
+Customisations:
+
+**Bon Appetit**
+    - taxonomy
+
+**CNT**
+    - shortBio
+    - channel
+    - subChannel
+    - tags
+    - photosSocial
+
+**Epicurious**
+    - organization
+    - shortBio
+    - taxonomy
+
+**Self**
+    - featuredBio
+
+**The New Yorker**
+    - featuredBio
+    - featuredImg
+    - featuredStories
+    - relatedContent
+
+**Vanity Fair**
+    - featuredBio
+    - featuredImg
+    - featuredStories
+    - relatedContent
+
+=========================================================================
+Testlinks Contributor Page
+
+**Self**
+https://stg-copilot-app.condenast.io/self/contributors/660ec380cc1d7626a85bee74
+https://stag.self.com/contributor/caroline-reilly
+http://localhost:7777/self-staging/contributor/caroline-reilly
+
+graphql query variables:
+{
+  "organizationId": "4gKgcF6nVvtKX5y2VznaJcDBuD47",
+  "contentId": "660ec380cc1d7626a85bee74"
+}
+
+**Epicurious**
+https://stg-copilot-app.condenast.io/epi/contributors/6564d2ea95173ef7b4307e39
+https://stag.epicurious.com/contributors/alexis-deboschnek
+http://localhost:7777/epicurious-staging/contributors/alexis-deboschnek
+
+graphql query variables:
+{
+  "organizationId": "4gKgcEpkmX3HUEW89Yon2Kf7ctD9",
+  "contentId": "6564d2ea95173ef7b4307e39"
+}
+
+**The New Yorker**
+https://stg-copilot-app.condenast.io/tny/contributors/652585a01e13d90b65f6ff90
+https://stg.newyorker.com/contributors/shayla-love
+http://localhost:7777/the-new-yorker-staging/contributors/shayla-love
+
+graphql query variables:
+{
+  "organizationId": "4gKgcEy9SqS1hhu8DJ37D8GnRNuV",
+  "contentId": "652585a01e13d90b65f6ff90"
+}
+
+**Condé Nast Traveler UK**
+https://stg-copilot-app.condenast.io/cntuk/contributors/657044f3f6a834cf16186526
+https://stag.cntraveller.com/profile/matt-ortile
+http://localhost:7777/conde-nast-traveler-uk-staging/profile/matt-ortile
+
+graphql query variables:
+{
+  "organizationId": "4gKgcEp7rmxiHSepVbD7864PH7xY",
+  "contentId": "657044f3f6a834cf16186526"
+}
+
+**Vanity Fair**
+https://stg-copilot-app.condenast.io/vf/contributors/663556b1cdd8f89136ee50f7
+https://stag.vanityfair.com/contributor/george-stephanopoulos-lisa-dickey
+http://localhost:7777/vanity-fair-staging/contributor/george-stephanopoulos-lisa-dickey
+
+graphql query variables:
+{
+  "organizationId": "4gKgcFFpH8t1WVp28BAw7diY9yVd",
+  "contentId": "663556b1cdd8f89136ee50f7"
+}
+
+=========================================================================
+Testlinks Bundles with Contributors
+
+**Self**
+https://stag.self.com/medical-advisory-board
+- name / dangerousHed
+- featureBio / contributorDetail / dangerouslySetInnerHTML
+https://stag.self.com/health-conditions/postpartum-depression-1
+- name / dangerousHed
+- name / ???
+
+**The New Yorker**
+https://stg.newyorker.com/test-linkbanner
+- name / dangerousHed
+
+**Epicurious**
+https://stag.epicurious.com/collection/test-river
+- name
+
+**Condé Nast Traveler UK**
+https://stag.cntraveller.com/verso-channel/test-river
+- name / dangerousHed
+- image
+
+**Vanity Fair**
+https://stag.vanityfair.com/test-2
+http://localhost:7777/vanity-fair-staging/test-2
+- name / dangerousHed
+
+=========================================================================
+Contributor Page:
+
+Self
+- name
+- biography
+
+The New Yorker:
+- name
+- biography
+
+Epicurious
+- name
+- title
+- shortBio
+- biography
+
+Roughly speaking, the following mappings can be recognised:
+name -> hed
+title -> rubric
+shortBio -> dek
+biography -> body
+featuredBio -> dek (by tenant config: contributorDetail)
+
+=========================================================================
+**Files and functions**
+
+**Contributor Page**
+
+For the Conrtibutor Page, the contributor data is assembled here:
+https://github.com/CondeNast/verso/blob/main/src/presenters/contributors/transformer/setContributor.ts#L98
+
+**SummaryItem**
+
+For SummaryItem, the contributor data is assembled here:
+https://github.com/CondeNast/verso/blob/main/src/fetcher-helpers/graphql-to-copilot-bundles/copilot-entities/copilot-contributor.ts
+
+**ByLine**
+
+For ByLine, the contributor data is assembled here:
+https://github.com/CondeNast/verso/blob/main/src/transformer-helpers/contributors.ts#L94
+=========================================================================
+
+We have to take care about these fields:
+name
+dangerousBio
+dangerousTitle
+featuredBio
+
+=====
+Verso
+
+For Contributor, a lot of modifications were made in SummaryItem that should be removed.
+
+The Contributor fields:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/summary-item/SummaryItem.js#L1073
+
+The output:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/summary-item/SummaryItem.js#L1311
+
+=========================================================================
+**Test Guide**
+There are six brands that have configured additional fields to the default fields of the contributor:
+Bon Appetit, CNT, Epicurious, Self, The New Yorker, Vanity Fair
+
+Of these, only five brands have enough fields for a SummaryItem:
+CNT, Epicurious, Self, The New Yorker, Vanity Fair
+
+During my research, I finally found exactly one brand that uses Contributor in Bundle Pages:
+Self
+
+Roughly speaking, the following mappings can be recognised:
+name -> hed
+title -> rubric
+shortBio -> dek
+biography -> body
+featuredBio -> dek (configurable by tenant config: contributorDetail)
+
+As a result, I would like to make three suggestions:
+
+**1. brand based**
+We need the following information from the brands that actively use Contributor:
+- Which fields are displayed in the SummaryItem
+- Which fields are displayed on the Contributor Page
+- Which fields are displayed at ByLine
+According to the information we receive, a clean Contributor will be designed that has fields/field names that correspond to those of articles and bundles.
+This requires changes in CoPilot, Content Service and Verso. Requires database migration.
+
+Effort: Very high
+
+**2. verso based**
+Based on the mapping found, we build a transformer that provides us with all the fields that SummaryItem requires.
+This means that SummaryItem works for Contributor in exactly the same way as for all other content types and we can remove all special developments for Contributor.
+This only requires changes in Verso.
+
+Effort: High
+
+**3. CoPilot based**
+We extend Contributor in CoPilot with the fields promoHed and promoDek required for SummaryItem and build a default chain in Verso that uses these two fields if they are filled and falls back to the existing logic if they are not.
+This requires changes in CoPilot, Content Service and Verso.
+
+Effort: Very high
+
+**Last but not least we should collect all Contributor functionality for Contributor Page, SummaryItem and ByLine at one place. Maybe a transformer-helper.**
+=========================================================================
+
+
+
+
+
+
+

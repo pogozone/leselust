@@ -1,0 +1,129 @@
+Query:
+
+query(
+  $organizationId: ID!, $contentId: String!
+) {
+  getBundle(id: $contentId, organizationId: $organizationId) {
+    id
+    hed
+    dek
+    promoHed
+    promoDek
+    rubric
+    seo {
+      title
+      description
+      keyword
+      score
+    }
+    socialTitle
+    socialDescription
+    media {edges {node {id}}}
+    metadata {contentType}
+    revisionInfo {version}
+    tout {
+      id
+    	filename
+    }
+    toutMedia {node {id}}
+    organizationId
+    lang
+    pubDate
+    publishedRevisions {page}
+    publishInfo {authorName}
+    uri
+    recommendationsTrackingUrl
+    connected {edges {node {id}}}
+    contextualCaption
+    contextualCredit
+    contextualTitle
+  }
+}
+
+Query Variables:
+
+{
+  "organizationId": "4gKgcF6nVvtKX5y2VznaJcDBuD47",
+  "contentId": "61d7f23404dde7c465adc849"
+}
+
+Result:
+
+{
+  "data": {
+    "getBundle": {
+      "id": "61d7f23404dde7c465adc849",
+      "hed": "Mental Health",
+      "dek": "",
+      "promoHed": "Mental Health",
+      "promoDek": "Information about mental health issues that affect women.",
+      "rubric": "",
+      "seo": {
+        "title": "Women's Mental Health Information, Types & Treatments",
+        "description": "Find information about mental health issues that affect women, as well as advice to help you get the best care & treatments, all on SELF. ",
+        "keyword": null,
+        "score": null
+      },
+      "socialTitle": "Mental Health",
+      "socialDescription": "Information about mental health issues that affect women.",
+      "media": {
+        "edges": [
+          {
+            "node": {
+              "id": "57dc10ce6f1b1dac12e5b342"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "contentType": "bundle"
+      },
+      "revisionInfo": {
+        "version": 74
+      },
+      "tout": {
+        "id": "57dc10ce6f1b1dac12e5b342",
+        "filename": "sub-channel-health-mental-health.jpg"
+      },
+      "toutMedia": {
+        "node": {
+          "id": "57dc10ce6f1b1dac12e5b342"
+        }
+      },
+      "organizationId": "4gKgcF6nVvtKX5y2VznaJcDBuD47",
+      "lang": "en-US",
+      "pubDate": "2022-12-15T15:03:57.326Z",
+      "publishedRevisions": {
+        "page": 1
+      },
+      "publishInfo": {
+        "authorName": "Caroline Acosta"
+      },
+      "uri": "health/mental-health",
+      "recommendationsTrackingUrl": null,
+      "connected": {
+        "edges": [
+          {
+            "node": {
+              "id": "57dc10ce6f1b1dac12e5b342"
+            }
+          },
+          {
+            "node": {
+              "id": "5a26d39476783f4d7431ae27"
+            }
+          },
+          {
+            "node": {
+              "id": "57dc10ce6f1b1dac12e5b342"
+            }
+          }
+        ]
+      },
+      "contextualCaption": null,
+      "contextualCredit": null,
+      "contextualTitle": null
+    }
+  }
+}
+

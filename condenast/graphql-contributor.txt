@@ -1,0 +1,123 @@
+GraphQL query:
+
+query(
+  $organizationId: ID!, $contentId: String!
+) {
+  getContributor(id: $contentId, organizationId: $organizationId) {
+    id
+    name
+    media {edges {node {id}}}
+    metadata {contentType}
+    email
+    title
+    socialMedia {
+      handle
+    	network
+    }
+    bio
+    featuredBio
+    shortBio
+    canonicalUrl
+    revisionInfo {version}
+    type
+    tout {
+      id
+    	filename
+    }
+    toutMedia {node {id}}
+    organizationId
+    lang
+    pubDate
+    publishedRevisions {page}
+    publishInfo {authorName}
+    uri
+    recommendationsTrackingUrl
+    connected {edges {node {id}}}
+    syndication {canonicalUrl}
+    contextualCaption
+    contextualCredit
+    contextualTitle
+  }
+}
+
+
+Query Variables:
+
+{
+  "organizationId": "4gKgcF6nVvtKX5y2VznaJcDBuD47",
+  "contentId": "61dda72ae238ec3d29d9a3ad"
+}
+
+
+Result:
+
+{
+  "data": {
+    "getContributor": {
+      "id": "61dda72ae238ec3d29d9a3ad",
+      "name": "Sabrina Romanoff, PsyD",
+      "media": {
+        "edges": [
+          {
+            "node": {
+              "id": "61e082ee808d098c8ccc3a2f"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "contentType": "contributor"
+      },
+      "email": "",
+      "title": "SELF Medical Review Board",
+      "socialMedia": [],
+      "bio": "Sabrina Romanoff, PsyD, is a Harvard-trained clinical psychologist [...]",
+      "shortBio": null,
+      "canonicalUrl": null,
+      "revisionInfo": {
+        "version": 19
+      },
+      "type": null,
+      "tout": {
+        "id": "61e082ee808d098c8ccc3a2f",
+        "filename": "Sabrina-Romanoff-headshot-02.jpg"
+      },
+      "toutMedia": {
+        "node": {
+          "id": "61e082ee808d098c8ccc3a2f"
+        }
+      },
+      "organizationId": "4gKgcF6nVvtKX5y2VznaJcDBuD47",
+      "lang": "en-US",
+      "pubDate": "2022-01-18T16:10:01.525Z",
+      "publishedRevisions": {
+        "page": 1
+      },
+      "publishInfo": {
+        "authorName": "Amy Eisinger"
+      },
+      "uri": "contributor/sabrina-romanoff",
+      "recommendationsTrackingUrl": null,
+      "connected": {
+        "edges": [
+          {
+            "node": {
+              "id": "61153112bfb5af2f85f19ad7"
+            }
+          },
+          {
+            "node": {
+              "id": "61e082ee808d098c8ccc3a2f"
+            }
+          }
+        ]
+      },
+      "syndication": {
+        "canonicalUrl": null
+      },
+      "contextualCaption": null,
+      "contextualCredit": null,
+      "contextualTitle": null
+    }
+  }
+}

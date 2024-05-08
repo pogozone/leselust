@@ -3790,7 +3790,7 @@ brutto 2022: 57.727 79
 
 
 Soweit ich das jetzt sehen kann - und da sind immer noch ein paar ungesicherte Vermutungen dabei - passiert folgendes:
-Ein Contributor hat keinen HED Text, sindern nur einen name. Auf seinem Weg durch die Institutionen wird irgendwo aus dem name ein dangerousHed UND ein contributorName.
+Ein Contributor hat keinen HED Text, sondern nur einen name. Auf seinem Weg durch die Institutionen wird irgendwo aus dem name ein dangerousHed UND ein contributorName.
 Wo dangerousHed entsteht, das habe ich jetzt auch nach vier Stunden Recherche nicht finden können. Der contributorName wird im SummaryItem aus den contributor Daten (contributor.name) genommen.
 
 Eine ordentliche Lösung würde folgendes bedeuten:
@@ -6957,12 +6957,6 @@ This may be due to a configuration in verso. But also a configuration in CoPilot
 ...and then of course it can also be the case that the data doesn't come from CoPilot at all... or isn't even rendered by verso.
 Oh, the world is so big.
 
-
-Ich benötige einen Nutzungsänderungsantrag für eine Ergeschoßwohnung in München Neuhausen.
-Aus der zwei Zimmer Wohnung soll ein Vereinsheim mit Schankraum, Büro und Lagerraum entstehen.
-
-Am Donnerstag zu Ostzonensuppenwürfelmachenkrebs ins ImportExport?
-https://import-export.cc/event/ostszonensuppenwuerfelmachenkrebs-schwemut-forest/
 
 
 Regarding this ticket:
@@ -10693,8 +10687,144 @@ https://multiverso.self.com/self-medical-advisory-filterable?branch=EST-3-self-m
 
 Is this expected behaviour or am I missing something big?
 
+npm run test-unit-component src/components/patterns/global-navigation/GlobalNavigation.spec.js
 
-Wenn ich die Diskussion um diesen ACDC Header überfliege...
+
+===
+Es tut mir leid, dass ich mich heute mehrfach über den ACDC Header beschwert habe.
+
+Ich wollte damit in keiner Weise die Arbeit von Kollegen diskreditieren. Zumal ich mir dessen bewusst bin, dass ich selbst fern davon bin, fehlerfrei zu arbeiten.
+
+Was ich jedoch kritisiere - und was mich mittlerweile auch sehr aufregt - ist die unabgestimmte Vorgehensweise und die Ignoranz gegenüber anderen Teams, die bei Condé Nast immer noch vorhanden ist.
+
+Wenn wir eine neue Komponente entwickeln oder eine vorhandene überarbeiten, dann geben wir uns bereits bim Vorfeld größte Mühe, Abhängigkeiten und Edgecases zu identifizieren und zu berücksichtigen. Während der Entwicklung bemühen wir uns um größt mögliche Transparenz und Abstimmung gegenüber allen Beteiligten und darüber hinaus. Und wir geben uns große Mühe, im Nachhienein Probleme und Inkompatibilitäten zu beheben. Und das machen wir immer unter den Prämissen "Markenuabhängigkeit, Wiederverwendbarkeit, Vereinheitlichung und Reduzierung von Komplexität".
+
+Dieser ACDC-Header erfüllt nun keine unserer Kriterien und er wurde auch nie bezüglich Abhängigkeiten und Edgcases überprüft.
+
+Die Diskussion im #temp-acdc-rollout Channel deutet darauf hin, dass sich dieser ACDC-Header nur mit großem Aufwand für unsere Zwecke adaptieren lässt.
+
+Das heisst im Endeffekt für uns, dass wir uns nicht mit den als wichtig erkannten Herausforderungen der Roadmap und coolen Weiterentwicklungen befassen können, sondern weiterhin - entschuldigt bitte den Ausdruck - den Mist verfehlter Entwicklung aufräumen müssen.
+===
+Hackathon 2024
+
+Hallo Sportsfreunde,
+
+Das Los hat uns zu einem Hackathon Team zusammen geführt.
+Leider muss ich euch sagen, dass ich am 10. Mai Urlaub habe und daher bei der Ideenfindung nicht dabei sein kann.
+Ich würde mich freuen, wenn ihr mir eure Diskussion kurz zusammenfassen könnt, dann werde ich mich ab 13. Mai nach Kräften einbringen.
+
+Zu meinem Hintergrund:
+
+Ich und Condé Nast
+
+Ich bin seit über neun Jahren bei Condé Nast Germany und habe die meiste Zeit damit verbracht in PHP Systeme zu entwickeln, die unterschiedlich unbrauchbare Datenformate aus verschidenen Quellen (eZ Publish, WordPress, tumblr) in ein brauchbares json-Format umwandeln und diese Daten für viele Anwendungsfälle aufbereiten (rss, xml, google news, ...).
+Die letzte Zeit, also seit der Globalisierung, beschäftige ich mich vorwiegend mit den Templates für verso.
+
+Ich und AI
+
+Meine Erfahrung mit AI bezieht sich vorwiegend auf sporadisches Ausprobieren verschiedener Anwendungen. ChatGPT und gpt4all zur Texterzeugung. Fooocus und Stable Diffusion Web UI zur Bilderzeugung.
+Letzes Jahr haben wir im Team einen kurzen Workshop gehabt, um einen einfachen Chatbot auf Basis von ChatGPT zu erstellen.
+Daraus entwickelte sich die Idee, Übersichtsseiten für verso mit Hilfe von ChatGPT zu entwickeln. Das wurde jedoch gestoppt und eingestampft, weil uns von oberer Stelle verboten wurde, weiter mit ChatGPT zu arbeiten.
+
+
+Wie mir scheint bin ich der einzige aus Europa. Wenn ihr also Meetings macht, bitte berücksichtigen, dass euer Nachmittag mein Vormittag ist.
+
+
+Hello sports fans,
+
+The lottery has brought us together to form a hackathon team.
+Unfortunately, I have to tell you that I'm on holiday on 10 May and therefore won't be able to take part in brainstorming.
+I would be delighted if you could briefly summarise your discussion for me, then I will do my best to participate from 13 May.
+
+My background:
+
+Me and Condé Nast
+
+I've been at Condé Nast Germany for over nine years and have spent most of that time developing systems in PHP that convert variously unusable data formats from different sources (eZ Publish, WordPress, tumblr, Compass, CoPilot) into a usable json format and prepare this data for many use cases (rss, xml, google news, native mobile app, ...).
+Recently, since globalisation, I have mainly been working on the templates for verso.
+
+Me and AI
+
+My experience with AI mainly relates to sporadically trying out different applications. ChatGPT and gpt4all for text generation. Fooocus and Stable Diffusion Web UI for image generation.
+Last year, we had a short workshop in the team to create a simple chatbot based on ChatGPT.
+This led to the idea of developing overview pages for verso with the help of ChatGPT. However, this was stopped and cancelled because we were forbidden from working with ChatGPT any further.
+
+I seem to be the only one from Europe. So if you have meetings, please bear in mind that your afternoon is my morning.
+===
+Ihr seid ja am 14. Mai in München.
+
+Ich habe die Ehre für diesen Tag euer Zeremonien Meister zu sein.
+
+Hab ihr vorlieben, was das Essen angeht?
+Vegetarisch, vegan, Gluten, whatever?
+Oder darf es typisch bayerisch sein?
+
+Wollt ihr Abends...
+- eure Ruhe
+- auf ein Bier/Wein
+- oder etwas Sightseeing?
+
+
+Die Eckpunkte:
+- Erreichbarkeit
+- Veganes Essen (Spätzle)
+- Biergarten vielleicht
+
+
+
+In der Hoffnung, dass es am 14. Mai nicht regnet schlage ich folgendes vor:
+
+Nach dem letzten Meeting, also etwa um 18:00 Uhr gehen wir zu Fuß zum Marienplatz, dann durch den Alten Hof und den Englischen Garten - inklusive Haus der Kunst, Eisbachwelle und Monopteros - zum Chinesischen Turm. Dort gibt es eine für die bayerische Küche untypisch große Auswahl an Schweinefleisch losen und veganen Gerichten.
+
+Von dort aus kommt man mit dem Bus zur U-Bahn.
+
+https://www.chinaturm.de/
+
+Was meinst du, können wir das unseren Gästen zumuten?
+
+Just so you know what I was talking about in the Team Daily earlier:
+Marylou and Thom will be visiting us from 14 to 15 May and we're planning a short sightseeing tour and a visit to a beer garden:
+
+In the hope that it won't rain on 14 May, I suggest the following:
+
+After the last meeting, i.e. at around 6.00 pm, we walk to Marienplatz, then through the Alter Hof and the English Garden - including the Haus der Kunst, Eisbachwelle and Monopteros - to the Chinese Tower. There we'll find an unusually large selection of loose pork and vegan dishes for Bavarian cuisine.
+
+From there, you can take the bus to the underground.
+
+https://www.chinaturm.de/
+
+What do you think, can we expect our guests to do that?
+
+
+OCHSENSEMMEL – DIE VEGANE VARIANTE DES ORIGINALS
+Für alle, die auf Fleisch verzichten, hat unser Küchenchef eine Füllung auf Erbsenbasis kreiert, die einfach nur gut schmeckt!
+
+HAUSGEMACHTER OBAZDA
+Unser Obazda wird aus Münchner Camembert nach einem Haberl-Rezept aus dem Jahr 1970 angerührt.
+
+SCHUPFNUDELPFANNE MIT FRISCHEM MARKTGEMÜSE
+Frisches Marktgemüse und selbstgemachte Schupfnudeln, resch angebraten
+
+(SCHWEIZER) WURSTSALAT VOM STROHSCHWEIN
+Ob mit oder ohne Emmentaler, die Wurst für unseren Wurstsalat stammt von unseren Partner-Metzgereien in München – und ist aus Strohschwein hergestellt.
+
+STECKERLFISCH
+Steckerlfische von der 'Fischer Vroni', eine absolute Delikatesse – jetzt auch bei uns im Biergarten!
+
+SALAT BOWLS – TÄGLICH WECHSELND
+Nur die frischesten Zutaten kommen in unsere Salat Bowls – deswegen wechseln diese auch täglich.
+
+HEISSE SCHMALZNUDEL
+Ob mit Zimt und Zucker oder ganz natur – eine süße Delikatesse, frisch zubereitet bei Bestellung.
+
+
+
+
+===
+Nach der Arbeit muss ein Entwickler erst einmal abschalten. Und das tut er nicht bei einer ruhigen Partie Schach...
+
+After work, a web-engineer first needs to chill out.
+And believe me he doesn't do that with a gentle round of chess...
 
 
 Donnertermine:
@@ -10717,6 +10847,201 @@ Donnertermine:
 1. Juni - Brauen - Ausschank
 15. Juni - Brauen
 29. Juni - Brauen - Ausschank
+
+Ausrechnen:
+Wie viel Bier wird durchschnittlich pro Ausschank verkauft
+-> Wie viel Mehreinnahmen, wenn 5 statt 4 Euro
+
+87
+126
+105
+
+106*4=424
+106*5=530
+
+0,5=4
+1=8
+19=152
+
+Vorab, weil jetzt kommt gleich ganz viel Text:
+
+Alles was ich jetzt schreibe sind Vorschläge von mir, die ich gerne mit euch diskutieren möchte.
+
+Statistik
+
+Wir haben die letzten drei Ausschanktage laut Strichliste durchschnittlich 424.- Euro eingenommen.
+Das macht 106 Halbe, also 53 Liter. Oder etwa zweieinhalb Fässer.
+Das beinhaltet nicht, was wir nebenher verkauft oder selbst getrunken haben.
+Damit sollten wir eigentlich in der Lage sein, bei zwei Brautagen im Monat auch zwei Ausschanktage zu machen.
+
+Bierpreis I
+
+Weil ich mich am Samstag so vehement gegen eine Preiserhöhung für den 1. Mai ausgesprochen habe:
+Ich bin nicht prinzipiell gegen eine Erhöhung des Preises. Ich finde jedoch, wir sollten uns klar sein, warum wir den Preis erhöhen.
+"Um dem Suppi die Investitionen schneller zurück zu zahlen" halte ich zum Beispiel für einen guten Grund.
+"Um nicht jeden Monat 100 Euro abdrücken zu müssen" finde ich einen nachvollziehbaren Grund.
+"Weil eine Kalkulation aus unseren bisherigen Erfahrungen eine Erhöhung nahe legt", ist zumindest eine Diskussion wert.
+"Weil beim Higgins die Mass über 15 Euro kostet" wäre für mich kein Grund.
+
+Lasst uns darüber zu gegebener Zeit und mit nüchternem Kopf reden.
+
+Bierpreis II
+
+Wir reden immer wieder darüber, was wir selbst für unser Bier berappen sollen.
+
+Ich mache folgenden Vorschlag:
+
+Wenn wir in der Brauerei zechen, dann zahlen wir nichts. Egal, ob wir brauen, ausschenken, umdrücken oder einfach nur da sind.
+Unsere Gäste - egal ob privat oder beim offiziellen Ausschank - zahlen den "offiziellen" Preis. Also aktuell 4.- Euro.
+Wenn wir Bier mitnehmen - egal ob Flasche oder Fass - zahlen wir den halben Preis. Aktuell also 2,- Euro die Halbe. Da wir nie genau sagen können, wie viel genau in einem Faß drinnen ist, zahlen wir für das Faß 80.- Euro. Nach Außen verkaufen wir das Faß für 150.- Euro.
+
+Jetzt möchte ich auf unser Repertoir zu sprechen kommen:
+
+Standards
+
+Wir haben jetzt ein paar Standard Biere, die wir gerne immer auf Lager haben:
+- Donnerbraut - Wiener Lager
+- Finsternis - Dark Lager
+
+Wir haben ein paar Rezepte, aus denen sich vielleicht Standards oder Regulars entwickeln können:
+- Red Angel
+- Märzen
+- Green Death
+- Weizenbock
+- Pale Ale
+- Maibock
+
+Wir haben ein paar Herausforderungen:
+- Helles
+- Pils
+- Weißbier
+- La Boheme Blonde
+- verschiedene IPAs
+
+Und wir haben ein paar Rezepte, die wir auf der KleBiAn ausprobiert wollen:
+- Imperial Stout
+- Weyermann IPA
+- Low Percentage Ales
+
+Und sicher habe ich irgend was vergessen...
+
+Zu guter Letzt Termine. Ich schmeisse jetzt einfach mal einen Haufen Termine in die Runde und ihr sagt, ob euch die so passen.
+Und bitte sagt mir auch, wer an welchem Termin da sein kann. Davon ist es nämlich abhängig, ob wir mit der KleBiAn experimentieren können oder nicht.
+
+Termine
+
+1. Mai - Ausschank
+4. Mai - Brauen
+GroBiAn: Sudden Death IPA
+KleBiAn: ???
+
+18. Mai - Brauen
+GroBian: Donnerbraut
+KleBiAn: Imperial Stout
+
+1. Juni - Brauen - Ausschank
+GroBian: Helles
+KleBiAn: ???
+
+15. Juni - Brauen
+GroBian: Finsternis
+KleBiAn: Low Percentage
+
+29. Juni - Brauen - Ausschank
+GroBian: Weißbier
+KleBiAn: ???
+
+
+
+Please have a look:
+https://github.com/CondeNast/verso/pull/27215/files
+
+Especially to the structure of the navigation objects at fixture.ts
+Does that fit to your code?
+
+
+
+
+Do you just want to know how the ticker is working?
+Or do you really need 'material'?
+
+This is how it works:
+1. You creat an external link. eg.: ExternalLink https://copilot-app.condenast.io/vuk/externallinks/6615080490b69843369b3602
+2. You add the section 'Ticker' to your page. eg.: Ticker https://copilot.condenast.io/vuk/bundles/605326f68d0dbfdec2f2a41e/verso-ticker/66150f4c90b69843369b3680
+3. You add the ExternalLink to the Ticker section.
+...thats it.
+
+
+Jetzt zu diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-853
+
+Hier ist der PR dazu:
+https://github.com/CondeNast/verso/pull/27215/files
+
+Und hier die Konfigurationen:
+https://github.com/CondeNast/verso/blob/ab31ec10739e9999dc668dd5488fad7411cf2538/src/components/patterns/global-navigation/fixture.ts
+
+Dabei ist GlobalNavigationInput der Teil, der aus der tenant config kommt.
+navigation ist das, was wir von verosettings bekommen.
+GlobalNavigationVogueOutput ist das, was heraus kommen soll.
+
+Schau dir das bitte an, dann können wir das an Freitag zusammen durchgehen.
+
+
+
+As you can see here the categories are ordered alphabetical:
+https://github.com/CondeNast/verso/pull/27005/files#diff-e2d8ccd870e1b1cff231709f8e61e6cd11c59426b7cc66e774d8769c1d9ba99eR38
+
+But the dropdown is in a totally wired order:
+https://multiverso.self.com/self-medical-advisory-filterable?branch=EST-3-self-medical-advisory-board
+
+Questions: Is it possible to order the dropdown somehow alphabetical? Maybe with a tenant config prop?
+
+
+Question:
+Can't we move this contributor specific mappings:
+https://github.com/CondeNast/verso/pull/27294/files#diff-e087c27ba4ddda3d17627d56fcb5fb4989977af4e530cd8e7993119510918779R36
+
+to the transformer-helper:
+https://github.com/CondeNast/verso/blob/main/src/transformer-helpers/contributors.ts
+
+Because:
+- It is always horrible to have such mappings spread all over the source code instead of one single place
+- If we ever refactor the Contributor, will we remember that this needs adjusting too?
+
+
+https://copilot.condenast.io/vuk/bundles/63eea3bec9a74f8f5bdcd764/verso-river/63eea3bec9a74f8f5bdcd74e
+
+
+'not usually part of their workflow' sure.
+My intention was: if someone can test it for staging and say it looks good, then the section can be safely activated.
+Because it's not always guaranteed whether a section will always work as it should.
+If you understand what I mean...
+
+Kannst du mir dazu schon was sagen:
+https://github.com/CondeNast/verso/pull/27215/files
+
+Weil Tobi meinte:
+- Dass das Ticket sehr schlecht gelaufen sei
+- Er keine Zeit habe, sich das anzusehen
+- Du das übernehmen würdest
+
+
+In JavaScript:
+Eine Array enthält die Werte primaryLinks und secondaryLinks.
+Wie kann ich damit Funktionen mit den Namen primaryLinks und secondaryLinks aufrufen?
+
+
+Which types of navigation should
+https://interfaces.conde.io/apps/versosettings/#/vogue-staging/configs
+
+As I cannot take part in our daily today:
+
+1. create Global Navigation Wrapper (LS4-875) https://cnissues.atlassian.net/browse/LS4-875
+I'm waiting for feedback from Elenea.
+
+2. SPIKE - Contributor content type: harmonization (LS4-855) https://cnissues.atlassian.net/browse/LS4-855
+I'm starting the investigation today.
 
 ==============================================
 Restaurant Liste für SevenSeas Engineer Dinner:
