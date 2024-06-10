@@ -15,6 +15,13 @@ all:
 npm run test-update-snapshot
 just one specific:
 npm run test-update-snapshot [name]
+Better one:
+npm run test-unit-component -- -u [path to spec file]
+npm run test-unit-component -- -u src/components/scaffolding/grid/variations.spec.js
+
+Resolve this error:
+ReferenceError: TextEncoder is not defined
+by adding: -- --useReact16=true
 
 if you want to see what's inside:
 console.log(component.debug());
