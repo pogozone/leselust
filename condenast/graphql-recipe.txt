@@ -1,0 +1,118 @@
+GraphQL query:
+
+query(
+  $organizationId: ID!, $contentId: String!
+) {
+    getRecipe(organizationId: $organizationId, id: $contentId) {
+      id
+      lang
+      hed
+      pubDate
+      type
+      contentSource
+      metadata {
+        contentType
+      }
+      tags {
+        id
+        name
+        slug
+        metadata {
+          contentType
+          archived
+        }
+        hierarchy {
+          id
+          name
+          slug
+        }
+        root {
+          slug
+        }
+      }
+      socialTitle
+      body: body(textFormat: MARKDOWN) {
+        content
+      }
+      times {
+        prepTime
+        activeTime
+        totalTime
+      }
+      servingSizeInfo {
+        description
+      }
+      ingredientGroups {
+        hed
+        ingredients {
+          description
+        }
+      }
+      aggregateRating
+      reviewsCount
+      prepNotes {
+        content
+      }
+      prepNotesHed {
+        content
+      }
+      publishInfo {
+        firstPublished
+      }
+      versoSettings: categories(taxonomy: "verso-settings") {
+        hierarchy {
+          parentCategory {
+            slug
+          }
+          slug
+        }
+      }
+      functionalTags {
+        name
+        slug
+      }
+
+      connected {
+        edges {
+            node {
+            ...reviewField
+            }
+        }
+      }
+    }
+}
+
+  fragment reviewField on ProductReview {
+    id
+    metadata {
+      contentType
+    }
+    promoHed
+    promoDek
+    hed
+    dek
+    channel {
+      name
+      slug
+    }
+    body(textFormat: MARKDOWN) {
+      content
+    }
+    url: uri
+  }
+
+Query Variables:
+
+staging
+{
+  "organizationId": "4gKgcF1Da3qJmD4TCHHS7sLmQWRJ",
+  "contentId": "5969080aebe72a54a152e04a"
+}
+production
+{
+  "organizationId": "4gKgcFFoYyWqtAJpQGvhXSjiGT5R",
+  "contentId": "5969080aebe72a54a152e04a"
+}
+
+
+Result:
