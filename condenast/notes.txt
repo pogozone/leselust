@@ -1606,8 +1606,16 @@ https://eb0a191.competitions.dev.ad-magazin.de/gewinnspiele/amp/competition/boli
 
 
 
+Found it.
+Here is the reason:
+https://cnissues.atlassian.net/browse/ATC-5093
 
+And here is the change:
+https://github.com/CondeNast/verso/pull/27550/files
 
+I hope that helps.
+
+getLogoFromConfig('mainInverted')
 
 
 
@@ -11043,6 +11051,1675 @@ I'm waiting for feedback from Elenea.
 2. SPIKE - Contributor content type: harmonization (LS4-855) https://cnissues.atlassian.net/browse/LS4-855
 I'm starting the investigation today.
 
+Für mich entsteht da irgendwie der Eindruck, dass es da einen völlig abgehobenen Überbau gibt, der keine Ahnung von dem hat, was eigentlich los ist.
+Dazwischen gibt es jede Menge Leute, die sich rund um die Uhr die Köpfe heiss diskutiert. Und dann gibt es die Engineers, die von ihrere Seite aus wechselweise versuchen, das Chaos in den Griff zu bekommen (deine Leute) oder maximales Chaos anzurichten.
+
+
+
+https://stag.cntraveller.com/gallery/best-seychelles-hotels
+611bf35a042ccafe9a9ae837
+https://stg-copilot-app.condenast.io/cntuk/galleries/611bf35a042ccafe9a9ae837
+
+
+Ich würde eine Lösung wie sie Tim Smith vorgeschlagen hat vorziehen:
+'My first thought is a “while” loop on the original array that plucks out the items from the scrambled response and assembles an ordered return array.'
+
+Denn wenn der Filter im Template knallhart alphabetisch sortiert wird, haben wir keine Möglichkeit mehr, anders zu sortieren, wenn das benötigt wird.
+
+Father's Day - the day on which mainly young men drive around on silly wagons and get drunk to the point of senselessness...
+https://en.wikipedia.org/wiki/Father%27s_Day#Germany
+
+Father's Day - the day on which mainly young men drive around on silly wagons and get totally rat-arsed...
+https://en.wikipedia.org/wiki/Father%27s_Day#Germany
+
+
+@Elena Unianina
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-875
+I adjusted the configuration for Allure. I removed the unnecessary transformer.source.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-856
+
+I'm pretty sure the workflow is not the way we should go.
+Also Fran has recommended to use the CODEOWNERS file from github:
+https://github.com/CondeNast/verso/blob/main/.github/CODEOWNERS
+
+And I'm pretty sure we need a new github team for our purposes.
+lifestyle-all-engineers team contains members that should not be codeowners of filterable bundle.
+I guess the team should contain mostly you, Gapur, Tim Smith, Noman and me but not all Blazers or Travellers.
+
+
+Wellcome to Condé Nast.
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-869
+I am pretty sure your solution is the right one and we should do this exactly as you did.
+The issue: It is not a bug as someone else requested the differing behaviour as a feature some time ago:
+https://cnissues.atlassian.net/browse/LS2-67
+Please confirm with Marylou.
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-856
+I have to rename a github team but I don't have permission to:
+https://github.com/orgs/CondeNast/teams/lifestyle-all-engineers
+https://github.com/orgs/CondeNast/teams/content-experience-all-engineers
+Please can you do that for me as soon as this PR is ready to merge:
+
+my 2 cents
+
+I have doubts as to whether renaming the "lifestyle..." teams as "content-experience..." teams is the right way to go.
+
+We don't know how long our area will be called "Content Experience". If we have to adapt github-teams, workflows, actions and codeowners every time we rename our area in the future and all team members have to update their gmail filters, then that's a considerable amount of superfluous work.
+
+We currently have the following teams:
+lifestyle-ai-engineers
+lifestyle-all-engineers
+lifestyle-blazers-eng
+lifestyle-code-guards
+https://github.com/orgs/CondeNast/teams?query=lifestyle
+
+So I make following suggestions:
+
+lifestyle-ai-engineers -> remove as we don't need it anymore
+lifestyle-all-engineers -> tobies-supergroup
+lifestyle-blazers-eng -> blazers-all
+lifestyle-code-guards -> sevenseas-code-guards
+new team -> sevenseas-all
+
+Then we are free to decide whether we use tobies-supergroup or sevenseas-all as codeowner.
+
+Because it is only a small effort to adapt teams, workflow and codeowner now, we should take the time to think about it briefly and find a solution that won't bite us on the heels in the future.
+Please read my comment. Then we can decide together what the best way forward is:
+https://cnissues.atlassian.net/browse/LS4-856?focusedCommentId=1479040
+
+
+Lifestyle Engineering
+Content Experience
+
+
+
+https://www.allure.com/makeup-looks
+https://multiverso.allure.com/makeup-looks?branch=LS4-871
+http://localhost:7777/allure/makeup-looks
+
+npm run test-unit-server src/presenters/tag/transformers.spec.js
+
+
+Hi there,
+now I have two PRs to review:
+https://github.com/CondeNast/verso/pull/27429
+https://github.com/CondeNast/verso/pull/27440
+Both about codeowners.
+One for filterable bundle (to merge with main) and one for global navigation (to merge with global-navigation).
+
+Regarding the "medical advisory board":
+https://multiverso.self.com/self-medical-advisory-filterable?branch=LS4-843
+
+How should we proceed?
+When I merge the branch the existing board would look like this:
+https://multiverso.self.com/medical-advisory-board?branch=LS4-843
+
+From my perspective we have to do the following:
+1. Someone should remove the existing bundle
+2. Someone has to prepare the filterable bundle page on production
+3. Then I will merge the branch
+And in a very timely manner
+
+Other ideas?
+
+
+Hi team,
+I need approvals for this PR:
+https://github.com/CondeNast/verso/pull/27422
+It's about the tenant config for self medical advisory board with filterable bunde.
+
+Regarding filterable bundle:
+https://github.com/CondeNast/verso/pull/27422
+
+Norman asks:
+
+If FilteredContent and FilterableBundlePage are not yet referenced, could we lowercase initial letter to keep with naming convention?
+
+Should we take care of it?
+Maybe with a tiny ticket for one of the next sprints?
+
+
+
+Can someone explain me why I see under this URL:
+https://stag.cntraveler.com/travel-specialists
+
+this page:
+https://stg-copilot.condenast.io/cnt/bundles/65eaf8fd65d41bf580aa81c6
+
+and not that:
+https://stg-copilot.condenast.io/cnt/bundles/65e9e48776068a61b4825839
+
+And/or where I can find the redirect?
+
+33/5/3=2,2
+
+        {isLoading && (<Loader height="300px" width="300px" margin="0" />)}
+        {isLoading && <>Hollareidullijöhh</>}
+
+
+https://stag.self.com/self-medical-advisory-filterable?branch=LS4-843
+
+code-owner-navigation
+code-owner-filterable-bundle
+
+Suggestion (agreed with Tobi):
+We remove all "lifestyle-" teams because they are no longer needed.
+We remove auto-assign workflow and action because we no longer need them.
+We set up two new teams whose names indicate their purpose:
+- code-owner-navigation
+- code-owner-filterable-bundle
+And we enter these two teams in the codeowners file.
+
+Next steps:
+- Unpublish https://copilot.condenast.io/self/bundles/621924e1b1271af17286c3b4
+- Rename slug to something like 'medical-advisory-board-deprecated' and save
+- Publish https://copilot.condenast.io/self/bundles/664c6498500443bd42507822
+Right?
+
+Am I right, nobody wants 'Other type of Wurst'?
+Not for you either?
+
+Regarding the Q2 2024 Scrum Team Health Survey:
+Can you explaim me what means 'golden hour'?
+I cannot find an explanation or equivalent in german.
+
+Unser Team ist sehr erfolgreich, weil die Methode transparent und nachvollziehbar ist.
+Dank der Methode haben wir größtmögliche Freiheit die Arbeit nach unseren Bedürfnissen, Möglichkeiten und Fähigkeiten zu gestalten.
+Dadurch erreichen wir trotz unseres problematischen Umfeldes ein hohes Mass an Zufriedenheit.
+Und ja, in der "Frühlingsplanung" dind wir sehr, sehr gut. Es ist uns noch jede Mal gelungen, den Frühling so zu planen, dass er rechtzeitig beginnen konnte ;-)
+
+
+===================================================================
+https://cnissues.atlassian.net/browse/LS4-781
+
+Test links:
+
+https://multiverso.worldofinteriors.com/interiors?branch=LS4-781
+https://www.worldofinteriors.com/interiors
+https://multiverso.worldofinteriors.com/exteriors?branch=LS4-781
+https://www.worldofinteriors.com/exteriors
+https://multiverso.worldofinteriors.com/explore?branch=LS4-781
+https://www.worldofinteriors.com/explore
+https://multiverso.worldofinteriors.com/culture?branch=LS4-781
+https://www.worldofinteriors.com/culture
+https://multiverso.worldofinteriors.com/architecture?branch=LS4-781
+https://www.worldofinteriors.com/architecture
+
+http://localhost:7777/world-of-interiors/interiors
+http://localhost:7777/world-of-interiors/exteriors
+http://localhost:7777/world-of-interiors/explore
+http://localhost:7777/world-of-interiors/culture
+http://localhost:7777/world-of-interiors/architecture
+
+https://multiverso.es.wired.com/ciencia?branch=LS4-781
+https://es.wired.com/ciencia
+https://multiverso.es.wired.com/cultura?branch=LS4-781
+https://es.wired.com/cultura
+https://multiverso.es.wired.com/gadgets?branch=LS4-781
+https://es.wired.com/gadgets
+https://multiverso.es.wired.com/negocios?branch=LS4-781
+https://es.wired.com/negocios
+https://multiverso.es.wired.com/seguridad?branch=LS4-781
+https://es.wired.com/seguridad
+
+http://localhost:7777/wired-en-espanol-staging/ciencia
+http://localhost:7777/wired-en-espanol-staging/cultura
+http://localhost:7777/wired-en-espanol-staging/gadgets
+http://localhost:7777/wired-en-espanol-staging/negocios
+http://localhost:7777/wired-en-espanol-staging/seguridad
+
+https://multiverso.vogue.com/beauty?branch=LS4-781
+https://www.vogue.com/beauty
+https://multiverso.vogue.com/culture?branch=LS4-781
+https://www.vogue.com/culture
+https://multiverso.vogue.com/fashion?branch=LS4-781
+https://www.vogue.com/fashion
+https://multiverso.vogue.com/living?branch=LS4-781
+https://www.vogue.com/living
+https://multiverso.vogue.com/shopping?branch=LS4-781
+https://www.vogue.com/shopping
+https://multiverso.vogue.com/storefronts?branch=LS4-781
+https://www.vogue.com/storefronts
+https://multiverso.vogue.com/photovogue/editorial?branch=LS4-781
+https://www.vogue.com/photovogue/editorial
+
+http://localhost:7777/vogue/beauty
+http://localhost:7777/vogue/culture
+http://localhost:7777/vogue/fashion
+http://localhost:7777/vogue/living
+http://localhost:7777/vogue/shopping
+http://localhost:7777/vogue/storefronts
+http://localhost:7777/vogue/photovogue/editorial
+
+https://multiverso.vogue.co.uk/arts-and-lifestyle?branch=LS4-781
+https://www.vogue.co.uk/arts-and-lifestyle
+https://multiverso.vogue.co.uk/beauty?branch=LS4-781
+https://www.vogue.co.uk/beauty
+https://multiverso.vogue.co.uk/fashion?branch=LS4-781
+https://www.vogue.co.uk/fashion
+
+http://localhost:7777/vogue-uk/arts-and-lifestyle
+http://localhost:7777/vogue-uk/beauty
+http://localhost:7777/vogue-uk/fashion
+
+https://multiverso.vogue.com.tw/beauty?branch=LS4-781
+https://www.vogue.com.tw/beauty
+https://multiverso.vogue.com.tw/entertainment?branch=LS4-781
+https://www.vogue.com.tw/entertainment
+https://multiverso.vogue.com.tw/fashion?branch=LS4-781
+https://www.vogue.com.tw/fashion
+https://multiverso.vogue.com.tw/lifestyle?branch=LS4-781
+https://www.vogue.com.tw/lifestyle
+https://multiverso.vogue.com.tw/luxury?branch=LS4-781
+https://www.vogue.com.tw/luxury
+
+http://localhost:7777/vogue-taiwan/beauty
+http://localhost:7777/vogue-taiwan/entertainment
+http://localhost:7777/vogue-taiwan/fashion
+http://localhost:7777/vogue-taiwan/lifestyle
+http://localhost:7777/vogue-taiwan/luxury
+
+https://multiverso.vogue.fr/beaute?branch=LS4-781
+https://www.vogue.fr/beaute
+https://multiverso.vogue.fr/culture?branch=LS4-781
+https://www.vogue.fr/culture
+https://multiverso.vogue.fr/joaillerie?branch=LS4-781
+https://www.vogue.fr/joaillerie
+https://multiverso.vogue.fr/lifestyle?branch=LS4-781
+https://www.vogue.fr/lifestyle
+https://multiverso.vogue.fr/mariage?branch=LS4-781
+https://www.vogue.fr/mariage
+https://multiverso.vogue.fr/mode?branch=LS4-781
+https://www.vogue.fr/mode
+https://multiverso.vogue.fr/shopping?branch=LS4-781
+https://www.vogue.fr/shopping
+https://multiverso.vogue.fr/video?branch=LS4-781
+https://www.vogue.fr/video
+https://multiverso.vogue.fr/vogue-hommes?branch=LS4-781
+https://www.vogue.fr/vogue-hommes
+
+http://localhost:7777/vogue-paris/beaute
+http://localhost:7777/vogue-paris/culture
+http://localhost:7777/vogue-paris/joaillerie
+http://localhost:7777/vogue-paris/lifestyle
+http://localhost:7777/vogue-paris/mariage
+http://localhost:7777/vogue-paris/mode
+http://localhost:7777/vogue-paris/shopping
+http://localhost:7777/vogue-paris/video
+http://localhost:7777/vogue-paris/vogue-hommes
+
+https://multiverso.vogue.mx/alfombra-roja?branch=LS4-781
+https://www.vogue.mx/alfombra-roja
+
+http://localhost:7777/vogue-mexico-y-latinoamerica/alfombra-roja
+
+
+https://multiverso.vogue.co.jp/beauty?branch=LS4-781
+https://www.vogue.co.jp/beauty
+https://multiverso.vogue.co.jp/celebrity?branch=LS4-781
+https://www.vogue.co.jp/celebrity
+https://multiverso.vogue.co.jp/change?branch=LS4-781
+https://www.vogue.co.jp/change
+https://multiverso.vogue.co.jp/fashion?branch=LS4-781
+https://www.vogue.co.jp/fashion
+https://multiverso.vogue.co.jp/lifestyle?branch=LS4-781
+https://www.vogue.co.jp/lifestyle
+https://multiverso.vogue.co.jp/weddings?branch=LS4-781
+https://www.vogue.co.jp/weddings
+
+http://localhost:7777/vogue-japan/beauty
+http://localhost:7777/vogue-japan/celebrity
+http://localhost:7777/vogue-japan/change
+http://localhost:7777/vogue-japan/fashion
+http://localhost:7777/vogue-japan/lifestyle
+http://localhost:7777/vogue-japan/weddings
+
+
+https://multiverso.vogue.it/bellezza?branch=LS4-781
+https://www.vogue.it/bellezza
+https://multiverso.vogue.it/fotografia?branch=LS4-781
+https://www.vogue.it/fotografia
+https://multiverso.vogue.it/moda?branch=LS4-781
+https://www.vogue.it/moda
+https://multiverso.vogue.it/news?branch=LS4-781
+https://www.vogue.it/news
+https://multiverso.vogue.it/vogue-talents?branch=LS4-781
+https://www.vogue.it/vogue-talents
+
+http://localhost:7777/vogue-italia/bellezza
+http://localhost:7777/vogue-italia/fotografia
+http://localhost:7777/vogue-italia/moda
+http://localhost:7777/vogue-italia/news
+http://localhost:7777/vogue-italia/vogue-talents
+
+https://multiverso.vogue.in/beauty?branch=LS4-781
+https://www.vogue.in/beauty
+https://multiverso.vogue.in/ulture-and-living?branch=LS4-781
+https://www.vogue.in/ulture-and-living
+https://multiverso.vogue.in/fashion?branch=LS4-781
+https://www.vogue.in/fashion
+https://multiverso.vogue.in/how-to?branch=LS4-781
+https://www.vogue.in/how-to
+https://multiverso.vogue.in/people?branch=LS4-781
+https://www.vogue.in/people
+https://multiverso.vogue.in/whats-new?branch=LS4-781
+https://www.vogue.in/whats-new
+
+http://localhost:7777/vogue-india/beauty
+http://localhost:7777/vogue-india/culture-and-living
+http://localhost:7777/vogue-india/fashion
+http://localhost:7777/vogue-india/how-to
+http://localhost:7777/vogue-india/people
+http://localhost:7777/vogue-india/whats-new
+
+https://multiverso.vogue.es/belleza?branch=LS4-781
+https://www.vogue.es/belleza
+https://multiverso.vogue.es/celebrities?branch=LS4-781
+https://www.vogue.es/celebrities
+https://multiverso.vogue.es/moda?branch=LS4-781
+https://www.vogue.es/moda
+https://multiverso.vogue.es/novias?branch=LS4-781
+https://www.vogue.es/novias
+
+http://localhost:7777/vogue-espana/belleza
+http://localhost:7777/vogue-espana/celebrities
+http://localhost:7777/vogue-espana/moda
+http://localhost:7777/vogue-espana/novias
+
+https://multiverso.vogue.de/beauty?branch=LS4-781
+https://www.vogue.de/beauty
+https://multiverso.vogue.de/kultur?branch=LS4-781
+https://www.vogue.de/kultur
+https://multiverso.vogue.de/lifestyle?branch=LS4-781
+https://www.vogue.de/lifestyle
+https://multiverso.vogue.de/mode?branch=LS4-781
+https://www.vogue.de/mode
+
+http://localhost:7777/vogue-germany/beauty
+http://localhost:7777/vogue-germany/kultur
+http://localhost:7777/vogue-germany/lifestyle
+http://localhost:7777/vogue-germany/mode
+
+https://multiverso.voguebusiness.com/technology?branch=LS4-781
+https://www.voguebusiness.com/technology
+https://multiverso.voguebusiness.com/fashion?branch=LS4-781
+https://www.voguebusiness.com/fashion
+https://multiverso.voguebusiness.com/sustainability?branch=LS4-781
+https://www.voguebusiness.com/sustainability
+https://multiverso.voguebusiness.com/companies?branch=LS4-781
+https://www.voguebusiness.com/companies
+https://multiverso.voguebusiness.com/consumers?branch=LS4-781
+https://www.voguebusiness.com/consumers
+https://multiverso.voguebusiness.com/beauty?branch=LS4-781
+https://www.voguebusiness.com/beauty
+https://multiverso.voguebusiness.com/advanced?branch=LS4-781
+https://www.voguebusiness.com/advanced
+
+http://localhost:7777/vogue-business/technology
+http://localhost:7777/vogue-business/fashion
+http://localhost:7777/vogue-business/sustainability
+http://localhost:7777/vogue-business/companies
+http://localhost:7777/vogue-business/consumers
+http://localhost:7777/vogue-business/beauty
+http://localhost:7777/vogue-business/advanced
+
+
+https://multiverso.vanityfair.com/hollywood?branch=LS4-781
+https://www.vanityfair.com/hollywood
+https://multiverso.vanityfair.com/news?branch=LS4-781
+https://www.vanityfair.com/news
+https://multiverso.vanityfair.com/style?branch=LS4-781
+https://www.vanityfair.com/style
+
+http://localhost:7777/vanity-fair/hollywood
+http://localhost:7777/vanity-fair/news
+http://localhost:7777/vanity-fair/style
+
+https://multiverso.vanityfair.it/beauty-benessere?branch=LS4-781
+https://www.vanityfair.it/beauty-benessere
+https://multiverso.vanityfair.it/cibo-viaggi?branch=LS4-781
+https://www.vanityfair.it/cibo-viaggi
+https://multiverso.vanityfair.it/fashion?branch=LS4-781
+https://www.vanityfair.it/fashion
+https://multiverso.vanityfair.it/lifestyle?branch=LS4-781
+https://www.vanityfair.it/lifestyle
+https://multiverso.vanityfair.it/news?branch=LS4-781
+https://www.vanityfair.it/news
+https://multiverso.vanityfair.it/people?branch=LS4-781
+https://www.vanityfair.it/people
+https://multiverso.vanityfair.it/show?branch=LS4-781
+https://www.vanityfair.it/show
+
+http://localhost:7777/vanity-fair-italia/beauty-benessere
+http://localhost:7777/vanity-fair-italia/cibo-viaggi
+http://localhost:7777/vanity-fair-italia/fashion
+http://localhost:7777/vanity-fair-italia/lifestyle
+http://localhost:7777/vanity-fair-italia/news
+http://localhost:7777/vanity-fair-italia/people
+http://localhost:7777/vanity-fair-italia/show
+
+https://multiverso.vanityfair.fr/culture?branch=LS4-781
+https://www.vanityfair.fr/culture
+https://multiverso.vanityfair.fr/mode?branch=LS4-781
+https://www.vanityfair.fr/mode
+https://multiverso.vanityfair.fr/people?branch=LS4-781
+https://www.vanityfair.fr/people
+https://multiverso.vanityfair.fr/pouvoir?branch=LS4-781
+https://www.vanityfair.fr/pouvoir
+https://multiverso.vanityfair.fr/savoir-vivre?branch=LS4-781
+https://www.vanityfair.fr/savoir-vivre
+
+http://localhost:7777/vanity-fair-france/culture
+http://localhost:7777/vanity-fair-france/mode
+http://localhost:7777/vanity-fair-france/people
+http://localhost:7777/vanity-fair-france/pouvoir
+http://localhost:7777/vanity-fair-france/savoir-vivre
+
+https://multiverso.revistavanityfair.es/cultura?branch=LS4-781
+https://www.revistavanityfair.es/cultura
+https://multiverso.revistavanityfair.es/lujo?branch=LS4-781
+https://www.revistavanityfair.es/lujo
+https://multiverso.revistavanityfair.es/sociedad?branch=LS4-781
+https://www.revistavanityfair.es/sociedad
+https://multiverso.revistavanityfair.es/realeza?branch=LS4-781
+https://www.revistavanityfair.es/realeza
+
+http://localhost:7777/vanity-fair-espana/cultura
+http://localhost:7777/vanity-fair-espana/lujo
+http://localhost:7777/vanity-fair-espana/sociedad
+http://localhost:7777/vanity-fair-espana/realeza
+
+https://multiverso.them.us/answers-and-advice?branch=LS4-781
+https://www.them.us/answers-and-advice
+https://multiverso.them.us/community?branch=LS4-781
+https://www.them.us/community
+https://multiverso.them.us/culture?branch=LS4-781
+https://www.them.us/culture
+https://multiverso.them.us/entertainment?branch=LS4-781
+https://www.them.us/entertainment
+https://multiverso.them.us/news?branch=LS4-781
+https://www.them.us/news
+https://multiverso.them.us/style?branch=LS4-781
+https://www.them.us/style
+
+http://localhost:7777/them/answers-and-advice
+http://localhost:7777/them/community
+http://localhost:7777/them/culture
+http://localhost:7777/them/entertainment
+http://localhost:7777/them/news
+http://localhost:7777/them/style
+
+https://multiverso.teenvogue.com/entertainment?branch=LS4-781
+https://www.teenvogue.com/entertainment
+https://multiverso.teenvogue.com/fashion?branch=LS4-781
+https://www.teenvogue.com/fashion
+https://multiverso.teenvogue.com/news-and-politics?branch=LS4-781
+https://www.teenvogue.com/news-and-politics
+https://multiverso.teenvogue.com/wellness?branch=LS4-781
+https://www.teenvogue.com/wellness
+
+http://localhost:7777/teen-vogue/entertainment
+http://localhost:7777/teen-vogue/fashion
+http://localhost:7777/teen-vogue/news-and-politics
+http://localhost:7777/teen-vogue/wellness
+
+https://multiverso.self.com/beauty?branch=LS4-781
+https://www.self.com/beauty
+https://multiverso.self.com/culture?branch=LS4-781
+https://www.self.com/culture
+https://multiverso.self.com/fitness?branch=LS4-781
+https://www.self.com/fitness
+https://multiverso.self.com/food?branch=LS4-781
+https://www.self.com/food
+https://multiverso.self.com/health?branch=LS4-781
+https://www.self.com/health
+https://multiverso.self.com/sex-love?branch=LS4-781
+https://www.self.com/sex-love
+
+http://localhost:7777/self/beauty
+http://localhost:7777/self/culture
+http://localhost:7777/self/fitness
+http://localhost:7777/self/food
+http://localhost:7777/self/health
+http://localhost:7777/self/sex-love
+
+https://multiverso.lacucinaitaliana.it/dove?branch=LS4-781
+https://www.lacucinaitaliana.it/dove
+https://multiverso.lacucinaitaliana.it/green?branch=LS4-781
+https://www.lacucinaitaliana.it/green
+https://multiverso.lacucinaitaliana.it/news?branch=LS4-781
+https://www.lacucinaitaliana.it/news
+https://multiverso.lacucinaitaliana.it/ricette?branch=LS4-781
+https://www.lacucinaitaliana.it/ricette
+https://multiverso.lacucinaitaliana.it/tutorial?branch=LS4-781
+https://www.lacucinaitaliana.it/tutorial
+
+http://localhost:7777/la-cucina-italiana-italy/dove
+http://localhost:7777/la-cucina-italiana-italy/green
+http://localhost:7777/la-cucina-italiana-italy/news
+http://localhost:7777/la-cucina-italiana-italy/ricette
+http://localhost:7777/la-cucina-italiana-italy/tutorial
+
+https://multiverso.houseandgarden.co.uk/christmas-ideas?branch=LS4-781
+https://www.houseandgarden.co.uk/christmas-ideas
+https://multiverso.houseandgarden.co.uk/decoration?branch=LS4-781
+https://www.houseandgarden.co.uk/decoration
+https://multiverso.houseandgarden.co.uk/gardens?branch=LS4-781
+https://www.houseandgarden.co.uk/gardens
+https://multiverso.houseandgarden.co.uk/houses?branch=LS4-781
+https://www.houseandgarden.co.uk/houses
+https://multiverso.houseandgarden.co.uk/recipes?branch=LS4-781
+https://www.houseandgarden.co.uk/recipes
+https://multiverso.houseandgarden.co.uk/travel-lifestyle?branch=LS4-781
+https://www.houseandgarden.co.uk/travel-lifestyle
+
+http://localhost:7777/house-and-garden/christmas-ideas
+http://localhost:7777/house-and-garden/decoration
+http://localhost:7777/house-and-garden/gardens
+http://localhost:7777/house-and-garden/houses
+http://localhost:7777/house-and-garden/recipes
+http://localhost:7777/house-and-garden/travel-lifestyle
+
+https://multiverso.gq-magazine.co.uk/culture?branch=LS4-781
+https://www.gq-magazine.co.uk/culture
+https://multiverso.gq-magazine.co.uk/fashion?branch=LS4-781
+https://www.gq-magazine.co.uk/fashion
+https://multiverso.gq-magazine.co.uk/groomings?branch=LS4-781
+https://www.gq-magazine.co.uk/groomings
+
+http://localhost:7777/gq-uk/culture
+http://localhost:7777/gq-uk/fashion
+http://localhost:7777/gq-uk/groomings
+
+https://multiverso.gq.com.tw/bettermen?branch=LS4-781
+https://www.gq.com.tw/bettermen
+https://multiverso.gq.com.tw/club?branch=LS4-781
+https://www.gq.com.tw/club
+https://multiverso.gq.com.tw/entertainment?branch=LS4-781
+https://www.gq.com.tw/entertainment
+https://multiverso.gq.com.tw/fashion?branch=LS4-781
+https://www.gq.com.tw/fashion
+https://multiverso.gq.com.tw/gadget?branch=LS4-781
+https://www.gq.com.tw/gadget
+https://multiverso.gq.com.tw/life?branch=LS4-781
+https://www.gq.com.tw/life
+https://multiverso.gq.com.tw/shopping?branch=LS4-781
+https://www.gq.com.tw/shopping
+
+http://localhost:7777/gq-taiwan/bettermen
+http://localhost:7777/gq-taiwan/club
+http://localhost:7777/gq-taiwan/entertainment
+http://localhost:7777/gq-taiwan/fashion
+http://localhost:7777/gq-taiwan/gadget
+http://localhost:7777/gq-taiwan/life
+http://localhost:7777/gq-taiwan/shopping
+
+https://multiverso.gqjapan.jp/cars?branch=LS4-781
+https://www.gqjapan.jp/cars
+https://multiverso.gqjapan.jp/art?branch=LS4-781
+https://www.gqjapan.jp/art
+https://multiverso.gqjapan.jp/fashion?branch=LS4-781
+https://www.gqjapan.jp/fashion
+https://multiverso.gqjapan.jp/culture?branch=LS4-781
+https://www.gqjapan.jp/culture
+https://multiverso.gqjapan.jp/lifestyle?branch=LS4-781
+https://www.gqjapan.jp/lifestyle
+https://multiverso.gqjapan.jp/lifestyle-and-culture?branch=LS4-781
+https://www.gqjapan.jp/lifestyle-and-culture
+https://multiverso.gqjapan.jp/watches?branch=LS4-781
+https://www.gqjapan.jp/watches
+
+http://localhost:7777/gq-japan/cars
+http://localhost:7777/gq-japan/art
+http://localhost:7777/gq-japan/fashion
+http://localhost:7777/gq-japan/culture
+http://localhost:7777/gq-japan/lifestyle
+http://localhost:7777/gq-japan/lifestyle-and-culture
+http://localhost:7777/gq-japan/watches
+
+https://multiverso.gqitalia.it/lifestyle?branch=LS4-781
+https://www.gqitalia.it/lifestyle
+https://multiverso.gqitalia.it/moda?branch=LS4-781
+https://www.gqitalia.it/moda
+https://multiverso.gqitalia.it/motori?branch=LS4-781
+https://www.gqitalia.it/motori
+https://multiverso.gqitalia.it/show?branch=LS4-781
+https://www.gqitalia.it/show
+https://multiverso.gqitalia.it/sport?branch=LS4-781
+https://www.gqitalia.it/sport
+https://multiverso.gqitalia.it/tech?branch=LS4-781
+https://www.gqitalia.it/tech
+
+http://localhost:7777/gq-italia/lifestyle
+http://localhost:7777/gq-italia/moda
+http://localhost:7777/gq-italia/motori
+http://localhost:7777/gq-italia/show
+http://localhost:7777/gq-italia/sport
+http://localhost:7777/gq-italia/tech
+
+https://multiverso.gqindia.com/entertainment?branch=LS4-781
+https://www.gqindia.com/entertainment
+https://multiverso.gqindia.com/get-smart?branch=LS4-781
+https://www.gqindia.com/get-smart
+https://multiverso.gqindia.com/live-well?branch=LS4-781
+https://www.gqindia.com/live-well
+https://multiverso.gqindia.com/look-good?branch=LS4-781
+https://www.gqindia.com/look-good
+https://multiverso.gqindia.com/gq-gears?branch=LS4-781
+https://www.gqindia.com/gq-gears
+
+http://localhost:7777/gq-india/entertainment
+http://localhost:7777/gq-india/get-smart
+http://localhost:7777/gq-india/live-well
+http://localhost:7777/gq-india/look-good
+http://localhost:7777/gq-india/gq-gears
+
+https://multiverso.gqmagazine.fr/style?branch=LS4-781
+https://www.gqmagazine.fr/style
+https://multiverso.gqmagazine.fr/lifestyle?branch=LS4-781
+https://www.gqmagazine.fr/lifestyle
+https://multiverso.gqmagazine.fr/montres?branch=LS4-781
+https://www.gqmagazine.fr/montres
+https://multiverso.gqmagazine.fr/bien-etre?branch=LS4-781
+https://www.gqmagazine.fr/bien-etre
+https://multiverso.gqmagazine.fr/pop-culture?branch=LS4-781
+https://www.gqmagazine.fr/pop-culture
+https://multiverso.gqmagazine.fr/videos?branch=LS4-781
+https://www.gqmagazine.fr/videos
+https://multiverso.gqmagazine.fr/video?branch=LS4-781
+https://www.gqmagazine.fr/video
+
+http://localhost:7777/gq-france/
+http://localhost:7777/gq-france/lifestyle
+http://localhost:7777/gq-france/montres
+http://localhost:7777/gq-france/bien-etre
+http://localhost:7777/gq-france/pop-culture
+http://localhost:7777/gq-france/videos
+http://localhost:7777/gq-france/video
+
+https://multiverso.revistagq.com/cuidados?branch=LS4-781
+https://www.revistagq.com/cuidados
+https://multiverso.revistagq.com/la-buena-vida?branch=LS4-781
+https://www.revistagq.com/la-buena-vida
+https://multiverso.revistagq.com/moda?branch=LS4-781
+https://www.revistagq.com/moda
+https://multiverso.revistagq.com/noticias?branch=LS4-781
+https://www.revistagq.com/noticias
+
+http://localhost:7777/gq-espana/cuidados
+http://localhost:7777/gq-espana/la-buena-vida
+http://localhost:7777/gq-espana/moda
+http://localhost:7777/gq-espana/noticias
+
+https://multiverso.gq-magazin.de/body-care?branch=LS4-781
+https://www.gq-magazin.de/body-care
+https://multiverso.gq-magazin.de/entertainment?branch=LS4-781
+https://www.gq-magazin.de/entertainment
+https://multiverso.gq-magazin.de/lifestyle?branch=LS4-781
+https://www.gq-magazin.de/lifestyle
+https://multiverso.gq-magazin.de/mobilitaet?branch=LS4-781
+https://www.gq-magazin.de/mobilitaet
+https://multiverso.gq-magazin.de/mode?branch=LS4-781
+https://www.gq-magazin.de/mode
+https://multiverso.gq-magazin.de/technik?branch=LS4-781
+https://www.gq-magazin.de/technik
+
+http://localhost:7777/gq-germany/body-care
+http://localhost:7777/gq-germany/entertainment
+http://localhost:7777/gq-germany/lifestyle
+http://localhost:7777/gq-germany/mobilitaet
+http://localhost:7777/gq-germany/mode
+http://localhost:7777/gq-germany/technik
+
+https://multiverso.glamour.com/entertainment?branch=LS4-781
+https://www.glamour.com/entertainment
+https://multiverso.glamour.com/fashion?branch=LS4-781
+https://www.glamour.com/fashion
+https://multiverso.glamour.com/health-fitness?branch=LS4-781
+https://www.glamour.com/health-fitness
+https://multiverso.glamour.com/inspired?branch=LS4-781
+https://www.glamour.com/inspired
+https://multiverso.glamour.com/lipstick?branch=LS4-781
+https://www.glamour.com/lipstick
+
+http://localhost:7777/glamour/entertainment
+http://localhost:7777/glamour/fashion
+http://localhost:7777/glamour/health-fitness
+http://localhost:7777/glamour/inspired
+http://localhost:7777/glamour/lipstick
+
+https://multiverso.glamourmagazine.co.uk/awards?branch=LS4-781
+https://www.glamourmagazine.co.uk/awards
+https://multiverso.glamourmagazine.co.uk/beauty?branch=LS4-781
+https://www.glamourmagazine.co.uk/beauty
+
+http://localhost:7777/glamour-uk/awards
+http://localhost:7777/glamour-uk/beauty
+
+https://multiverso.glamour.mx/moda?branch=LS4-781
+https://www.glamour.mx/moda
+https://multiverso.glamour.mx/celebrities?branch=LS4-781
+https://www.glamour.mx/celebrities
+https://multiverso.glamour.mx/belleza?branch=LS4-781
+https://www.glamour.mx/belleza
+https://multiverso.glamour.mx/bienestar?branch=LS4-781
+https://www.glamour.mx/bienestar
+https://multiverso.glamour.mx/tu-vida?branch=LS4-781
+https://www.glamour.mx/tu-vida
+
+http://localhost:7777/glamour-mexico-y-latinoamerica/moda
+http://localhost:7777/glamour-mexico-y-latinoamerica/celebrities
+http://localhost:7777/glamour-mexico-y-latinoamerica/belleza
+http://localhost:7777/glamour-mexico-y-latinoamerica/bienestar
+http://localhost:7777/glamour-mexico-y-latinoamerica/tu-vida
+
+https://multiverso.glamour.es/moda?branch=LS4-781
+https://www.glamour.es/moda
+https://multiverso.glamour.es/belleza?branch=LS4-781
+https://www.glamour.es/belleza
+https://multiverso.glamour.es/celebrities?branch=LS4-781
+https://www.glamour.es/celebrities
+https://multiverso.glamour.es/placeres?branch=LS4-781
+https://www.glamour.es/placeres
+
+http://localhost:7777/glamour-espana/moda
+http://localhost:7777/glamour-espana/belleza
+http://localhost:7777/glamour-espana/celebrities
+http://localhost:7777/glamour-espana/placeres
+
+https://multiverso.glamour.de/beauty?branch=LS4-781
+https://www.glamour.de/beauty
+https://multiverso.glamour.de/shoppingweek?branch=LS4-781
+https://www.glamour.de/shoppingweek
+
+http://localhost:7777/glamour-germany/
+http://localhost:7777/glamour-germany/shoppingweek
+
+https://multiverso.cntraveller.com/destinations?branch=LS4-781
+https://www.cntraveller.com/destinations
+https://multiverso.cntraveller.com/places-to-stay?branch=LS4-781
+https://www.cntraveller.com/places-to-stay
+
+http://localhost:7777/conde-nast-traveler-uk/destinations
+http://localhost:7777/conde-nast-traveler-uk/places-to-stay
+
+https://multiverso.cntraveller.in/cnt-top-restaurant-awards?branch=LS4-781
+https://www.cntraveller.in/cnt-top-restaurant-awards
+https://multiverso.cntraveller.in/mindful-travel?branch=LS4-781
+https://www.cntraveller.in/mindful-travel
+https://multiverso.cntraveller.in/the-latest?branch=LS4-781
+https://www.cntraveller.in/the-latest
+
+http://localhost:7777/conde-nast-traveler-india/cnt-top-restaurant-awards
+http://localhost:7777/conde-nast-traveler-india/mindful-travel
+http://localhost:7777/conde-nast-traveler-india/the-latest
+
+https://multiverso.traveler.es/the-bests?branch=LS4-781
+https://www.traveler.es/the-bests
+https://multiverso.traveler.es/the-intel?branch=LS4-781
+https://www.traveler.es/the-intel
+
+http://localhost:7777/conde-nast-traveler-espana/the-bests
+http://localhost:7777/conde-nast-traveler-espana/the-intel
+
+https://multiverso.architecturaldigest.com/ad-it-yourself?branch=LS4-781
+https://www.architecturaldigest.com/ad-it-yourself
+https://multiverso.architecturaldigest.com/architecture-design?branch=LS4-781
+https://www.architecturaldigest.com/architecture-design
+https://multiverso.architecturaldigest.com/celebrity-style?branch=LS4-781
+https://www.architecturaldigest.com/celebrity-style
+https://multiverso.architecturaldigest.com/culture-lifestyle?branch=LS4-781
+https://www.architecturaldigest.com/culture-lifestyle
+https://multiverso.architecturaldigest.com/real-estate?branch=LS4-781
+https://www.architecturaldigest.com/real-estate
+https://multiverso.architecturaldigest.com/video?branch=LS4-781
+https://www.architecturaldigest.com/video
+
+http://localhost:7777/architectural-digest/ad-it-yourself
+http://localhost:7777/architectural-digest/architecture-design
+http://localhost:7777/architectural-digest/celebrity-style
+http://localhost:7777/architectural-digest/culture-lifestyle
+http://localhost:7777/architectural-digest/real-estate
+http://localhost:7777/architectural-digest/video
+
+https://multiverso.admagazine.fr/decoration?branch=LS4-781
+https://www.admagazine.fr/decoration
+https://multiverso.admagazine.fr/design?branch=LS4-781
+https://www.admagazine.fr/design
+https://multiverso.admagazine.fr/architecture?branch=LS4-781
+https://www.admagazine.fr/architecture
+https://multiverso.admagazine.fr/art?branch=LS4-781
+https://www.admagazine.fr/art
+https://multiverso.admagazine.fr/lifestyle?branch=LS4-781
+https://www.admagazine.fr/lifestyle
+
+http://localhost:7777/architectural-digest-france/decoration
+http://localhost:7777/architectural-digest-france/design
+http://localhost:7777/architectural-digest-france/architecture
+http://localhost:7777/architectural-digest-france/art
+http://localhost:7777/architectural-digest-france/lifestyle
+
+https://multiverso.admagazine.com/estilo-de-vida?branch=LS4-781
+https://www.admagazine.com/estilo-de-vida
+https://multiverso.admagazine.com/diseno?branch=LS4-781
+https://www.admagazine.com/diseno
+https://multiverso.admagazine.com/fotos-videos?branch=LS4-781
+https://www.admagazine.com/fotos-videos
+
+http://localhost:7777/architectural-digest-mexico-y-latinoamerica/estilo-de-vida
+http://localhost:7777/architectural-digest-mexico-y-latinoamerica/diseno
+http://localhost:7777/architectural-digest-mexico-y-latinoamerica/fotos-videos
+
+https://multiverso.admiddleeast.com/architecture-design?branch=LS4-781
+https://www.admiddleeast.com/architecture-design
+https://multiverso.admiddleeast.com/culture-lifestyle?branch=LS4-781
+https://www.admiddleeast.com/culture-lifestyle
+https://multiverso.admiddleeast.com/decorating?branch=LS4-781
+https://www.admiddleeast.com/decorating
+https://multiverso.admiddleeast.com/homes?branch=LS4-781
+https://www.admiddleeast.com/homes
+
+http://localhost:7777/architectural-digest-middle-east/architecture-design
+http://localhost:7777/architectural-digest-middle-east/culture-lifestyle
+http://localhost:7777/architectural-digest-middle-east/decorating
+http://localhost:7777/architectural-digest-middle-east/homes
+
+https://multiverso.architecturaldigest.in/decorating?branch=LS4-781
+https://www.architecturaldigest.in/decorating
+https://multiverso.architecturaldigest.in/lifestyle?branch=LS4-781
+https://www.architecturaldigest.in/lifestyle
+https://multiverso.architecturaldigest.in/culture?branch=LS4-781
+https://www.architecturaldigest.in/culture
+https://multiverso.architecturaldigest.in/perspective?branch=LS4-781
+https://www.architecturaldigest.in/perspective
+https://multiverso.architecturaldigest.in/architecture-design?branch=LS4-781
+https://www.architecturaldigest.in/architecture-design
+
+http://localhost:7777/architectural-digest-india/decorating
+http://localhost:7777/architectural-digest-india/lifestyle
+http://localhost:7777/architectural-digest-india/culture
+http://localhost:7777/architectural-digest-india/perspective
+http://localhost:7777/architectural-digest-india/architecture-design
+
+https://multiverso.revistaad.es/decoracion?branch=LS4-781
+https://www.revistaad.es/decoracion
+https://multiverso.revistaad.es/diseno?branch=LS4-781
+https://www.revistaad.es/diseno
+https://multiverso.revistaad.es/espacios?branch=LS4-781
+https://www.revistaad.es/espacios
+
+http://localhost:7777/architectural-digest-espana/decoracion
+http://localhost:7777/architectural-digest-espana/diseno
+http://localhost:7777/architectural-digest-espana/espacios
+
+
+
+Can someone explain me why we have this both breakpoint definitions:
+
+https://github.com/CondeNast/verso/blob/main/src/components/utils/constants.js#L29
+https://github.com/CondeNast/verso/blob/main/src/components/helpers/breakpoints/breakpoints.js#L12
+
+And why they are different?
+That confuses me a little bit...
+
+At the moment it this is the process:
+- create the channel
+- add channel to contributor
+- create ticket for us to add the ID to tenant config
+Did I miss something?
+
+tsugu-service-self-content.gp-prod-na-0.conde.digital?
+tsugu-service-self-content.gp-prod-na-0.conde.digital?
+tsugu-service-self-content.gp-prod-na-0.conde.digital?types=categories&hierarchy=channels/health-conditions&limit=15&id=6115310fa0d1b56d35bca49b,6115310f87c5925dc435b241,6115311087c5925dc435b242,61153111617a686e8e360c33,61153112a0d1b56d35bca49c,61f1962f2081cefa0565d528,61153112bfb5af2f85f19ad6,61153112bfb5af2f85f19ad7,61153112617a686e8e360c34,611531130fba8918ef07d9f2,61153113617a686e8e360c35,6115311487c5925dc435b243,61153114c66629131d52d335,61153115bfb5af2f85f19ad8,61153115617a686e8e360c36,61153116617a686e8e360c37
+
+
+
+name=Browse by Specialty&
+types=categories&hierarchy=channels/health-conditions&limit=15&id=6115310fa0d1b56d35bca49b,6115310f87c5925dc435b241,6115311087c5925dc435b242,61153111617a686e8e360c33,61153112a0d1b56d35bca49c,61f1962f2081cefa0565d528,61153112bfb5af2f85f19ad6,61153112bfb5af2f85f19ad7,61153112617a686e8e360c34,611531130fba8918ef07d9f2,61153113617a686e8e360c35,6115311487c5925dc435b243,61153114c66629131d52d335,61153115bfb5af2f85f19ad8,61153115617a686e8e360c36,61153116617a686e8e360c37
+
+
+
+
+Hm... if you are right doesn't that mean changes here:
+https://interfaces.conde.io/apps/versosettings/#/glamour-staging/settings/subNavigationLinks/channel-override/fashion
+
+should appear at multiverso:
+https://multiverso.glamour.com/fashion?branch=LS4-781-4
+
+But the change "Style your Size" to "Style your Sizettt" does not.
+
+Or am I too impatient and have to wait a little longer for the change to go through?
+
+
+npm run test-unit-server src/presenters/bundles/fetch-filters.spec.js
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-892
+
+As FilterableBundle uses the SectionHeader we cannot get rid of the link:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/section-header/SectionHeader.js#L186
+
+I remember we had the same issue some month ago.
+But I cannot remember how we solved it.
+
+My suggestions:
+- This is not a bug
+- We have to refactor FilterableBunde to have the choice between different Header (BundleHeader, SectionHeader)
+
+
+The lede link is an invention just for Vanity Fair.
+It's used in thre channels and breaks the template for all other brands:
+
+The Ticket:
+https://cnissues.atlassian.net/browse/VF-186
+The PR:
+https://github.com/CondeNast/verso/pull/14624/files
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-781
+
+I have about 418 test links and I'm pretty sure no one wants to check each of them.
+
+If we all help together, then we can at least test some links. Especially important would be the pages with special character sets (Japan, Taiwan).
+If everyone takes on a PR, this can be done quickly.
+So here are the PRs:
+
+https://github.com/CondeNast/verso/pull/27543
+https://github.com/CondeNast/verso/pull/27544
+https://github.com/CondeNast/verso/pull/27545
+https://github.com/CondeNast/verso/pull/27546
+
+Please mark here if you are done.
+
+
+
+@Gapur
+Because we are living in a Condé Nast universe...
+That are completely different pages.
+
+The one on production is this:
+https://copilot.condenast.io/vffr/bundles/60d47009cbac52018956de9d
+...and has the correct Channel 'Célébrités'.
+
+The one on staging is (you can see the different IDs):
+https://stg-copilot.condenast.io/vffr/bundles/60d2f794251ff32aa2b98a8e
+...and has incorrect Channel 'Célébrités' & 'Culture'
+
+Please ignore these test links.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-892
+
+Can we do something like this:
+https://github.com/CondeNast/verso/pull/27563/files
+
+What do you think?
+
+
+https://www.self.com/medical-advisory-board
+
+Does this page work for you:
+http://localhost:7777/self/medical-advisory-board
+
+Because I receive an error:
+ERROR [15:30:01.820] (workflow/43705): Invalid theme token colors.palette.grey3 provided
+
+      "grey3": "rgba(255,0,0,1)",
+      "grey5": "rgba(255,0,0,1)",
+      "black": "rgba(255,0,0,1)",
+
+
+Jetzt schaffe ich das heute leider doch nicht ins Büro. Hätte mich gerne persönlich von dir verabschiedet.
+Auch wenn es selten der Fall ist, dass berufliche Kontakte uber das berufliche hinaus lange von Bestand sind...
+Vielleicht magst du dich hier in den "Brautag" Newsletter eintragen:
+https://www.emaz.de/info/newsletter
+Und bei einem Ausschank vorbei kommen. Ich würde mich freuen und gerne bei einem Bier einmal nicht beruflich quatschen.
+Ansonsten wünsche ich dir natürlich alles Gute für die Zukunft und einen Sommer, den du in vollen Zügen oder besser noch sportlichen Autos ;-) geniessen kannst.
+
+colors.interactive.base.border
+
+console.log('::', args[0].colors.interactive.base);
+
+Hast du Zugriff auf verso in GitHub?
+
+Weil ich hätte da eine Verständnisfrage.
+
+Ist es nicht eigentlich so, dass in den einzelnen Sektionen - wie hier zum Beispiel "interactive" - der brand-identity:
+https://github.com/CondeNast/verso/blob/main/src/brand-identity/brands/self-health-conditions/brand-identity.json#L264
+
+Nur Farben eingesetzt werden können/dürfen, die unter "palette" auch definiert sind:
+https://github.com/CondeNast/verso/blob/main/src/brand-identity/brands/self-health-conditions/brand-identity.json#L295
+
+http://localhost:7777/self-staging/test-health-conditions
+http://localhost:7777/self-staging/contributor/sandhya-pruthi-md
+http://localhost:7777/self-staging/story/a-lump-in-my-groin-led-to-my-stage-iv-melanoma-diagnosis-when-i-was-just-22
+http://localhost:7777/self/
+
+
+Customized brand identity "self-health-conditions" uses invalid color tokens "black", "grey2", "grey3" and "grey5" that leads to an error at local verso.
+
+DoD
+Usage of the right and valid tokens.
+
+npm run test-unit-component src/components/patterns/section-header/SectionHeader.spec.js
+npm run test-update-snapshot  src/components/patterns/section-header/SectionHeader.spec.js
+
+
+404 - channel configs to remove?
+https://www.traveler.es/the-intel
+https://www.traveler.es/the-bests
+
+
+Dog Faced Hermans
+Hanson Brothers
+Two Pin Din
+Universal Congress Of
+
+
+61153115bfb5af2f85f19ad8
+61153115bfb5af2f85f19ad8
+
+
+showHealthConditions:
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/channels/health-conditions.ts#L191
+
+GroupedNavigationHasBrowser:
+https://github.com/CondeNast/verso/blob/main/src/tenants/self/channels/health-conditions.ts#L35
+
+CuratedShows:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/curated-shows/CuratedShows.js
+
+bundle/transformer:
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/transformers.ts#L635
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/transformers.ts#L662
+
+
+...the challenge:
+You have to checkout this branch: LS4-910
+And call that URL:
+http://localhost:7777/self/medical-advisory-board
+If it's broken tell me. If not evereything is fine.
+
+
+Hi there,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/27563
+
+It's about linket header image for bundles.
+This is my suggestion. Please take a look and let's talk about better solutions.
+
+
+https://multiverso.self.com/story/test-self-health-article-2-allergic-reactions-basic-info?branch=LS4-910
+https://multiverso.self.com/health-conditions/mpox?branch=LS4-910
+
+It's a mess with different content on staging and production.
+Please use this link to test:
+https://multiverso.self.com/self-medical-advisory-filterable?branch=LS4-890
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-891
+
+.dropdown__control--is-focused
+.dropdown__value-container
+
+Folgendes:
+Ich möchte mir das Droptown der filterable bundle filters ansehen und das Styling bearbeiten.
+In den Entwicklertools ist das Dropdown nicht zu finden.
+Ich weiß, wo ich meine Änderung machen kann, bin mir aber sicher, dass ich das nicht machen darf, weil niemand sagen kann, wie viele Seiten davon betroffen wären. Die Stelle im Quelltext wäre hier:
+
+margin-top: 3px;
+https://github.com/CondeNast/verso/blob/main/src/components/elements/utility-selection-control/styles.js#L242
+
+Kann mir jemand helfen und mich in die richtige Richtung stubsen?
+Wie finde ich die Komponente im Browser?
+Wo ist der richtige Ort, das margin zu setzen?
+
+
+
+=======
+Zum Thema Brand Identity:
+Gelegentlich machen wir Änderungen an BI-Dateien under legen neue BI's an.
+Dabei müssen wir unbedingt darauf achten, dass keine ungültigen Tokens verwendet werden. Auch nicht, wenn diese Tokens gar nicht verwendet werden.
+Ich hatte aktuell den Fall, dass in der Sektion "interactive" Tokens eingesetzt wurden, die in der Palette nicht definiert waren.
+Das führt auf Production zu keinem Fehler, weil das einfach ignoriert wird.
+In der lokalen Entwicklung jedoch bricht die Seite. Dann ist man schnell ein, zwei Tage beschäftigt, den Fehler zu suchen.
+
+On the topic of brand identity:
+We occasionally make changes to BI files and create new BIs.
+In doing so, we must ensure that no invalid tokens are used. Not even if these tokens are not used at all.
+I currently had a case where tokens were used in the "interactive" section that were not defined in the palette.
+This does not lead to an error in Production because it is simply ignored.
+In local development, however, the page breaks. Then you quickly spend a day or two looking for the error.
+=======
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-891
+Can we resolve it by adding just a hardcoded margin here:
+https://github.com/CondeNast/verso/pull/27592/files
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/27592/files
+Do you see a chance of solving this with vertical-align?
+I have tested it and have not found a way.
+
+Auch wenn wir dadurch ein weiteres Template bekommen, finde ich, dass es das wert ist, denn:
+- wir nehmen aus SectionHeader.js Komplexität heraus
+- wir erhalten zwei sauber getrennte und dadurch lesbare Templates.
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/27563
+
+Even if we get another template as a result, I think it's worth it, because:
+- we remove complexity from SectionHeader.js
+- we get two cleanly separated and therefore readable templates.
+If you're happy with that, then that's good.
+If not, then let's discuss it further.
+
+Hi Utkarsh,
+
+kein Problem. Wenn du eine Frage hast, etwas unklar ist, dann ist es für mich selbstverständlich, meine Idee zu erklären und zu diskutieren.
+Wenn sich dabei bessere, einfachere und weniger komplexe Wege auftun, dann bin ich dankbar und zukünftige Entwickler werden ebenso dankbar sein.
+Insofern empfinde ich deine Nachfrage als Bereicherung.
+Ich habe mich für die zusätzliche Datei entschieden, weil wir sehr viele Templates haben, in denen es nicht mehr ohne großen Aufwand möglich ist, nachzuvollziehen, was wann und warum passiert. Jetzt ist klar, alles was mit dem Story Image/lede passiert, passiert in diesem Template.
+Danke für dein Approval.
+
+StackedNavigation
+GlobalNavigation
+
+======
+http://localhost:7777/allure/story/australia-new-sun-safety-guidelines
+
+======
+Enable contributor bio for articles and galleries
+
+For following brands we need to change feature flag hideContributorBio to false:
+gallery & article
+
+- vogue
+- gq
+- gq
+- cntraveler
+- architecturaldigest
+- allure
+- bonappetit
+- epicurious
+- teenvogue
+
+
+Checked and ok:
+
+http://localhost:7777/glamour-staging/gallery/psg-with-channel-as-secondary
+http://localhost:7777/glamour-staging/story/how-fame-ruined-vanderpump-rules
+
+https://multiverso.glamour.com/gallery/psg-with-channel-as-secondary
+https://multiverso.glamour.com/story/how-fame-ruined-vanderpump-rules
+
+http://localhost:7777/gq-staging/gallery/banana-republic-memorial-day-sale-2024
+http://localhost:7777/gq-staging/story/tim-myers-blackjack-and-social-media-run-of-the-century
+
+https://multiverso.gq.com/gallery/banana-republic-memorial-day-sale-2024
+https://multiverso.gq.com/story/tim-myers-blackjack-and-social-media-run-of-the-century
+
+http://localhost:7777/conde-nast-traveler-staging/gallery/the-best-airbnbs-in-london
+http://localhost:7777/conde-nast-traveler-staging/story/cruise-etiquette-shore-excursions
+
+https://multiverso.cntraveler.com/gallery/the-best-airbnbs-in-london
+https://multiverso.cntraveler.com/story/cruise-etiquette-shore-excursions
+
+http://localhost:7777/architectural-digest-staging/gallery/wood-accent-wall-ideas
+http://localhost:7777/architectural-digest-staging/story/best-mattresses-on-amazon
+
+https://multiverso.architecturaldigest.com/gallery/wood-accent-wall-ideas
+https://multiverso.architecturaldigest.com/story/best-mattresses-on-amazon
+
+http://localhost:7777/bon-appetit-staging/recipes/slideshow/best-steak-recipes-rib-eye-skirt-steak-fajitas-skewers
+http://localhost:7777/bon-appetit-staging/story/fourth-trimester-cabbage-stir-fry
+
+https://multiverso.bonappetit.com/recipes/slideshow/best-steak-recipes-rib-eye-skirt-steak-fajitas-skewers
+https://multiverso.bonappetit.com/story/fourth-trimester-cabbage-stir-fry
+
+http://localhost:7777/epicurious-staging/recipes-menus/june-recipes-gallery
+http://localhost:7777/epicurious-staging/expert-advice/how-to-tell-when-almond-milk-goes-bad-article
+
+https://multiverso.epicurious.com/recipes-menus/june-recipes-gallery
+https://multiverso.epicurious.com/expert-advice/how-to-tell-when-almond-milk-goes-bad-article
+
+http://localhost:7777/teen-vogue-staging/gallery/celebs-who-nailed-the-2024-met-gala-theme
+http://localhost:7777/teen-vogue-staging/story/jenna-ortega-urges-humanity-after-children-slaughtered-in-rafah-attacks
+
+https://multiverso.teenvogue.com/gallery/celebs-who-nailed-the-2024-met-gala-theme
+https://multiverso.teenvogue.com/story/jenna-ortega-urges-humanity-after-children-slaughtered-in-rafah-attacks
+
+http://localhost:7777/vogue-staging/fashion/favorite-dior-backstage-looks
+http://localhost:7777/vogue-staging/article/oona-wine-founders-summer-entertaining-tips
+
+https://multiverso.vogue.com/fashion/favorite-dior-backstage-looks
+https://multiverso.vogue.com/article/oona-wine-founders-summer-entertaining-tips
+
+http://localhost:7777/allure/gallery/best-body-acne-skin-care-products-treatments
+http://localhost:7777/allure/story/best-fragrances-on-amazon
+
+https://multiverso.allure.com/gallery/best-body-acne-skin-care-products-treatments
+https://multiverso.allure.com/story/best-fragrances-on-amazon
+
+http://localhost:7777/wired/story/best-apple-tv-plus-shows/
+http://localhost:7777/wired/gallery/best-usb-microphones/
+
+https://multiverso.wired.com/story/best-apple-tv-plus-shows/
+https://multiverso.wired.com/gallery/best-usb-microphones/
+
+http://localhost:7777/self/gallery/best-protein-bars
+http://localhost:7777/self/story/are-runny-eggs-safe-to-eat
+
+https://multiverso.self.com/gallery/best-protein-bars
+https://multiverso.self.com/story/are-runny-eggs-safe-to-eat
+======
+
+https://multiverso.self.com/self-medical-advisory-filterable?branch=LS4-891
+https://multiverso.cntraveler.com/travel-specialists?branch=LS4-891
+===================================================================
+
+Enable contributor bio for recipes and reviews
+
+gq
+http://localhost:7777/gq-staging/recipe/moscow-mule
+http://localhost:7777/gq-staging/review/the-bomber-jacket-that-cool-up-your-jeans-and-tee-combo
+
+https://multiverso.gq.com/recipe/moscow-mule
+https://multiverso.gq.com/review/the-bomber-jacket-that-cool-up-your-jeans-and-tee-combo
+
+architecturaldigest
+No recipe.
+http://localhost:7777/architectural-digest-staging/review/ad-review-template-test-for-pillar-4
+
+https://multiverso.architecturaldigest.com/review/ad-review-template-test-for-pillar-4
+
+bonappetit
+No review.
+http://localhost:7777/bon-appetit-staging/recipe/easy-no-knead-focaccia
+
+https://multiverso.bonappetit.com/recipe/easy-no-knead-focaccia
+
+epicurious
+No review.
+http://localhost:7777/epicurious-staging/recipes/food/views/the-perfect-flan-1902
+
+https://multiverso.epicurious.com/recipes/food/views/the-perfect-flan-1902
+
+allure
+No recipe.
+http://localhost:7777/allure/review/eva-nyc-therapy-session-hair-mask-review
+
+https://multiverso.allure.com/review/eva-nyc-therapy-session-hair-mask-review
+
+wired
+No recipe.
+http://localhost:7777/wired/review/blipblox-mytracks-review/
+
+https://multiverso.wired.com/review/blipblox-mytracks-review/
+
+self
+http://localhost:7777/self/review/awara-natural-hybrid-mattress
+http://localhost:7777/self/recipe/bruce-paltrows-world-famous-pancakes
+
+https://multiverso.self.com/review/awara-natural-hybrid-mattress
+https://multiverso.self.com/recipe/bruce-paltrows-world-famous-pancakes
+
+traveler
+No recipe.
+No review.
+
+glamour
+No recipe.
+No review.
+
+teenvogue
+No recipe.
+No review.
+
+vogue
+No recipe.
+No review.
+
+===================================================================
+
+Wired
+GQ
+Vogue
+Glamour
+CNT
+AD
+Allure
+Bon app
+Epicurious
+SELF
+Teen Vogue
+
+
+return Grid.ContentWithAdRail;
+return Grid.ContentWithAdRail;
+
+        GalleryPage: {
+          settings: {
+            showSlideCount: false,
+            showOrderedGallery: true,
+            layouts: {
+              noAdRail: {
+                gridColumns: {
+                  start: 2,
+                  end: 10
+                }
+              }
+            }
+          }
+        }
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-751
+
+As far as I can see no brand has the ContentFooter area aligned with the content.
+Thats because of the used variation (ContentWithAdRailNarrow) has the option hasMargin: true.
+As you can see here:
+https://github.com/CondeNast/verso/blob/main/src/components/scaffolding/grid/variations.js#L56
+
+And hasMargin: true - hahaha - adds padding-left to the ContentFooter.
+
+Samples pages from gq, vogue and self:
+https://stag.gq.com/gallery/met-gala-2024-after-party-looks
+https://stag.vogue.com/slideshow/boho-hair-inspiration
+https://stag.self.com/gallery/infused-water-recipes-help-you-drink-more-water
+
+Now I can do following:
+1. change the variation and set hasMargin to false for all brands
+2. create a copy of the variation with hasMargin: false and add a prop to activate it
+3. ...better ideas are very welcome
+
+
+I try to update @apollo/client from 3.8.4 to 3.10.2
+Ans I'm getting the same error.
+
+Is the recommendation still to activate skipLibCheck?
+Or is there now a solution to the problem?
+
+====
+I've just got this PR on the table:
+https://github.com/CondeNast/verso/pull/27567/files
+
+I try to update @apollo/client from 3.8.4 to 3.10.2
+And I’m getting this error:
+
+error TS5084: Tuple members must all have names or all not have names.
+
+The recommendation at apollo community is to activate skipLibCheck in tsconfig.json:
+
+https://community.apollographql.com/t/getting-error-ts5084-apollo-client-3-7-4/7267
+
+Can you tell me is this the way we can go?
+Or should we postpone the update?
+
+...or can you tell me whom I should ask?
+====
+
+Well...
+I still have two more strings to one's bow. If that doesn't work, I'll come back to your suggestion.
+
+Now I have a suggestion for the ContentFooter thingy:
+https://github.com/CondeNast/verso/pull/27683
+
+Let's have a view and discuss this tomorrow.
+Now I will grab the last sunbeams for today :-)
+
+
+Doesn't matter if we try @apollo/client version 3.10.2 or 3.10.3
+useLoadableQuery.d.ts:11:5 - error TS5084: Tuple members must all have names or all not have names.
+
+And I tested some more versions:
+3.10.4
+3.10.0
+3.9.11
+3.9.10
+3.9.9
+3.9.0
+
+The newest I found is:
+3.8.10
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-912
+
+As I commented, the newest working version is 3.8.10
+What should we do:
+- Noting?
+- Update to 3.8.10?
+- Try to find a fix or hack?
+
+
+Yes, sure:
+
+What I did:
+nvm use && npm run clean && npm run clobber && npm i
+
+What I get:
+
+node_modules/@apollo/client/react/hooks/useLoadableQuery.d.ts:11:5 - error TS5084: Tuple members must all have names or all not have names.
+
+ 11     {
+        ~
+ 12         /**
+    ~~~~~~~~~~~
+...
+ 36         reset: ResetFunction;
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 37     }
+    ~~~~~
+
+
+Found 1 error in node_modules/@apollo/client/react/hooks/useLoadableQuery.d.ts:11
+
+
+LS4-867
+
+
+Bach Bui:
+https://cnissues.atlassian.net/browse/LS4-905
+
+Growthbook:
+Short meeting with on who can explain us...
+Slack: #Experiments
+
+Regarding the apollo issue:
+I reported the issue to apollo:
+https://community.apollographql.com/t/getting-error-ts5084-apollo-client-3-7-4/7267/8
+
+They just created a pull request for a fix:
+https://github.com/apollographql/apollo-client/pull/11877
+
+As soon as the fix is available I will proceed with the ticket.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-914
+
+As Marylou is on vacation now what can I do?
+Assign to Jos? Waiting for her return?
+
+
+Hi there,
+when I'm calling this burger page on staging I'm getting a 500 error:
+https://stag.bonappetit.com/recipe/basically-burger
+https://stg-copilot-app.condenast.io/bon/recipes/5969080aebe72a54a152e04a
+
+Here I can see the recipe:
+https://nonprod-content.conde.io/graphql
+
+{
+  "organizationId": "4gKgcF1Da3qJmD4TCHHS7sLmQWRJ",
+  "contentId": "5969080aebe72a54a152e04a"
+}
+
+Is it a known issue?
+Can someone help me?
+
+For your information:
+
+I've caused a PR for the apollo client error and I'm waiting for the fix to bereleased:
+https://github.com/apollographql/apollo-client/pull/11877
+
+
+
+https://cnissues.atlassian.net/browse/LS4-921
+
+===
+Sorry I have to bother you... but:
+
+Please check your changes again because this line:
+https://github.com/CondeNast/verso/pull/27572/files#diff-dfe84f9b6d456b9ff30db50481c979f1b1b5f6613098f9f069e2765380f30dd5R127
+
+causes an error on staging (not on production) as you can see here:
+https://stag.bonappetit.com/recipe/easy-no-knead-focaccia
+
+The error:
+message: Cannot destructure property 'min' of 'validations' as it is undefined.
+stack: TypeError: Cannot destructure property 'min' of 'validations' as it is undefined.
+at ReviewNotesForm (/app/build/lib/components/patterns/review-notes-form/ReviewNotesForm.js:60:13)
+
+But don't worry. First get well soon.
+In the meantime, I will take care of the issue.
+===
+
+http://localhost:7777/vogue-uk-staging
+
+
+I guess you mean this URL:
+https://stag.vogue.co.uk/
+
+But this page isn't available at CoPilot either:
+https://stg-copilot.condenast.io/vuk/bundles/605326f68d0dbfdec2f2a41e
+
+When I check this by graphql I get an answer:
+{
+  "organizationId": "4gKgcF1QVUVe3yTYV18EPc3jSVfu",
+  "contentId": "605326f68d0dbfdec2f2a41e"
+}
+
+
+Im Rezept Template ist die Ausgabe der ContriburorBox nicht vorgesehen.
+Und weil es sich um verso handelt, kann das auch nicht mal eben schnell eingebaut werden.
+
+Hi Jos,
+wir hatten noch nicht die Ehre, daher:
+Ich bin Christian, einer der Ingenieure aus Elenas Team.
+
+Nachdem Marylou im Urlaub ist, wurde mir gesagt, ich solle mich direkt an dich wenden.
+Dieses Ticket liegt zum Testen bereit:
+https://cnissues.atlassian.net/browse/LS4-914
+
+Es geht darum, die ContributorBox am Seitenende der Rezepte und der reviews zu aktivieren.
+Jetzt habe ich festgestellt, dass es bei den Rezepten keine ContributorBox gibt.
+Reviews haben lediglich fünf der elf Marken.
+
+Wenn du Fragen dazu hast, werde ich mich um Antworten bemühen.
+
+
+Der ist ja echt ein Herzchen. Erst werden die Teams am laufenden Band umstrukturiert, auseinander gerissen und dezimiert.
+Dann werden die Reste quer über die Kontinente wild neu zusammen gewürfelt.
+Jetzt blüht ihm wohl, dass das nicht ganz so toll läuft, wie er sich das gedacht hat und ausbaden dürfen das die Leute, die eh schon zu kämpfen haben, dass der Laden nicht komplett auseinander fliegt.
+Man man man...
+
+https://multiverso.glamour.de/galerie/met-gala-2024-beauty-looks?branch=LS4-751
+https://multiverso.vogue.com/slideshow/madeleine-gerrick-and-j-winkelried-wedding?branch=LS4-751
+
+
+Appgate vermittelt einem manchmal das Gefühlt, das würden die Daten mit dem Ruderboot über den Atlantik schwimmen und dann mit den Kollegen bei Lagerfeuer und Country Musik die Verbindungsmodalitäten aushandeln...
+
+
+Die Sache mit dem ContentFooter
+
+Full Screen passt der mit dem body zusammen.
+Mobile ebenfalls.
+md und sm funktionieren nicht
+
+
+//    hasMargin: false,
+    isMarginOnly: true,
+//    isFullBleed: true,
+//      isMobileUp: true,
+//      hasGutters: true,
+      adRailType: 'narrow',
+/*
+    adRailType: 'normal',
+    ('normal', 'narrow', 'narrowWithNarrowContent')
+    isAdrail: '',
+    isEven: '',
+    isFullBleed: '',
+    isMarginOnly: '',
+    isMobileUp: '',
+    hasGutters: '',
+    isDynamicGridItemLayout: '',
+    shouldDisplayDenseGrid
+ */
+
+
+
+Please update you branch with main and start with:
+nvm use && npm run clean && npm run clobber && npm i && run dev
+
+/*
+@media (max-width: 1280px) { background: lime; }
+@media (max-width: ${BREAKPOINTS.xxl}) { background: blue; }
+@media (max-width: ${BREAKPOINTS.xl}) { background: yellow; }
+
+@media (max-width: ${BREAKPOINTS.lg}) { background: red; }
+
+
+@media (max-width: ${BREAKPOINTS.md}) { background: lightgreen; }
+@media (max-width: ${BREAKPOINTS.sm}) { background: green; }
+*/
+
+====
+Check this in CoPilot:
+Why is there no Contributor-Box?
+
+https://stag.self.com/recipe/bruce-paltrows-world-famous-pancakes
+https://stag2.wired.com/review/blipblox-mytracks-review/
+https://stag.epicurious.com/recipes/food/views/the-perfect-flan-1902
+https://stag.architecturaldigest.com/review/ad-review-template-test-for-pillar-4
+https://stag.gq.com/review/the-bomber-jacket-that-cool-up-your-jeans-and-tee-combo
+https://stag.gq.com/recipe/moscow-mule
+
+Doesn't work at all:
+https://stag.bonappetit.com/recipe/easy-no-knead-focaccia
+====
+
+
+
+
+
+
+
+
+
+
+TODO:
+ok - feature branch for medical advisory board / filterable bundle
+ok - fix broken tests
+ok - Stadtrundgang fertig machen
+- Engineers Dinner
+on the way - Donnerbräu
+
 ==============================================
 Restaurant Liste für SevenSeas Engineer Dinner:
 Georgisch: Restaurant Vazi
@@ -11053,8 +12730,24 @@ Maybe vegan Sushi
 Attentat Griechischer Salat
 ==============================================
 
+16. 05. 2024
+Brautage
+EMAZ Newsletter
+Toto wordpress
+Senfcall
+
+http://dasistdiezukunft.rent-an-artwork.de/
+https://dasistdiezukunft.rent-an-artwork.de/wp-login.php
+http://dasistdiezukunft.rent-an-artwork.de/wp-login.php
 
 TODO:
+- Scrolling ticket: Gapur hat Vorschläge
+ok - Gerald: Ein paar Sätze
+ok - Gerald: Garten
+- Elena: "@apollo/client": "3.10.2" klappt nicht
+- Frank Menz fragen, ob er zur Oskar Party kommt
+ok - Post to the plant game
+- Kontakt zu dem Polsinelli Mann / Vielleicht mal treffen?
 - organize 2 idea and brainstorming sessions
 - Nächstes Engineering Dinner organisieren (Mai, wenn Noman da ist)
 - Termin: Stürminger
@@ -11062,7 +12755,7 @@ TODO:
 - 3D Drucker um kleine Leute herzustellen?
 - EMAZ Krug
 - EMAZ Newsletter
-- Donnerbräu Newsletter: 1. Mai
+ok - Donnerbräu Newsletter: 1. Mai
 - Paul Balthasar Fotos:
   ok - Leere Bierflaschen
   - Weißbier/Korn
@@ -11071,7 +12764,7 @@ TODO:
 - Dornwarze
 - Spiele Linux für Arcade Schrank
 - Termin Sommerfest
-- Termin Geistfest
+ko - Termin Geistfest
 - Termin: ConDrops
 - Stempel bestellen
 - Griegstraße: Wer muss Bad streichen?
