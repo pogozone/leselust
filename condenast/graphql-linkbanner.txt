@@ -1,0 +1,130 @@
+fragment photoField on Photo {
+    bookMarkedUrl: url
+    altText
+    aspectRatios {
+        name
+        url
+        width
+        height
+        format
+        modifications {
+            crop {
+                height
+                width
+                x
+                y
+            }
+        }
+    }
+    caption
+    contextualBody
+    contextualCaption
+    contextualTitle
+    cropMode
+    credit
+    filename
+    id
+    metadata {
+        contentType
+    }
+    contentWarnings{
+        slug
+    }
+    restrictCropping
+    __typename
+}
+
+query LinkBanner(
+    $organizationId: ID!
+    $type: String
+$id: String
+$uri: String
+) {
+    getLinkBanner(
+        organizationId: $organizationId
+    id: $id
+    uri: $uri
+    type: $type
+) {
+        id
+        hed
+    ... on LinkBannerMarquee {
+            dek
+        }
+        uri
+        source
+        content {
+            results {
+                id
+            ... on Article {
+                    contextualHed
+                    contextualDek
+                    hed
+                    dek
+                    url: uri
+                }
+            ... on ExternalLink {
+                    contextualHed
+                    contextualDek
+                    hed
+                    dek
+                    rubric
+                    url
+                    tout {
+                    ...photoField
+                    }
+                }
+            ... on Gallery {
+                    contextualHed
+                    contextualDek
+                    hed
+                    dek
+                    url: uri
+                }
+            ... on LiveStory {
+                    contextualHed
+                    contextualDek
+                    hed
+                    dek
+                    url: uri
+                }
+            ... on Photo {
+                    contextualHed: title
+                    url
+                }
+            }
+        }
+        categories(taxonomy: "channels") {
+            name
+            slug
+            hierarchy {
+                name
+            }
+        }
+        tout {
+        ...photoField
+        }
+        metadata {
+            contentType
+        }
+        functionalTags {
+            id
+            name
+            slug
+            hierarchy {
+                name
+                slug
+            }
+        }
+        __typename
+    }
+}
+
+{
+    "uri": "tags/christmas-gift-ideas",
+    "organizationId": "4gKgcEoDWriApA1nauzJwNnT7XNz",
+    "type": "bundles",
+    "status": "PUBLISHED"
+}
+
+uri -> bundle uri

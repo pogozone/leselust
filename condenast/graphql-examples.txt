@@ -1,0 +1,45 @@
+
+========
+get the usage of taxonomies
+========
+
+query($organizationId: ID!, $limit: Int, $hierarchies: [String!]) {
+  search(organizationId: $organizationId,
+  filters:{
+    types:[ARTICLE,RECIPE,GALLERY],
+  	hierarchies: $hierarchies
+  }){
+    results (page: 1, limit: $limit) {
+      totalResults
+      edges{
+        node{
+          id
+          __typename
+          ... on Category {
+            slug
+            id
+          }
+          ... on Article {
+            hed
+            id
+          }
+          ... on Gallery {
+            hed
+            id
+          }
+        }
+      }
+    }
+  }
+}
+
+{
+  "organizationId": "4gKgcFGnLeAWdGYFNPRUEtYzbgA4",
+  "limit": 100,
+  "hierarchies": [
+    "verso-settings/article-settings/ContentHeader/variation/SplitScreenImageLeftFullBleed",
+    "verso-settings/gallery-settings/ContentHeader/variation/SplitScreenImageLeftFullBleed"
+  ]
+}
+
+========

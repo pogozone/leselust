@@ -1,0 +1,158 @@
+Using Post-Operation Script in Apollo Studio
+
+URL:
+https://studio.apollographql.com/sandbox/explorer
+
+Sandbox:
+https://nonprod-content.conde.io/graphql
+
+For set up a script go to the post-operation tab at the bottom of the operation area.
+
+You can use plain JavaScript to work with the output of any graphql query.
+For developing and testing you copy the json output of the query to "Mocked Operation Response".
+Then you can access the result by calling 'explorer.response.body'.
+
+For output use console.log()
+
+Write your code and click 'Test script'.
+When you are satisfied with the result, click on ‘Add script’.
+
+Now when you run your query you can see the scripts output at developer tools console.
+
+
+Example:
+
+const response = {
+    "body": {
+        "data": {
+            "search": {
+                "results": {
+                    "totalResults": 66,
+                    "__typename": "SearchConnection",
+                    "edges": [
+                        {
+                            "node": {
+                                "__typename": "Article",
+                                "hed": "Für gesundes Haar schwören Alex Rivière und Cleo Oettingen auf dieses trinkbare Nutraceutical",
+                                "connected": {
+                                    "totalResults": 10,
+                                    "edges": [
+                                        {
+                                            "node": {
+                                                "slug": "SplitScreenImageLeftFullBleed"
+                                            }
+                                        },
+                                        {
+                                            "node": {
+                                                "slug": "OneColumn"
+                                            }
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "__typename": "Article",
+                                "hed": "Der Luxus der Einfachheit: Uniqlo feiert den Saisonstart mit einer minimalistischen Frühjahrs-/Sommerkollektion",
+                                "connected": {
+                                    "totalResults": 7,
+                                    "edges": [
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {
+                                                "slug": "SplitScreenImageLeftFullBleed"
+                                            }
+                                        },
+                                        {
+                                            "node": {
+                                                "slug": "OneColumn"
+                                            }
+                                        },
+                                        {
+                                            "node": {}
+                                        },
+                                        {
+                                            "node": {}
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                    ]
+                }
+            }
+        }
+    }
+}
+
+
+
+const slugs = [
+    'SplitScreenImageLeftFullBleed'
+];
+
+function countSlugOccurrences(response, slugs) {
+
+    let count = [];
+
+    Object.entries(response.body.data.search.results.edges).forEach(([key, value]) => {
+        Object.entries(value).forEach(([key1, value1]) => {
+            Object.entries(value1).forEach(([key2, value2]) => {
+                Object.entries(value2).forEach(([key3, value3]) => {
+                    if (key3 === 'edges') {
+                        Object.entries(value3).forEach(([key4, value4]) => {
+                            Object.entries(value4.node).forEach(([key5, value5]) => {
+                                if (slugs.includes(value5)) {
+                                    console.log('LEVEL 5', `${key5}: ${value5}`);
+                                    console.log('LEVEL 5', `${value5}: ${count[value5]}`);
+                                    count[value5] = count[value5]+1 || 1;
+                                }
+                            });
+                        });
+                    }
+                });
+            });
+        });
+    });
+
+//    console.log('slugs::', slugs);
+    console.log('count::', count);
+    return count;
+}
+//const response = explorer.response;
+const count = countSlugOccurrences(response, slugs);
+console.log('COUNT::', count);
+console.log('SplitScreenImageLeftFullBleed::', count['SplitScreenImageLeftFullBleed']);
