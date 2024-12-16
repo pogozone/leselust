@@ -1,0 +1,11 @@
+Goal: Ensuring scalability and adaptability of Filterable Bundle by improving content mapping
+
+Initial Situation: The Filterable Bundle Page feature can theoretically support all content types but currently struggles to display correct information in the SummaryItem for certain content types, particularly 'business'.
+
+Objective: To create and implement a robust mapping function that ensures a complete and accurate data set is provided for the SummaryItem, starting with the 'business' content type.
+
+Expected Outcome: This mapping function will be extendable to handle additional content types, such as 'restaurant', 'bar', 'activity', 'hotel', and 'ship', ensuring scalability and adaptability for future content updates.
+
+Impact: The new mapping function will improve the user experience on the Bundle Page by delivering accurate SummaryItems. This solution will also support the upcoming redesign of the collage presentation and potentially align with future updates to SummaryItem.
+
+Timeline: The mapping function for 'business' content will be completed by end of november, with further content types added as soon they needed our timeline needs.

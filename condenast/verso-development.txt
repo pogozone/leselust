@@ -1,11 +1,18 @@
+Unit Tests:
+
 run a single test local:
 for transformers:
 npm run test-unit-server [/path/to/test]
 for components:
 npm run test-unit-component [/path/to/test]
 
+new:
+npm run tdd-component -- GlobalNavigation.spec.js
+npm run tdd-component -- GlobalNavigation.spec.js -u
+==============================
+
 to fix some node_module issues:
-nvm use && npm run clean && npm run clobber && npm i
+nvm use && npm run clean && npm run clobber && npm i && npm run dev
 
 clear fastly cache:
 https://interfaces.conde.io/apps/fastlypurge
@@ -104,4 +111,28 @@ Sign In at localhost:
 
 https://local.allure.com:8443/auth/initiate?redirectURL=%2F&source=VERSO_NAVIGATION
 ==============================
+Error:
+getaddrinfo ENOTFOUND id.condenast.com
 
+Solution:
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+...I hope it helps.
+==============================
+resolved config not found
+
+Some approaches:
+
+git stash
+git checkout main
+git pull
+git checkout [branch]
+git merge main
+
+Maybe cleanup the repository:
+git clean -dfx
+
+Logout/Login:
+aws sso logout
+
+And of course:
+nvm use && npm run clean && npm run clobber && npm i && npm run dev

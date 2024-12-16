@@ -1,0 +1,122 @@
+
+
+
+
+Step one
+In preparation, all the necessary components must first be compiled:
+The design team must provide the design and colour tokens for the brand identity.
+The product team must provide information on all links - primary, secondary, identity, journey links.
+
+Step two
+Prepare the configuration files in tenant config:
+- Create config for OneNav: [brand]/channels/navigation/_one-nav.ts
+- Create config for TriggerableContainer: [brand]/channels/navigation/_one-nav-triggerable-containers.ts
+- Import both to [brand]/channels/_default.ts
+
+Step three
+Prepare OneNav in _default.ts
+Write the configuration itself
+
+Step four
+Rollout: multiverso - staging - production
+
+Step five
+Step six
+Step seven
+
+
+
+
+
+OneNav
+
+OneNav is hierachical organised in Areas, Rows and Clickables as well as TriggerableContainers.
+
+Rows
+
+Rows represent a horizontal space that can contain one or more areas. The areas can be right-aligned, left-aligned or centred.
+
+Areas
+
+Areas are spaces that can contain one or more clickables. The clickables can be aligned to the right, left or centred in the area.
+
+Clickables
+
+Clickables are elements that can be clicked and trigger an action:
+- Call up a URL
+- Open or close a TriggerableContainer
+- Open or close an accordion
+A clickable can contain a text, an icon, an image (logo) and an action (link, OnClick event).
+OneNav provides several types of Clickables:
+TextClickable, LogoClickable, JourneyUnits, Accordion, OneNavStickyHeroAd and IdentityUnits
+
+
+TriggerableContainers
+
+A TriggerableContainer is a container element that can contain and wrap any child elements such as:
+- another OneNav
+- third party elements like login, logout or register links
+It can be enabled and disabled by relating links, eg a burger button.
+
+
+
+Link Sources
+1. Primary Links
+2. Secondary Links
+3. Static Links
+
+
+Configuration Files
+
+OneNav
+
+TriggerableContainer
+
+
+Rollout
+
+1. Multiverso
+2. Staging
+3. Production
+
+Design
+
+Design Team provides clean navigation tokens for OneNav:
+
+"navigation": {
+    "active": "color1",
+    "background-primary": "color2",
+    "background-secondary": "color3",
+    "disabled": "color4",
+    "divider": "color5",
+    "focus": "color6",
+    "hover": "color7",
+    "hover-brand": "color8",
+    "item-accent": "color9",
+    "item-brand": "color10",
+    "item-emphasis": "color11",
+    "item-primary": "color12",
+    "item-secondary": "color13",
+    "pressed": "color14",
+    "pressed-brand": "color15"
+}
+
+
+
+      "active": "a3",
+      "background-secondary": "a3",
+      "background-tertiary": "b1",
+      "border": "c2",
+      "disabled": "c3",
+      "divider": "b1",
+      "focus": "a3",
+      "hover": "b3",
+      "hover-brand": "b1",
+      "item-accent": "a3",
+      "item-brand": "a3",
+      "item-emphasis": "a3",
+      "item-primary": "a1",
+      "item-secondary": "a2",
+      "overlay": "b2",
+      "pressed": "b4",
+      "pressed-brand": "pressed",

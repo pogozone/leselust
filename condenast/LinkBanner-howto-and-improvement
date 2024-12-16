@@ -1,5 +1,16 @@
 LinkBanner
 
+How to activate
+
+1. verso
+First step - and thats until now a engineers task - is to activate the LinkBanner in verso tenant config.
+Add this feature to _default.ts:
+enableGqlForLinkBanner: true
+
+2. CoPilot
+To get the LinkBanner options at CuratedList in CoPilot the feature flag enableLinkBanner hast to be activated here:
+https://copilot.condenast.io/gqit/feature-flags
+
 How it works
 
 1. Create a CuratedList
@@ -28,6 +39,23 @@ http://localhost:7777/architectural-digest-middle-east-staging/verso-channel/tes
 2. article
 https://stg-copilot-app.condenast.io/adme/articles/6454dd07331f058208a5c46a
 http://localhost:7777/architectural-digest-middle-east-staging/story/the-celebs-best-recap-moments-of-the-met-2023andnbsp
+
+GQL
+
+query GetArticle($organizationId: ID!, $getArticleId: String) {
+  getArticle(organizationId: $organizationId, id: $getArticleId) {
+    hed
+    linkBanner {
+      id
+      hed
+    }
+  }
+}
+
+{
+  "organizationId": "4gKgcEpw2w2TyiyPvsZYqcEh8EVy",
+  "getArticleId": "66b4e016a58458e4a210a33b"
+}
 
 The Props
 

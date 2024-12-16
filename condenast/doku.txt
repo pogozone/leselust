@@ -2,3 +2,19 @@ Wo Infos zu finden sind
 
 PIM & Content API
 https://cnissues.atlassian.net/wiki/spaces/CPE/pages/15133737614/Integrating+external+content+with+Copilot+Content+API
+
+========================
+
+overview of which content types are used by which brands:
+https://cnissues.atlassian.net/wiki/spaces/EW/pages/15880487701/Content+Type+Availability+by+Brand
+
+For further information ask Sam Baldwin
+
+Possible questions:
+- bundles and bundle types
+- fields and props
+
+========================
+
+
+

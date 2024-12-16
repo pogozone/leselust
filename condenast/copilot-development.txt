@@ -1,3 +1,59 @@
+Start CoPilot Local
+
+1. aws
+
+When it's the first time to start aws authentication you have to configure it:
+
+aws configure sso
+
+SSO session name: aws-us
+
+Answer all following questions with just enter.
+
+Check if this two aws accounts are listed (if not... -> ServiceNow):
+- gp-nonprod
+- eks-tenant-copilot-ro
+
+Later use this to authenticate:
+aws sso login --sso-session aws-us
+
+If that does not work proper try this:
+npm run aws:login
+
+2. prepare environment
+
+Add CoPilot URL to /etc/hosts file:
+
+127.0.0.1 copilot-local.condenast.io
+::1 copilot-local.condenast.io
+
+3. prepare CoPilot
+
+Requirements:
+
+node v16.13.0
+npm v8.6.0
+
+nvm install 16.13.0
+npm install npm@8.6.0 -g
+
+nvm install
+npm login
+npm install --prefer-online
+cp .env.example .env
+
+Edit .env and change line 64 to:
+APOLLO_SCHEMA_REPORTING=false
+
+4. start CoPilot
+
+nvm use && npm ci && npm run start
+
+Call a brands dashboard. eg.:
+http://copilot-local.condenast.io:1234/bon
+...as the overall start page does not work.
+
+===================================================================
 1. create a prerelease
 
 Publishing a Prerelease Version
@@ -44,3 +100,8 @@ feature-flags can be found here:
 
 https://copilot.condenast.io/glmde/feature-flags
 ===================================================================
+Search for a specific bundle type only type this to the search prompt:
+
+bundleType: "Verso Subchannel"
+===================================================================
+

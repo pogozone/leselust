@@ -1,0 +1,236 @@
+TextAboveLeftNoImg
+TextBelowLeftGridWidthCard
+SplitScreenImgLeft
+SplitScreenImgRightContentCenter
+AssetMiddleCenterFullBleed
+
+Allure
+4gKgcEzcAZvqb9t5pcZHNaDvXACy
+SplitScreenImageLeftFullBleed: 46
+
+AD DE
+4gKgcF7DPc9LnReoSYZonec54fqS
+SplitScreenImageLeftFullBleed: 14
+
+AD ES
+4gKgcEuf1pVQRk3GcqKSngLXmBe9
+SplitScreenImageLeftFullBleed: 25
+
+AD IN
+4gKgcFBsEWoyod6ZDxPpx81RaR4R
+SplitScreenImageLeftFullBleed: 2
+
+AD IT
+4gKgcFBAb7qGTv1hzvAA92Lad1UC
+SplitScreenImageLeftFullBleed: 1
+
+AD ME
+4gKgcEoXoZ4UWz8jU21H5dneEM1C
+
+AD MX
+4gKgcFE2oKC3vTPMwfVxz8Hb7qAp
+SplitScreenImageLeftFullBleed: 100
+
+AD US
+4gKgcEwfFP9GHnX9S1tUNoPkZdoV
+
+AD FR
+4gKgcErNbdw5bnx4oijrfDyG8aSv
+
+Bon Appetit
+4gKgcFFoYyWqtAJpQGvhXSjiGT5R
+TextAboveLeftNoImg: 5
+
+Condé Nast Traveler ES
+4gKgcFHBtUoNSHdhLZDNf9Xei8vW
+
+Condé Nast Traveler US
+4gKgcEwKAVNxUrZexgrooyWrpMcR
+SplitScreenImageLeftFullBleed: 17
+
+Condé Nast Traveller Germany
+4gKgcF9XziTQXKWndMKA9afTru5B
+
+Condé Nast Traveller India
+4gKgcErHtGXQNjDqs3o96JPwSR7a
+SplitScreenImageLeftFullBleed: 6
+
+Condé Nast Traveller Middle East
+4gKgcEqEwx3d8jiLPevC3zzU97As
+
+Condé Nast Traveler UK
+4gKgcFDzStyuPk4AcJHpX1Z3TwVr
+SplitScreenImageLeftFullBleed: 1
+
+Epicurious
+4gKgcF6pnhncm3M8T5LwigZHwNYd
+
+Glamour DE
+4gKgcEuUeEdngmauhc5g2fg23HWz
+SplitScreenImageLeftFullBleed: 13
+
+Glamour España
+4gKgcFGuBbGWyiAAnLSMJ3cUimHE
+SplitScreenImageLeftFullBleed: 100
+
+Glamour MX
+4gKgcEoKkhgSCWzFd6XLv5LKskpK
+SplitScreenImageLeftFullBleed: 13
+
+Glamour UK
+4gKgcFDP4UNpkHiYUB34naKr8hT4
+SplitScreenImageLeftFullBleed: 99
+
+Glamour US
+4gKgcEnoNA5tKPnCwDaCmWW3KuNX
+SplitScreenImageLeftFullBleed: 63
+
+GQ Germany
+4gKgcFFYEv8NZjJb8e651u5JnX9C
+SplitScreenImageLeftFullBleed: 100
+
+GQ España
+4gKgcEtx6fmkMraUr5iEhx6zJsq5
+SplitScreenImageLeftFullBleed: 87
+
+GQ France
+4gKgcEz7ELHNYPq91Fdajz32vTbh
+SplitScreenImageLeftFullBleed: 53
+
+GQ India
+4gKgcFAHaLcU6HjSwQYRRWJJt88A
+SplitScreenImageLeftFullBleed: 2
+
+GQ Italia
+4gKgcEt82PDF2a6uWJwc33srC8vw
+SplitScreenImageLeftFullBleed: 100
+
+GQ JAPAN
+4gKgcFEqjoBt37ZQjFG1KMeamMGD
+SplitScreenImageLeftFullBleed: 52
+
+GQ MX
+4gKgcF3cnbR47mCnxiabEcBQM6Bh
+
+GQ Taiwan
+4gKgcFFSgLP6uT2THrANNiqSYyYW
+SplitScreenImageLeftFullBleed: 11
+
+GQ UK
+4gKgcEyA7gQoJUFsbr2fioHUJeep
+SplitScreenImageLeftFullBleed: 6
+
+GQ US
+4gKgcEsTcGt6aHp4Bmme7bUhqJjS
+SplitScreenImageLeftFullBleed: 5
+
+House & Garden
+4gKgcF7wNv1KbEuZQTJrJboMSsgv
+SplitScreenImageLeftFullBleed: 5
+
+La Cucina Italiana
+4gKgcFApNu574jRPFpLttqWxfReM
+
+Pitchfork
+4gKgcFE8Pkt1xb8F8VD54FMMMunM
+
+Self
+4gKgcF6nVvtKX5y2VznaJcDBuD47
+SplitScreenImageLeftFullBleed: 23
+
+Tatler
+4gKgcEn1UWvRw4NpGrgozyWW8HMj
+
+Teen Vogue
+4gKgcEy8vfp63M8AMQ9WnqWc9Min
+
+The New Yorker
+4gKgcFDnpSvUqozcC7TYUEcCiDJv
+SplitScreenImageLeftFullBleed: 100
+
+Them
+4gKgcF1jP2RH6ACCMiyhhyUNntrz
+SplitScreenImageLeftFullBleed: 35
+
+Vanity Fair ES
+4gKgcF5E3pdJvMju8RCurdRA1Zz9
+SplitScreenImageLeftFullBleed: 2
+
+Vanity Fair FR
+4gKgcFC8wZLPuVx6oercXTFVTnHU
+SplitScreenImageLeftFullBleed: 12
+
+Vanity Fair Italia
+4gKgcFHn3TmqKPbi8UfYbxugWeZm
+SplitScreenImageLeftFullBleed: 19
+
+Vanity Fair US
+4gKgcExWVbtxQKpGvgwhWNaTTr3V
+SplitScreenImageLeftFullBleed: 100
+
+Vogue Business
+4gKgcF97qB1zJEDhJQud7Ns5mVfr
+
+Vogue Germany
+4gKgcFGnLeAWdGYFNPRUEtYzbgA4
+SplitScreenImageLeftFullBleed: 66
+
+Vogue España
+4gKgcErD84i1cLe5MJbK5a9rTmqT
+SplitScreenImageLeftFullBleed: 70
+
+Vogue India
+4gKgcFGHWnVQmpPXpEJskFv5f6AV
+SplitScreenImageLeftFullBleed: 15
+
+Vogue Italia
+4gKgcF8zDaAdahhJpU4xjxwp6vRj
+SplitScreenImageLeftFullBleed: 100
+
+Vogue Japan
+4gKgcF1u2XMWTnit3RNXyKf5YBF4
+SplitScreenImageLeftFullBleed: 85
+
+Vogue MX
+4gKgcEnmhE2E85tPDqmPk2N2rk3C
+SplitScreenImageLeftFullBleed: 5
+
+Vogue France
+4gKgcFBMo6E3SZkX1FLLaEdoQuWW
+SplitScreenImageLeftFullBleed: 20
+
+Vogue Taiwan
+4gKgcF484y3TskBHK8x5Jb35bng4
+SplitScreenImageLeftFullBleed: 82
+
+Vogue UK
+4gKgcEoDWriApA1nauzJwNnT7XNz
+SplitScreenImageLeftFullBleed: 18
+
+Vogue US
+4gKgcErsy9d7RdbkfDjCvzkRF36J
+SplitScreenImageLeftFullBleed: 99
+
+Wired ES
+4gKgcF6AxkSNZa2P9CvJQvmwbSfi
+SplitScreenImageLeftFullBleed: 25
+
+Wired Italia
+4gKgcF821kBPu6888LCFuEcZSUJ6
+SplitScreenImageLeftFullBleed: 1
+
+Wired JP
+4gKgcF4ZxJuwB7Qp6fJfJmj9cL71
+SplitScreenImageLeftFullBleed: 52
+
+WIRED UK
+4gKgcEyYJC2YJxdy4y18ddBuex2Z
+SplitScreenImageLeftFullBleed: 3
+
+Wired US
+4gKgcErvvpkwWft3fSWg7c2niGQB
+SplitScreenImageLeftFullBleed: 41
+
+World Of Interiors
+4gKgcF9Cik6qJgVSPKCGucxjnbFy
+SplitScreenImageLeftFullBleed: 21
