@@ -16827,6 +16827,13 @@ Rege mich am Donnsertag zusammen mit Christoph Süss und quer über allmögliche
 Ich lasse mir von Harald Lesch gerne Welt und Kosmos erklären.
 Ich schaue mir gerne die eine oder andere Serie in der Mediathek an.
 Ich staune gelegentlich über alte Schinken im Programm von Arte oder 3Sat.
+Manchmal eine Doku hier oder ein Politmagazin da. Bin hin und wieder mit Gernstl unterwegs oder schaue mir de Dinner for One zum 1032sten Mal an.
+Alles ohne Werbung.
+Nein, Stefan, ich fühle mich nicht abgezockt. Dafür zahle ich gerne 18,36 € im Monat.
+
+Dem gegenüber stehen zum Beispiel 4,99 € für Netflix um einmal die Woche deren Angebot durchzugehen und irgend einen Quatsch mit Werbung anzusehen. Das finde ich ärgerlich.
+
+
 
 
 
@@ -16838,6 +16845,252 @@ Today I did some support
 ...and will now check the status of my tickets.
 
 
+About this carousel thingy:
+https://condenast.slack.com/archives/C02H5HCSQ94/p1733755695558549
+
+I takled yesterday with Tobi and we came to the conclusion te cannot and must not review such PRs because:
+We don't know where the voyage is going.
+We will be annoyed if all that comes out of it is another dysfunctional carousel.
+We don't have enough background knowledge about the project.
+
+Please talk to Tobi before you proceed with
+
+
+Ich habe (einmal mehr) einen typischen Condé Nast Schwachsinn gefunden:
+
+Hier in der ContributorBox am Ende des Artikels sind die SocialIcons mal so richtig daneben:
+https://www.gq-magazin.de/artikel/black-friday-2024-ninja-creami-eismaschine
+
+Hier hingegen sehen sie gut aus, werden alle dargestellt und - on Top - sie funktionieren sogar:
+https://www.gq-magazin.de/autoren/helena-ziogas
+
+Klar, dass man das nicht so lassen kann... und wenn ich frage, wer dafür zuständig ist, ist die Antwort: Wir.
+Gut. Schreibe ich also ein entsprechendes Bug Ticket. Oder gibt es doch jemand anderes, den wir damit beauftragen können?
+
+
+In der ContributorBox im Artikel sind die Social Links fehlerhaft:
+https://www.gq-magazin.de/artikel/black-friday-2024-ninja-creami-eismaschine
+
+- Das Design ist gebrochen
+- Die Links sind falsch
+- Die Anzahl der Links stimmt nicht
+
+Auf der Contributor Seite funktionieren die Links und können als Vorbild genommen werden:
+https://www.gq-magazin.de/autoren/helena-ziogas
+
+
+You should have received a mail with this subject:
+Ihre Wahleinladung: Kulturratswahl 2024
+
+The Cultural Council is our employee representative body here in Munich. It takes care of issues that concern us and our office. If you have problems with your manager, HR or other colleagues and don't know how to solve them, you can turn to the Cultural Council.
+
+And Nina has put herself forward this time. So take part in the election and give her your vote so that our team is represented there :-) (Election promotion off)
+
+
+
+Regarding your PR:
+https://github.com/CondeNast/verso/pull/29666/files
+
+I have two questions I don't want to discuss them at GitHub so I ask you here:
+
+Most of our components use hed or dangerousHed as this is the term we get from copilot.
+Why do you choose title? And why do you translate it back to dangerousHed here: DynamicCarouselHeader.js
+https://github.com/CondeNast/verso/blob/f8411707e0b72c0f8ed3d9b650608ac4fd533602/src/components/patterns/dynamic-carousel/DynamicCarouselHeader.js#L238
+
+verso-plp-filterable-feature in copilot contains a dek. I can't find it in the carousel component. Has it been forgotten?
+
+
+Der Footer hat nur 15 props.
+Und der header kommt mit gerade einmal 9 props aus.
+
+
+You mix up the prefixes in a way that is not easy for me to understand:
+hasTopBorder
+hasBottomBorder
+hideScrollbar
+hasFilters
+hasPaginationDots
+showControls
+showLabels
+showSlideshow
+
+Why not working with just one prefix:
+hasTopBorder
+hasBottomBorder
+hasScrollbar
+hasFilters
+hasPaginationDots
+hasControls
+hasLabels
+hasSlideshow
+
+
+====
+Lass es mich so ausdrücken: In reine Programmierangelegenheiten soll sich das Design Team nicht einmischen.
+Wir bekommen von copilot eine Variable mit dem Namen dangerousHed geliefert.
+Ob wir diese Bezeichung gelungen finden oder nicht, spielt erst einmal keine Rolle.
+Im Folgenden werden wir mit dem Namen arbeiten und ihn nicht anfassen, es sei denn, es gibt wirklich zwingende Gründe.
+Weil das Design Team dangerousHed für keinen guten Namen hält, ist kein zwingender Grund.
+Ich bin dem etwas weiter nach gegangen und bin auf Dinge gestossen, die auf der einen Seite aufzeigen, was ich meine und das wir auf der anderen Seite unbedingt korrigieren müssen.
+
+Hier wird dangerousHed als dangerousHed übergeben:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/verso-features/VersoFeatures.js#L382
+
+Ein paar Zeilen weiter unten wird dangerousHed noch einmal übergeben.
+Dazu wird - und das ist fürchterlich - dangerousHed erst einmal in carouselTitle umbenannt und dann als title übergeben:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/verso-features/VersoFeatures.js#L406
+
+Das führt zu maximaler Verwirrung.
+Jetzt ist mir auch klar, warum du mit title anstatt dangerousHed arbeitest. Nachdem in letzter Konsequent dann aber das HeaderSectionTitle Template wieder dangerousHed erwartet bringt es keinen Mehrwert, diese Variable drei Mal umzubenenen.
+
+Meine Empfehlung:
+Ignoriere 'title' und arbeite mit 'dangerousHed'.
+Gilt auch für VersoFilterableSummaryList.
+
+
+Wenn das design Team oder sonst wer Fragen dazu hat oder nicht einverstanden ist, kannst du sie gerne an mich verweisen.
+
+
+Let me put it this way: The design team should not interfere in pure programming matters.
+We receive a variable with the name dangerousHed from copilot.
+Whether we like this name or not is irrelevant for now.
+In the following, we will work with the name and not touch it unless there are really strong reasons.
+Because the design team doesn't think dangerousHed is a good name is not a strong reason.
+I looked into this a little further and came across things that show what I mean on the one hand and that we absolutely have to refacture on the other.
+
+Here dangerousHed is passed off as dangerousHed:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/verso-features/VersoFeatures.js#L382
+
+A few lines further down, dangerousHed is passed again.
+To do this dangerousHed is first renamed to carouselTitle and then passed as title:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/verso-features/VersoFeatures.js#L406
+
+This leads to maximum confusion.
+Now I also realise why you work with title instead of dangerousHed. However, since the HeaderSectionTitle template expects dangerousHed again in the final consequence, there is no added value in renaming this variable three times.
+
+My recommendation:
+Ignore ‘title’ and work with ‘dangerousHed’.
+This also applies to VersoFilterableSummaryList.
+
+If the design team or anyone else has any questions or disagrees, feel free to refer them to me.
+====
+
+
+Und auch zum Thema dangerousDek muss ich noch etwas los werden:
+
+Es ist nun einmal so, dass wir con copilot daten bekommen, ob wir wollen oder nicht. Und mit diesen Daten müssen wir etwas anfangen, ob wir wollen oder nicht. Wenn eine Komponente also ein dangerousDek hat, dann müssen wir das im Template berücksichtigen. Wir können nich sagen, ach lass mal, darum kümmern wir uns irgendwann später.
+
+Denn dann wird irgend jemand anderes kommen und das Feld nach gutdünken irgendwie einsetzen und damit sehr viel Schaden anrichten, weil die Komponente von einem Moment auf den anderen für viele Marken nicht mehr funktioniert.
+
+Daher haben wir eine feste Regel aufgestellt:
+1. Wenn es ein Feld in copilot gibt, geben wir das in verso auch aus.
+2. Wenn nichts ausgegeben werden soll, dann soll in das Feld eben auch nichts hinein geschrieben werden.
+3. Zähneknirschend können wir ein prop etablieren, mit dem das Feld unterdrückt wird.
+
+Und auch hier gilt:
+If the design team or anyone else has any questions or disagrees, feel free to refer them to me.
+
+
+Jetzt noch zu etwas ganz anderem:
+Suren ist ein sehr strenger Lehrmeister. Aber es lohnt sich, ihm zu folgen, denn man kann sehr viel von ihm lernen.
+
+
+
+I have a question about the verso-plp-filterable-feature component.
+I created three of them within this page:
+https://multiverso.allure.com/?branch=testing-newCarousel
+https://stg-copilot.condenast.io/all/bundles/5c9ba9c5665f526972228e6e
+
+The first with only products.
+The second with only articles.
+The third with mixed content.
+
+The effect:
+The first does not appear.
+The second looks pretty right.
+The third does weird things.
+
+So my question:
+Is it my bad because I added content types that are now allowed?
+Or is it a quite buggy behavour and should be fixed?
+
+
+Right thus?
+
+SELF
+
+homepage:
+https://multiverso.self.com/?branch=LS4-1117
+channel:
+https://multiverso.self.com/food?branch=LS4-1117
+article:
+https://multiverso.self.com/story/apple-black-friday-deals-12-2-2024?branch=LS4-1117
+
+THEM
+
+homepage:
+https://multiverso.them.us/?branch=LS4-1116
+channel:
+https://multiverso.them.us/answers-and-advice?branch=LS4-1116
+article:
+https://multiverso.them.us/story/bowen-yang-cover-story-saturday-night-live-chappell-roan-sketch-wicked-wedding-banquet?branch=LS4-1116
+
+
+1. Disable Link Banner for tenant in code
+2. Update all links on Verso Settings (NO PUBLISH)
+3. Merge PR and publish Verso Settings at the same time
+4. When deployed, purge cache in Interfaces and QA
+
+
+Now I took care about your comments:
+https://cnissues.atlassian.net/wiki/spaces/LIF/pages/16397467689/OneNavigation+-+Setup+Guide
+...and either I resolved it or added my comment to yours.
+Please have a view.
+
+
+frontend masters
+
+Here you can see Channel and Kicker are "Real Estate":
+
+https://copilot-app.condenast.io/ad/articles/6745fce4ccd3ffd6f6e7fb78
+https://www.architecturaldigest.com/story/your-new-house-comes-with-an-instagram-and-it-may-cost-you
+
+At the moment I don't know what happens in the background.
+
+
+Hi there,
+
+exists a way to show an unpublished article somehow in verso on local?
+
+Ich habe ein Template in dem steht:
+const { OneCoverWrapper } = require('./style');
+
+Und ich habe eine style Datei, in der steht:
+
+const OneCoverWrapper = styled.header.withConfig({
+    displayName: 'OneCoverWrapper'
+})``;
+
+
+module.exports = {
+    OneCoverWrapper
+};
+
+Und ich bekomme den Fehler:
+Cannot redeclare block-scoped variable 'OneCoverWrapper'.
+
+
+
+
+TODO:
+- Weihnachten
+- Was essen am 30.12.
+ok - Geschenk Janik
+ok - Geschenk Verena
+ok - Geschenk Alex
+ok - Newsletter Donnerbräu
+- Geburtstagsorga
+
 
 
 ===============================================
@@ -16848,6 +17101,9 @@ https://github.com/CondeNast/verso/pull/29680
 
 OneNav for them:
 https://github.com/CondeNast/verso/pull/29807
+
+OneNav for self:
+https://github.com/CondeNast/verso/pull/29847
 ===============================================
 
 
