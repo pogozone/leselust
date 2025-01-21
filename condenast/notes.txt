@@ -17080,7 +17080,177 @@ Und ich bekomme den Fehler:
 Cannot redeclare block-scoped variable 'OneCoverWrapper'.
 
 
+Just for understanding.
 
+Why do you add 'theme' here:
+https://github.com/CondeNast/verso/blob/8f637c690fa691f47f712f7ab46d868465395191/src/components/compositions/one-nav/types/types.ts#L25
+
+And remove it here:
+https://github.com/CondeNast/verso/blob/8f637c690fa691f47f712f7ab46d868465395191/src/components/compositions/one-nav/components/OneNav/OneNav.tsx#L10
+
+Instead of adding it here:
+https://github.com/CondeNast/verso/blob/8f637c690fa691f47f712f7ab46d868465395191/src/components/compositions/one-nav/components/OneNavEnvironment/OneNavEnvironment.tsx#L14
+
+
+Are you sure that the caption and the credit should be set detached from the image in the middle of nowhere?
+My - admittedly not very pronounced - aesthetic sense feels a little uncomfortable with this.
+
+
+Ich habe ein Template, dem ich ein snippet 'MobileTextLeft' mitgebe:
+<OneCoverTextWrapper
+    snippet='MobileTextLeft'
+/>
+
+Wie muss das styled-component aussehen, damit MobileTextLeft in OneCoverWrapper aufgerufen wird:
+export const OneCoverWrapper = styled.header.withConfig({
+  displayName: 'OneCoverWrapper'
+})`
+`;
+
+export const MobileTextLeft = css`
+    background: green;
+`;
+
+${MobileTextLeft}
+
+
+
+Mostly that happens because the CuratedList and the ExternalLink have the same title.
+The title of the CuratedList is displayed as is.
+The title of the ExternalLinks is displayed as a link.
+Now there are some strategies to deal with it:
+
+The two titles are chosen so that they complement each other in a meaningful way. For example:
+Title CuratedList: ‘You can find the great offers:’
+Title of the ExternalLink: ‘Here on GQ’
+
+Hide the title of the CuratedList by tenant config:
+LinkBanner: {
+  settings: {
+    hideMarqueeHed: true,
+  }
+}
+As it is done for the channel "fashion".
+
+I created an example where you can see solution 2:
+https://stag.gq.com.tw/fashion/content-40844-1
+https://stg-copilot-app.condenast.io/gqtw/articles/5db5054739362b0008d3e43f
+https://stg-copilot-app.condenast.io/gqtw/externallinks/66bc730a8c677699b1301633
+
+
+Nachdem ich dieses 8x8 weder selbst installiert habe, noch weiß, wozu das gut ist, frage ich mal nach:
+Ist das ein Update, das ich machen soll?
+Warum wird das nicht, wie vieles andere, automatisch gemacht?
+
+
+
+
+Willst du die einfache Antwort? Oder die ausführliche?
+
+Die einfache Antwort wird dich nicht zufrieden stellen...
+Und die Ausführliche eventuell den Tag verderben...
+
+Also die einfache: Es geht halt nicht.
+
+Die ausführliche:
+Es gibt Marken, die haben den Contributor Typ 'writer' und es gibt Marken, die haben den Typ 'author'. Contributoren, die einem der beiden Typen haben, werden standardmässig mit dem ShowContributor Template angezeigt.
+Und es gibt eine Marke, die nutzt ganz andere Typen. Die Marke - das hast du sicher selbst erraten - ist Vanity Fair und die Typen sind 'director' und 'stylist'. Beide Typen können von ShowContributor nicht ausgegeben werden. Dafür gibt es einen speziellen Weg über ContributorSpotlight. ContributorSpotlight nimmt allerdings den ersten auffindbaren Contributor und verwirft alle anderen.
+
+
+But in the other example both titles are the same:
+
+CuratedList:
+https://stg-copilot-app.condenast.io/gqtw/curatedlists/66bc737396fb36dfc9b99a37
+ExternalLink:
+https://stg-copilot-app.condenast.io/gqtw/externallinks/66bc730a8c677699b1301633
+
+
+
+Leut, ihr macht's mich fertig...
+
+I used LayoutType.VERTICAL for OneNav but someone removed it from LayoutType:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/one-nav/types/enums.ts#L34
+
+So I get an error:
+https://github.com/CondeNast/verso/actions/runs/12395401812/job/34601116014?pr=29847
+
+@suren can you tell me wich type I should use instead?
+
+Mit Hauptgärung, Nachgärung und Kaltreifung würde ich für die Summer Breeze den 8. Februar oder später anvisieren.
+Da wir aber aller vorraussicht knapp an Bier sein werden... wird das Bier wahrscheinlich - wie von dir vermutet - schon am 25. Januar in den Ausschank kommen.
+
+
+Desweiteren ( nur für meine Planung ) würde ich sehr gerne wissen wann das am Samstag von uns gebraute Summerbreeze zum Ausschank kommt ( 25.01??). Ich könnte am
+18.01 gerne wieder mitbrauen, da ich am 11.01 verhindert bin. Am
+16.02 würde bei mir auch gehen. Ansonsten braue ich auch gerne mal unter der Woche mit.
+
+
+
+
+Guys, I would like to thank you all.
+
+I wouldn't have got through the year without you and your encouraging words, your support and your energetic help. If you hadn't stood by my side when I was once again on the edge of desperation.
+
+Andre Cabrera
+Ian Kibble
+Francis Devinney
+Tim Smith
+Rakshita Asileti
+Norman Villatoro
+Cia Bernales
+Horst Lehner
+Connor Brannigan
+Bach Bui
+Manthan Raut
+Nate Laws
+Günter Worsch
+Areti Micha
+Priyanka Sunda
+Ilyas Tamim
+
+...and who else I have forgotten.
+
+I'm looking forward - and very excited - to next year. And I would be very happy to work with you again next year to make Verso a little bit better. To learn from you, to laugh with you and to make the madness of this world a little more bearable.
+
+And I would especially like to thank my team, who guide me through the dark days and with whom I can laugh on the light days.
+Who I can learn from and with. Every day I can take a small step forward, sometimes a big one, both personally and professionally.
+
+Marylou Alvarez
+Nina Ziermann
+Gapur Evloev
+Noman Syed
+Suresn Eskandarpour
+Elena Unianina
+Tobias Bulla
+
+And I'm looking forward to talking shop with Klara about fermentation, drinking a Negroni with Marc and maybe listening to Alex play his guitar and sing again.
+
+
+
+
+
+
+Andre Cabrera
+Ian Kibble
+Francis Devinney
+Tim Smith
+Rakshita Asileti
+Norman Villatoro
+Cia Bernales
+Horst Lehner
+Connor Brannigan
+Bach Bui
+Manthan Raut
+Nate Laws
+Areti Micha
+Priyanka Sundar
+Marylou Alvarez
+Nina Ziermann
+Gapur Evloev
+Noman Syed
+Suresh Eskandarpour
+Elena Unianina
+Tobas Bulla
 
 TODO:
 - Weihnachten
@@ -17091,6 +17261,372 @@ ok - Geschenk Alex
 ok - Newsletter Donnerbräu
 - Geburtstagsorga
 
+Hi Priyanka,
+as I was on vacation until today my answer is a bit late:
+No I didn't use any tool 'cause I wanted to learn how this works.
+And because of verso is verso there are always some custom things where I'm pretty sure no tool and no AI can deal with.
+
+
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+      display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+
+    > * {
+    grid-column: span 6;
+  background-color: #f0f0f0;
+  padding: 16px;
+  }
+
+Wenn der Link:
+#Afrika%20und%20der%20Nahe%20Osten
+
+nicht mit der ID:
+Afrika
+
+übereinstimmt... dann kann das natürlich nicht funktionieren.
+
+
+Hi Anthony,
+long time no see...
+We've realized that there are some (maybe a lot of) links to not existing tag pages on Traveller Germany.
+Some examples:
+https://www.cntraveller.de/tag/editorial-features
+https://www.cntraveller.de/tag/osterreich
+https://www.cntraveller.de/tag/deutschland
+Is that already well known?
+Or does it not matter?
+
+
+Hi team,
+please have a first view at my PR about the new OneCover:
+https://github.com/CondeNast/verso/pull/30078
+
+...and let me know if we can go this way or whether I need to fundamentally change my approach.
+
+
+        ${OneCoverPublishDate} {
+            text-align: right;
+            width: 100%;
+        }
+        ${OneCoverRubric} {
+            text-align: right;
+            width: 100%;
+        }
+
+
+const getVariantMobile = (variant?: string) => {
+  switch (variant) {
+    case 'MobileTextLeft':
+      return css`
+        text-align: left;
+        padding: 32px;
+      `;
+    case 'MobileTextCenter':
+      return css`
+        text-align: center;
+      `;
+    case 'MobileTextRight':
+      return css`
+        text-align: right;
+      `;
+    default:
+      return css`
+        text-align: left;
+      `;
+  }
+};
+
+
+TODO:
+- Glint
+- Check variants of OneCover
+- Wired & Kyle
+- Plant Game
+
+9:40
+10:00
+
+Wenn du dich dann durch die Flut an Mails und Slack Messages gekämpft hast, würde ich mich freuen, wenn du dir diesen PR anschauen könntest:
+https://github.com/CondeNast/verso/pull/30078
+
+
+This is the ticket about wired font and BI:
+https://cnissues.atlassian.net/browse/LS4-1152
+
+And here you can see the differences when I take the BI file from the ticket:
+https://github.com/CondeNast/verso/pull/30098/files#diff-c429ac4a8f07c5f283b53cfc38d64a0db9a0f0c82d8a810ea555821ac72426c6
+
+If you have any idea it would be appreciated.
+If not we have to wait 'till after Kyles first coffee.
+
+
+This is the ticket about wired's font and BI:
+https://cnissues.atlassian.net/browse/LS4-1152
+
+And here you can see the differences if I take the BI file from the ticket:
+https://github.com/CondeNast/verso/pull/30098/files#diff-c429ac4a8f07c5f283b53cfc38d64a0db9a0f0c82d8a810ea555821ac72426c6
+
+If you have any ideas, I'd be grateful.
+If not, we'll have to wait until after Kyle's first coffee.
+
+
+Might this be a good approach?
+
+export NODE_OPTIONS="--max-old-space-size=4096"
+start-storybook -p 6006 -c .storybook
+
+
+Es ist zum Mäusemelken....
+Da sucht man stundenlang nach der entscheidenden Stelle, um sich ausgeben zu lassen, warum was nicht funktioniert. Und in dem Moment, in dem man die Stelle gefunden hat, kackt die API ab. Ich könnte heulen.
+
+It’s so freaking infuriating...
+You spend hours hunting down the crucial spot to figure out why something's not working, and just when you find it, the damn API craps out. I could cry!
+
+This is so fucking maddening...
+You spend hours digging through shit trying to find the one spot to figure out why it's broken, and the second you find it, the goddamn API shits the bed. I could fucking scream!
+
+
+Vielen Dank für die Frage... jetzt habe ich einen Knoten im Kopf und brauche wieder Stunden, bis ich den raus bekomme.
+Die Bedingung für "Trending Video" ist - und das sollten wir uns irgendwo aufschreiben - folgende:
+
+Der Artikel muss mindestens eine Definierte Menge (3) an Elementen haben.
+Das aktuelle Element muss mehr als 80 Zeichen enthalten und das folgende Element muss vom Typ "p" sein.
+
+Diese beiden Bedingungen werden beim "Yellowstone" Artikel erfüllt. Beim "Fashion Wekk Debut" Artikel nicht.
+
+
+height: calc(100vh - ${CHANNEL_NAV_MAX_HEADER_HEIGHT_MD});
+
+
+Ich brauche mal Eure Hilfe:
+
+Der neue "OneCover" ContentHeader soll 100% des ihm zur Verfügung stehenden Platzes einnehmen.
+Suren hat ganz richtig angemerkt, dass es 100vh nicht sein kann, weil sich OneCover ja den sichtbaren Bereich mit der Navigation (OneNav und was es noch alles gibt) teilen muss.
+Habt ihr eine Idee, wie ich den für OneCover verfügbaren Bereich berechnen kann?
+
+Vielleicht irgendwie so:
+height: calc(100vh - ${WHATEVER_NAVIGATION_IS_ACTIVE});
+
+Und wie komme dann ich an WHATEVER_NAVIGATION_IS_ACTIVE?
+
+document.querySelector("nav"),getBoundingClientRect().height
+
+height: calc(100vh - ${document.querySelector("nav"),getBoundingClientRect().height});
+
+Bei diesem Aufruf:
+
+const height = document.querySelector('nav')?.getBoundingClientRect().height ?? 0;
+
+Bekomme ich diesen Fehler:
+
+ReferenceError: document is not defined
+
+Was muss ich tun?
+
+Ich übergebe headerHeight:
+
+<OneCoverWrapper $variation={variation} $headerHight={headerHeight}>
+
+Was muss ich tun, damit das funktioniert:
+
+export const OneCoverWrapper = styled.div.withConfig({
+  displayName: 'OneCoverWrapper'
+})`
+    height: calc(100vh - ${(props) => props.$headerHight}px);
+`;
+
+
+Es handelt sich um TypeScript.
+Und: props.$variation funktioniert, props.$headerHeight nicht.
+Warum?
+
+export const OneCoverWrapper = styled.div.withConfig({
+  displayName: 'OneCoverWrapper'
+})`
+  ${minScreen(BREAKPOINTS.lg)} {
+    height: calc(100vh - ${(props) => props.$headerHeight}px);
+  }
+
+  ${(props) => VARIATION_MAP[props.$variation]()};
+`;
+
+http://0.0.0.0:8000/pitchfork/best/
+https://multiverso.pitchfork.com?branch=p4k-review-sectiontitle
+
+Wie erhalte ich bei SSR die Höhe eines HTML Objekts? Im engeren Sinne von <nav>(some unknown content)</nav>
+
+It always hurts when you have about 60 lines of clean code and then you have to add another 20 lines just for one unnecessary extra feature...
+
+
+> * {
+  display: inherit;
+}
+
+
+===
+Ok... So the detailed explanation:
+The bio text is split into individual words using spaces. Then the words are glued together again up to a wordLimit and a read more link is added.
+
+Since the text is Markdown and Markdown contains spaces that separate not only words but also instructions, it can happen that - how shall I describe it - nonsense happens.
+
+In the case of Perrie Samontin, the read more link that is generated looks like this:
+
+[Katie Holmes](https://www.glamour.com/story/katie-holmes-cover-story){:... [Read more](/contributor/perrie-samotin)
+
+The last curly bracket is swallowed up by the Markdown parser in the frontend... and it cuts off everything that follows.
+===
+
+// segmentedSources are required renditions to display the lede image by ResponsiveAsset
+const segmentedSources = mapSourcesToSegmentedSources(lede.sources);
+
+Can someone explain me what this error comes from and how to fix it:
+
+Development/verso/node_modules/@condenast/commerce-tools/graphql/fetch-graphql-data.js:28
+    const { data: { access_token: token, expires_in: expiresIn } } = await fetchAuthToken(options);
+                                  ^
+TypeError: Cannot read properties of undefined (reading 'access_token')
+
+...or is it just one more "stop verso - pull and merge main - start verso" issue?
+
+
+
+No I have changed a lot and added some comments:
+https://github.com/CondeNast/verso/pull/30078
+
+I would be grateful if you could take another look at the PR.
+Especially
+
+
+
+npm run test-unit-component -- -u src/components/templates/review-page/ReviewPage.spec.js
+
+const fixture = {
+  lede: {
+    sources: basePageFixture.lede.segmentedSources,
+    sourcesTest: basePageFixture.lede.segmentedSources,
+//    ...squareLedeFixture.lede
+  },
+//  ...squareLedeFixture
+}
+
+//console.log('::', );
+console.log('squareLedeFixture::', squareLedeFixture);
+console.log('squareLedeFixture::', squareLedeFixture.lede.segmentedSources);
+console.log('fixture::', fixture);
+
+And a question for all my engineers:
+Here I have a test with the npm module ‘html-react-parser’:
+https://github.com/CondeNast/verso/pull/30133
+
+Why this? Because I've heard a lot of yammering in recent years about the dangerousHTML thingy and that we shouldn't use it.
+
+Yesterday I had a discussion with Gapur and as a result I created this test-PR.
+
+What do you think?
+Should we use it?
+Should we suggest it to our verso family?
+
+@Gapur I tested all three modules we spoke about: 'react-markdown', 'dompurify' and 'html-react-parser'. 'html-react-parser' is the only one that works out of the box and has - as far as I can see - not side effects.
+
+
+
+
+https://multiverso.architecturaldigest.com/?branch=fix-ad-logos?branch=fix-ad-logos
+https://multiverso.architecturaldigest.com//story/72-hours-in-joanna-gainess-waco?branch=LS4-1111
+
+At the moment I'm not able to reach any channelpages on AD US staging.
+I get different error pages:
+
+https://stag.architecturaldigest.com/celebrity-style
+-> 500
+https://stag.architecturaldigest.com/clever
+-> 503
+https://stag.architecturaldigest.com/real-estate
+-> 504
+https://stag.architecturaldigest.com/architecture-design
+-> 504
+https://stag.architecturaldigest.com/culture-lifestyle
+-> 200 ... but Oops
+https://stag.architecturaldigest.com/adpro
+-> 502
+
+Can someone have a view what happens there?
+Thank you.
+
+
+
+I rebased my branch:
+git checkout main
+git pull
+git checkout LS4-1111
+git rebase
+git push
+...and now I have about 130 changed files that I didn't in my PR:
+https://github.com/CondeNast/verso/pull/30078/files
+I'm pretty sure thats not what it should do.
+What did I wrong?
+And - even more important - how can I get this fixed?
+@nvillato
+
+72
+374
+277
+64
+
+
+
+grid-template-rows: 1fr max-content;
+
+
+http://localhost:7777/vogue-staging/verso-channel/fashion-shows
+
+First call:
+ERROR [15:15:25.601] (workflow/57504): GraphQL failed due to network error: This operation was aborted
+
+Second call (reload):
+
+
+
+
+Folgende Aufgabe:
+
+Ein in Markdown geschriebener Text soll in JavaScript nach 50 Wörtern abgeschnitten werden. An den Text soll am Ende ein Read More Link angefügt werden. Dabei darf natürlich weder das Markdown zerstört werden, noch darf fehlerhaftes HTML erzeucht werden.
+
+Insbesondere darf so etwas nicht vorkommen:
+
+[Some Text](https://www.glamour.com/story/path-to-something){:... [Read more]
+
+
+(\[.*?\]\(.*?\)\{.*?\}
+(\[.*?\]\(.*?\)\{.*?\}
+
+Ich habe einen gemischten Array mit Wörtern und Satzzeichen. Der Array soll zu einem String zusammengefügt werden, bei dem zwischen Wörtern ein Leerzeichen steht. Wenn ein Satzzeichen auf ein Wort folgt jedoch nicht.
+
+
+Ich denke, der Fehler entsteht hier:
+https://github.com/CondeNast/verso/blob/main/src/transformer-helpers/contributors.ts#L263
+...und hat nichts mit dem MarkdownParser zu tun. Denn die Funktion getCutOffBio erzeugt korruptes Markdown. Entsprechend kann der MarkdownParser nicht funktionieren.
+Mein Ansatz liefert wenigstens kein kaputtes Markdown.
+
+
+I have some questions:
+1. Why do they use the old and deprecated content type 'Sub Channel'
+2.
+
+I'm not able to authenticate for the staging copilot:
+https://stg-auth.condenast.io/login
+
+Can anyone here help me?
+Or tell me in which channel I can get help?
 
 
 ===============================================

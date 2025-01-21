@@ -136,3 +136,8 @@ aws sso logout
 
 And of course:
 nvm use && npm run clean && npm run clobber && npm i && npm run dev
+==============================
+run storybook local:
+nvm use
+NODE_OPTIONS="--max-old-space-size=8192" npm run storybook
+
