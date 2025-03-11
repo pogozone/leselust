@@ -1,130 +1,93 @@
-fragment photoField on Photo {
-    bookMarkedUrl: url
-    altText
-    aspectRatios {
-        name
-        url
-        width
-        height
-        format
-        modifications {
-            crop {
-                height
-                width
-                x
-                y
-            }
-        }
-    }
-    caption
-    contextualBody
-    contextualCaption
-    contextualTitle
-    cropMode
-    credit
-    filename
-    id
-    metadata {
-        contentType
-    }
-    contentWarnings{
-        slug
-    }
-    restrictCropping
-    __typename
-}
+I have an issue with a query for LinkBanners / CuratedLists.
+
+
+https://studio.apollographql.com/sandbox/explorer
 
 query LinkBanner(
-    $organizationId: ID!
-    $type: String
-$id: String
-$uri: String
+  $organizationId: ID!
+  $type: String
+  $id: String
+  $uri: String
 ) {
-    getLinkBanner(
-        organizationId: $organizationId
+  getLinkBanner(
+    organizationId: $organizationId
     id: $id
     uri: $uri
     type: $type
-) {
+  ) {
+    id
+    hed
+    uri
+    source
+    content {
+      results {
         id
-        hed
-    ... on LinkBannerMarquee {
-            dek
+        ... on Article {
+          hed
         }
-        uri
-        source
-        content {
-            results {
-                id
-            ... on Article {
-                    contextualHed
-                    contextualDek
-                    hed
-                    dek
-                    url: uri
-                }
-            ... on ExternalLink {
-                    contextualHed
-                    contextualDek
-                    hed
-                    dek
-                    rubric
-                    url
-                    tout {
-                    ...photoField
-                    }
-                }
-            ... on Gallery {
-                    contextualHed
-                    contextualDek
-                    hed
-                    dek
-                    url: uri
-                }
-            ... on LiveStory {
-                    contextualHed
-                    contextualDek
-                    hed
-                    dek
-                    url: uri
-                }
-            ... on Photo {
-                    contextualHed: title
-                    url
-                }
-            }
+        ... on ExternalLink {
+          hed
         }
-        categories(taxonomy: "channels") {
-            name
-            slug
-            hierarchy {
-                name
-            }
+        ... on Gallery {
+          hed
         }
-        tout {
-        ...photoField
-        }
-        metadata {
-            contentType
-        }
-        functionalTags {
-            id
-            name
-            slug
-            hierarchy {
-                name
-                slug
-            }
-        }
-        __typename
+      }
     }
+    categories(taxonomy: "channels") {
+      name
+      slug
+      hierarchy {
+        name
+        slug
+      }
+    }
+    __typename
+  }
 }
+
 
 {
-    "uri": "tags/christmas-gift-ideas",
-    "organizationId": "4gKgcEoDWriApA1nauzJwNnT7XNz",
-    "type": "bundles",
-    "status": "PUBLISHED"
+  "uri": "amazon-prime-day",
+  "organizationId": "4gKgcErsy9d7RdbkfDjCvzkRF36J",
+  "type": "curatedlists",
+  "status": "PUBLISHED"
 }
+Expected id:
+5f80788404ab45f8d2473ca1
+Expected item:
+https://copilot-app.condenast.io/vogue/curatedlists/5f80788404ab45f8d2473ca1
 
-uri -> bundle uri
+{
+  "uri": "global-women-2023-link-banner",
+  "organizationId": "4gKgcErsy9d7RdbkfDjCvzkRF36J",
+  "type": "curatedlists",
+  "status": "PUBLISHED"
+}
+Expected id:
+6407ad7c46345daac731fe22
+Expected item:
+https://copilot-app.condenast.io/vogue/curatedlists/6407ad7c46345daac731fe22
+
+{
+  "uri": "jewelry-shopping-banner",
+  "organizationId": "4gKgcErsy9d7RdbkfDjCvzkRF36J",
+  "type": "curatedlists",
+  "status": "PUBLISHED"
+}
+Expected id:
+6571f7f2d6f596c9d8a3b45c
+Expected item:
+https://copilot-app.condenast.io/vogue/curatedlists/6571f7f2d6f596c9d8a3b45c
+
+{
+  "uri": "summer-shopping-guides",
+  "organizationId": "4gKgcErsy9d7RdbkfDjCvzkRF36J",
+  "type": "curatedlists",
+  "status": "PUBLISHED"
+}
+Expected id:
+64625b864b2ed368ebfd2448
+Expected item:
+https://copilot-app.condenast.io/vogue/curatedlists/64625b864b2ed368ebfd2448
+
+

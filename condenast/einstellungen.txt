@@ -1,3 +1,31 @@
+Slack Channels and for what they are for:
+
+#technology-site-issues: Prod issues
+#copilot-devs: Copilot issues
+#verso-support: Verso issues
+#platform-engineering-questions: Issues where you want Copilot, content , Encore, GraphQL and Verso
+
+Or ping the EMs directly:
+Copilot - @Vinay
+Spectra, images, Encore - @naman
+Verso - @in_mteradal @SwatiJain
+Content - @Karthik_Srinivas @muthu @connor_bran
+
+===================================================================
+Brand Configurations
+
+In der Brand Konfiguration wird unter anderem festgelegt, welche Taxonomie wo auftaucht: Caterorie, Channel oder Tag.
+
+Die Konfiguration aufrufen:
+https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations
+
+Die Ausgabe lokal speichern und bearbeiten.
+
+Die aktualisierte Konfiguration hochladen:
+curl -XPUT -H "Content-Type:application/json" --data "@[Pfad zum json]" "[URL]"
+curl -XPUT -H "Content-Type:application/json" --data "@brand-configuration-ad.json" "https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations"
+
+===================================================================
 To run ApplicationConfigService/interfaces local
 
 interfaces

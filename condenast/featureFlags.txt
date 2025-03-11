@@ -1,0 +1,64 @@
+To add a featureFlag:
+
+1. application-config-service
+
+Add the featureFlag here:
+
+docs/graphql-schema.md
+integration/queries-integration.test.ts
+src/graphql/resolvers/workspaces/constants.ts
+src/graphql/test/mock-data.ts
+src/graphql/typedefs/feature-flags.graphql
+src/types/config-sets.ts
+
+Start
+
+nvm use
+npm i
+npm run dev
+
+With a bit of luck you can reach the service here:
+
+http://localhost:4000/graphql
+
+2. interfaces
+
+Add the flag to this files:
+
+https://github.com/CondeNast/interfaces/blob/main/apps/versosettings/config-sets/FeatureFlags/FeatureFlags.ts
+https://github.com/CondeNast/interfaces/blob/main/apps/versosettings/graphql/generated/graphql.ts
+
+To start interfaces a connection to local application-config-service must be established.
+
+apps/versosettings/server-index.js
+
+change this uri:
+const uri = ENDPOINTS.versoConfigGQL[config.env];
+to:
+const uri = 'http://localhost:4000/graphql';
+
+start interfaces:
+
+aws configure sso
+SSO session name: aws-us
+verso-nonprod, infrastructure+verso-nonprod@condenastint.com (849251962856)
+-> gp-nonprod, global-platform-aws-prod-ap@condenastint.com (166755036155)
+-> eks-tenant-verso-services-ro
+
+nvm use
+npm i
+npm run dev
+
+http://localhost:8080/
+
+Be aware: Port is 8080 even if the startup dialogue says somtehing other (like 8081).
+
+
+3. verso
+
+src/core/config/feature-flags.ts
+
+
+start verso:
+
+CONFIG_SERVICE_URL=http://localhost:4000/graphql npm run dev

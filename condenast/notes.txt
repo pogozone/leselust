@@ -17629,11 +17629,1898 @@ Can anyone here help me?
 Or tell me in which channel I can get help?
 
 
+Engineers Dinner February 2025
+
+I think it's time for another Engineers Dinner.
+What do you think?
+
+I suggest the Persian restaurant Hafez and would be delighted if we could find a date together.
+Once we have a date, we'll invite the rest of the team.
+https://www.hafez-restaurant.de/
+
+https://doodle.com/meeting/participate/id/dNXj59za
+
+
+Wollt ihr die einfache Antwort oder die ausführliche?
+Die einfache Antwort ist: Das geht einfach nicht.
+
+Die ausführliche Antwort ist:
+Es gibt verschiedene Header Varianten und genau eine unterstützt die "Read More"-Clamp. Das ist der SectionHeader und der SectionHeader wird beim SubChannel verwendet.
+Im VersoPackageBundle wird standardmäßig der BundleHeader genommen. Jetzt gibt es zwar eine Möglichkeit, auch für VersoPackageBundle den SectionHeader zu aktivieren, allerdings ist dabei die "Read More"-Clamp nicht vorgesehen.
+
+Der pragmatische Ansatz:
+Ist es möglich, die Seite, um die es geht auch mit dem content type SubChannel umzusetzen?
+
+Der vielleicht saubere Ansatz:
+Heraus bekommen, warum die "Read More"-Clamp für den BundleHeader nicht vorgesehen ist. Das ist kein technisches Problem, das ist eine Entscheidung vom Produkt oder Design.
+
+Es tut mir leid, dass ich nicht sagen kann, das machen wir mal schnell.
+
+Regarding the logo token I have a question:
+What about other places where logos are in use? The footer for instance.
+Do we plan to refacture that as well?
+...'cause to have once more thwo ways of displaying logos are not the right way I would say.
+
+
+Hi team,
+
+I would like to ask you for one or two more approvals for this PR:
+https://github.com/CondeNast/verso/pull/30078
+
+It's about the new ContentHeader called OneCover.
+Why more approvals: Because it will concern all brands and tenants so it would be great if as much as possible engineers get familiar to it.
+
+To see how it works please use the storybook link:
+https://verso-components.conde.io/snapshots/LS4-1111/?path=/story/components-headers-onecover--default
+Be aware of the different behaviours of mobile and desktop. The desktop view is active from the size of 1280px width.
+
+
+
+TODO:
+- Im Wurstladen nachfragen, ob sie Weißwürste Halal besorgen kann
+ok - Testseite für ContributorBox erstellen
+ok - Testseite anlegen, dann Reviews für OneCover
+Vielleicht noch mal eine Stadtführung?
+
+Antworten an:
+ok - Karin
+ok - Thomas
+- Burk
+ok - Evi
+- Toru: Bilder & Päckchen
+ok Donnernewsletter
+Briefwahl beantragen
+
+Engineers Dinner
+-> Doodle ist gemacht
+Clamp für Vogue Japan ansehen
+-> Das geht nicht so einfach
+
+
+find ./src/components -type f -exec grep -l "defaultProps" {} +
+Branch to delete defaultProps from content header:
+remove-default-props-from-contentheader
+
+
+I need to sort this out for myself:
+Someone thought it would be a good idea to build an SSR component that is injected into the website after rendering. It's clear that the website jumps and it's clear that this is stupid for the CLS score.
+Now someone has created an object with TWO props to do ONE thing: set a min-height.
+Of course, this is not documented anywhere, so anyone who comes across it will have to do some research first. So, you have to go through three PRs and three tickets, as well as general documentation on what the CLS score even is.
+And because this has now been rolled out on all sites... the LinkBanner as a whole will be cancelled.
+Have I got that roughly right?
+...I think I need a gin and tonic for now.
+
+
+headerComponent:
+              process.env.APP_ENV !== 'staging' ? 'OneCover' : 'ContentHeader',
+            oneCoverVariation: 'SplitScreenTextLeft',
+
+
+
+Und warum in aller Welt muss da ein Inline Style reingebastelt werden?
+Reicht es nicht, dass wir schon fünf Varianten haben, irgendwas zu stylen?
+Muss da noch eine sechste eingeführt werden.
+
+
+
+
+
+
+LinkBanner
+- CuratedList
+- TemplateSet
+Questions:
+- Queries? -> Nate Laws
+- Connection CuratedList Content
+
+Wenn bei einem rebase oder merge etwas ganz grob daneben gegangen ist, dann hilft das vielleicht weiter:
+
+Auflisten der letzten commits:
+git reflog
+
+Suchen nach dem letzten sauberen und reseten:
+git reset --hard <commit-hash>
+
+Dann ein sauberes rebase machen:
+git rebase origin/main
+
+Und die Fehler im remote branch überschreiben:
+git push --force
+
+git checkout main
+git branch -D LS4-1111
+git fetch origin
+git checkout -b LS4-1111 origin/LS4-1111
+
+
+Norman asked me to write a ticket for the ContributorBox issue:
+https://github.com/CondeNast/verso/pull/30154
+
+Will you do that for me? Maybe a bug ticket?
+
+npm run test-unit-server src/transformer-helpers/contributors.spec.js
+
+
+"<a href=\"/contributor/starina-catchatoorian\">Evan Osnos</a> joined <em>The New Yorker</em> as a staff writer in 2008 and covers politics and foreign affairs. His recent pieces include profiles of Joe Biden and Mark Zuckerberg, a history of the Republican Party in Greenwich, Connecticut, and a recounting of his visit to North Korea during the nuclear... <a href=\"/contributor/starina-catchatoorian\">Read more</a>"
+
+
+"<a href=\"/contributor/starina-catchatoorian\">Evan Osnos</a> joined <em>The New Yorker</em> as a staff writer in 2008 and covers politics and foreign affairs. His recent pieces include profiles of Joe Biden and Mark Zuckerberg, a history of the Republican Party in Greenwich, Connecticut, and a recounting of his visit to North Korea during the nuclear crisis. Sections ... <a href=\"/contributor/starina-catchatoorian\">Read more</a>"
+
+https://multiverso.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco?branch=LS4-1111
+
+
+====
+Puh... ich glaube ja, in Zukunft wird allen Angst und Bange, sobald in ihrem Arbeitszusammenhang der Name Peppl-Schulz auftaucht:
+
+https://www.nzz.ch/feuilleton/medien/druckereischliessungen-und-entlassungen-bei-tamedia-das-bereitet-schon-schlaflose-naechte-wenn-man-das-ausmass-der-situation-erkannt-hat-sagt-ceo-jessica-peppel-schulz-ld.1845586
+====
+
+Experience SevenSeas Sprint 78
+Date 08/Jan/25 - 22/Jan/25
+
+Report https://cnissues.atlassian.net/jira/software/c/projects/LS4/boards/1271/reports/sprint-retrospective?sprint=11147
+
+Statistics Commit 45 / Done 48
+
+All planned tickets were completed.
+And we were able to add tickets with about 3 more storypoints
+
+
+Ich bin etwas verwirrt...
+
+So weit ich sehen kann, ist der PR zum Entfernen des sticky Verhaltens nie live gegangen:
+
+https://github.com/CondeNast/verso/pull/29680
+https://cnissues.atlassian.net/browse/LS4-1094
+
+Insofern können wir das Ticket und den PR schliessen.
+
+
+I just didn't remember that the feature never went live either.
+Now we have clarity and we can finally put the matter to bed.
+
+I simply didn’t remember that the feature never went live either.
+Now we have clarity, and we can finally close the matter for good.
+
+
+find ./src/components -type f -exec grep -l "defaultProps" {} + | grep -v styles | grep -v spec.js
+
+
+As I'm on the ticket to remove deprecated defaultPros:
+
+When I find a required prop, but its value is `undefined` and I have no idea if there is a default value I can set...
+Where can I report this issue? ServiceNow? Because it's a bit too large for us as a bug ticket as no one of us know what to do.
+
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/sign-in-modal/SignInModal.js#L68
+
+On the side (OT)...
+
+When it really snows in Munich, as it did last year, we will see how the MVV, local transport company, uses the state-of-the-art technology to ensure that the tracks are cleared quickly.
+
+...The most state-of-the-art technology, however, is from 1926
+
+Es gibt Menschen, deren IQ reicht kaum von der Nasenspitze bis zur Windschutzscheibe. Und trotzdem dürfen sie Autofahren.
+Eine offene Gesellschaft hält so was aus.
+...in der direkten Ausheinandersetzung kann das allerdings schon anstrengend sein.
+
+Now it's my decision ... Let's go out for dinner on Tuesday 11 February.
+
+
+Ich traue mich kaum zu fragen... aber es würde mich sehr freuen...
+Wir von Condé Nast/SevenSeas - und ein paar von uns kennst du ja noch - treffen sich am 11. Februar um 18:30 Uhr im Restaurant Hafez zum legendären Engineers Dinner. Magst du auch kommen?
+Und ich würde mich nicht weniger freuen, wenn du mit deinem Freund am Samstag ins Donnerbräu kommst.
+
+
+Hi there,
+
+I want to duplicate this Sub Channel on staging:
+https://stg-copilot-app.condenast.io/vjp/pages/subchannels/6139f01a7f42946d70c53431
+
+Can someone give me a hint how to do that?
+Or where I can get support?
+
+In theory it should be easy:
+Search with copilot search. Mark item and click "duplicate".
+...but I'm not able to find the item with copilot search.
+
+
+===============================================
+Removal of defaultProps
+
+Moved:
+
+src/components/compositions/summary-list/variations.js
+src/components/compositions/summary-river/SummaryRiver.js
+Test:
+https://multiverso.architecturaldigest.com/architecture-design?branch=LS4-1125
+
+./src/components/templates/account-profile-page/AccountProfilePage.js
+Test:
+https://multiverso.architecturaldigest.com/account/profile?branch=LS4-1125
+
+./src/components/templates/account-bookmark-page/AccountBookmarkPage.js
+Test:
+https://multiverso.architecturaldigest.com/account/saved?branch=LS4-1125
+
+./src/components/compositions/standard-navigation/StandardNavigation.js
+Test:
+https://multiverso.wired.com/story/science-has-spun-spideys-web-slinging-into-reality/?branch=LS4-1125
+
+./src/components/patterns/responsive-asset/ResponsiveAsset.js
+./src/components/compositions/standard-navigation/StandardNavigation.js
+./src/components/patterns/gallery-embed/GalleryEmbed.js
+./src/components/patterns/cne-video-embed/CNEVideoEmbed.js
+./src/components/scaffolding/viewport/Viewport.js
+./src/components/scaffolding/viewport-monitor/ViewportMonitor.js
+./src/components/scaffolding/swipe/Swipe.js
+./src/components/templates/article-page/ArticlePage.js
+./src/components/elements/responsive-image/ResponsiveImage.js
+./src/components/elements/ad/StickyHeroAd.js
+Test:
+http://multiverso.allure.com/story/hailey-bieber-cozy-hair-scarf?branch=LS4-1125
+
+./src/components/compositions/account-newsletter-check-boxes/AccountNewsletterCheckBoxes.js
+Test:
+https://multiverso.vogue.com/account/profile?branch=LS4-1125
+
+
+Just removed:
+
+src/components/scaffolding/clamp/Clamp.js
+Test:
+https://multiverso.vogue.co.jp/subchannel-test-clamp?branch=LS4-1125
+
+src/components/templates/search-page/SearchPage.js
+Test:
+https://multiverso.architecturaldigest.com/search?q=BEACHES&sort=publishdate+desc&branch=LS4-1125
+
+
+npm run test-unit-component -- -u src/components/compositions/stacked-navigation/StackedNavigation.spec.js
+npm run test-unit-component -- -u src/components/templates/article-page/ArticlePage.spec.js
+npm run test-unit-component -- -u src/components/compositions/filterable-summary-list/FilterableSummaryList.spec.js
+
+npm run test-unit-component -- -u src/components/compositions/account-newsletter-check-boxes/AccountNewsletterCheckBoxes.spec.js
+
+125€
+
+
+
+Lass mich das kurz zusammen fassen:
+
+Um die OneNav zu aktivieren braucht es den Eintrag für die ConnectedNavigation:
+
+ConnectedNavigation: {
+  settings: {
+    navPattern: 'OneNav'
+  }
+}
+
+navPattern kann in _default.ts gesetzt und in jedem Channel überschrieben werden.
+
+=================================================================================
+Regarding contributord for OneCover.
+
+In OneCover, there are two templates for displaying contributor data, Bylines.js and Byline.js.
+They contain some props that we should get rid of.
+
+Here is a list of props and short suggestions:
+
+src/components/patterns/bylines/Bylines.js
+
+bylineVariation
+-> If possible avoid variations.
+
+className
+-> NOway!
+
+clickHandler
+-> Is this to be customised or can we use a fixed one?
+
+contentAlign = 'center'
+-> Remove, alignment comes from OneCover.
+
+contributors
+-> Yes.
+
+hideAdaptationByline = false
+-> Avoid if possible.
+
+isCompact = true
+-> Avoid if possible.
+  Seems to remove margin-top.
+
+maxContributors = Infinity
+-> Avoid if possible.
+  Directive: If you don't want to have a contributor, don't add a contributor.
+
+maxContributorsNames
+-> Avoid if possible.
+  Directive: If you don't want to have a contributor, don't add a contributor.
+
+preambles
+-> maybe we must do something like this?
+
+shouldUseCustomPreambles
+-> Avoid if possible.
+
+shouldLink
+-> tbd
+
+showCommaAsideContributorName
+-> No idea what this is for.
+
+
+src/components/elements/byline/Byline.js
+
+brandName
+-> Is this needed?
+
+className
+-> NOway!
+
+clickHandler
+-> tbd
+
+contentAlign
+-> Remove, alignment comes from OneCover.
+
+isCompact
+-> Avoid if possible.
+  Seems to remove margin-top.
+
+items
+-> yes, of course
+
+maxContributorsNames
+-> Avoid if possible.
+  Directive: If you don't want to have a contributor, don't add a contributor.
+
+preamble
+-> maybe we must do something like this?
+
+shouldLink
+-> tbd
+
+showCommaAsideContributorName
+-> No idea what this is for.
+
+type
+-> no idea / alternative for preamble
+
+variationName
+-> If possible avoid variations.
+
+variations
+-> If possible avoid variations.
+
+I'm unsure how to proceed.
+
+Should we start to create a clean template as PoC?
+Should we start a discussion how it should work?
+Should we ask Marylou to discuss tha for us?
+
+I would prefer the PoC suggestion...
+=================================================================================
+
+Just to get sure it's not my single issue, can you see the images here:
+https://stag2.wired.com/story/science-has-spun-spideys-web-slinging-into-reality/
+
+
+
+Investigate about the aspect ratio oft ptchforks carousel
+Get images on staging up and running
+Will test Nomans PR
+
+
+When I create a clean feature branch from main and add src/tenants/vogue/channels/navigation/_one-nav.ts from your branch LS4-1155:
+
+https://github.com/CondeNast/verso/pull/30299/files#diff-6f334cd25eff7c6e2ace6534d59faadcf9d83b27d3d5878621d8d82146b32086R1
+
+I get this errors:
+
+src/tenants/vogue/channels/navigation/_one-nav.ts(64,29): error TS2322: Type '{ component: Component.LOGO_CLICKABLE; action: string; label: string; src: string; invertedSrc: string; height: { sm: string; xl: string; xxl: string; }; }' is not assignable to type 'Transformable | Clickables'.
+  Object literal may only specify known properties, and 'src' does not exist in type 'LogoClickableProps'.
+src/tenants/vogue/channels/navigation/_one-nav.ts(88,29): error TS2322: Type '{ component: Component.LOGO_CLICKABLE; action: string; label: string; src: string; height: { sm: string; xl: string; xxl: string; }; }' is not assignable to type 'Transformable | Clickables'.
+  Object literal may only specify known properties, and 'src' does not exist in type 'LogoClickableProps'.
+
+Any ideas?
+
+
+the steps:
+1. create branch
+2. update BI from Surens feature branch
+3. create channel config
+4. add channel to tag manager (staging only)
+14:10 -
+
+
+Hi there,
+staging seems to be a bit whacky at the moment.
+
+Some pages show up with a lot of broken images as you can see here:
+https://stag.allure.com/story/hailey-bieber-cozy-hair-scarf
+https://stag2.wired.com/story/science-has-spun-spideys-web-slinging-into-reality/
+
+Other pages work not at all like this:
+https://stag.architecturaldigest.com/architecture-design
+
+Please can someone help me with this?
+Thank you.
+
+
+Isn't that "root" node type:
+
+https://interfaces.conde.io/apps/versosettings#/vogue-staging/settings/primaryLinks
+
+
+Chandan Kumar
+
+Ich denke, das ist das initiale Ticket dazu:
+https://cnissues.atlassian.net/browse/AF-10667
+
+Hier steht ein bisschen mehr Information dazu:
+https://github.com/CondeNast/verso/pull/29755
+
+
+Hello Ian,
+
+I saw that this ticket came from you:
+https://cnissues.atlassian.net/browse/AF-10667
+
+Due to this we now have an issue. For some shopping channels, this is causing an unwanted gap at the bottom of the LinkBanner.
+As you can see here:
+https://www.vogue.com/shopping
+https://www.glamour.com/shopping
+https://www.architecturaldigest.com/shopping
+
+Can you please take care of this?
+
+
+
+Due to this ticket we now have an issue.
+https://cnissues.atlassian.net/browse/AF-10667
+
+For some shopping channels, this is causing an unwanted gap at the bottom of the LinkBanner.
+
+As you can see here:
+https://www.vogue.com/shopping
+https://www.glamour.com/shopping
+https://www.architecturaldigest.com/shopping
+
+Can someone please take care of this?
+
+===============================================
+
+
+
+0,96 1,20
+
+1,2 - 0,96 / 1,2
+
+
+https://local.architectural-digest.com:8443/auth/initiate?redirectURL=%2F&source=VERSO_NAVIGATION
+
+
+A virtual reality thriller from 1999.
+Playing around with several levels of virtual reality.
+For the topic of virtual reality, the film is quite old.
+
+German:
+https://www.youtube.com/watch?v=_FJ83FWNIM0
+
+English:
+https://www.youtube.com/watch?v=1eI6YLsOmUA
+
+
+
+
+The next time you make such changes, please inform the Verso developers in good time. And in good time means as early as possible.
+
+It took me half a day and a lot of grey hair until I was made aware here by chance that something important had changed on the copilot side.
+
+After all, it would also be nice to be involved in such developments. Because we also think a lot about how to improve Bundle Pages. And if we all pull together, then we all benefit from it. Don't you think?
+
+
+In an ideal world I would say there is a SideBySideImageRight variation, so let's take the SideBySideImageLeft variation.
+But as we are not living in an ideal woldt but in a Condé Nast world, there is no SideBySideImageLeft variation.
+
+Here you can see now my approach with the special channel 'one-cover':
+
+PR:
+https://github.com/CondeNast/verso/pull/30336
+
+Multiverso:
+https://multiverso.vogue.com/article/gwen-stefani-new-single?branch=LS4-1155-channel-approach
+
+CoPilot:
+https://stg-copilot.condenast.io/vogue/category-manager/679b7f4d03664ef87f3abf64
+https://stg-copilot-app.condenast.io/vogue/articles/5ff479e2a16e61c4d9cb3b97
+
+Verso Settings:
+https://interfaces.conde.io/apps/versosettings#/vogue-staging/settings/primaryLinks/channel-override/one-nav
+
+Questions? Please ask.
+
+
+Meine Vermutung:
+
+Der Export as figma erzeugt - warum auch immer - diesen Wert:
+0.004999999701976776em
+
+Der Browser rundet und verwendet diesen Wert:
+0.005em
+
+
+
+Ich habe noch etwas recherchiert. Allerdings habe ich nichts wirklich brauchbares finden können.
+
+Figma arbeitet einfach mit anderen Werten, als html/css. Das heisst da wird bei einem Export etwas umgerechnet, was sich eigentlich nicht umrechnen lässt. Und das gleiche passiert beim Import auch wieder.
+Ich kann auch nicht sagen, ob sich das Problem beheben oder minimieren lässt, indem die Werte auf eine Nachkommastelle beschränkt werden. Auch weiß ich nicht, ob figma das überhaupt zu lässt.
+
+Eine Aussage, die ich unterwegs aufgeschnappt habe:
+
+Figma is a platform-agnostic design tool, it’s built not only to design for the web, so showing CSS-only values that make no sense on other platforms wouldn’t be a great idea in my opinion.
+
+Da muss man - so hart, wie es klingt - einfach sagen: figma ist nicht das richtige Werkzeug für Webdesign.
+
+
+Hi team,
+
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/30218
+It's about removing some more defaultProps from verso.
+
+As multiverso is currently not working without problems, it is difficult to judge whether, for example, missing images can be related to the PR or other problems. If you are of the opinion that the PR cannot be viewed in a proper way under these circumstances, please let me know and I will postpone the review until multiverso is working properly again.
+
+
+
+Short question:
+
+These are complete different Ribbon things:
+
+https://docs.google.com/presentation/d/1NKwC2q35vHhFnWDQGoqYWbBkJA7Jc9cEOJo9CkpDYV0/edit#slide=id.g317105dfc86_0_126
+
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/ribbon-unit/README.md
+
+...please say just "YES".
+Thank you.
+
+=================================
+Hi there,
+maybe someone can help me with graphql?
+
+I want to get all items that are related to the containers of the video channel:
+https://copilot-app.condenast.io/gq/pages/channels/63d8f2e17b89bd2142acaaf1
+
+I tired following:
+https://studio.apollographql.com/sandbox/explorer
+
+Sandbox:
+https://nonprod-content.conde.io/graphql
+
+Operation:
+query(
+  $organizationId: ID!, $contentId: String!
+) {
+  getBundle(id: $contentId, organizationId: $organizationId) {
+    id
+    hed
+    containers {
+      results {
+        id
+        hed
+        itemSets {
+          title
+          items {
+            edges {
+              node {
+                ... on CNEVideo {
+                  id
+                  title
+                }
+              }
+            }
+          }
+        }
+      }
+      page
+      limit
+      totalResults
+    }
+  }
+}
+
+Variables:
+{
+  "organizationId": "4gKgcEsTcGt6aHp4Bmme7bUhqJjS",
+  "contentId": "63d8f2e17b89bd2142acaaf1"
+}
+
+And I get nothing:
+{
+  "data": {
+    "getBundle": {
+      "id": "63d8f2e17b89bd2142acaaf1",
+      "hed": "Video",
+      "containers": {
+        "results": [
+          {
+            "id": "63d8f2e17b89bd2142acaaef",
+            "hed": "",
+            "itemSets": []
+          },
+          {
+            "id": "63d8f36edd435e2f9371202b",
+            "hed": "",
+            "itemSets": []
+          },
+          {
+            "id": "63d8f2e17b89bd2142acaae6",
+            "hed": "",
+            "itemSets": [
+              {
+                "title": "",
+                "items": {
+                  "edges": []
+                }
+              }
+            ]
+          },
+          {
+            "id": "63d8f2e17b89bd2142acaaea",
+            "hed": "",
+            "itemSets": []
+          },
+          {
+            "id": "63d8f2e17b89bd2142acaaee",
+            "hed": "",
+            "itemSets": []
+          },
+          {
+            "id": "63d8f2e17b89bd2142acaadd",
+            "hed": "",
+            "itemSets": [
+              {
+                "title": "",
+                "items": {
+                  "edges": []
+                }
+              }
+            ]
+          }
+        ],
+        "page": 1,
+        "limit": 20,
+        "totalResults": 6
+      }
+    }
+  }
+}
+
+What am I doing wrong?
+=================================
+On staging:
+
+No title.
+No body.
+No containers:
+
+https://stg-copilot-app.condenast.io/gq/pages/channels/63d8f2e17b89bd2142acaaf1
+https://stag.gq.com/verso-channel/video-1
+
+
+And now the 1.000.000$ question:
+Why doe this happen on GQ but nor on Vogue:
+https://multiverso.vogue.com/article/gwen-stefani-new-single?branch=LS4-1155-channel-approach
+
+
+npm run test-unit-server src/transformer-helpers/contributors.spec.js
+npm run test-unit-server
+npm run test-unit-server src/presenters/runway-season/transformers.spec.js
+npm run test-unit-server src/presenters/galleries/transformers/header.spec.js
+
+
+"dangerousBio": "<a href=\"/author/medea-giordano/\">Medea Giordano</a> turned her shopping problem into a career as a product writer for WIRED. She covers a little bit of everything but loves health, beauty, and pet tech. Prior to WIRED, she was an assistant editor at Wirecutter and an assistant in the newsroom of The New York Times.... <a href=\"/author/medea-giordano/\">Read more</a>",
+
+"dangerousBio": "<a href=\"/author/medea-giordano/\">Medea Giordano</a> turned her shopping problem into a career as a product writer for WIRED. She covers a little bit of everything but loves health, beauty, and pet tech. Prior to WIRED, she was an assistant editor at Wirecutter and an assistant in the newsroom of The New York Times. ... <a href=\"/author/medea-giordano/\">Read more</a>",
+
+
+
+
+"Perrie Samotin is *Glamour*'s digital director and has more than 15 years experience as a writer, editor, and digital strategist covering the intersection of style, beauty, wellness, culture, and commerce. A seasoned profile writer, Perrie has written a number of cover stories, including ones on [Jennifer Hudson](https://www.glamour.com/story/jennifer-hudson-glamour-women-of-the-year-2022){: target=\"_blank\"}, [Katie Holmes](https://www.glamour.com/story/katie-holmes-cover-story){: target=\"_blank\"}, and ... [Read more](/contributor/starina-catchatoorian)"
+
+"Perrie Samotin is <em>Glamour</em>&#39;s digital director and has more than 15 years experience as a writer, editor, and digital strategist covering the intersection of style, beauty, wellness, culture, and commerce. A seasoned profile writer, Perrie has written a number of cover stories, including ones on <a href=\"https://www.glamour.com/story/jennifer-hudson-glamour-women-of-the-year-2022\" target=\"_blank\">Jennifer Hudson</a>, <a href=\"https://www.glamour.com/story/katie-holmes-cover-story\" target=\"_blank\">Katie Holmes</a>, and ... <a href=\"/contributor/starina-catchatoorian\">Read more</a>"
+
+
+<a href="/contributor/starina-catchatoorian">Evan Osnos</a> joined <em>The New Yorker</em> as a staff writer in 2008 and covers politics and foreign affairs. His recent pieces include profiles of Joe Biden and Mark Zuckerberg, a history of the Republican Party in Greenwich, Connecticut, and a recounting of his visit to North Korea during the nuclear ... <a href="/contributor/starina-catchatoorian">Read more</a>
+
+
+https://stag.traveler.es/articulos/bornholm-dinamarca-que-ver
+https://multiverso.traveler.es/articulos/bornholm-dinamarca-que-ver?branch=hotfix-wired-bylines
+
+
+Yes... but no.
+
+On the first glance it looks reasonable.
+But beside the StandardNavigation we have StackedNavigation and SiteHeader as well.
+
+If we can ignore that...
+
+
+====
+You mean we have a feature flag in verso settings. But we need a fallback configuration in the tenant config so that nothing goes wrong.
+
+...but it goes wrong if the fallback entry is missing in the tenant config. Although this has created a huge and complex overhead, we have not come a millimetre closer to solving the issue.
+
+Let me think about it:
+
+Scenario 1:
+featureFlags.enableOneNav = true
+navPattern = OneNav
+OneNav config is in place
+fallBack = does not matter
+-> everything fine
+
+Scenario 2:
+featureFlags.enableOneNav = true
+navPattern = OneNav
+OneNav config not available
+fallBack = false
+-> no nav
+
+Scenario 3:
+featureFlags.enableOneNav = true
+navPattern = OneNav
+OneNav config not available
+fallBack = [StandardNavigation, StackedNavigation, SiteHeader]
+-> StandardNavigation
+
+Scenario 4:
+featureFlags.enableOneNav = true
+navPattern = StackedNavigation
+OneNav config is in place
+fallBack = does not matter
+-> StackedNavigation
+
+
+
+Ok and thank you.
+But I wouldn't be me if I didn't have another concern:
+
+That is, an engineer needs to define a fallback, and while defining a fallback, he refuses (or just forgets) to add a OneNav configuration?
+Shouldn't the engineer then ask himself a few questions?
+
+How about this:
+I think if we have the featureFlag, we don't need the navPattern: ‘OneNav’ anymore. Isn't it?
+So we can use the (already existing) navPattern as a fallback.
+What do you think?
+
+npm run test-unit-server src/presenters/bundles/transformers.spec.js
+
+Hi Michaelea,
+ich schiebe das ja schon ewig vor mir her und wenn ich nicht gerade schiebe, dann denke ich nicht dran. Jetzt aber:
+Wie ist das denn mit der Betrieblichen Altersvorsorge?
+Was brauchst du dafür von mir?
+Was habe ich im Endeffekt davon?
+Ich freue mich auf Antwort :-)
+
+
+Question for x-design:
+The hover color for the "Newsletters" links might be not ok. Please have a look here:
+https://multiverso.them.us/community?branch=LS4-1116
+
+The link is from type ClickableType.PRIMARY_FILLED.
+ClickableType.PRIMARY_FILLED uses the token "hover-brand".
+"hover-brand" is set to "b1".
+And "b1" has the value "rgba(242,243,253,1)".
+
+Is this right? Or can you tell me what to change?
+
+
+@Elena Unianina @tobe
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1166
+I will addd a featureFlag "enableOneNav" to verso settings.
+Question:
+Do we need a featureFlag "enableOneCover" as well?
+And if so should I add it directly within this ticket?
+
+
+Wenn eine Eigenschaft (z. B. color, background-color) direkt mit einer CSS-Variable belegt ist, zeigen die DevTools --color__token-name als Wert an.
+Falls die Variable bereits aufgelöst oder überschrieben wurde, wird der Token nicht angezeigt.
+Und weil wir in verso alle nur erdenklichen Kombinationen haben, ist es Glückssache, ob was angezeigt wird oder nicht.
+Keine wirklich befriedigende Antwort, aber seehr Condé Nast like.
+
+git commit -m 'feat(all): featureFlag enableOneNav'
+https://github.com/CondeNast/application-config-service/pull/466
+https://github.com/CondeNast/interfaces/pull/2144
+
+
+Ich habe eine Konfiguration: workflowContext.componentConfig.ConnectedNavigation.settings.navPattern
+Mit dem Wert 'OneNav'
+
+Wie weise ich der Variable einen neuen Wert zu?
+
+
+Mögliche Kombinationen:
+
+navPattern = StackedNavigation
+enableOneNav = false
+oneNavConfig = null
+nav = StackedNavigation
+channel: culture
+example:
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1166
+https://stag.gq.com/story/mikey-madison-gq-hype
+http://localhost:7777/gq-staging/story/mikey-madison-gq-hype
+
+navPattern = StackedNavigation
+enableOneNav = false
+oneNavConfig = true
+nav = StackedNavigation
+channel: gift-ideas
+example:
+https://multiverso.gq.com/story/untitled-prajakta-kedari-10-july-2024-at-1333?branch=LS4-1166
+https://stag.gq.com/story/untitled-prajakta-kedari-10-july-2024-at-1333
+http://localhost:7777/gq-staging/story/untitled-prajakta-kedari-10-july-2024-at-1333
+
+navPattern = StackedNavigation
+enableOneNav = true
+oneNavConfig = false
+nav = StackedNavigation
+channel: gq-hub
+example:
+https://multiverso.gq.com/category/gq-best-shops?branch=LS4-1166
+https://stag.gq.com/category/gq-best-shops
+http://localhost:7777/gq-staging/category/gq-best-shops
+
+navPattern = StackedNavigation
+enableOneNav = true
+oneNavConfig = true
+nav = OneNav
+channel: wellness
+example:
+https://multiverso.gq.com/verso-channel/wellness?branch=LS4-1166
+https://stag.gq.com/verso-channel/wellness
+http://localhost:7777/gq-staging/verso-channel/wellness
+
+
+navPattern = OneNav
+enableOneNav = false
+oneNavConfig = null
+nav = StackedNavigation
+channel: fitness
+example:
+https://multiverso.gq.com/story/best-workout-for-longevity?branch=LS4-1166
+https://stag.gq.com/story/best-workout-for-longevity
+http://localhost:7777/gq-staging/story/best-workout-for-longevity
+
+navPattern = OneNav
+enableOneNav = false
+oneNavConfig = true
+nav = OneNav
+channel: gqstyle
+example:
+https://multiverso.gq.com/story/marfa-myths-music-festival-through-the-eyes-of-this-cool-couple?branch=LS4-1166
+https://stag.gq.com/story/marfa-myths-music-festival-through-the-eyes-of-this-cool-couple
+http://localhost:7777/gq-staging/story/marfa-myths-music-festival-through-the-eyes-of-this-cool-couple
+
+navPattern = OneNav
+enableOneNav = true
+oneNavConfig = null
+nav = StackedNavigation
+channel: grooming
+example:
+https://multiverso.gq.com/story/best-beard-products?branch=LS4-1166
+https://stag.gq.com/story/best-beard-products
+http://localhost:7777/gq-staging/story/best-beard-products
+
+navPattern = OneNav
+enableOneNav = true
+oneNavConfig = true
+nav = OneNav
+channel: lifestyle
+example:
+https://multiverso.gq.com/gallery/casper-wave-hybrid-snow-mattress-sale?branch=LS4-1166
+https://stag.gq.com/gallery/casper-wave-hybrid-snow-mattress-sale
+http://localhost:7777/gq-staging/gallery/casper-wave-hybrid-snow-mattress-sale
+
+
+We have to enable the featureFlage enableOneNav to channel or default.
+And we have to add the OneNav channel to all pages where the OneNav optimized primaryLinks should be shown.
+Why?
+Because StackedNavigation and StandardNavigation do not work with OneNav optimized primaryLinks.
+
+featureFlag 'enableOneNav' is set for channel 'one-nav':
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest-staging/settings/featureFlags/channel-override/celebrity-style/celebrity-lifestyle
+
+OneNav is active:
+https://multiverso.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco?branch=LS4-935
+
+
+| `trackingSchema`  | `string`          | No       | Schema used for tracking analytics events.                                                                                                                              |
+| `trackingSubject` | `string`          | No       | Subject or category for tracking purposes.                                                                                                                              |
+| `trackingType`    | `string`          | No       | Type of tracking event (e.g., `'click'`, `'open'`, `'close'`).                                                                                                          |
+| `isHighlighted`    | `boolean`         | No       | Flag 'shouldHighlightLink' from verso settings to highlight a single link.                                                                                                                   |
+
+npm run test-unit-server src/plugins/navigation/one-navigation/utils/mapOneNavPrimaryLinks.spec.ts
+
++4917624083264
+
+https://cnissues.atlassian.net/wiki/spaces/LIF/pages/16062709884/OneNavigation+-+Clickable+Components
+https://cnissues.atlassian.net/wiki/spaces/LIF/pages/16397467689/OneNavigation+-+Setup+Guide
+
+Regarding your comments here:
+https://github.com/CondeNast/verso/pull/30549
+
+
+"durch das geschlossene Tor gefahren" hört sich jetzt aber nicht direkt nach Rangierbereich an.
+
+One Nav is now available on staging:
+
+https://stag.them.us/story/mexico-city
+https://stag.them.us/entertainment/celebrity
+
+
+import { oneNavStructureGq } from './navigation/_one-nav';
+import { oneNavTriggerableContainersGq } from './navigation/_one-nav-triggerable-containers';
+
+OneNav: {
+  settings: oneNavStructureGq
+},
+TriggerableContainers: {
+  settings: oneNavTriggerableContainersGq
+},
+
+ConnectedNavigation: {
+  settings: {
+    navPattern: 'OneNav'
+  }
+},
+
+
+console.log('workflowContext::', workflowContext);
+console.log('workflowContext.featureFlags.enableOneNav::', workflowContext.featureFlags.enableOneNav);
+console.log('oneNavConfig::', oneNavConfig);
+console.log('navPattern::', navPattern);
+console.log('workflowContext?.componentConfig?.ConnectedNavigation?.settings::', workflowContext?.componentConfig?.ConnectedNavigation?.settings);
+console.log('workflowContext?.componentConfig?.OneNav?.settings::', workflowContext?.componentConfig?.OneNav?.settings);
+
+
+const setNavttt = (enableOneNav, oneNavConfig, navPattern) => {
+  if (enableOneNav && oneNavConfig)
+    return 'OneNav';
+
+  if ((!enableOneNav || !oneNavConfig) && navPattern === 'OneNav')
+    return 'StandardNavigation';
+
+  if ((!enableOneNav || !oneNavConfig) && navPattern)
+    return navPattern;
+
+  return 'StandardNavigation';
+}
+
+Regarding inverted theme:
+
+Now I have a Functional Tag _inverted_theme on self:
+https://stg-copilot.condenast.io/them/category-manager/67aa15071c4aa160396ac171
+
+And a subchannel flagged with it:
+https://stg-copilot-app.condenast.io/them/pages/subchannels/62b312d6b3132a8fe9ecd024
+
+But nothing happens:
+https://multiverso.them.us/entertainment/celebrity?branch=LS4-1116
+
+And I cannot find a place where OneNav takes care of a Feature Flag or something thats called _inverted_theme (nmae) or inverted-theme (slug).
+
+Can someone point me to the right direction?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1130
+
+It's merged.
+But it might last a while until the changes take part.
+Give verso it's time.
+
+
+Is it possible to improve OneNav so that we can set the active status to a Channel link when a subchannel is active?
+For example to get the active highlight for "Entertainment" in the primary nav here:
+https://stag.them.us/entertainment/celebrity
+
+
+Background of the primary nav links is:
+rgba(0, 0, 0, 0)
+
+And the hover background is:
+rgba(252,253,255,1)
+
+For a human eye it's hard to recognize any difference there...
+
+
+====
+I think I can understand you very well.
+
+I've also noticed that Suren's tone can be a bit harsh at times.
+Personally, over the years, I've developed a thick skin, so things like that don’t get to me.
+But it's definitely important that you brought it up because bottling up resentment like that isn't healthy.
+
+Often, the other person doesn’t realize that their way of speaking can cause uncomfortable feelings.
+In such cases, a clarifying conversation—like the one today—can work wonders.
+
+====
+
+Features with Layout "Carousel"
+VersoFeatures
+SummaryCollectionGrid
+
+Search Feature with Layout "Carousel"
+VersoFeatures
+CarouselWrapper
+
+====
+About channelhighlighting
+
+And here you can see our problems:
+https://stg-copilot-app.condenast.io/cnt/hotels/56fc8870d7c5ddd22c50e805
+
+This item has a lot of taxonomies (I added them to show what I mean).
+Which of them should be highlighted?
+
+At the moment verso says 'I take the fist channel and if the navigation has the exact same slug I will highlight'.
+But the first channel 'the-places' is not present in the navigation. And you cannot easyly rearrange the channels 'cause of versos channel config.
+And the first channel (aka primary channel) will rarely be a subchannel. Because there is usually no verso config for subchannels.
+
+And what about the breadcrumb? If the item is about... hm... let's say Hard Rock Cafe and the around 150 locations...
+
+So you can see it's not a 'come on let's do it' scenario.
+We need - as Tobi requested - a very clear definition what should be highlighted. As soon as we have this definition we can investigate if we can grab the necessary informations.
+====
+
+
+Better error: throw new Error("...")
+It will be catched by try catch around transformer
+No console.error in server side code, please. Also, reduce use of ?. if possible
+
+npm run test-unit-server src/plugins/navigation/one-navigation/utils/getOneNavTransformer.spec.ts
+
+
+Server Error: Cannot read properties of undefined (reading 'modelName');
+
+As I'm planning to make the april (17.4.) breakfast to a Weißwurst-Breakfast I have a question:
+Does the Weißwurst has to be halal or is it enough to be just non pork?
+
+The channel to activate OneNav for Vogue on staging:
+https://stg-copilot.condenast.io/vogue/category-manager/584ed1c8fe924eb53d1afcc0
+
+The article tagged with the channel:
+https://stg-copilot-app.condenast.io/vogue/articles/5ff479e2a16e61c4d9cb3b97
+https://stag.vogue.com/article/gwen-stefani-new-single
+
+
+Ich habe eine Frage zu dem letzten Kommentar von Kyle in diesem Ticket:
+https://cnissues.atlassian.net/browse/LS4-1170
+
+Vielleicht kannst du mir weiter helfen.
+Kyle schreibt: Currently, this is 48px. It should be 3rem (24px)
+
+Jetzt ist es aber so, dass das padding an dieser Stelle genau 3rem beträgt:
+padding: 1rem 3rem 0 3rem;
+
+Wie du auch hier (und im Screenshot) sehen kannst:
+https://multiverso.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco?branch=onecover-for-ad-us
+
+Verstehe ich was falsch?
+Meint Kyle etwas aderes?
+
+Mit dieser Einstellung käme der Wrapper auf 24px padding:
+padding: 1rem 1.5rem 0 1.5rem;
+
+Regarding this PR:
+https://cnissues.atlassian.net/browse/LS4-1170
+
+I made the requested changes. Please check.
+If something doesn't fit, is unclear or more changes are needed, please let me know.
+If from design perspectife everything is ok I will ask for PR reviews and the ticket goes it's way.
+
+npm run test-unit-server src/plugins/navigation/transformers.spec.js
+
+
+TODO:
+- Book table
+ok - Oliver: What are you interested?
+ok - self: hover and active state
+- Nachricht an Toru
+- Zielvereinbarung 2025
+- Something about Bretagne
+- Bericht zu Summerbreeze
+- Schimmeldinge
+- Pflanzen vorziehen
+ok - Nachricht für the_plant_game
+- Newsletter Maisberger
+- Newsletter EMAZ
+
+
+Hi Olivier,
+
+ich bin einer der Webentwickler, mit denen du in zwei Wochen in München zu tun haben wirst.
+Wir freuen uns auf dich und sind gespannt, was du im Gepäck hast.
+
+Ich finde es immer etwas schade, wenn mich eine Dienstreise in eine mir unbekannte, aber durchaus interessante Stadt führt und ich hinterher nur sagen kann, ja das Büro ist toll und ja, das Hotel ist toll.
+Insofern möchte ich dir anbieten, dass wir für einen Abend etwas organisieren, was dich an München interessiert.
+Wenn du einen Wunsch oder eine Idee hast, lass es mich wissen.
+
+Als Inspiration:
+- Stadtführung
+- Bierhalle
+- Craft Bier
+- Verschiedene Museen
+- Die Eisbachwelle
+- Theater oder Konzert
+
+
+About the "Della Cucina Di Redazione" issue:
+
+It's hardly possible caus verso takes the name of the contributor and adds apreamble from the locales file.
+
+contributor:
+https://copilot-app.condenast.io/lciit/contributors/61fa4985f9bff304ce3e95c5
+
+locales file:
+https://github.com/CondeNast/verso/blob/main/src/locales/extracted/it-IT.json#L568
+
+Ans as the locales file is for all italian brands I see no simple and viable to resolve your requirement.
+
+
+Es ist ja so:
+
+Wenn man in der Gegend ist, in der ein Bier gebraut wird, dann wird das Bier ja meist auch für die Gegend gebraut.
+...und getrunken.
+
+Da stimmt dann die Temperatur. Und zwar die Temperatur des Bieres und die Temperatur der Gegend. Die harmonieren wunderbar. Und auch das Panorama, die Leute, die Tapas und die Musik. Das ist ganz oft so.
+
+Nimmt man jetzt so ein Bier aus seiner sonnenverwöhnten Tapasumgebung und wirft es in eine schweinebraten dominierte Winterlandschaft, dann klappt das ganz oft nicht. Dann tut das Bier nicht so, wie es soll.
+
+Zum Beispiel ist ein Superbock knapp am Gefrierpunkt am Strand von Cultara eine ganz hervorragende Sache. Das gleiche Bier kann in München kalt sein, wie es will, es wird ein Ladenhüter bleiben. Spätestens nach dem ersten Schluck wächst die Sehnsucht nach einem Augustiner.
+
+Aber das mögen andere anders sehen ;-)
+
+
+Valencia tests failed for my PR:
+
+https://github.com/CondeNast/verso/pull/30462
+
+How is the procedure to handle this?
+
+Where can I see what failed?
+Where can I restart the test?
+How can I run the test local?
+
+Can someone point me to the documentation?
+
+
+        ContentHeader: {
+          settings: {
+            bylineVariation: 'ItemWithoutPreamble'
+          }
+        },
+
+
+When I try to publish this item on staging:
+https://stg-copilot-app.condenast.io/lciit/contributors/62038934ade4cf5b2113b62a
+
+I get the message 'Publish URL is already taken. Please choose a different one.'
+Is it a backpub issue?
+Or a broken index?
+
+Please can someone take care and help me with it.
+
+src/components/elements/byline/variations.js
+Byline.InvertedWithoutPreamble = asVariation(Byline, 'ItemWithoutPreamble', {
+  isInverted: true,
+  showPreamble: false
+});
+
+src/tenants/la-cucina-italiana-italy/channels/_default.ts
+ContentHeader: {
+  variation: 'TextAboveLeftSmall',
+  settings: {
+    rubricVariation: 'Item',
+    hideIssueDate: true,
+    bylineVariation: 'InvertedWithoutPreamble'
+  }
+},
+
+
+
+https://stag.lacucinaitaliana.it/author/redazione/
+https://stag.lacucinaitaliana.it/
+https://stag.lacucinaitaliana.it/gallery/ricette-minestrone-verdure-legumi-carne-pesce-feste/
+
+He said: 'I’m up for beers and mingle'
+I asked him: 'More the typical one liter Bavarian style or more like tasty craft beer experience?'
+He answered: 'ooooo , difficult choice..'
+
+So I'm thinkung about one evening with bavarian hardcore:
+https://www.braeustuben.de/raeumlichkeiten/#bierhalle
+
+And one evening with (maybe) best craft beer in town:
+https://brewsli.de/
+
+Too much beer?
+Too much action?
+
+What do you think?
+
+
+feat(all): OneNav highlight links
+
+https://cnissues.atlassian.net/browse/LS4-1180
+
+Links can be marked as shouldHighlightLink. In verso settings as well as in OneNav config.
+
+Three links highlighted:
+1. Highlight: topnav & burger; by verso settings
+2. Music: burger -> music; by verso settings
+3. More: burger; by OneNav config
+
+We are planning to go out for dinner when Olivier visits Munich.
+
+The place of choice is the Augustiner Bierkeller as a typical oldfashioned but very special Bavarian restaurant.
+https://www.braeustuben.de/raeumlichkeiten/#bierhalle
+
+Please vote for preferred day:
+
+54
+
+
+How would you rename this?
+https://github.com/CondeNast/verso/blob/main/src/tenants/gq/channels/navigation/_one-nav-gqsports.ts
+_one-nav-gq-us-gqsports.ts
+_one-nav-gqsports-gq-us.ts
+_one-nav-gqsports-gq.ts
+_one-nav-gq-gqsports.ts
+
+=====
+
+I'm afraid we have a tiny little problem here... the seemingly simple switching of the navigation via featureFlag will not work. Why?
+
+Because primary links that are optimised for OneNav, for example, are not displayed in the StackedNav.
+
+This can be solved for links of the types ‘link’ and ‘root’ by activating the ‘showInTopNav’ attribute. It cannot be solved for the type ‘group’ because it does not have the attribute.
+
+What is also very sad is that a link of type ‘root’ is displayed in the StackedNav, but does not work.
+
+Here you can see what I mean:
+
+Please diasble and enable the feature flag (and of course wait some time and clear cache).
+
+primary links optimised for OneNav:
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest-staging/settings/primaryLinks/channel-override/one-nav
+
+works fine for OneNav but not StackedNav
+channel = one-nav
+feature flag to enable OneNav:
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest-staging/settings/featureFlags/channel-override/one-nav
+primaryLinks optimized for OneNav
+https://multiverso.architecturaldigest.com/story/sunny-a-frame-house-every-outdoorsy-persons-dream?branch=LS4-935
+
+works for OneNav and for StackedNav
+channel = celebrity-style/celebrity-lifestyle
+feature flag to enable OneNav:
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest-staging/settings/featureFlags/channel-override/celebrity-style/celebrity-lifestyle
+primaryLinks optimized for StackedNav
+https://multiverso.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco?branch=LS4-935
+
+
+=====
+
+
+npm run test-unit-component src/components/compositions/one-nav/components/Clickable/components/TextClickable/test.spec.js
+
+const {
+  getColorToken,
+} = require('.');
+
+expect(getColorToken(theme, 'colors.interactive.base.primary')).toEqual(
+  'rgba(232,31,31,1)'
+);
+
+
+Regarding your request about test cases here:
+https://github.com/CondeNast/verso/pull/30549
+
+I'm afraid Testing and I won't be friends in this life...
+
+I tried it like this:
+https://github.com/CondeNast/verso/pull/30549/files#diff-7ee01c2467fdc3e795d9c9d0632b5201d38de968d52da31530188dd5d3272e8eR68
+
+But - clearly - it doesn't work as this is empty:
+window.getComputedStyle(element).color
+
+Can you help me with it?
+
+Hi there,
+I need reviews for this tiny PR:
+https://github.com/CondeNast/verso/pull/30594
+It's about removing unnessecary prop for OneNav from one-nav channel file.
+I don't think colleagues from outside our team can judge whether this small change is appropriate or not. That's why I'm only asking here in our team.
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/30594
+
+I added some tech notes to the ticket:
+
+Looks like now we can't use just feature flags, we need OneNav channel as well.
+It seems that the only good way to resolve this is to create separate data source for One Nav in Verso Settings. This is something we are going to do anyways as a high priority.
+Temporary solution might be the following: if feature flag is enabled, we use Verso Settings data from OneNav channel there if exists.
+
+
+It takes 3 minutes to restart Verso.
+If I restart Verso 5 times a day, that's 15 minutes.
+That's 1 hour 15 minutes a week.
+That's 5 hours a month.
+That means I spend at least 60 hours a year waiting for Verso to restart.
+Not bad, isn't it?
+
+Reloading after a change takes 20 seconds.
+If Verso has to reload 5 times an hour, that's 100 seconds.
+About 14 minutes a day.
+Any questions...
+
+3x5x52
+13 Stunden
+
+nvm use && npm run clean && npm run clobber && npm i && npm run dev
+nvm use && npm run clean && npm run clobber && npm ci
+
+isHighlighted: false,
+
+rel: undefined,
+
+const fs = require('fs');
+const filePath = "tmp.json"; // Name der Datei
+fs.writeFileSync(filePath, JSON.stringify(result), 'utf8'); // Datei schreiben (synchron)
+
+
+npm run test-unit-server src/plugins/navigation/transformers.spec.js
+
+getColorToken(theme, 'colors.consumption.lead.${theme}.heading')};
+getColorToken('colors.consumption.lead.${theme}.heading');
+
+${getColorToken(`colors.consumption.lead.${theme.oneNavTheme}.heading`)};
+
+/poll Best day for dinner with Olivier?
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1170
+
+Elena has a question:
+
+Noticed that a link inside dek is too light.
+The current token comes from basic a tag styles - colors.interactive.base.light
+Which color token should we use here for One Cover dek for links?
+
+If you have a look as soon as possible that I can do the ticket ‘till the end of the sprint.
+...which is tomorrow.
+
+
+Do we have a follow up ticket for OneCover? Or a collector for missing features?
+'Cause when we go further with it we need at least:
+- inversion
+- variations mapping
+
+
+As I added my team once more to the CODEOWNERS I nee an approval from @verso for my PR:
+https://github.com/CondeNast/verso/pull/30497/files
+
+It's about the upcomming new ContentHeader called OneCover.
+
+colors.interactive.base.light
+
+consumption.lead.standard.link
+consumption.lead.standard.link-hover
+
+Monday dinner invitation
+
+We are planning to go out for dinner with Olivier.
+
+The place of choice is the Augustiner Bierkeller as a typical oldfashioned but very special Bavarian restaurant.
+https://www.braeustuben.de/raeumlichkeiten/#bierhalle
+
+We will leave the office at 6:15pm to tram station Maffeistraße/Marienplatz, take the tram to Holzapfelstraße and will arrive at 6:50/7:00pm at the restaurant.
+...so the plan.
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/30549
+
+You wrote:
+
+I would suggest check whether it is highlight or not here, change the color base on that, otherwise call the getColorForType. in that way no changes in getColorForType function needed. right?
+
+Can you explain what you mean and how you imagine it? Because I'm a bit lost.
+
+color: ${isHighlighted ? getColorToken(`colors.navigation.${theme}.item-accent`) : getColorForType(type, 'disabled', theme)};
+
+Now I tried my very best.
+Please re-review the PR.
+
+Now about craft beer in Munich.
+I have thre recommendations for you.
+
+First one: Higgins Ale Works
+
+They have a small cellar brewery and a small brew pub as well.
+Higgins and his wife are from the USA so it's common to talk in English.
+And I'm pretty sure they enjoy to talk about beer.
+They have no food but crisps only.
+A very familiar atmosphere.
+Only self brewd Ales.
+
+https://higginsaleworks.com/
+
+Second one: BrewsLi
+
+BrewsLi has the mesh kattle directly in the guest room.
+They serve tasting sets as well as small beers.
+I guess they also serve no food.
+Bavarian pub atmosphere.
+Only self brewed Ales and Lagers.
+
+https://brewsli.de/
+
+Third one: Tap House
+
+Here you'll get some side dishes such as bread, chili con carne or cheese.
+They serve their own beer - Camba - as well as about 400 other beers from all over the world.
+It's the biggest pub of them.
+
+https://tap-house-munich.de/de/
+
+
+
+https://www.pinakothek.de/en/alte-pinakothek
+https://www.pinakothek.de/en/neue-pinakothek
+https://www.pinakothek-der-moderne.de/
+
+
+What about names like theses:
+
+- OneCollage
+- OneList
+- OneItem
+
+On the one hand because of OneNav and OneCover.
+On the other hand because of new, unknown and unused terms instead of already taken ones.
+I'm pretty sure when we call it StorySomething half of the company has the content type 'Story' aka 'Article' in their minds.
+And we have to clarify a hundred times 'No, it's not for articles only. It's for all content types (but products)'.
+
+Maybe you can help me with this...
+
+I have a question about taxonomies:
+
+Can someone tell and show me how and where it is defined which taxonomies are connected to the Categories, Channels and Tags fields in copilot?
+
+Or can you point me to the right channel?
+
+Thank you.
+
+
+Let's change 'channels/shop-open-door' to 'tags/shop-open-door' here:
+
+https://github.com/CondeNast/verso/pull/30632/files#diff-d1f1da4d55e59eb1868f49d18dd7b268c633640768dd892f9a4962702ab5feffR37
+
+In my opinion, this is enough for the testing.
+
+But we should look forward to a future proof solution such as creating a special taxonomy just for use with filterable bundle.
+
+
+
+Jetzt lassen wir einmal unberücksichtigt, wie es tatsächlich zu der Bewegung gekommen ist.
+Überlegen wir uns vielmehr, was aus dieser Szene resultieren kann.
+
+Wenn dieser Roboter oder einer, der die Szene beobachtet hat, die Reaktionen auf diese Bewegung registriert, welche Schlüsse wird er ziehen?
+"Eine ruckartige Bewegung, eventuell mit Körperkontakt, führt zu einer erwünschten Reaktion bei den Kohlestoffwesen"?
+"Kohlestoffwesen in Uniformen hindern und das zu tun, wofür wir programmiert sind"?
+"01000111 01110101 01101100 01101100 01101001 01000111 01110101 01101100 01101100 01101001"?
+Oder einfach gar keine Schlüsse?
+
+Why we need transformers and/or normalisers for our card. Using the example of the contributor:
+
+Here a graphql query for contributors:
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/queries.js#L113
+
+Here another:
+https://github.com/CondeNast/verso/blob/main/src/presenters/artist-genre/queries.js#L108
+
+You can see at least two things:
+1. A contributor has probably not the fields other content types provide for SummaryItem such as hed and dek
+2. One query asks for type and again for contributorType. The other query does this not.
+
+Here something happens with the contributor:
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/fetchers.ts#L144
+
+Here as well:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/content-footer/ShowContributor.js#L27
+
+And here:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/summary-item/SummaryItem.js#L1207
+
+Not all of the places listed have anything to do with the card, they are only intended to illustrate that the information about the contributor is very specific, so that it is edited and transformed in some templates - frontend and backend.
+
+
+Yes ... but no.
+
+I must apologise, I didn't make myself clear.
+I would like to create a new taxonomy that looks like this:
+filterable-bundle/shop-open-door/[something]
+
+The taxonomy should then appear in the ‘Categories’ select, just like ‘Verso Tags’ or ‘Functional Tags’.
+
+I can vaguely remember that there is an entry in a repo that says ‘this or that taxonomy should appear in brand so and so’.
+
+
+I have seen your name here as revisionAuthor:
+https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations
+
+Can you remember what you did there?
+Especially in which repository and file?
+'Cause there a new taxonomy for filterable bundle has to be rigistered.
+
+
+npm run test-unit-component src/components/templates/search-results-list-page/SearchResultsListPage.spec.js
+
+
+curl -XPOST -H"Content-Type:application/json" -d @$i.json "https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations"
+curl -XPOST -H "Content-Type:application/json" --data-binary "@brand-configuration-ad.json" "https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations"
+
+curl -XPOST -H "Content-Type: application/json" -d "@brand-configuration-ad-oneline.json" "https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations" -v
+
+cat brand-configuration-ad.json | curl -X POST -H "Content-Type: application/json" -d @- "https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations"
+
+curl -XPOST -H "Content-Type:application/json" --data "@brand-configuration-ad.json" "https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations"
+curl -XPUT -H "Content-Type:application/json" --data "@brand-configuration-ad.json" "https://tsugu-service-ad-content.gp-nonprod-na-0.conde.digital/brand-configurations"
+
+8,75
+131,50
+135
+
+2.394,86
+2.707,60
+
+When I try to publish this page on staging:
+https://stg-copilot.condenast.io/ad/bundles/67166e68a295868dc583931c
+I get an error:
+Server Error: Cannot read properties of undefined (reading 'modelName');
+
+I have no idea what that means.
+No idea how to fix it.
+
+That means:
+I need help.
+
+
+Open this bundle page:
+https://stg-copilot.condenast.io/ad/bundles/6631448abce8bb92b55e8501
+
+Open the tag manager in another tab:
+https://stg-copilot.condenast.io/ad/category-manager/67c027d0bd06f5f460683cf8
+
+Create a new taxonomy:
+Name: Benny Blanco
+Slug: benny-blanco
+
+Return to the bundle page, reload it and try to find 'Benny Blanco' within the Categories select.
+If you can find it a once... then I doubt my sanity.
+If it doesn't work for you straight away either, then perhaps you'll understand what I mean.
+
+
+===
+
+Let me show a partly different approach for filterable bundle here:
+
+As we use 'normal taxonomy' for filterable bundle... but not really normal 'cause we always have to create exclusive entries just for filterable bundles, why not create our own taxonomy for filterable bundle use only?
+
+Why not create exclusive taxonomy for filterable bundles in this manner:
+filterable-bundle/[some parent]/[some children]
+
+Here my approach:
+
+Taxonomy:
+https://stg-copilot.condenast.io/ad/category-manager/67c027d0bd06f5f460683cf8
+
+Filterable Bundle:
+https://stg-copilot.condenast.io/ad/bundles/67b719dd473c156f7d230fd1
+https://multiverso.architecturaldigest.com/shop-open-door-2?branch=category-filterable-bundle
+
+Why:
+Because we have the full control over the used taxonomy and are not forced to discuss each change with editorial or the hole world.
+Because we must not scare about taxonomy changes from product or editorial people at any time.
+
+And last but not least... or the best of all: I know how this can work.
+
+
+http://localhost:7777/architectural-digest-staging/shop-open-door-2
+
+
+Regarding this Ticket:
+https://cnissues.atlassian.net/browse/LS4-1206
+
+What about this approach:
+https://github.com/CondeNast/verso/pull/30694
+
+We create special taxonomies just for filterable bundles.
+And do not use channels or tags.
+As we always have to add entries for the filter I would prefer that as a bit safer way.
+Why?
+Because channels and tags can allways be used everywhere and then unwanted pages can be shown up at filterable bundle.
+Because channels and tags are often shown in in content footer and maybe we don't want to show the filterable bundle taxonomy there.
+What do you mean?
+
+
+EST-9
+EST-17-refactor-filter-bundle
+taxonomy-for-filterable-bundle
+
+===
+
+
+letter-spacing: 0.11em; /* Useful */
+letter-spacing: 0.107em; /* For fine adjustments */
+letter-spacing: 0.107142em; /* Overkill, unnecessarily precise */
+
+line-height: 1.5; /* Default value, easy to read */
+line-height: 1.43; /* Fine adjustment */
+line-height: 1.4286; /* Sometimes necessary for exact layouts */
+line-height: 1.428571; /* Overkill */
+
+
+Regarding OneNav for AD US:
+https://cnissues.atlassian.net/browse/LS4-935
+
+Thomas is asking:
+What I am curious of is the items aren’t central to the viewport, can we address?
+
+Even this is not in scope of this ticket, does someone know if it is (simply) possible to do so? And how?
+
+npm run test-unit-component src/components/compositions/one-nav/components/Clickable/components/Ribbon/Ribbon.spec.js
+
+The ticket does not require any improvement.
+It is only a technical ticket to remove unneeded configuration parts.
+
+I have nevertheless resolved Thomas' request regarding the centring in the navigation because it is a justified and small change.
+The functionality to switch OneNav on and off via featureFlag has already been active for some time.
+
+
+===============================================
+OneCover files in verso:
+https://github.com/CondeNast/verso/tree/main/src/components/compositions/one-cover
+https://github.com/CondeNast/verso/blob/main/src/components/templates/article-page/ArticlePage.js#L852
+
+The channel config:
+https://github.com/CondeNast/verso/blob/main/src/tenants/architectural-digest/channels/one-cover.ts
+
+The design in figma:
+https://www.figma.com/design/n9MoWtrBsErZJw5YoJjXzC/OneCover%C2%AE-2025?node-id=3-5&p=f&t=10jl5ESCGpYs5g0D-0
+
+Ticket and PR for the initial work:
+https://cnissues.atlassian.net/browse/LS4-1111
+https://github.com/CondeNast/verso/pull/30078/files
+
+Test article:
+https://stg-copilot-app.condenast.io/ad/articles/6740b1913f0198144e87f9f4
+https://stag.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco
+http://localhost:7777/architectural-digest-staging/story/72-hours-in-joanna-gainess-waco
+
+===============================================
+
+http://localhost:7777/architectural-digest-staging/story/julia-roberts-real-estate-portfolio?test-onecover=1
+http://localhost:7777/architectural-digest-staging/story/black-owned-stores-home-decor-roundup?test-onecover=1
+http://localhost:7777/architectural-digest-staging/story/in-kim-hostler-and-juliet-burrowss-upstate-new-york-home-scandinavian-design-sets-the-tone?test-onecover=1
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1172
+
+I would prefere a verry simple approach:
+Just take the existing journey/components and add it as a new TextClickable as you can see here:
+https://github.com/CondeNast/verso/pull/30722/files
+
+What do you say?
+
+And some questions about ribbon:
+As ribbon should be part of OneNav and therefore has to be configured together with other clickables in the OneNav config: How can we target single channels if needed?
+How should a copilot ribbon work?
+
+
+Ich habe zwei json Dateien, json-gross.json und json-klein.json. Die sollen so zusammenfügen werden, dass die Logos aus json-gross.json von den Einträgen aus json-klein.json überschrieben werden.
+Wie mache ich das?
+
+json-gross.json
+
+{
+  "decorations": {
+    "standard": {
+      "logo": "/logo-allgemein.svg"
+    },
+    "inverted": {
+      "logo": "logo-allgemein-inverted.svg"
+    },
+    "borderRadius": 0,
+    "borderStyle": "solid",
+    "borderWidth": 4,
+    "cardRadiusLg": 0,
+    "cardRadiusMd": 0,
+    "cardRadiusSm": 0,
+    "dividerStyle": "solid",
+    "dividerWidth": 4,
+    "iconProfileRadius": 0,
+    "navigationRuleStyle": "solid",
+    "navigationRuleWidth": 1,
+    "sectionOrnamentLength": 50,
+    "sectionOrnamentStyle": "solid",
+    "sectionOrnamentWidth": 4
+  }
+}
+
+json-klein.json
+
+{
+  "decorations": {
+    "standard": {
+      "logo": "/logo-spezial.svg"
+    },
+    "inverted": {
+      "logo": "logo-spezial-inverted.svg"
+    },
+  }
+}
+
+
+Dieser Ansatz funktioniert jedenfalls nicht nicht:
+
+const json1 = require('./json-gross.json');
+const json2 = require('./json-klein.json');
+{
+  ...json1,
+  ...json2,
+}
+
+code:
+const { merge } = require('lodash');
+
+lint error:
+Import individual methods from the Lodash module
+
+
+verso complains about isHighlighted here:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/one-nav/components/Clickable/components/TextClickable/TextClickable.tsx#L27
+
+The error:
+Warning: React does not recognize the isHighlighted prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase ishighlighted instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+
+The reason:
+styled-components-v6
+
+What would be best practice to fix it?
+Any suggestions?
+
+
+Der Code:
+const wrap = flow([withViewport, withDataFallback, asJourneyUnit]);
+module.exports = wrap(Newsletter);
+
+Der Fehler:
+Cannot redeclare block-scoped variable 'wrap'.
+
+Wie muss der Export in TypeScript aussehen:
+const enhance = flow([withViewport, withDataFallback, asJourneyUnit]);
+export default enhance(Newsletter);
+
+Und wie importiere ich dann Newsletter?
+
+
+Ich hätte da doch tatsächlich eine oder zwei Fragen zu den Tokens:
+https://www.figma.com/design/49KlOnsUJjejEiyLmLel9i/Future%3A-Post-Decluttering?node-id=880-21655&t=mOfp33kAEDQBmPr2-0
+
+Wir haben im BI File für die Navigation ja die beiden Sektionen standard und inverted und die werden für die OneNav verwendet. Dazu gibt es ein recht ausgeklügeltes System, damit das funktioniert, ohne if-else Schleifen.
+
+Wenn ich das richtig sehe, soll das für den Ribbon anders funktionieren.
+Wenn nämlich der standard Hintergrund den token background-primary, der inverted Hintergrund hingegen background-secondary.
+Und wenn es dazu dann auch noch eine Spezial Palette geben soll, die auf den Token item-brand zurückgreift, dann sieht mir das nach ganz wilden if-else Schleifen aus.
+
+Der Divider hingegen soll immer den token divider nutzen... der aber unterschiedliche Farben haben muss.
+
+Ich glaube ich verstehe das Prinzip noch nicht ganz.
+Kann mir das jemand erklären?
+
+
+Und auch noch diese Frage:
+Wenn ich das richtig sehe, dann sollen für den Ribbon die Token und Paletten unabhängig von OneNav eingesetzt werden.
+
+
+contributors
+hideContributorBio
+showContributor
+contributorSpotlight
+showContributorSpotlight
+
+
+1px solid rgba(223,223,223,1)
+
+
+Fragen und Anmerkungen zum Ribbon:
+- Wir können keine unterschiedlichen token für das selbe Element einsetzen.
+Beispiel: navigation.standard.item-brand und navigation.standard.item-secondary für das Label.
+
+suren.eskandarpour@condenast.de
+noman.syed@condenast.de
+elena.unianina@condenast.de
+gapur.evloev@condenast.de
+marylou.alvarez@condenast.com
+
+
+const wrap = flow([withViewport, withDataFallback, asJourneyUnit]);
+module.exports = wrap(NewsletterRibbon);
+
+Wie muss ich das schreiben, damit component und data in Testdingens verfügbar sind?
+
+export const Ribbon: FC<RibbonProps> = ({ type = 'Newsletter' }) => {
+  const Component = componentsMap[type] || Newsletter;
+  return wrap(<Testdingens />);
+};
+
+export const Testdingens: FC<TestProps> = ({ component, data }) => {
+  console.log('Testdingens::component::', component);
+  console.log('Testdingens::data::', data);
+  return <>{data.text}</>;
+};
+
+
+FYI:
+The prates of the 7seas have now access to journe pn staging:
+https://stag-interfaces.conde.io/apps/journey
+
+If someone else need access, tell me and I try to get access.
+
+
+
+
+And a question right afterwards:
+
+Do you also get this GraphQL error locally?
+
+GraphQL failed due to network error: This operation was aborted
+
+...as reported here:
+
+https://condenast.slack.com/archives/C06HJHCP4MU/p1741680722706969
+
+
 ===============================================
 Ticket Collector - to take care in future time
 ----
-Remove Stickyness from LinkBanner:
-https://github.com/CondeNast/verso/pull/29680
 
 OneNav for them:
 https://github.com/CondeNast/verso/pull/29807

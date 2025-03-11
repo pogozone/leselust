@@ -122,6 +122,11 @@ resolved config not found
 
 Some approaches:
 
+If not at the office:
+Check appgate, you need VPN access.
+
+Try to update your branch:
+
 git stash
 git checkout main
 git pull

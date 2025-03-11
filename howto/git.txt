@@ -1,0 +1,22 @@
+Wenn bei einem rebase oder merge etwas ganz grob daneben gegangen ist, dann hilft das vielleicht weiter:
+
+Auflisten der letzten commits:
+git reflog
+
+Suchen nach dem letzten sauberen und reseten:
+git reset --hard <commit-hash>
+
+Dann ein sauberes rebase machen:
+git rebase origin/main
+
+Und die Fehler im remote branch überschreiben:
+git push --force
+==============================
+
+Wie lösche ich den lokalen branch in git und hole mir die saubere Version aus GitHub?
+
+git checkout main
+git branch -D <branch-name>
+git fetch origin
+git checkout -b <branch-name> origin/<branch-name>
+==============================
