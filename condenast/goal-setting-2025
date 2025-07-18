@@ -1,0 +1,130 @@
+OneCover
+improve user experience
+improve first screen
+decrease number of components
+
+SummaryCollage Toolkit
+
+
+Ribbon
+Replace LinkBanner
+Improving components and code base
+get rid outdated old component
+decrease number of graphql requests
+messaging/content promotion
+tech deps
+complexity
+faster
+
+action: ribbon
+competible to onenav
+
+
+As Verso contains a lot of complex but outdated outdated components
+
+===============
+1. OneNav Ribbon
+
+Verso enthält eine große Menge sehr komplexer, jedoch veralteter Komponenten, um die Aufmerksamkeit der User gezielt auf besondere Inhalte zu lenken. Diese Komponenten sind über die Jahre gewachsen, um immer mehr und immer speziellere Anforderungen abzudecken. Das hat zur Folge, dass diese Komponenten schwer zu warten sind und eine Weiterentwicklung nur mit hohem Aufwand möglich ist.
+
+Mein Ziel ist es daher, zukunftssichere Alternativen zu diesen Komponenten zu entwickeln und diese damit zu ersetzen. Die neuen Komponenten sollen sich insbesondere dadurch auszeichnen, dass sie mit anderen Seitenelementen harmonieren und die Komplexität des Systems verringern. Dabei sollen aufwändige graphql Abfragen reduziert und die Code Base verbessert werden.
+
+2. OneCover
+
+Verso enthält mehrere Komponenten, die Aufmacher und Metadaten für unterschiedliche Inhaltstypen aufbereiten und darstellen. Diese Komponenten sind über die Jahre immer komplexer und anspruchvoller geworden.
+
+Mein Ziel soll es sein, die Anzahl der Komponenten zu verringern, die Code Base aufzuräumen und eine neue, zukunftssichere Komponente zu entwickeln, mit der sich alle aktuellen Anforderungen abdecken lassen. Dazu werden Schritt für Schritt die einzelnen Elemente analysiert, überarbeitet und dabei vereinfacht oder neu entwickelt.
+
+
+34:5
+
+
+
+🎯 Ziel 1: OneNav Ribbon modernisieren (geschäftlich)
+Spezifisch: Ich entwickle eine neue, zukunftssichere Promotion-Komponente als Ersatz für die bisherigen komplexen UI-Komponenten in Verso.
+Messbar: Die neue Komponente reduziert den Codeumfang der alten Komponenten um mindestens 50 %, verringert die Anzahl der GraphQL-Abfragen signifikant und ersetzt mindestens drei bestehende Legacy-Komponenten.
+Attraktiv: Die neue Lösung verbessert langfristig Wartbarkeit und Weiterentwicklung der Plattform.
+Realistisch: Ich nutze bestehende Erkenntnisse aus dem Projektteam und modularisiere die Umsetzung in klar definierte Phasen.
+Terminiert: Die erste produktiv einsetzbare Version der neuen OneNav Ribbon-Komponente wird bis spätestens 31. Juni 2025 implementiert und integriert.
+
+🎯 Ziel 2: OneCover vereinheitlichen (geschäftlich)
+Spezifisch: Ich konsolidiere bestehende Aufmacher-Komponenten in Verso zu einer neuen, zukunftssicheren ContentHeader-Komponente.
+Messbar: Die Header Varianten werden dabei von 34 auf fünf reduziert, entsprechend reduziert sich auch die Codebasis.
+Attraktiv: Die neue Komponente verbessert Übersichtlichkeit, Wiederverwendbarkeit und reduziert technischen Wartungsaufwand.
+Realistisch: Die Umsetzung erfolgt iterativ, beginnend mit einer Analyse- und Konzeptphase im ersten Halbjahr.
+Terminiert: Eine stabile, einsatzfähige Version von OneCover wird bis 15. August 2025 im Produktivsystem verfügbar sein.
+
+
+🎯 Ziel 3: Persönliche Entwicklung im Rahmen des Möglichen fördern (persönlich)
+Spezifisch: Ich fördere meine fachliche und persönliche Weiterentwicklung im Rahmen meiner täglichen Arbeit, insbesondere im Austausch mit Kollegen und anderen, interdisziplinären Teams.
+Messbar: Ich dokumentiere mindestens drei konkrete Lernsituationen oder Verbesserungen, die sich direkt aus meiner Projektarbeit ergeben – etwa durch Refactoring, neue Patterns oder Tooling. (e.g. HowTo create Ribbons, variation config for OneCover or best practice for BI)
+Attraktiv: Ich wachse durch meine Arbeit kontinuierlich durch neue Herausforderungen, Technologien und Strukturen.
+Realistisch: Die Entwicklung erfolgt organisch im Arbeitskontext – durch bewusste Reflexion und gezielte Nutzung von Gelegenheiten.
+Terminiert: Bis Ende Dezember 2025 habe ich eine kurze persönliche Übersicht erstellt, was ich im Laufe des Jahres gelernt oder verbessert habe.
+
+
+
+A suggestion for goal settings.... what do you say?
+
+Goal 1: Modernize Promotion Components (Business)
+Specific: I will develop a new, future-proof promotion component to replace the current complex UI components used in Verso.
+Measurable: The new component will reduce the code size of the legacy components by at least 50%, significantly reduce the number of GraphQL queries, and replace at least three existing legacy components.
+Attractive: The new solution will improve long-term maintainability and the ability to evolve the platform.
+Realistic: I will build on existing insights from the project team and implement the solution in clearly defined, modular phases.
+Time-bound: The first production-ready version of the new OneNav Ribbon component will be implemented and integrated by June 30, 2025.
+
+Goal 2: Consolidate ContentHeader (Business)
+Specific: I will consolidate the existing content header components in Verso into a new, future-proof ContentHeader component.
+Measurable: The number of header variants will be reduced from 34 to five, and the corresponding codebase will be streamlined accordingly.
+Attractive: The new component will improve clarity, reusability, and reduce technical maintenance overhead.
+Realistic: The implementation will follow an iterative approach, starting with an analysis and concept phase in the first half of the year.
+Time-bound: A stable, production-ready version of OneCover will be available in the live system by August 15, 2025.
+
+Goal 3: Support personal growth within realistic boundaries (Personal)
+Specific: I will support my professional and personal development within the scope of my daily work, especially through exchange with colleagues and interdisciplinary teams.
+Measurable: I will document at least three concrete learning experiences or improvements that arise directly from my project work – such as refactoring, new patterns, or tooling (e.g., how to create ribbons, variation config for OneCover, or BI best practices).
+Attractive: I will grow steadily through my work by tackling new challenges, technologies, and structures.
+Realistic: This development will happen organically in the context of daily tasks – through conscious reflection and seizing opportunities as they arise.
+Time-bound: By the end of December 2025, I will have created a short personal summary of what I learned or improved throughout the year.
+
+
+Bitte formuliere mir dazu ein persönliches SMART Ziel:
+
+Die Ausgangslage:
+Ein sehr komplexes und über die Jahre gewachsenes in Node entwickelten System sollen zukunftssichere Änderungen vorgenommen werden.
+An der Entwicklung sind viele, unterschiedliche Teams beteiligt.
+
+Das persönliche Ziel soll zum Ausdruck bringen, dass ich eine lösungsorientierte Arbeitsweise verfolge und damit versuche, die Code Basis nachhaltig zu verbessern.
+
+
+
+
+
+Ziel: Nachhaltige Verbesserungen durch lösungsorientierte Entwicklung vorantreiben (Persönlich)
+
+Konkret: Ich werde aktiv zur nachhaltigen Verbesserung von verso beitragen, indem ich in Zusammenarbeit mit verschiedenen Teams einen lösungsorientierten Ansatz fördere.
+
+Messbar: Ich werde mindestens drei konkrete Verbesserungen dokumentieren, die die Qualität des Codes, die Wartbarkeit oder die Effizienz des Systems verbessern und direkt aus meinen proaktiven Beiträgen resultieren (z.B. Refactoring Patterns, Vereinfachung von Strukturen oder Ersetzen veralteter Module).
+
+Anziehend: Indem ich die Codebasis nachhaltig verbessere, trage ich dazu bei, technische Schulden zu reduzieren und ein zukunftssicheres System zu schaffen, und positioniere mich gleichzeitig als zuverlässiges und zukunftsorientiertes Teammitglied.
+
+Realistisch: Die Verbesserungen werden durch inkrementelle Änderungen erreicht, die in die laufende Projektarbeit integriert werden, ohne die Abläufe im Team zu stören.
+
+Zeitgebunden: Bis zum 31. Dezember 2025 werde ich mindestens drei signifikante Verbesserungen, die meinen lösungsorientierten Beitrag zur Modernisierung von widerspiegeln, abgeschlossen und dokumentiert haben.
+
+
+Drive sustainable improvements through solution-orientated development
+
+Specific: I will actively contribute to the sustainable improvement of verso by promoting a solution-orientated approach in collaboration with various teams.
+
+Measurable: I will document at least three concrete improvements that enhance the quality of the code, maintainability or efficiency of the system and result directly from my proactive contributions (e.g. refactoring patterns, simplifying structures or replacing obsolete modules).
+
+Attractive: By sustainably improving the code base, I contribute to reducing technical debt and creating a future-proof system, while positioning myself as a reliable and forward-thinking team member.
+
+Realistic: Improvements are achieved through incremental changes that are integrated into ongoing project work without disrupting team workflows.
+
+Time-bound: By 31 December 2025, I will have completed and documented at least three significant improvements that reflect my solution-oriented contribution to the modernisation of .
+
+
+
+

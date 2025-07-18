@@ -408,9 +408,12 @@ Effort: Very high
 **Last but not least we should collect all Contributor functionality for Contributor Page, SummaryItem and ByLine at one place. Maybe a transformer-helper.**
 =========================================================================
 
+ShowContributor
 
+Here you can see only contributors of type contributorType are shown:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/content-footer/ShowContributor.js#L27
 
-
+And contributorType can be either author or writer.
 
 
 

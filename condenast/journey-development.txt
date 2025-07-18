@@ -1,0 +1,117 @@
+Journey Backend:
+
+https://stag-interfaces.conde.io/apps/journey
+=============================================
+Hierarchical structure:
+campaign
+- campaign
+    - ...
+- [module] campaign
+    - unit / component
+    - unit / component variation
+=============================================
+unit & unit variation
+
+Form Schema
+-> data available in verso
+
+Example:
+
+{
+  "title": "Verso-Rendered  NewsletterRibbon",
+  "type": "object",
+  "required": [
+    "buttonLabel",
+    "dangerousDek",
+    "landingPageURL",
+    "liveIndicator"
+  ],
+  "properties": {
+    "buttonLabel": {
+      "type": "string"
+    },
+    "dangerousDek": {
+      "type": "string"
+    },
+    "landingPageURL": {
+      "type": "string"
+    },
+    "liveIndicator": {
+      "type": "boolean"
+    }
+  }
+}
+=============================================
+Slots
+
+asJourneyUnit fetches all existion data:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/journey/asJourneyUnit.js
+
+verso templates provide slots to fill with journey data
+=============================================
+templates in verso:
+
+components:
+https://github.com/CondeNast/verso/tree/main/src/components/compositions/journey/components
+
+variations: should be inside the component folder
+=============================================
+Plugin:
+https://github.com/CondeNast/paywall-panel/
+
+Install:
+chrome://extensions/
+-> Entpackte Erweiterung laden
+-> https://github.com/CondeNast/paywall-panel/tree/master/dist/extension
+
+Activate plugin and navigate to the small person on a circle.
+=============================================
+Next steps
+
+Create a journey campaign with ribbon components for testing: GQ, Vanity Fair or Vogue. Coordinate with Mala.
+(I think we need our own campaign to ensure that it is activated during development.)
+
+We need a decision if we want to provide
+1. one slot that handles all OneNav ribbons or
+2. one slot for each ribbon.
+
+If we take version 1 we need a controller with slot mapping
+
+Create components: newsletter, countdown, multilink, whatever
+Create variations: countdown/colored
+
+DoD
+One Ribbon (either newsletter or countdown) is working with OneNav
+
+=============================================
+
+As there are a number of caches and processes at work here that are preventing your changes from being immediately available:
+
+Once you have made a change in staging, you will need to make those changes available via a build process. First you will cut a branch on master in the journey-service repository. I have done this for you https://github.com/CondeNast/journey-service/tree/woldt. Second, you will need to trigger a github action
+https://github.com/CondeNast/journey-service/actions/workflows/deploy-compiler-to-staging.yml.
+This action will deploy a compiler build with the latest configuration from staging interfaces. This compiler will be uploaded to S3 and be available for activation on multiverso. That compiler can be activated by adding the query parameter journey-branch=woldt to your url. I have run this workflow on the woldt branch. So for your example, adding the query parameter to the multiverso link you have
+https://multiverso.vogue.com/article/the-step-cut-gets-a-hard-launch-at-the-grammys?branch=LS4-1250&journey-branch=woldt
+and if you inspect the module units, they are both there.
+
+=============================================
+Schema editor:
+https://rjsf-team.github.io/react-jsonschema-form/
+
+Documentation on objects is here:
+https://rjsf-team.github.io/react-jsonschema-form/docs/json-schema/objects
+=============================================
+[module]
+
+When creating a [module] you have to add the scope to Configuration section:
+
+{
+  "module": {
+    "scope": "global"
+  }
+}
+=============================================
+
+
+
+
+

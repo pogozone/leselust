@@ -1,0 +1,7 @@
+
+Growthbook extension for Chrome:
+https://chromewebstore.google.com/detail/growthbook-devtools/opemhndcehfgipokneipaafbglcecjia?hl=en
+
+
+To see and enable Growthbook experiments add a cookie to the page:
+cn-debug: true

@@ -9,6 +9,15 @@ npm run test-unit-component [/path/to/test]
 new:
 npm run tdd-component -- GlobalNavigation.spec.js
 npm run tdd-component -- GlobalNavigation.spec.js -u
+
+if:
+render(<Component />);
+
+then this might work:
+screen.debug();
+
+import { prettyDOM } from '@testing-library/react';
+console.log(prettyDOM(element));
 ==============================
 
 to fix some node_module issues:

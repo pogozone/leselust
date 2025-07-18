@@ -1,0 +1,10 @@
+To get this work locally:
+
+1. Start the main branch nof content-service
+npm run dev
+
+The graphql api/sandbox should now be available at:
+http://0.0.0.0:8080/graphql
+
+2. Start verso with your local graphql api:
+CONTENT_SERVICE_URI=http://0.0.0.0:8080/graphql npm run dev

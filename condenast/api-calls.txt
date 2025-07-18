@@ -1,0 +1,3 @@
+To get ID, hed, pubDate and uri from vogue items related to a channel:
+
+curl --location 'https://tsugu-service-vogue-content.gp-prod-na-0.conde.digital/search?relid=5cb793c79a9a092e2a85063f&limit=50&notcategory=copilot%2Fpreset&view=edit&d_o=or&nottypes=runwaymoment%2Creview%2Ccnevideo%2Ccategory%2Clivestoryupdates%2Ccontentreference&display=all&disableDecay=false&start=0&trackTotalHits=true&limit=50' | jq -c '.hits .hits[] | [._source.id, ._source.hed, ._source._embedded.publishHistory.pubDate, ._source._embedded.publishHistory.uri]'

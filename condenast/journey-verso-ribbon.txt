@@ -1,0 +1,48 @@
+Ribbon Presentation
+
+1. Journey
+
+1.1 Schema:
+
+EventBanner
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=52&brandId=12&brandSlug=vogue
+
+PromotionBanner
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=51&brandId=12&brandSlug=vogue
+
+CurationBanner
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=54&brandId=12&brandSlug=vogue
+
+1.2 Data:
+
+EventBanner (Vogue)
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=gfrrcpjtki4nc7cr&unitKey=86i06bw67ky4skld&brandId=12&brandSlug=vogue
+
+PromotionBanner (GQ)
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=bxpkobj8cynet5ob&brandId=14&brandSlug=gq
+
+CurationBanner
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=gfrrcpjtki4nc7cr&unitKey=x5vcxkpxteps2kyk&brandId=12&brandSlug=vogue
+
+2. Verso
+
+EventBanner
+https://multiverso.vogue.com/article/the-step-cut-gets-a-hard-launch-at-the-grammys?branch=LS4-1250&journey-branch=woldt
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1250&journey-branch=woldt
+
+PromotionBanner
+https://multiverso.gq.com/culture1?branch=LS4-1250&journey-branch=woldt
+
+CurationBanner
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1269
+
+3. Storybook
+
+EventBanner
+https://verso-components.conde.io/snapshots/LS4-1250/?path=/story/components-journey-ribbonbanner--event-banner
+
+PromotionBanner
+https://verso-components.conde.io/snapshots/LS4-1250/?path=/story/components-journey-ribbonbanner--promotion-banner
+
+CurationBanner
+https://verso-components.conde.io/snapshots/LS4-1269/?path=/story/components-journey-curationbanner--default

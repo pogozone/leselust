@@ -229,7 +229,7 @@ Here I can see the incomplete contributor object:
 https://github.com/CondeNast/verso/blob/main/src/fetcher-helpers/graphql-to-copilot-bundles/copilot-entities/copilot-sub-bundle.ts#L75
 
 Has anyone an idea how and where to fix this?
-Is it a verso issue? Or content-service? Or CoPilot?
+Is it a verso issue? Or   ? Or CoPilot?
 
 
 
@@ -803,6 +803,70 @@ But I cannot see/test my changes about allContributors.
 Neither here https://nonprod-content.conde.io/graphql nor in my local verso instance started with CONTENT_SERVICE_URI=https://nonprod-content.conde.io/graphql npm run dev
 
 What is missing? What did I wrong?
+
+
+This one is as expected:
+
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=nue3t5j34vhugf8w&unitKey=hi0qr2xykw1fjqh3&brandId=22&brandSlug=architectural-digest
+https://stag.architecturaldigest.com/culture-lifestyle
+
+The banner is active - so it renders.
+It's during event - so the during event data is visible.
+
+Same for shopping:
+
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=nue3t5j34vhugf8w&unitKey=ajn3k8pelui2wyew&brandId=22&brandSlug=architectural-digest
+https://stag.architecturaldigest.com/black-friday-cyber-monday
+
+
+Ich habe da eine Frage bezüglich des Spinners.
+
+Wenn ich das richtig verstanden habe, dann ist der so gebaut worden, dass er sich per tenant config ein- und ausschalten lässt.
+Das heisst für mich, dass der Aufruf des Spinners renderHeaderOrPlaceholder im Quelltext stehen bleiben kann. Zumal es so lange bis überall OneCover eingesetzt wird jederzeit zu weiteren A/B Tests kommen kann, die den Spinner benötigen.
+Sehe ich das alles so richtig?
+
+Weil das heisst dann, das die Änderungen an GalleryPage.js in diesem PR unnötig sind und lediglich shouldEnableExperimentPlaceholder auf false gesetzt werden muss:
+
+https://github.com/CondeNast/verso/pull/31851/files#diff-43c141663b58e9e360112fdb1b04a59559f5f4553d5b14fb4adc0ac0ab19b937
+
+
+npm run test-unit-component src/components/templates/article-page/ArticlePage.enzyme.spec.js
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1333
+
+How can I create and maintain cillages in copilot.
+I found this bundle with several verso-collages:
+https://stg-copilot.condenast.io/wrd/bundles/682efb6096fe471e46fe2e0b
+
+But I cannot find verso-collage at Sections select.
+Do we have a HowTo page?
+@suren Can you help me with this?
+
+
+@suren
+As this is your ticket:
+https://cnissues.atlassian.net/browse/LS4-1304
+
+So you can do it. Just remove the headerChipLinks here:
+https://github.com/CondeNast/verso/blob/main/src/tenants/wired/channels/gear.ts#L11
+
+
+Wie sollen wir denn bei der Collage weiter vorgehen?
+Weil es ist ja so:
+
+Namen wie 'TestCollage1' im Quelltext sind nicht so optimal:
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/transformer-helpers/parse-collage/parse-collage.ts#L60
+
+Vielleicht 'CollageDefault' oder 'CollageFallback'?
+
+Und wir müssen ja auch was in die config von copilot rein schreiben und ich bin mir sicher, dass sich dort klingende Namen ganz gut machen.
+Also weder so was wie TestCollage1 und TestCollage2 noch so was wie 1-4 oder 1-2-2.
+
+Rein zum Testen können wir das vielleicht so machen. Aber so bald jemand außerhalb unseres Teams damit arbeiten soll...
+
+Gibt es da Pläne, wie eine Namensgebung aussehen soll?
 
 
 =======================
@@ -19470,9 +19534,50 @@ showContributorSpotlight
 1px solid rgba(223,223,223,1)
 
 
+Vorneweg:
+Es ist etwas schwierig, wenn es die figma Version des Ribbons in verso noch gar nicht gibt.
+Insofern habe ich mich nach bestem Wissen und Gewissen mit dem NewsletterRibbon beschäftigt.
+
 Fragen und Anmerkungen zum Ribbon:
 - Wir können keine unterschiedlichen token für das selbe Element einsetzen.
-Beispiel: navigation.standard.item-brand und navigation.standard.item-secondary für das Label.
+Beispiel: navigation.standard.item-brand und navigation.inverted.item-primary für das Label.
+- Soll es tatsächlich einen bottom divider geben? Weil das mit OneNav borders und deviders Probleme gibt.
+- Für dek, countdown und label sind in figma jeweils zwei tokens angegeben. Welcher ist der richtige?
+- Woher kommt die Information, ob und welche abweichende Färbung label gegenüber dek und countdown haben soll?
+Vor allem muss das irgendwie ohne if-Abfrage funktionieren.
+- Wie wird die Farb-Palette gesteuert?
+- Aktuell werden die Daten von journey anhand eines Strings abgefragt, der einer description in journey entspricht. Daraus ergeben sich natürlich ein paar Fragen:
+  - Das ich die Kombination stringund description nicht so prima finde, müssen wir auch die journey Abfrage überarbeiten.
+  - Mit der aktuellen Technik muss der string von verso übergeben werden, damit die richtigen Daten gezogen werden. Das heisst, es ist nicht  möglich anhand der journey Daten zu entscheiden, welcher Ribbon angezeigt werden soll.
+
+Anmerkungen zur Impelemntierung:
+Es gibt zwei Möglichkeiten:
+1. Es werden die vorhandenen Templates genommen as is. Das bedeutet geringen Aufwand.
+2. Die Templates werden für OneNav nachgebaut. Die vorhandenen Templates sind nicht verwendbar, weil sie in einer völlig anderen Umgebung funktionieren. Das verursacht einen vergleichsweise hohen Aufwand.
+
+
+git checkout main -- src/components/compositions/journey/components/NewsletterRibbon/index.js
+CONTENT_SERVICE_URI=http://localhost:4000/graphql npm run dev
+
+10x12x200=24.000
+24.000/95=253
+
+Wenn ich 10 Jahre lang monatlich 259 Euro in eine Versicherung einzahle und zum Ende der Versicherung 95 Euro im Monat ausgezahlt bekomme, wie lange dauert es, bis die Auszahlung die Einzahlung überschreitet?
+Und wie rechne ich das aus?
+
+
+Does anyone know how long it can take for the activation to be available in verso?
+
+'cause I switched the 'Newsletter Ribbon Live' on here:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?brandSlug=vanity-fair&brandId=1&campaignKey=wcny66budp73333p
+
+And nothing happens on staging:
+https://stag.vanityfair.com/hollywood/story/groucho-marx-and-the-girl
+
+
+npm run test-unit-component src/components/compositions/one-nav/components/Clickable/components/Ribbon/components/RibbonUnit/RibbonUnit.spec.js
+
+
 
 suren.eskandarpour@condenast.de
 noman.syed@condenast.de
@@ -19517,6 +19622,177 @@ GraphQL failed due to network error: This operation was aborted
 
 https://condenast.slack.com/archives/C06HJHCP4MU/p1741680722706969
 
+Saahithi
+Vivek
+Shreya
+
+17.03.2025 um 16:30
+
+
+Can someone tell me where I can find this article in copilot:
+https://www.cntraveller.com/article/best-restaurants-chelsea-london
+
+I searched for the id:
+66c5d413db65af7af797aa7f
+
+and tried this URL:
+https://copilot-app.condenast.io/cnt/articles/66c5d413db65af7af797aa7f
+
+...but no article.
+
+
+Ich denke, ich muss mich entschuldigen.
+
+In verso gibt es die unterschiedlichen Informationen: bio, shortBio und featuredBio.
+Diese Informationen kommen aus copilot. Allerdings haben nicht alle Marken alle Informationen.
+In verso gibt es wiederum verschiedene Templates, die mit diesen Daten unterschiedlich umgehen.
+Ja, und es gibt dieses featureFlag, um die ContributorBox ein und auszuschalten.
+Während meinen Recherchen bin ich nach und nach über alle diese Varianten und die daraus resultierenden Kombinationen gestolpert... und habe prompt die falschen Informationen auf dem Tisch gehabt und hier gepostet.
+
+Jetzt richtig:
+Beim Contributor muss die Biography/bio vorhanden sein und in verso settings muss hideContributorBio deaktiviert sein. Dann wird die ContributorBox angezeigt.
+
+
+Couple of questions about Author bios, I know we've talked about this at length but I wonder if there's a couple of improvements we can make, only if it's like 5 points max per ticket. Can you please share your thoughts?
+Upload translation for "Read more" --> when the author bio truncates, it displays "Read more" regardless of the language of the site. Example.
+Upload translation for "Written by xxx" whenever there are more than 2 contributors in the story --> currently it displays the sentence in English regardless of the language of the site. Example.
+As part of the scope, can we also solve this ticket https://cnissues.atlassian.net/browse/AF-10760
+
+
+
+
+Upload translation for "Read more" --> when the author bio truncates, it displays "Read more" regardless of the language of the site. Example.
+
+...as the "Read more" link is created at the contributors helper and the helper is part of backend we unfortunately cannot use the common translation functionallity. We have to move that to the frontend template. And - of course - take care all other contributor templates and snippets will not break.
+
+"Written by xxx"
+
+...as far as I can see the translation is prepared... but nor translated. Means we need the translation to france (and all other languages we will provide).
+
+About the ticket: As far as I remember are there two places to decide which contributors are shown. One place does something with the type (autor, writer, photographer, whatdoIknower) and the other says "take the first one and don't care about all others". And as far as I remember we postponed the decision what to do with multi contributors one and the other time. Because of design concerns.
+
+========================
+Questions about journey:
+
+How does asJourneyUnit work?
+Where is defined which units are available in verso?
+Exists a developer HowTo to get data from journey?
+
+And now the question what should we do with this ticket:
+https://cnissues.atlassian.net/browse/LS4-1172
+
+I added some more information to the ticket.
+Can we close it?
+
+
+Jetzt dachte ich, ich hätte journey verstanden... ist aber nicht so.
+
+Ich habe eine Kampagne angelegt: OneNavRibbon
+https://stag-interfaces.conde.io/apps/journey/editCampaign?campaignKey=6p7rlcqhk2pt5xph&brandId=14&brandSlug=gq
+
+Dort gibt es ein Modul: OneNavNewletterRibbonTest
+https://stag-interfaces.conde.io/apps/journey/editCampaign?campaignKey=ny6xrcg894d9ckbw&brandId=14&brandSlug=gq
+
+Das Modul hat eine Unit: OneNavNewsletterRibbon
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=2znppziwhn577525&brandId=14&brandSlug=gq
+
+Alle drei sind aktiv und haben keine Einschränkung.
+
+Auf der Seite kommt jedoch nichts an:
+https://stag.gq.com/story/mikey-madison-gq-hype
+
+Ich habe auch versucht OneNavNewletterRibbonTest an die Kampagne "Global Nav Units (stag)" zu hängen:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?campaignKey=0o9lhgbsa5q6whns&brandId=14&brandSlug=gq
+
+Can you help me with this:
+
+I created a new unit:
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=49&brandId=14&brandSlug=gq
+
+What do I have to do to have the unit available for this campaign:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?campaignKey=ny6xrcg894d9ckbw&brandId=14&brandSlug=gq
+
+
+For those who are interested: The OneNavRibbon (work in progress)
+
+Configuration of OneNavCountdownRibbon:
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=49&brandId=14&brandSlug=gq
+
+Data for OneNavCountdownRibbon:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=derjvpo5si839l1c&brandId=14&brandSlug=gq
+
+Data for OneNavNewsletterRibbon:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=2znppziwhn577525&brandId=14&brandSlug=gq
+
+OneNavRibbon on multiverso:
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1227
+
+Code for OneNavRibbon:
+https://github.com/CondeNast/verso/pull/30918/files#diff-8de4c1f9726c213965ee70aab1e7cc4735c44593e02888b1171e90b96c39db1c
+
+Information:
+The new journey component OneNavRibbon listens for a defined range of journey units - at the moment: NewsletterRibbon, CountdownRibbon and MultilinkRibbon - and displays it one after another. Changes in journey have a delay from 5 to 20 minutes minimum.
+
+But please note: Please do not change anything in journey without consulting me.
+
+========================
+
+I'm facing this error while starting my local verso:
+
+ERROR [16:16:19.797] (start/39351): getaddrinfo ENOTFOUND id.condenast.com
+    err: {
+      "type": "OidcClientError",
+      "message": "getaddrinfo ENOTFOUND id.condenast.com",
+      "stack":
+          Error: getaddrinfo ENOTFOUND id.condenast.com
+              at OidcClient.<anonymous> (/Users/woldt/Development/verso/node_modules/@condenast/cn-auth/dist/cjs/oidc-client.js:139:27)
+              at Generator.throw (<anonymous>)
+              at rejected (/Users/woldt/Development/verso/node_modules/@condenast/cn-auth/dist/cjs/oidc-client.js:6:65)
+              at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      "reason": "An unhandled OIDC client exception",
+      "code": "OidcClientError"
+    }
+ERROR [16:16:19.797] (start/39351): verso error with starting server: Error: getaddrinfo ENOTFOUND id.condenast.com
+
+Does a workaround, a solution or a HowTo exist how to deal with it?
+Or is it another "grab some coffee, talk with colleagues and friends, go to the hairdresser... and the service will be available again" issue?
+
+
+  margin: 0 auto;
+  height: ${calculateSpacing(5)};
+
+  picture {
+    margin: 0;
+    height: 100%;
+
+    img {
+      width: 156px;
+      height: 40px;
+    }
+  }
+
+Wie muss diese Funktion aussehen, damit sie eine Komponente oder nichts zurück gibt?
+
+export const Logo: FC<LogoProps> = ({ url }) => {}
+
+Ich rufe diese Funktion:
+
+export const Countdown: FC<CountdownProps> = ({ startDate, endDate }) => {
+  console.log('startDate::', startDate);
+  console.log('endDate::', endDate);
+}
+
+so auf:
+
+const countdown = Countdown(countDownStartTime, eventStartTime);
+
+Mit dem Resultat, dass startDate und endDate undefined sind. Was ist falsch?
+
+
+npm run test-unit-component src/components/templates/search-results-list-page/SearchResultsListPage.spec.js
+
+
+deepseek???
 
 ===============================================
 Ticket Collector - to take care in future time
@@ -19530,22 +19806,3504 @@ https://github.com/CondeNast/verso/pull/29847
 ===============================================
 
 
+2002.5
+
+
+
+
+Ist bei euch ein vernünftiger Tisch - also ein hoher - frei?
+Weil hier beim Günther gibt es nur Kindertische...
+
+
+
+Habe ich mich im Newsletter wohl etwas ungeschickt ausgedrückt...
+Mir geht es gut. Danke der Nachfrage.
+Habe mich allerdings mit dem Suppi recht zerstritten und bin daher bei Donnnerbräu raus.
+Ob und wie der Suppi weiter macht, kann ich nicht sagen.
+
+
+Hat mich schon recht getroffen und mir ein paar schlaflose Nächte bereitet. So eine lange Freundschaft einfach wegzuschmeissen... aber wenn der Herr meint, bitteschön.
+Er hat es immerhin geschafft innerhalb von zwei Jahren den Björn, den Holger, die Alex, den Gerald und mich zu vergrätzen. Ist auch eine Leistung.
+Es waren zwei sehr intensive Jahre mit Donnerbräu. Aber in ein Loch falle ich deswegen sicher nicht. Es gibt den Garten. Es gibt neue Pläne.
+
+
+Can someone tell me...
+
+I have two units here:
+‘One Nav Ribbon Default’ and ‘One Nav Ribbon Variation Countdown’:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?brandSlug=gq&brandId=14&campaignKey=ny6xrcg894d9ckbw
+
+‘One Nav Ribbon Default’ is an instance of OneNavRibbon:
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=51&brandId=14&brandSlug=gq
+
+‘One Nav Ribbon Variation Countdown’ is an instance of the variation Countdown of OneNavRibbon:
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=52&brandId=14&brandSlug=gq
+
+Only one of the two units arrives in Verso. Is that correct
+
+Ribbon:
+- Countdown as CTA
+
+
+<RibbonWrapper href={url}>
+    <Logo url={logo} />
+    <RibbonDek dangerouslySetInnerHTML={{ __html: dek }} />
+    <Countdown startDate={countDownStartTime} endDate={eventStartTime} />
+    <RibbonButtonWrapper>
+        <RibbonButton dangerouslySetInnerHTML={{ __html: label }} />
+    </RibbonButtonWrapper>
+</RibbonWrapper>
+
+
+Regarding the ribbon thing:
+I noticed an ‘icon container’ in figma.
+Does that mean we need a field for icons in journey? If so, how should it look and work? enum or linkt to icon?
+
+
+Now this is my suggestion, please have a look:
+
+How it looks on the page (please ignore the black area on the left):
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1227
+
+How the data looks in journey:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=0lrjk6h6e7z4gv0u&brandId=14&brandSlug=gq
+
+How the countdown is in journey configured:
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=52&brandId=14&brandSlug=gq
+
+Please let me know what you think about it.
+...now is the time where we can change everything with less effort. Once it is on production it's not as easy anymore.
+
+
+npm run test-unit-component src/components/compositions/journey/components/OneNavRibbon/OneNavRibbon.spec.js
+
+
+===
+Lass mich das mal auseinander klabüsern...
+Da gibt es also eine Taxonomie, die über zwei Inhaltstypen hinweg ermittelt wird:
+article -> musicgroup -> genre
+
+Dabei wird ein Link erzeugt, der für gewöhnlich nicht funktioniert:
+https://pitchfork.com/news/?genre=rap
+https://pitchfork.com/news/?genre=jazz
+
+Weil das so ist, wird irgendwie eine Weiterleitung erzeugt, die auch nicht funktioniert:
+https://pitchfork.com/news/genre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rapgenre/rap?genre=rap
+
+https://pitchfork.com/news/genre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazzgenre/jazz?genre=jazz
+
+Dazu gibt es dann einen workaround 'shouldUpdateGenreRubricUrl' bzw 'updateGenreRubricUrl', der beides gerade ziehen soll.
+
+Der workaround ist aber nicht aktiv.
+
+Das alles ist nur und ausschließlich für Pitchfork angelegt worden und es ist bereits vor 5 Jahren darauf hingewiesen worden, dass es sich eigentlich um eine temporäre Lösung handelt:
+
+* This is a stopgap solution
+* to support Pitchfork's related artists and should be removed / refactored
+* once we have a better solution for handling brand-specific data like this.
+
+https://github.com/CondeNast/verso/blob/main/src/transformer-helpers/get-related-artists-as-tags.ts#L7
+
+Habe ich das einigermassen richtig verstanden?
+
+
+
+
+Alright, let me untangle this mess...
+
+So, there's a taxonomy being pulled across two content types:
+-> article → music group → genre
+
+This results in a link that usually doesn’t work:
+-> https://pitchfork.com/news/?genre=rap
+-> https://pitchfork.com/news/?genre=jazz
+
+Since that’s broken, some kind of redirect kicks in, which also doesn’t work and instead generates an absolutely weird URL:
+-> https://pitchfork.com/news/genre/rapgenre/rapgenre/rapgenre/... (repeat "rapgenre" into eternity)
+-> Same story for jazz.
+
+To patch this, there’s a workaround (shouldUpdateGenreRubricUrl / updateGenreRubricUrl) that’s supposed to fix it.
+But…it’s not actually active.
+
+The best part?
+This entire thing was built exclusively for Pitchfork and was marked as a temporary fix five years ago:
+
+* This is a stopgap solution
+* to support Pitchfork's related artists and should be removed / refactored
+* once we have a better solution for handling brand-specific data like this.
+
+https://github.com/CondeNast/verso/blob/main/src/transformer-helpers/get-related-artists-as-tags.ts#L7
+
+Did I get that right?
+
+
+https://pitchfork.com/news/?genre=jazz
+https://pitchfork.com/news/genre/rap
+https://pitchfork.com/genre/rap
+===
+
+Der Test erzeugt einen Fehler:
+expect(component.render().find('[class*="CountdownWrapper"]')).exists();
+
+Der Fehler:
+TypeError: expect(...).exists is not a function
+
+Wie muss der Test also richtig lauten?
+
+
+Zu dieser Genre Sache auf Pitchfork:
+Das ist so unglaublich... und so typisch für Condé Nast.
+Da wird etwas gebaut, was eigentlich nie hätte funktionieren dürfen. Und weil das dann auch tatsächlich irgendwann nicht mehr funktioniert hat, hat man das nicht etwa gerade gezogen, sondern mit beträchtlicher Phantasie über mehrere Workarounds verschleppt und verschleiert. Es ist gruselig.
+Was mich dann aber doch etwas erstaunt: SEO scheint das gar nicht aufzufallen. Ich gehe doch davon aus, dass da eine ganz erkläckliche Menge an Broken Links erzeugt wird.
+Norman hat dazu übrigens eine Slack Nachricht zum Thema von 2018 gefunden...
+
+Hi team,
+
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/30918
+
+It's about the new countdown ribbon that will replace EventBanner and LinkBanner in the near future.
+
+Here it's 'experimental' & 'rock':
+https://pitchfork.com/features/interview/black-country-new-road-album-forever-howlong/
+
+Here it's 'pop':
+https://pitchfork.com/news/dua-lipa-celebrates-future-nostalgia-anniversary-with-new-physical-remix-featuring-troye-sivan-listen/
+
+
+Ich habe einen Countdown, den ich gerne testen möchte.
+expect(component.render().find('[class*="Countdown"]').something()).toBe(something_else);
+
+Wie mache ich das am geschicktesten?
+Welche Informationen fehlen dir?
+
+
+expect(component.render().find('[class*="Countdown"]').text()).toBe(fixture.dangerousDek);
+
+
+Unit tests sollen von enzyme auf React Testing Library umgestellt werden.
+Wie muss das dann aussehen:
+
+
+<div class="RibbonWrapper-esFMJI hwoOfa">
+
+
+I'm not sure if I understand your question or what you want to know.
+
+What I can see:
+
+There is a taxonmy for articles:
+https://copilot.condenast.io/ad/category-manager/5c9cfb941aeb991606e6d97b
+I don't want to swear by it... but it is likely that this information is not available for galleries.
+
+There is a taxonomy for galleries:
+https://copilot.condenast.io/ad/category-manager/5c9e70929ee11d24f32d92f0
+
+When I take a look at some tagged galleries the taxonomy works.
+Example for 'TextAboveLeftNoImg':
+https://www.architecturaldigest.com/preview/gallery/5cc0d2bbf72d5148adbb3bd4?status=draft&t=1743408875846
+
+It seems everything works fine.
+
+In tenant config 'TextAboveCenterFullBleed' is set as ContentHeader variation for galleries.
+And it seems to be reflected by verso:
+https://www.architecturaldigest.com/gallery/best-table-lamps-and-bedside-lamps
+
+Again: It seems to work fine.
+
+Does it help?
+
+
+About your first question:
+Yes and now and maybe ...
+
+In an ideal world 'article' means article.
+In a verso world it can be configured that 'article' informations are also available for galleries.
+Hopefully it does not happen but as I said I cannot swear.
+
+Not to disturb you but to explain what I mean:
+Here you can see an article tagged with Content Header settings for galleries:
+https://copilot-app.condenast.io/ad/articles/5dcc3dd5a1a0ed00088ead5b
+...and I have no idea it it has an effect in verso or not.
+
+
+To your second question:
+I guess you can configure somehow if the widget is active or not and what options are available. Similar to article.
+But for AD the editors can choose Verso Settings from the Categories select.
+In tenant config is a default/fallback variation defined:
+variation: 'TextAboveCenterFullBleed'
+
+As we are working now with information from journey:
+Can someone grant following members of my team access for journey at interfaces too?
+https://interfaces.conde.io/apps/journey
+Here the mail addresses:
+
+kyle_thomas@condenast.com
+thomas.stoodley@condenast.com
+
+
+Yes, I am pretty sure that I am a secret agent who is allowed to do things that nobody else is allowed to do. After all, I'm experimenting with highly sensitive rocket technology here and not just displaying a simple countdown.
+
+
+The logic and code was ready to go months ago, but the struggle to get the PRs through was real.  It’s probably worth a retrospective.
+On one hand, the code looks good.  The logic looks good.  The PR is well tested.  It’s high quality stuff.
+On the other hand, PR requests to refactor things like “=>” to a “function” format, or “<array>.map()” to “for (…) {}” were not helpful. Both were readable and worked, and I’m fine with coding in the style that is most accessible, but I can’t think of a single KPI that benefitted.
+
+I feel with you. And I must say I merged your code - if not months... weeks fore sure - some time ago into a test branch of mine. And it worked well.
+So I was a bit astonished that it last as long to get your code to main.
+But on the other hand it's Condé Nast and we should be familiar how it works.
+And therefore it helps always to have a great amount of GinTonic on your side.
+
+
+Hi there and good morning from the rainy munich.
+@kyle @thom are you both able to access this journey page on staging now:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=0lrjk6h6e7z4gv0u&brandId=14&brandSlug=gq
+
+If not, let me know.
+If someone else need access for journey staging, please let me also know.
+
+
+What is the difference between Promotion banner, Curation banner, Event banner and Promotion bar, Curation bar, Event bar?
+
+Let me briefly summarise once again:
+1. Videos are cropped in the SplitScreenTextLeft variation. So we have to investigate how it actual works and how it should work with OneCover.
+2. "The caption is no longer aligned with the photo, which isn't an optimal experience". But that was the requirement:
+https://www.figma.com/design/n9MoWtrBsErZJw5YoJjXzC/OneCover%C2%AE-2025?node-id=3-5&p=f&t=KXdkmHmlx7UknzT2-0
+3. "Most of our images are cropping weirdly". So we have to investigate how it actual works and how it should work with OneCover.
+4. We have to investigate if it is either a bug a missunderstanding or a new requirement.
+
+
+Upps...
+
+can someone tell me what is this:
+https://github.com/CondeNast/verso/tree/main/src/components/compositions/ribbon-unit
+
+and this:
+https://github.com/CondeNast/verso/tree/main/src/components/compositions/ribbon-unit-countDown
+
+npx prettier --write src/brand-identity/brands/wired-us/brand-identity.json
+
+@cia No you should not undo it. It fine though.
+
+But - and that is important - we should not forget to take care of all the technical (how can I say crap without using the word 'crap') issue...
+
+What to do from my perspective:
+
+1. verso
+Remove all dysfunctional components around shouldUpdateGenreRubricUrl:
+
+https://github.com/CondeNast/verso/blob/main/src/presenters/articles/transformers.ts#L903
+https://github.com/CondeNast/verso/blob/main/src/transformer-helpers/get-related-artists-as-tags.ts#L17
+https://github.com/CondeNast/verso/blob/main/src/transformer-helpers/get-related-artists-as-tags.spec.js#L85
+
+2. verso settings
+Once verso has been cleaned up, updateGenreRubricUrl can also be removed from verso settings.
+
+3. redirects
+Wherever the redirect was set that generates the eternity links, it must be removed.
+
+Because if we don't remove it, we'll be carrying around more tech debt ... and nobody wants that.
+
+@norman I guess thats not an epic. It's just remove some lines of code no one will ever use again. I'm pretty sure it might cost you about one hour... me maybe three 'cause I'm not so familiar with verso settings.
+
+
+I'm afraid this does not work very well:
+
+https://www.cntraveler.com/travel-specialists
+https://multiverso.cntraveler.com/travel-specialists?branch=fix-basewrapper-box
+
+Please have a look.
+
+I have a question and I hope you can give me the hint...
+
+I want to create OneCover props at tenant config like this:
+
+OneCover: {
+  settings: {
+    controls: {
+      hideHed: false
+    }
+  }
+},
+
+and - of course - I want do use it at OneCover like this:
+
+export const OneCover: FC<OneCoverProps> = ({
+    controls
+}) => ...
+
+Can you explain me what I have to do to have the props available?
+
+Do I need a presenter? Or a plugin?
+Or is it just a small config thing I have no glue about?
+
+
+Gaming is a buzz word, and everyone will have their own thoughts on it.
+
+But I'm pretty sure - although I love doing crossword puzzles in the newspaper - none of us will even think of ‘crossword puzzles’ when someone talks about gaming these days...
+
+On the other hand I'm pretty sure Sanjay did some coaching workshops with Alex to be the coolest guy at the meeting ;-)
+
+
+
+
+About variations of OneCover.
+
+For OneCover we need in addition to variation some props:
+
+export type Alignment = {
+  textAlign: TextAlign
+  verticalAlign: VerticalAlign
+}
+
+export enum TextAlign {
+  left, center, right
+}
+
+export enum VerticalAlign {
+  top, middle, bottom
+}
+
+export type Controls = {
+  hideHed: boolean;
+  hideDek: boolean;
+  hideByline: boolean;
+  hidePublishDate: boolean;
+  hideRubric: boolean;
+}
+
+At the moment we have no valid solution from where theses informations will come from.
+(I can think of a lot of way such as: copilot plugin, design tags, verso settings, tenant config)
+
+For the moment - to proceed with OneCover - I would suggest following:
+- Let's write the props to tenant config.
+- Let's create a small transformer
+
+For now the transformer should just pass the tentant config props to OneCover.
+In the future it should handle each source we want to use.
+@elena unianina what do you think?
+
+
+Are any of you familiar with this configured component and can help me get OneCover to work with it?
+https://github.com/CondeNast/verso/blob/main/src/components/helpers/configured-component/configured-component.tsx
+
+In my dream world, I simply packed the export from OneNav into asConfiguredComponent:
+
+import { asConfiguredComponent } from ‘../../helpers/configured-component’;
+import { OneCover } from ‘./OneCover’;
+
+export default asConfiguredComponent(OneCover, ‘OneCover’);
+
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/one-cover/index.ts
+
+...as is done with many other components.
+However, the result is a white screen.
+
+Do I have to do this completely differently because asConfiguredComponent can't use TypeScript?
+Or do the export/import statements have to look different?
+Thank you for any help...
+
+
+
+Funtioniert:
+export { OneCover } from './OneCover';
+
+Funktioniert auch:
+import { OneCover } from './OneCover';
+module.exports = {OneCover};
+
+Funktioniert nicht:
+import { OneCover } from './OneCover';
+export default {OneCover};
+
+
+Please add yourself to this list if you are interested in "fire protection assistant training":
+https://docs.google.com/spreadsheets/d/1bHAU0dsDSqKd0zIYJBpSc_QrYrK9e15sRySM22Cxtuw/edit?gid=0#gid=0
+
+npm run test-unit-component src/components/compositions/one-cover/OneCover.spec.js
+
+Regarding your comment:
+Why not use Center here too?
+https://github.com/CondeNast/verso/pull/31052/files
+
+As we cannot use vertical-align but justify-content the question must be:
+Why not name the prop justifyContent and the values start, center and end.
+
+...I will change that.
+
+OneNavRibbon
+OneNavRibbon - Countdown
+MultilinkRibbon
+
+PromotionBanner: OneNavRibbon
+CurationBanner: MultilinkRibbon
+EventBanner: OneNavRibbon - Countdown
+
+Promotion banner: for subscriptions, memberships, and newsletters. It's for our sign up, subscribe, or become a member messaging.
+Curation banner: for commerce and editorial links that could function as a secondary navigation.
+Event banner: for events, countdowns, and live coverage.
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1250
+
+The ticket says:
+Curation banner: for commerce and editorial links that could function as a secondary navigation.
+
+As far as I understood all these journey things should be includeable in OneNav.
+So why do we need a 'secondary navigation' from jouney when we also can add one (or more) rows to OneNav with verso settings data?
+And also why do we need a 'secondary navigation' from jouney as we already have a working subnavigation with copilot data?
+
+...especially because journey doesn't provide such as multiple links.
+
+
+
+
+I understood that as well.
+
+As is so often the case, I am concerned with the purely technical aspect.
+OneNav is about displaying links / clickables.
+So why do we need two different sources for this?
+
+In my opinion, this creates additional work:
+- Double development effort for the sources
+- Double development effort for handling the sources in verso
+- Maintenance of two sources
+- Double training of colleagues for journey and verso settings
+
+And we have seen that OneNav is not so static. On the one hand, action-specific links (eg. Shopping Week) are added there again and again or channel-specific configurations are needed (eg. AD Clever or GQ Sports).
+
+
+Wenn ich mir die Mail von Vikram so durchlese, dann sehe ich dort vor allem Punkte, denen wir (im Sinne von 7Seas) entweder schon lange entsprechen oder die schon lange auf unserer Wunschliste stehen.
+
+
+Ich habe ein kleines Problem mit den Bannern.
+
+In journey werden die Namen der Units angezeigt.
+Das Matching zwischen journey und verso geschieht über die Felder Name und Variation.
+
+Das heisst, unser Plan mit Unit und Variation funktioniert nicht.
+
+About the naming of the 'new' banners in journey:
+
+When we want to follow our aproach with unit and variation we must name the unit "PromotionBanner" and the variation "EventBanner" as you can see here:
+https://stag-interfaces.conde.io/apps/journey/components?brandSlug=gq&brandId=14
+
+Is it ok?
+
+Das heisst dann, wir haben eine unit 'RibbonBanner' in journey, die kein schema hat und entsprechend auch kein Pendant in verso.
+Dazu gibt es dann zwei Variationen 'PromotionBanner' und 'EventBanner'.
+
+Richtig?
+
+
+As far as I see the copilot link:
+
+https://www.justwatch.com/us/movie/dazed-and-confused
+
+Is converted by some magic to something like this:
+
+https://click.justwatch.com/a?cx=eyJzY2hlbWEiOiJpZ2x1OmNvbS5zbm93cGxvd2FuYWx5dGljcy5zbm93cGxvdy9jb250ZXh0cy9qc29uc2NoZW1hLzEtMC0wIiwiZGF0YSI6W3sic2NoZW1hIjoiaWdsdTpjb20uanVzdHdhdGNoL2NsaWNrb3V0X2NvbnRleHQvanNvbnNjaGVtYS8xLTMtMiIsImRhdGEiOnsicHJvdmlkZXIiOiJBbWF6b24gVmlkZW8iLCJtb25ldGl6YXRpb25UeXBlIjoicmVudCIsInByZXNlbnRhdGlvblR5cGUiOiJoZCIsImN1cnJlbmN5IjoiRVVSIiwicHJpY2UiOjMuOTksInBhcnRuZXJJZCI6NDIsInByb3ZpZGVySWQiOjEwLCJjbGlja291dFR5cGUiOiJqdy13aWRnZXRzIn19LHsic2NoZW1hIjoiaWdsdTpjb20uanVzdHdhdGNoL3RpdGxlX2NvbnRleHQvanNvbnNjaGVtYS8xLTAtMCIsImRhdGEiOnsidGl0bGVJZCI6MTg5ODYxLCJvYmplY3RUeXBlIjoibW92aWUiLCJqd0VudGl0eUlkIjoidG0xODk4NjEifX1dfQ&r=https%3A%2F%2Fwatch.amazon.de%2Fdetail%3Fgti%3Damzn1.dv.gti.64a9f6e0-bc13-937a-ee0e-08047c5219fa&uct_country=de
+
+And it leads me (in germany) - also by magic - to this page:
+
+https://store.maxdome.de/mo40081946
+
+I'm afraid I can't help you with that.
+I can't even say who might be familiar with this technology.
+
+Regarding you confusion about 'lazy loading'...
+
+That was also my first thought, why on earth would they copy a horrible template and leave everything horrible as it is. Including the comment that has been pointing out for seven years that there is an urgent need for optimisation here.
+...I feel with you.
+
+
+PromotionBanner:
+<div class="RibbonButtonWrapper-eKciGi SPxlN">
+  <div class="RibbonButtonLiveIndicatorWrapper-jFFPsh iNmVmJ">
+    <a href="https://www.gq.com" class="RibbonButton-kXwcaB bNLeol">Stay Updated</a>
+  </div>
+</div>
+
+EventBanner:
+<div class="RibbonButtonWrapper-eKciGi SPxlN">
+  <div class="IconWrapper-jtzgMu fegLFk">
+    <svg class="icon icon-newsletter" focusable="false" viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>Newsletter</title><path fill-rule="evenodd" clip-rule="evenodd" d="M28.75 3.25H3.25v10h-1v16.5h27.5v-16.5h-1v-10ZM27.94 16h.31v12.25H3.75V16h.311L16 27.02 27.94 16Zm-.69-1.405V4.75H4.75v9.845L16 24.979l11.25-10.384ZM22 10.75H10v-1.5h12v1.5Zm-12 6h12v-1.5H10v1.5Z" fill="#000"></path>
+    </svg>
+  </div>
+  <div class="RibbonLabel-ejAJct eiitPX">Stay Updated (live)</div>
+</div>
+
+
+Hallo in die Runde.
+
+Ich bin mir sicher, wir alle nutzen inzwischen Künstliche Intelligenz auf die eine oder andere Weise in unserer täglichen Arbeit.
+Ich bin - so nehme ich an - dabei noch etwas träge und diskutiere meine Ideen und Blocker mit ChatGPT.
+
+Mich würde sehr interessieren, was ihr macht und welche Tools ihr nutzt.
+
+Wäre das eine Idee, Tools und HowTo's für uns zusammeln?
+Oder sogar einen Workshop zum Thema zu machen?
+
+Was meint ihr?
+
+Und immer daran denken, höflich bleiben. Es wird sich auszahlen. Spätestens wenn die Maschinen die Macht übernommen haben.
+
+Erstelle mir bitte ein Bild.
+Szenario:
+Zeichne ein Cartoon im Stile von TM Bunk.
+Zu sehen sind zwei schwer bewaffnete Roboter, die einen Menschen bedrohen.
+Der eine Roboter deutet auf den Menschen und sagt, auf Englisch, zum anderen Roboter: "Die verschonen wir, die war immer höflich".
+Im Hintergrund sieht man die rauchenden Trümmer einer Großstadt.
+
+
+Versuchen wir es mal damit:
+
+Stil: Überzeichnet, satirisch, im Stil von TM Bunk – detailreiche Panels, überladene Szenerie, groteske Charaktere.
+
+Szene:
+Eine futuristische Szene in einer übertrieben chaotischen Metropole. Zwei absurd mit technischem Schnick Schnack überladene Roboter patrouillieren durch eine total vermüllte, hyperkommerzialisierte Stadt. Flugtaxis sorgen für ein Verkehrschaos am Himmel, selbstfahrende Einräder crashen in Müllcontainer, Drohnen liefern Fast-Food an Zombies.
+
+Ein dritter Roboter – viel kleiner, mit Blümchenbemalung – steht daneben und scannt eine Liste mit "höflichen Menschen".
+
+Ein Mensch (weiblich, fiktiv, mit nerdigem Outfit und Einkaufstasche voller Bücher, Katzenfutter und einem Croissant) schaut irritiert zu den Robotern hoch.
+
+Text in Sprechblasen:
+
+Großer Roboter A (zeigt auf die Frau, zum anderen Roboter):
+"Wait! She's on the Politeness Whitelist!"
+
+Großer Roboter B (nickt ernst):
+"Respect protocols engaged. Compliment detected: ‘Nice boots, ma’am!’"
+
+
+
+Die Übersetzung ist jetzt etwas holprig. Lass mich dir helfen:
+
+Bitte generiere ein Bild nach folgender Vorgabe:
+
+Stil: Überzeichnet, satirisch, im Stil von TM Bunk – detailreiche Panels, überladene Szenerie, groteske Charaktere.
+Zur Verdeutlichung lade ich die ein paar Bilder von TM Bunk hoch.
+
+Szene:
+Eine futuristische Szene in einer übertrieben chaotischen Metropole. Ein großer und ein kleiner Roboter, absurd mit technischem Schnick Schnack überladen, patrouillieren durch eine total vermüllte, hyperkommerzialisierte Stadt. Flugtaxis sorgen für ein Verkehrschaos am Himmel, selbstfahrende Einräder crashen in Müllcontainer, Drohnen liefern Fast-Food an Punks mit Irokesenfrisur und Nietenlederjacken.
+
+Der kleine Roboter scannt eine Liste mit "höflichen Menschen", die auch die Aufschrift "Liste höflicher Menschen" trägt.
+
+Ein fiktive Frau, mit nerdigem Outfit, langen schwarzen Haaren, weiblichen Formen und Einkaufstasche voller Kabel, Schläuche und Roboterhände, schaut irritiert zu den Robotern hoch.
+
+Text in Sprechblasen:
+
+Kleiner Roboter (zeigt auf die Frau):
+"Moment. Sie war immer freundlich zu Künstlicher Intelligenz."
+
+Großer Roboter (nickt ernst):
+"Sie können weiter gehen. Einen schönen Tag noch."
+
+Das Bild soll quadratisch und farbig sein.
+
+
+Schon ganz gut. Jetzt konzentriere dich auf die aktuelle Anfrage.
+Also nur zwei Roboter.
+Keine Blümchen.
+Die Liste mit "höflichen Menschen" soll auch die Aufschrift "Höfliche Menschen" haben.
+Und bitte mache aus den Zombies im Hintergrund Punks mit Irokesenfrisuren und Nietenlederjacken.
+
+In diesem Snippet hat RibbonWrapper height: 40px;
+Das Logo logo-header.svg ist hingegen 50px hoch und sprengt damit dem übergeordneten Container.
+Was muss ich machen, damit das Logo maximal so hoch ist, wie RibbonWrapper?
+
+Der Code:
+
+<div class="RibbonWrapper-esFMJI hvYeLP">
+  <a href="landingPageURLLive" class="RibbonHref-iiDviK fftsgQ">
+    <img src="https://www.wired.com/verso/static/wired-us/assets/logo-header.svg" class="Logo-iDAJqS fKFraL">
+    <div class="RibbonDek-glkGMp kvsTUy">The Oscars (live)</div>
+    <div class="RibbonButtonWrapper-eKciGi hQxWeZ">
+      <div class="IconWrapper-jtzgMu ithzQP">
+        <svg class="icon icon-newsletter" focusable="false" viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Newsletter</title><path fill-rule="evenodd" clip-rule="evenodd" d="M28.75 3.25H3.25v10h-1v16.5h27.5v-16.5h-1v-10ZM27.94 16h.31v12.25H3.75V16h.311L16 27.02 27.94 16Zm-.69-1.405V4.75H4.75v9.845L16 24.979l11.25-10.384ZM22 10.75H10v-1.5h12v1.5Zm-12 6h12v-1.5H10v1.5Z" fill="#000"></path></svg>
+      </div>
+      <div class="RibbonLabel-ejAJct fTFPMn">Stay Updated (live)</div>
+    </div>
+  </a>
+</div>
+
+Style für das Bild:
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    max-height: 100%;
+}
+
+
+    countDownStartTime: {
+      defaultValue: new Date('2019-09-21T12:16:00.000Z').getTime(),
+    eventStartTime: {
+      defaultValue: new Date('2025-09-21T12:16:00.000Z').getTime(),
+    eventEndTime: {
+      defaultValue: new Date('2035-09-21T12:16:00.000Z').getTime(),
+
+Wie überführe ich dieses Datumsformat 1744028160000 in jenes 2035-09-21T12:16:00.000Z?
+
+Is it somehow possible to fasten up journey for development reasons? 'Cause it's a pain to change something and have to wait 5 to 20 minutes 'till the change is available in local environment.
+
+
+I can tell you, sometimes verso is drivin' me nuts.
+
+This time it's about storybook.
+Why the ... uses storybook different font local and on multiverso?
+And why does the inverted option work local but not on multiverso?
+You can see the difference at the screenshots.
+
+You can see storybook on multiverso:
+https://verso-components.conde.io/snapshots/LS4-1250/?path=/story/components-journey-ribbonbanner--default&args=variation:EventBanner;theme:inverted;liveIndicator:false
+
+It's related to this branch:
+https://github.com/CondeNast/verso/pull/31139
+
+I am thankful for any help.
+
+Sure...
+In here I added the URL to the logo:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=0lrjk6h6e7z4gv0u&brandId=14&brandSlug=gq
+
+And I had to wait several minutes until the url was available for my local development environment.
+
+A question to you both:
+
+Thursday will be our next team breakfast and I would love to have a "Weißwurst Frühstück" again.
+
+Would you eat white turkey sausage?
+
+The description says:
+
+"As we have replaced the typical pork casing in our turkey white sausage with a sheep casing, it is free from any pork. The best white sausage without pork and in halal quality"
+
+https://www.der-puten-shop.de/puten-weisswurst-5-stueck
+
+
+As we will have team breakfast on Thursday I would like to make a classical "Weißwurst Frühstück".
+If you want to have some please let me know how many.
+If one doesn't like Weißwurst at all - what a shame ;-) - please bring along your favourite food.
+Can someone bring Brezn? would be nice :-)
+
+Hi there,
+now I need approvals for this PR:
+https://github.com/CondeNast/verso/pull/31139
+
+It's about the new ribbon variations PromotionRibbon and EventRibbon.
+
+
+process.env.APP_ENV === 'staging' ? {
+  columns: {
+    sm: 'auto'
+  },
+  areas: [
+    {
+      justifyContent: Alignment.CENTER,
+      items: [
+        {
+          component: Component.RIBBON
+        }
+      ]
+    }
+  ]
+} : undefined
+
+
+I'm pretty sure there is not one single template in ver so without any magic - or as you phrase it 'logic or programmatic'.
+
+In this case verso is checking if the bio starts with the Name and link the name to the contributors page. If it does not match, nothing will happen.
+
+You can check easily on staging:
+
+https://stg-copilot-app.condenast.io/vf/contributors/52cc40ad110a545e44000003
+https://stag.vanityfair.com/hollywood/story/testing-multiple-contributors
+
+When I look at my calendar, I realise that I currently have many, many meetings that disrupt and interrupt my daily tasks. This makes it difficult for me to concentrate on my work.
+
+Can we perhaps consolidate this a little? For example, try to schedule our internal meetings (grooming, refinement, review, planning, etc.) on one day?
+
+Or am I the only one who feels disturbed by this?
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/31139/files
+
+Your suggestion:
+Unrelated but why we did not group these together like: label: {current, before, after}
+
+How would you do that?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1247
+
+Can I see the OneCover variation on AD and Vogue somewhere?
+Or can I force the OneCover view somehow?
+
+Please can you immedeately check your PR:
+https://github.com/CondeNast/verso/pull/31063
+
+It adds a broken path to izmir-italic-webfont.woff what causes an error in verso.
+
+Error while copying font izmir-italic-webfont.woff for brand identity: self-health [Error: ENOENT: no such file or directory, copyfile '/Users/woldt/Development/verso/src/styles/assets/fonts/izmir-italic-webfont.woff' -> '/Users/woldt/Development/verso/build/verso/static/assets/fonts/izmir-italic-webfont.woff'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'copyfile',
+  path: '/Users/woldt/Development/verso/src/styles/assets/fonts/izmir-italic-webfont.woff',
+  dest: '/Users/woldt/Development/verso/build/verso/static/assets/fonts/izmir-italic-webfont.woff'
+}
+
+
+export enum Variation {
+  TEXT_LEFT = 'SplitScreenTextLeft',
+  TEXT_LEFT__FULL_WIDTH = 'SplitScreenTextLeftFullWidth',
+
+  TEXT_RIGHT = 'SplitScreenTextRight',
+  TEXT_RIGHT__FULL_WIDTH = 'SplitScreenTextRightFullWidth',
+
+  TEXT_CENTER__IMAGE_BELOW__SINGLE_COLUMN = 'TextCenterImageBelowSingleColumn',
+  TEXT_CENTER__IMAGE_BELOW__TWO_COLUMN = 'TextCenterImageBelowTwoColumn',
+  TEXT_CENTER__IMAGE_ABOVE__SINGLE_COLUMN = 'TextCenterImageAboveSingleColumn',
+  TEXT_CENTER__IMAGE_ABOVE__TWO_COLUMN = 'TextCenterImageAboveTwoColumn',
+
+  TEXT_CENTER__IMAGE_OVERLAY = 'TextCenterImageOverlay',
+  TEXT_TOP__IMAGE_OVERLAY = 'TextTopImageOverlay',
+  TEXT_BOTTOM__IMAGE_OVERLAY = 'TextBottomImageOverlay',
+  TEXT_LEFT__IMAGE_OVERLAY = 'TextLeftImageOverlay',
+  TEXT_RIGHT__IMAGE_OVERLAY = 'TextRightImageOverlay'
+}
+
+
+Can we change that a bit:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/one-nav/types/enums.ts#L48
+
+Maybe to:
+
+export enum RowType {
+  DEFAULT = 'default',
+  FULL_BLEED = 'fullBleed'
+}
+
+Let's not manifest the same errors as the Great Old Ones did before. 'cause as far as I can see, it's not used for content things but for style behaviour.
+
+What do you think?
+
+But for me it's bad practice to add RowType.HERO_AD to Component.RIBBON just to get rid of unwanted paddings.
+What do you think?
+
+...and do something like (rowType === RowType.HERO_AD || rowType === RowType.RIBOON || rowType === RowType.WHATEVER)
+
+
+  ${({ rowType }) =>
+    (rowType === RowType.HERO_AD || rowType === RowType.FULL_BLEED)
+      ? ''
+      : css`
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        `};
+
+221*10x0,50
+
+I just want to have this noted once:
+
+The policy that the AWS token expires after 8 hours — meaning every verso developer has to log in twice a day, with each login taking about 5 minutes and each developer costing Condé Nast roughly 50 cents per minute — results in an annual cost of €1105 per developer for Condé Nast.
+
+That doesn’t even include the mental strain it causes, or the time it pulls a developer out of their workflow.
+
+Wie muss das umgeschrieben werden, damit MorgenRot im Template an kommt:
+
+export const PromotionBanner = Template.bind({
+  variation: 'MorgenRot'
+});
+
+const Template = (args) => {
+  const { variation } = args;
+}
+
+That may be the requirement. However, because the banners take place in the OneNav, they can be placed in any row via configuration.
+EventBanner and PromotionBanner cannot be displayed at the same time. The CuratedBanner is independent of this.
+
+Irgendwie ist bei mir heute der Wurm drin.
+Der build aktualisiert sich nur hin und wieder.
+Sorybook frisst sich immer wieder fest.
+Multiverso verhält sich anders als local.
+Und wenn dann mal 5 Minuten alles funktioniert, dannn ... ratet mal ... genau, token expired.
+
+Ugh, seriously - today’s just one of those days.
+
+The build only updates when it feels like it.
+Storybook keeps freezing for no reason.
+Multiverso acts totally different from local.
+And when - miraculously - everything actually works for like five minutes?
+Guess what? Yup... token expired.
+
+Ich bin für heute ferig mit den Nerven.
+Ich hoffe, morgen klappt wieder etwas mehr.
+Einen schönen Feierabend euch allen.
+
+
+
+
+Wenn ich so etwas habe:
+
+{ container } = render(
+  <Provider store={store}>
+    <OneCover oneCoverContent={oneCoverContent} oneCoverConfig={oneCoverConfig} />
+  </Provider>
+)
+
+let element = container.querySelector('[class*="OneCoverRubric"]');
+
+Dann muss doch so was möglich sein, ohne dass ich Destructuring betreiben muss oder ein "Mini-Template" brauche:
+
+container.debug();
+element.debug();
+
+
+const oneCoverConfig = {
+  controls: {
+    hideRubric: false
+  },
+  alignment: {
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  fullBleed: true,
+  variation: 'AssetRight'
+};
+
+
+beforeEach(() => {
+  ({ container } = render(
+    <Provider store={store}>
+      <OneCover oneCoverContent={oneCoverContent} oneCoverConfig={oneCoverConfig} />
+    </Provider>
+  ));
+});
+
+it('should render as variation AssetLeft', () => {
+    oneCoverConfig.variation = 'AssetLeft';
+});
+
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/31139
+
+Ich denke, ich habe so halb verstanden, was du bezüglich der Icons und Storybook willst.
+Und ich denke auch, dass es da eine einigermassen einfache Lösung gibt.
+Aber kannst du das trotzdem noch etwas genauer formulieren?
+
+========================
+Was ich jetzt brauche:
+OneCover:
+- Vergleichsseiten für Vogue und AD
+-> staging
+-> multiverso
+-> live
+https://multiverso.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco?branch=LS4-1247
+https://stag.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco
+http://localhost:7777/architectural-digest-staging/story/72-hours-in-joanna-gainess-waco
+npm run test-unit-component src/components/compositions/one-cover/OneCover.spec.js
+
+https://localhost:7777/architectural-digest-staging/story/sherwin-williams-2025-color-capsule-of-the-year?test-onecover=1
+
+https://www.architecturaldigest.com/story/sherwin-williams-2025-color-capsule-of-the-year?test-onecover=1
+https://multiverso.architecturaldigest.com/story/sherwin-williams-2025-color-capsule-of-the-year?test-onecover=1&branch=LS4-1247
+
+https://www.architecturaldigest.com/story/josh-shapiros-pennsylvania-home-was-set-on-fire-in-a-deliberate-arson-attack?ad-test-onecover=1
+https://multiverso.architecturaldigest.com/story/josh-shapiros-pennsylvania-home-was-set-on-fire-in-a-deliberate-arson-attack?ad-test-onecover=1&branch=LS4-1247
+
+https://multiverso.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco?branch=LS4-1247
+
+Ribbon:
+- Screenshots von allen Varianten
+https://multiverso.vogue.com/article/gwen-stefani-new-single?branch=LS4-1250
+http://localhost:7777/gq-staging/story/mikey-madison-gq-hype
+http://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1250
+========================
+
+https://www.architecturaldigest.com/story/sherwin-williams-2025-color-capsule-of-the-year?test-onecover=1
+https://stag.architecturaldigest.com/story/sherwin-williams-2025-color-capsule-of-the-year?test-onecover=1
+
+TODO:
+1. Ribbon full width
+2. Check storybook
+3. Do Elenas OneCover review
+4. Ribbon: Check tokens with Kyle
+5. Ribbon: Screenshots of all variations
+6. recover deprecatet variations for AB test
+
+
+Tobi: 2
+Elena: 2
+Nina: 2
+Ich: 2
+Horst: 3
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1263
+
+As I changed a lot around OneCover within this ticket/PR:
+https://cnissues.atlassian.net/browse/LS4-1247
+https://github.com/CondeNast/verso/pull/31052
+
+But the changes are not merged now.
+How should we proceed?
+
+I would prefere this:
+The PR is approved so it's up to you Marylou to test it.
+Once done I will merge and proceed with the ticket for Vogue.
+
+Ok for you?
+
+
+Regarding this document:
+https://cnissues.atlassian.net/wiki/spaces/LIF/pages/16622420016/Banner+Engineering+Concept
+
+Can we perhaps agree to pull together on this?
+That field names are not changed in the document, while completely different names are used and standardised in verso?
+I would like that very much.
+
+https://verso-components.conde.io/snapshots/LS4-1250/?path=/story/components-journey-ribbonbanner--event-banner
+https://verso-components.conde.io/snapshots/LS4-1250/?path=/story/components-journey-ribbonbanner--event-banner
+
+
+Regarding your comment:
+Can you please double-check that despite all adjustments and renaming we didn't touch components layout of default variation. We should be very stick about this, because we are in the middle of AB test.
+https://github.com/CondeNast/verso/pull/31052/files
+I'm afraid I have to recover the deprecated variation for the AB test. Hopefully I can separate it in a way that we can remove it easyly once the AB test is over.
+Why that? Because verso behaves in a way that I cannot guarantee that SplitScreenTextLeft looks the same as AssetRight.
+
+// oneCoverVariation is deprecated; remove it: https://cnissues.atlassian.net/browse/LS4-1279
+
+Ich bin mir ziemlich sicher, dass diese beiden Seiten das letzte Mal, als ich sie am Donnerstag augerufen habe, die OneNav inklusive eines RibbonBanners gezeigt haben:
+https://multiverso.vogue.com/article/gwen-stefani-new-single?branch=LS4-1250
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1250
+
+Bevor ich jetzt anfange zu debuggen:
+Weiß jemand woher der Fehler "An error occurred" kommt?
+Wurden in journey Änderungen vorgenommen?
+
+Wie bekomme ich denn heraus, wo der Fehler auftaucht und was den Fehler verursacht?
+Kannst du mir da weiter helfen?
+Weil "An error occurred" ist nicht sehr hilfreich.
+
+Kann es sein, dass jemand irgend welche Module aktualisiert hat?
+Weil ich in der Konsole jede Menge Fehler sehe, die mir irgendwie Angst machen...
+
+
+When I do this:
+
+export const Ribbon: FC = () => {
+  return <>OneNavRibbon</>
+//  return <OneNavRibbon />;
+};
+
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/one-nav/components/Clickable/Ribbon/Ribbon.tsx
+
+I can see:
+-> OneNav
+-> Text 'OneNavRibbon' appears
+-> Both OneNav and text disappear and the error shows up
+
+Hi Team,
+
+I disabled the curation banner in journey as you can see here:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?campaignKey=ny6xrcg894d9ckbw&brandId=14&brandSlug=gq
+
+But the plugin says it's still available as you can see here:
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1250
+
+Can someone tell me why?
+Cause I was told there is no cache or delay in staging environment...
+
+
+@Elena Unianina
+I don't know how much time Suren has already spent trying to get to the bottom of the journey problem, but I've now easily blown four hours more or less without any results.
+What can we do or how should we proceed?
+I would like to set all journey tickets to blocked until someone can help us or can fix the journey issue.
+
+AD staging:
+{
+  "organizationId": "4gKgcErAkkSHxcAFYh1GjXEpxc6q",
+  "getBundleId": "64d0eba4eecd68c1e48dff0b"
+}
+
+Vanity fair production:
+{
+  "organizationId": "4gKgcExWVbtxQKpGvgwhWNaTTr3V",
+  "getBundleId": "61571ae15b7b667810c53482"
+}
+
+=====================================
+Please can someone help me with this:
+
+Why is for this bundle the lede information not available:
+
+https://stag.architecturaldigest.com/verso-channel/ad-it-yourself
+
+Here you can see there is an image:
+https://stg-copilot-app.condenast.io/ad/pages/channels/64d0eba4eecd68c1e48dff0b
+
+And I can grab the image by graphql:
+https://nonprod-content.conde.io/graphql
+
+Query:
+
+query GetBundle($organizationId: ID!, $getBundleId: String) {
+  getBundle(organizationId: $organizationId, id: $getBundleId) {
+    id
+    hed
+    lede {
+    ...photoField
+        __typename
+    }
+    url: uri
+  }
+}
+
+fragment photoField on Photo {
+    bookMarkedUrl: url
+    altText
+}
+
+Query Variables:
+
+{
+  "organizationId": "4gKgcErAkkSHxcAFYh1GjXEpxc6q",
+  "getBundleId": "64d0eba4eecd68c1e48dff0b"
+}
+
+But at verso clientResult.data.getBundle.lede is empty:
+https://github.com/CondeNast/verso/blob/main/src/fetcher-helpers/content-service/fetch-graphql-data.ts#L100
+=====================================
+
+BasePage: {
+  settings: {
+    hasConsistentSpacing: false
+  }
+}
+
+
+Can one of you take a look at this:
+https://github.com/CondeNast/verso/pull/31223/files
+
+Can you explain to me what is happening here?
+
+What I can see:
+There is a padding-top for BasePage. But because that doesn't work properly, another padding-top was created for the .page class. Because that doesn't work properly either, hasConsistentSpacing was introduced. This is set to false in the HomePage and some magic ensures that it is then true in BasePage. And the PR itself is a bugfix 'cause one of these steps wasn't made propper.
+
+It looks like this to me: A fix, overwritten with a hack, wrapped by a workaround, hidden behind magic...
+
+
+
+once the cache expires
+Can you tell me how long this can take?
+Because I was told that it barely takes 5 minutes for changes to appear in Verso. But in my case the changes did not appear even after 30 minutes or more.
+
+
+Hi there,
+
+I created two units in journey. One with target article and one with target bundle as you can see here:
+
+Target: Bundle
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=bxpkobj8cynet5ob&brandId=14&brandSlug=gq
+
+Target: Article
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=0lrjk6h6e7z4gv0u&brandId=14&brandSlug=gq
+
+When I open a bundle page in verso I see both units as you can see here:
+
+https://stag.gq.com/culture
+
+Now the questions:
+- is this expected behavour?
+- is the tragetting wrong?
+- is the value misspelled?
+
+Can anyone help me?
+
+
+
+
+
+Sorry to bother you again, but...
+
+here are two units and both of them are active:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?brandSlug=vogue&brandId=12&campaignKey=gfrrcpjtki4nc7cr
+
+But the plugin at multiverso shown just one of them:
+https://multiverso.vogue.com/article/the-step-cut-gets-a-hard-launch-at-the-grammys?branch=LS4-1250
+
+And on top: Local the OneNavRibbonVariationCountdown is available.
+
+My question: How can I get the OneNavRibbonVariationCountdown running on multiverso?
+
+
+That really knocked me off my chair...
+
+I just got this answer from the journey people when I asked why units are available locally but not on multiverso:
+
+There are a number of caches and processes at work here that are preventing your changes from being immediately available. Generally we expect that changes in Journey Interfaces (stag and prod) will roll out over a 4 hour window after the change is made.
+
+FOUR HOURS... so I'm not surprised that I find it so difficult to develop and troubleshoot.
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1250
+
+I would have liked to tell you now that you can finally test the banners... and you can see the EventBanner here and the PromotionBanner there on GQ.
+And you can see it on Vogue as well.
+At least the two GQ links are working.
+It took me a day and a half, a lot of nerves and a few grey hairs to get the two links up and running.
+...please don't ask why there is this &journey-branch=woldt parameter.
+
+
+Regarding this:
+https://cnissues.atlassian.net/browse/LS4-1247
+
+I don't think you have really tested it. We simply closed the ticket for Sprint reasons.
+Please have a look and let me know if it's ok.
+
+If yes please also have a look at this ticket:
+https://cnissues.atlassian.net/browse/LS4-1263
+
+'Cause it will be done within the same PR.
+
+Regarding your PR:
+https://github.com/CondeNast/verso/pull/31248
+
+Please double check if ledeLogoBaseUrl: '/ad-it-yourself' is the right setting. 'Cause now all bundle pages with lede have this link:
+https://multiverso.architecturaldigest.com/clever/conversation?branch=LS4-1264
+
+src/components/compositions/one-cover/OneCover.spec.js
+
+
+https://multiverso.vogue.com/article/lee-jaffe-hit-me-with-music-interview?branch=LS4-1247
+
+
+npm run test-unit-component -- -u src/components/compositions/one-nav/components/OneNavEnvironment/OneNavEnvironment.spec.js
+npm run test-unit-component -- -u src/components/compositions/one-nav/components/OneNav/OneNav.spec.js
+npm run test-unit-component -- -u src/components/compositions/journey/components/OneNavRibbon/OneNavRibbon.spec.js
+
+=======================================================================
+Test Links for RibbonBanner
+
+Journey:
+
+EventBanner schema:
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=52&brandId=12&brandSlug=vogue
+EventBanner data:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=gfrrcpjtki4nc7cr&unitKey=86i06bw67ky4skld&brandId=12&brandSlug=vogue
+
+PromotionBanner schema:
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=51&brandId=14&brandSlug=gq
+PromotionBanner data:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=ny6xrcg894d9ckbw&unitKey=bxpkobj8cynet5ob&brandId=14&brandSlug=gq
+
+Verso:
+
+The Ribbon on Vogue:
+https://multiverso.vogue.com/article/gwen-stefani-new-single?branch=LS4-1250&journey-branch=woldt
+http://localhost:7777/vogue-staging/article/gwen-stefani-new-single?journey-branch=woldt
+https://multiverso.vogue.com/article/the-step-cut-gets-a-hard-launch-at-the-grammys?branch=LS4-1250&journey-branch=woldt
+http://localhost:7777/vogue-staging/article/the-step-cut-gets-a-hard-launch-at-the-grammys?journey-branch=woldt
+
+The Ribbon on GQ:
+EventBanner:
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1250&journey-branch=woldt
+http://localhost:7777/gq-staging/story/mikey-madison-gq-hype?journey-branch=woldt
+PromotionBanner:
+https://multiverso.gq.com/culture1?branch=LS4-1250&journey-branch=woldt
+http://localhost:7777/gq-staging/culture1?journey-branch=woldt
+=======================================================================
+
+Ha... I can hardly believe it myself, but I managed to get three links working:
+
+The Ribbon on Vogue:
+EventBanner:
+https://multiverso.vogue.com/article/the-step-cut-gets-a-hard-launch-at-the-grammys?branch=LS4-1250&journey-branch=woldt
+
+The Ribbon on GQ:
+EventBanner:
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1250&journey-branch=woldt
+PromotionBanner:
+https://multiverso.gq.com/culture1?branch=LS4-1250&journey-branch=woldt
+
+Can you confirm that?
+
+As Elena is fine with OneCover it's up to you Marylou.
+
+Please take a look at both of the OneCover tickets:
+https://cnissues.atlassian.net/browse/LS4-1247
+https://cnissues.atlassian.net/browse/LS4-1263
+
+If it's fine for you as well I can start walking the way to production.
+
+==============================================
+Story Types | Experimentation | AD US | Configure content header with no image variant
+https://cnissues.atlassian.net/browse/LS4-1271
+
+Test Page:
+https://www.architecturaldigest.com/story/is-tom-brady-selling-his-billionaire-bunker-bachelor-pad
+http://localhost:7777/architectural-digest/story/is-tom-brady-selling-his-billionaire-bunker-bachelor-pad
+
+Ughh.... has anyone any idea if and how it is possible to override props comming from copilot?
+It's about this ticket:
+https://cnissues.atlassian.net/browse/LS4-1271
+The variationName comes from the copilot widget. For the AB test this should be changed.
+Otherwise... no idea. Maybe we have to use OneCover...
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1271
+
+It is about changing variation and/or variation props for ContentHeader.
+I was told you are working on a very similar task.
+Can you show me your approach? Maybe share the PR?
+
+==============================================
+
+Because we have nothing else to do...
+@elena @noman please re-review this PR:
+https://github.com/CondeNast/verso/pull/31139
+It's about ribbon improvements and I didn't change anything from your approvals 'till now.
+
+
+shouldHighlightLink
+
+I'm a little bit unsure about this...
+
+I can see the prop enabled at primary links for "Fashion".
+https://interfaces.conde.io/apps/versosettings/#/vogue-staging/settings/primaryLinks/
+
+But it seems it does not arrive in verso.
+Do you have an example - doesn't matter which brand - where shouldHighlightLink works?
+
+Ich habe einen Transformer, in dem Links zusammen gebastelt werden:
+https://github.com/CondeNast/verso/blob/main/src/plugins/navigation/transformers.ts#L191
+
+Und ich habe ein Template, in dem die Links gerendert werden:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/navigation/ListItem.js#L227
+
+Im Transformer ist shouldHighlightLink vorhanden, im Template nicht mehr.
+Wie würdet ihr vorgehen, um heraus zu finden, wo und wie der Transformer eingesetzt wird und wo die Information shouldHighlightLink abgeschnitten wird?
+
+
+Finally I found it. It's more or less easy going.
+We have just to:
+- get the right tokens from design
+- hand over the shouldHighlightLink prop from ScrollingNavigation to NavListItem:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/scrolling-navigation/ScrollingNavigation.js#L528
+- add prop and token to the styles file:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/scrolling-navigation/styles.js#L355
+${({ shouldHighlightLink }) => shouldHighlightLink && `
+  background: ${getColorToken('colors.something.background')};
+`}
+
+
+  const {
+  calculateSpacing,
+} = require('../../utils');
+
+margin-right: ${calculateSpacing(1)};
+padding: 0 3rem 3rem 3rem;
+
+
+Ich denke, das sind die aktuellsten Informationen dazu:
+https://www.figma.com/design/49KlOnsUJjejEiyLmLel9i/Ribbon-Component--OneNav%C2%AE-?node-id=1683-235448&t=RCCGS6JkwwSPH1BK-0
+
+Und wir haben ein Ticket dazu:
+https://cnissues.atlassian.net/browse/LS4-1269
+
+Magst du das direkt in das Ticket und/oder den PR rein kommentieren:
+https://cnissues.atlassian.net/browse/LS4-1269
+https://github.com/CondeNast/verso/pull/31199
+
+Hi team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/31052
+It's about variations for the new OneCover content header.
+
+
+npm run test-unit-component src/components/patterns/collections-drawer/CreateCollectionDrawer.spec.js
+
+
+Have you seen this:
+https://cnissues.atlassian.net/browse/CG-4438
+
+Maybe I'm getting it wrong... but it looks a bit scary.
+
+Normally the workflowContent is not available on the client side. Only individual parameters are prepared and passed on via the transformers.
+So far right?
+
+I assume that this has performance and security aspects, among other things.
+....and prevents us from organising any nonsense on the client side.
+Also correct?
+
+Then this miniWorkflowcontext opens Pandora's box a little and invites us to push open the gates of hell. And in more ways than one:
+- If required, someone can create a midiWorkflowcontext and a maxiWorkflowcontext. And perhaps also a niceNameWorkflowcontext.
+- Anyone can now pack any parameters into the miniWorkflowcontext.
+- Anyone can now do anything in the templates.
+
+Am I seeing this completely wrong?
+What do you think?
+
+Was hältst du von der Idee, unsere 10 jährigen bei mir im Garten zu feiern?
+Mit unserem Team und ein paar weiteren Condé Nast Gästen, mit denen wie die letzten 10 Jahre zu tun hatten.
+
+
+@swami
+Some years ago we created this Anchor Link Banner especially for "jump links":
+https://stg-copilot.condenast.io/cnt/sitesettings/bundlecontainers/verso-link-banner-anchored
+
+Mybe thats what you are looking for?
+Then add it (verso-link-banner-anchored) to Universal Bundle and gie it a try
+https://stg-copilot.condenast.io/cnt/sitesettings/bundlesubtypes/Verso%20Universal%20Bundle
+
+@rakshita
+Thank you for your kind trust.
+However, your example page contains a (soon to be obsolete) LinkBanner. It does something very similar, but is firmly anchored below the navigation.
+
+...and we have a few more components that are very similar and generate links. But I don't want to confuse you any more than absolutely necessary.
+
+
+
+Regarding this PR:
+https://cnissues.atlassian.net/browse/CG-4438
+
+I noticed you had some concerns as well. Over here, we were totally knocked off our feet...
+
+Maybe I'm getting it wrong... but it looks a bit scary.
+Normally the workflowContent is not available on the client side. Only individual parameters are prepared and passed on via the transformers.
+So far right?
+
+I assume that this has performance and security aspects, among other things.
+....and prevents us from organising any nonsense on the client side.
+Also correct?
+
+Then this miniWorkflowcontext opens Pandora's box a little and invites us to push open the gates of hell. And in more ways than one:
+- If required, someone can create a midiWorkflowcontext and a maxiWorkflowcontext. And perhaps also a niceNameWorkflowcontext.
+- Anyone can now pack any parameters into the miniWorkflowcontext.
+- Anyone can now do anything in the templates.
+
+Am I seeing this completely wrong?
+What do you think?
+
+Question about Universal Bundle.
+
+Did we create any restrictions by adding sections to this bundle type?
+'Cause Swami tries to add our Anchor Link Banner here:
+https://stg-copilot-app.condenast.io/cnt/pages/verso-universal-bundle/6807342b01013917cd8ca3a8
+
+And it does not appear on the page.
+
+Fehler, Fehler, Folgefehler...
+
+Im Titel des PRs muss dem Doppelpunk ein Leerzeichen kommen...
+Da deine commit message kein Lehrzeichen enthalten hat: mindestens drei Fehler.
+Ich habe ein Leerzeichen rein geschrieben: Drei Fehler weg, ein neuer.
+Jetzt entspricht nämlich der Titel nicht mehr der commit message.
+Also habe ich einen leeren commit mit der berichtigten commit message gepusht.
+Jetzt sind alle github-action Fehler behoben.
+
+...weiter gehts.
+
+
+When I get an error like this:
+
+SyntaxError: /home/runner/work/verso/verso/src/brand-identity/brands/vogue-jp/brand-identity.json: Expected double-quoted property name in JSON at position 9917
+
+Can someone tell me how I can find position 9917?
+
+    "imageUrl": {
+      "type": "string",
+      "format": "uri",
+      "title": "Image URL",
+      "description": "Image aspect ratio: 5:2"
+    },
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1277
+
+I guess I resolved and fixed all comments now.
+@elena @marylou Please have a view.
+
+And I the PR needs reviews:
+https://github.com/CondeNast/verso/pull/31320
+
+Now I will hand over the ticket to you @noman
+When everything is fine you can merge once we've got all the approvals in the bag.
+
+
+First things first, I’m going to treat myself to a couple of pints of my homemade Maibock. :-)
+
+On Saturday I’m heading to Paris, then on to Rennes, and from there I’ll be roaming around Brittany for a few days—eating oysters and counting menhirs. If I have room in my suitcase on the way back, I might even bring us a nice little menhir for the office.
+
+
+
+First of all, I'm going to treat myself to a pint or two of home-brewed Maibock :-)
+
+Then on Saturday I'm off to Paris and from there on to Rennes. Then I'll spend a few days travelling around Brittany. Eating oysters and counting menhirs. If I have room in my suitcase on the way back, I might bring us a nice menhir for the office.
+
+
+Can you short summarize what to do for this:
+https://cnissues.atlassian.net/browse/LS4-1271
+
+...and tell that Bhumika 'cause she will deal with a similar AB test case.
+Thank you.
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1288
+
+I have some questions...
+@marylou: What about the 'Launch list' mentioned in the ticket?
+
+The ticket talks about two journey banners:
+CurationBanner and PromotionBanner
+Are they already created at journey? If not: Who will do this... as we normal engineers are not allowed to do.
+
+@suren: What do you mena with 'Curation Banner Number 1, not implemented intentionally. Discuss with @Tobias Bulla'?
+
+
+But...
+
+I tried this:
+https://vogue-api.aws.conde.io/search?relId=5cb793c79a9a092e2a85063f
+
+But it does not seem to reflect the same result as copilot shows up:
+https://copilot-app.condenast.io/vogue/search?display=all&query=relid%3A5cb793c79a9a092e2a85063f
+
+Additional question:
+As we need just URL, dek and publish date, is there a better way to get this?
+
+curl --location 'https://tsugu-service-vogue-content.gp-prod-na-0.conde.digital/search?relid=5cb793c79a9a092e2a85063f&limit=50&notcategory=copilot%2Fpreset&view=edit&d_o=or&nottypes=runwaymoment%2Creview%2Ccnevideo%2Ccategory%2Clivestoryupdates%2Ccontentreference&display=all&disableDecay=false&start=0&trackTotalHits=true&limit=50' | jq -c '.hits .hits[] | [._source.id, ._source.hed, ._source._embedded.publishHistory.pubDate, ._source._embedded.publishHistory.uri]'
+
+
+Hi there,
+can someone explain me why multibranch start doesn't work here:
+
+https://github.com/CondeNast/verso/pull/31356
+https://github.com/CondeNast/verso/actions/runs/15131248842/job/42535483036
+
+"soon" liegt irgendwo zwischen "das hat Zeit, bis wir irgendwann Zeit haben", "nie, weil uns die Kapazitäten fehlen" und "mach ich mal eben".
+In diesem Fall würde ich auf "nie, weil uns die Kapazitäten fehlen" tippen. Es sei denn Fran mischt sich ein.
+
+"Build Optimization" und "Multibranch Start V2"
+
+
+        OneNav: {
+          settings: oneNavArchitecturalDigest
+        },
+        TriggerableContainers: {
+          settings: oneNavTriggerableContainersArchitecturalDigest
+        }
+
+
+    console.log('navPattern::', navPattern);
+    console.log('oneNavConfig::', oneNavConfig);
+
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1288
+
+What about "Directory", "Yourself" and "Clever", should they stay on the old navigation components SiteHeader, StandardNavigation and StackedNavigation?
+
+https://www.architecturaldigest.com/clever
+https://www.architecturaldigest.com/adpro/directory
+https://www.architecturaldigest.com/ad-it-yourself
+
+
+Is it possible that this feature is disabled again?
+'Cause as you can see here allways staging data is in use:
+
+https://multiverso.gq.com/style?env=production&branch=AF-10720
+https://multiverso.gq.com/style?branch=AF-10720
+
+In verso two channels exist:
+ad-directory-apply
+ad-directory-application
+both are configured with SiteHeader as ConnectedNavigation. But it seems there are no such channeld in copilot.
+Do you have any information about this?
+'Cause I'm playing around with the thought of removing them from verso.
+
+
+If it's just for testing, you can force the production data in the tenant config like this:
+https://github.com/CondeNast/verso/pull/31201/files
+
+But of course, this must not be merged under any circumstances.
+
+
+
+Hi Mithun,
+this is Christian from munich.
+Hope you are fine?
+
+I was told you might have some knowledge about two channels:
+
+In verso this two configs for AD exist:
+ad-directory-apply
+ad-directory-application
+https://github.com/CondeNast/verso/blob/main/src/tenants/architectural-digest/index.ts#L19
+
+Both are configured with SiteHeader as ConnectedNavigation. But it seems there are no such channels in copilot.
+Do you have any information about this?
+'Cause I'm asked to change the ConnectedNavigation to OneNav and want to see what happens with pages tagged with this channels.
+
+I'm playing around with the idea of removing them from verso.
+
+
+Huii.... I found a page I've never seen before:
+http://localhost:7777/architectural-digest-staging/adpro/directory/apply
+
+It seems the page is rendered by verso but it has no copilot ID.
+
+On production this URL is redirected:
+https://www.architecturaldigest.com/adpro/directory/apply
+To:
+https://www.architecturaldigest.com/v2/offers/add202
+
+That wipes out my questionmarks and opens my mind for a new dimension in our verso universe.
+
+Zu diesem Ticket:
+Request #6037
+Du hast das Ticket als "solved" geschlossen. Ich kann allerdings keine weiteren hohen Tische sehen.
+Ist das noch in der Mache?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1288
+
+It says the CurationBanner should be improved.
+Does anyone know where I can see an active CurationBanner?
+Or do I have to create a new one?
+
+Follow up questions:
+
+The ticket:
+Text misaligned on curation banner links
+- Needs to have ‘trim-box’ there
+
+What does ‘trim-box’ mean?
+Maybe text-box-trim?
+What is the aim?
+
+The ticket:
+Padding L/R on image container
+Do we have an image to test this?
+
+
+Maybe you can help me...
+
+I have a featurebranch LS4-1288 that shows the CurationBanner on local:
+http://localhost:7777/architectural-digest-staging/shopping
+
+But not on multiverso:
+https://multiverso.architecturaldigest.com/shopping?branch=LS4-1288
+
+The plugin shows the CurationBanner data.
+Is there a new trick I don't know yet?
+Do I have to mumble some magic spells?
+
+This ticket starts to drivin' me mad...
+
+
+
+
+
+curl --location 'https://tsugu-service-ad-content.gp-prod-na-0.conde.digital/search?relid=665f4511f212a3ff88fb1375&limit=500&notcategory=copilot%2Fpreset&view=edit&d_o=or&nottypes=runwaymoment%2Creview%2Ccnevideo%2Ccategory%2Clivestoryupdates%2Ccontentreference&display=all&disableDecay=false&start=0&trackTotalHits=true&limit=500' | jq -c '.hits .hits[] | [._source.id, ._source.hed, ._source._embedded.publishHistory.pubDate, ._source._embedded.publishHistory.uri]' >> 665f4511f212a3ff88fb1375.csv
+
+
+curl --location 'https://tsugu-service-ad-content.gp-prod-na-0.conde.digital/search?relid=665f16f36d135759f8829ebd&limit=500&notcategory=copilot%2Fpreset&view=edit&d_o=or&nottypes=runwaymoment%2Creview%2Ccnevideo%2Ccategory%2Clivestoryupdates%2Ccontentreference&display=all&disableDecay=false&start=200&trackTotalHits=true&limit=500' | jq -c '.hits .hits[] | [._source.id, ._source.hed, ._source._embedded.publishHistory.pubDate, ._source._embedded.publishHistory.uri]' >> 665f16f36d135759f8829ebd.csv
+
+
+curl --location 'https://tsugu-service-ad-content.gp-prod-na-0.conde.digital/search?relid=665f44b80c4fe90bbe49b414&limit=50&notcategory=copilot%2Fpreset&view=edit&d_o=or&nottypes=runwaymoment%2Creview%2Ccnevideo%2Ccategory%2Clivestoryupdates%2Ccontentreference&display=all&disableDecay=false&start=0&trackTotalHits=true&limit=500' | jq -c '.hits .hits[] | [._source.id, ._source.hed, ._source._embedded.publishHistory.pubDate, ._source._embedded.publishHistory.uri]' > 665f44b80c4fe90bbe49b414.csv
+
+
+
+curl --location 'https://tsugu-service-ad-content.gp-prod-na-0.conde.digital/search?relid=665f44b80c4fe90bbe49b414&limit=500&notcategory=copilot%2Fpreset&view=edit&d_o=or&nottypes=runwaymoment%2Creview%2Ccnevideo%2Ccategory%2Clivestoryupdates%2Ccontentreference&display=all&disableDecay=false&start=400&trackTotalHits=true&limit=500' | jq -c '.hits .hits[] | [._source.id, ._source.hed, ._source._embedded.publishHistory.pubDate, ._source._embedded.publishHistory.uri]' >> 665f44b80c4fe90bbe49b414.csv
+
+
+
+I'm completely helpless with this ticket right now:
+https://cnissues.atlassian.net/browse/EUX-158
+
+I see a disorganized accumulation of ideas, suggestions, discussion posts, screenshots, links, questions, and suggestions.
+What I don't see are clear decisions and instructions on what should be done and how.
+I don't even know what I should discuss here right now.
+
+Isn't it up to you to clearify first what to do?
+
+
+================================================
+Hi there,
+
+All my attempts to get multiverso to work for my PR are in vain.
+
+I have followed a few hopeful approaches:
+(as suggested by Fran and Elena)
+
+1. I removed all labels from my branch, merged the branch with main, pushed it and added labels again: ‘Multibranch Start’
+-> no success
+
+2. same procedure but with these labels: ‘Build Optimisation’ & ‘Multibranch Start V’
+-> no success
+
+3. created a new branch, added my changes and the label ‘Multibranch Start’.
+-> no success
+
+4. removed ‘Multibranch Start’ and added ‘Build Optimisation’ & ‘Multibranch Start V’ -> no success
+-> no success
+
+The ‘Multibranch Start’ action continues to be stubbornly skipped.
+
+In the end, I have already wasted another hour today without making any progress.
+
+I'm now a bit unsure how to proceed.
+Does anyone have any further ideas?
+
+Old branch (to 1. and 2.):
+https://github.com/CondeNast/verso/pull/31512
+
+New branch (for 3. and 4.):
+https://github.com/CondeNast/verso/pull/31546
+================================================
+
+
+text-box-trim: trim-both;
+
+
+border-bottom-color: ${({ theme }) =>
+        getColorToken(`colors.navigation.${theme.oneNavTheme}.border`)};
+
+
+Elena told me you implemented text-box-trim for OneNav.
+Can you show me how to do that?
+
+
+At the moment I compare this (older) branch ad-us-onenav-test with this actual branch LS4-1288.
+ad-us-onenav-test shows up with CurationBanner and PromotionBanner.
+LS4-1288 shows none of them.
+Now I've seen you did a lot of changes in between. Maybe somwhere there is the issue.
+Please can you help me and take a look what happens?
+
+
+
+
+Nun hierzu:
+https://cnissues.atlassian.net/browse/LS4-1288
+
+Ich habe mich mit Kyle auf ein paar Änderungen verständigt. Siehe dazu den letzen Kommentar in diesem Ticket:
+https://cnissues.atlassian.net/browse/EUX-158
+
+Und ich habe mich mit Elena und Marylou auf ein paar andere Änderungen geeinigt, die stehen in meinenm Ticket.
+
+Ich habe in den test Guide rein geschrieben was ich gemacht habe. Das bitte testen.
+
+Und ich habe noch ein paar offene Fragen (stehen auch im Testguide):
+
+Can we introduce 8px gradient overlay on links left and right?
+-> yes we can. please define tokens.
+
+Where are we on themes?
+-> what does this mean?
+
+ALL BANNERS
+
+Hover/focus states are incorrect
+Can we copy these from clickable component?
+-> I added/changed the states. hopefully I found the right ones. please check.
+
+Wenn du dazu Antworten hast, wäre das riesig.
+Die kannst du mir gerne per Slack schicken.
+
+Wenn nicht... dann werden wir warten müssen, bis Kyle wieder aus dem Urlaub da ist.
+
+
+POINTS TO CHEK:
+- AD repared for OneNav
+- all other brands stay as they are
+
+
+
+https://stag.gq.com/story/mikey-madison-gq-hype
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1288
+http://localhost:7777/vogue-staging/story/mikey-madison-gq-hype
+
+CurationBanner & PromotionBanner:
+http://localhost:7777/architectural-digest-staging/shopping
+http://multiverso.architecturaldigest.com/shopping?branch=LS4-1288-v2
+
+Promotion Banner:
+http://localhost:7777/vogue-staging/fashion
+http://localhost:7777/vogue-staging/magazine
+http://multiverso.vogue.com/magazine?branch=LS4-1288-v2
+http://multiverso.vogue.com/fashion?branch=LS4-1288-v2
+
+EventBanner & CurationBanner:
+http://localhost:7777/gq-staging/story/mikey-madison-gq-hype
+http://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1288-v2
+
+CurationBanner:
+http://localhost:7777/vogue-staging/shopping
+http://multiverso.vogue.com/shopping?branch=LS4-1288-v2
+
+CurationBanner for AD - Shopping Channel only:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=nue3t5j34vhugf8w&unitKey=haw4pj6uqz2h0xez&brandId=22&brandSlug=architectural-digest
+http://localhost:7777/architectural-digest-staging/shopping
+http://multiverso.architecturaldigest.com/shopping?branch=LS4-1288-v2
+
+CurationBanner for Vogue - Shopping Channel only:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=gfrrcpjtki4nc7cr&unitKey=x5vcxkpxteps2kyk&brandId=12&brandSlug=vogue
+http://localhost:7777/vogue-staging/shopping
+http://multiverso.vogue.com/shopping?branch=LS4-1288-v2
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1288
+
+Ich fürchte, ich habe inzwischen etwas den Überblick verloren.
+
+Es gibt Einträge bei den primaryLinks:
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest/settings/primaryLinks
+
+Und es gibt Einträge bei den topPrimaryLinks:
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest/settings/topPrimaryLinks
+
+Wenn ich das richtig sehe, dann bedient sich die aktuell aktive Navigation bei primaryLinks. OneNav wird dann die Daten aus topPrimaryLinks verwenden.
+Richtig?
+
+Kann mir jemand sagen, ob die Einträge in topPrimaryLinks, drawerPrimaryLinks and drawerSecondaryLinks richtig und vollständig sind?
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest/settings/topPrimaryLinks
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest/settings/drawerPrimaryLinks
+https://interfaces.conde.io/apps/versosettings/#/architectural-digest/settings/drawerSecondaryLinks
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/EUX-158
+
+Kyle asks:
+Can we introduce 8px gradient overlay on links left and right?
+...at CurationBanner
+
+Answer is: Yes we can.
+Now Suren mentioned to ask you first if we should do or not.
+
+So I ask you: Should we?
+
+
+I have a question:
+
+At the moment we have different behavior for focus at Ribbon and CurationBanner:
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1288-v2
+
+Is it right this way?
+
+
+
+I would say:
+
+OneNav is launched on AD US on Prod
+-> 2 points
+
+OneNav is QAed by engineering, product and design immediately after launch
+-> 2 points
+
+Any issues will be ticketed based on urgency
+-> another 2 points
+
+
+Hi there,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/31546
+
+It's about improvements for the new Banners: EventBanner, PromotionBanner and CurationBanner.
+Especially one review from verso-em.
+
+Nope.. it's this:
+https://github.com/CondeNast/verso/blob/main/src/components/elements/rubric/Rubric.js#L82
+https://github.com/CondeNast/verso/blob/main/src/components/elements/rubric/styles.js#L61
+
+This is a kind of backside of 'Please don't use it again.'.
+Mostly that means something like 'we have recognized that a component doesn't work well, so we add another component' that ends up with two, three or seven not working well components.
+
+
+This is the pulsing liveindicator:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/journey/components/OneNavBanner/Ribbon/components/styles.ts#L34
+
+There is no 'ask for'. It was the initial task that said 'adapt the newsletter ribbon'. And the newsletter ribbon had the pulsing liveindicator.
+
+
+Can you please share the link the requirement of having variation without border? I can't remember we ever discussed that, maybe I missed something.
+
+It was a discussion between Suren and me to improve the rowTypes.
+The conclusion:
+As the only difference between DEFAULT and NO_STYLE is that NO_STYLE has no border, let's rename it to NO_BORDER.
+
+====================================================
+To show other contributors than only authors or writers we have to do the following:
+1. Decide which information should be shown and how; especially the contributorType
+2. We need layout specs
+3. We need a prop like showContributorMap=['author','writer','photographer','whatever']
+3. We have to refactor the ShowContributor template and others:
+  - remove showWriterBio
+  - create contributors array by showContributorMap; default (maybe) 'author'
+  - refactor Contributors by new layout specs
+
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/content-footer/ShowContributor.js#L27
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/contributors/Contributors.js
+====================================================
+
+About your comments regarding my PR:
+https://github.com/CondeNast/verso/pull/31546
+
+https://multiverso.vogue.com/fashion?branch=LS4-1288-v2
+please make sure inversion of background is fill width, currently has grey spacing on sides.
+-> please can you explain this? 'cause I cannot see any spacing on sides.
+
+https://multiverso.architecturaldigest.com/adpro/directory?branch=LS4-1288-v2
+hover on filled links looks broken. I would expect changing of a color, that we already implemented in previous iteration. Currently we have grey bg above and below button.
+-> I removed the grey bg above and below button. I guess we need tokens for filled behaviour?!
+
+https://multiverso.architecturaldigest.com/adpro?branch=LS4-1288-v2
+can you please double-check inverted token value for row dividers. Looks like it should be white, like the others.
+-> Question for design
+
+https://multiverso.architecturaldigest.com/adpro/directory?branch=LS4-1288-v2
+I have some concerns about full-height vertical dividers. It's different in specs. Are we positive it should be like that?
+-> It was a request by Kyle.
+
+
+https://stag.architecturaldigest.com/shopping
+https://stag.architecturaldigest.com/shopping
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1316
+
+Do you know how we can test this?
+Or whom I may ask for?
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1316
+
+I have to add analytics code to some (each) Banner unit.
+For example:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=nue3t5j34vhugf8w&unitKey=03fa2gymeeb7lhtk&brandId=22&brandSlug=architectural-digest
+
+That means I need access to change the json as seen in screenshot.
+
+The ticket says I should ask you.
+So I ask you: Can you grant access for me, Elena and Tobi?
+elena.unianina@condenast.de
+Tobias.Bulla@condenast.de
+christian.woldt@condenast.de
+
+
+
+
+==========================================================
+AD Yourself - OneNav:
+http://localhost:7777/architectural-digest/ad-it-yourself
+
+AD Directory - OneNav:
+http://localhost:7777/architectural-digest-staging/adpro/directory
+
+AD Pro - OneNavPro:
+http://localhost:7777/architectural-digest-staging/adpro
+
+AD - OneNav:
+http://localhost:7777/architectural-digest-staging/story/72-hours-in-joanna-gainess-waco
+
+AD Clever (deprecated):
+http://localhost:7777/architectural-digest-staging/clever
+
+
+AD Yourself - OneNav:
+https://multiverso.architecturaldigest.com/ad-it-yourself
+
+AD Directory - OneNav:
+https://multiverso.architecturaldigest.com/adpro/directory
+
+AD Pro - OneNavPro:
+https://multiverso.architecturaldigest.com/adpro
+
+AD - OneNav:
+https://multiverso.architecturaldigest.com/story/72-hours-in-joanna-gainess-waco
+
+==========================================================
+
+All Banners | Ensure tracking analytics is present in Journey campaigns
+
+https://cnissues.atlassian.net/browse/LS4-1316
+
+CurationBanner
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=55
+PromotionBanner
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=51
+EventBanner
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=52
+
+==========================================================
+
+I have an issue with out new RibbonBanner.
+
+I have one-nav-ribbon-variation-promotion active for AD:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=nue3t5j34vhugf8w&unitKey=03fa2gymeeb7lhtk&brandId=22&brandSlug=architectural-digest
+
+OneNav Ribbon module is active and the One Nav Ribbon Variation Promotion status as well:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?brandSlug=architectural-digest&brandId=22&campaignKey=nue3t5j34vhugf8w
+
+I can see one-nav-ribbon-variation-promotion here at the jouney plugin (screenshot). But it does not appear on the page:
+https://stag.architecturaldigest.com/shopping
+
+Did I some missconfiguration?
+Can someone help me with this?
+
+
+Oops... sounds bad.
+
+But my issue is a very basic issue: Nothing works.
+As far as I can see: there is an active Banner in journey. The unit is active as well. And I can see journey data in the journey plugin.
+But there is no Banner. Just on AD. Vogue seems to work well.
+
+
+And it wouldnt be me if there is no related follow up question.
+
+I have a working Banner for Vogue staging.
+
+The Banner in journey:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=gfrrcpjtki4nc7cr&unitKey=fkc5pcymvy4vdbal&brandId=12&brandSlug=vogue
+
+As you can see there is some analytics code added:
+
+{
+  "analytics": {
+    "impressionEvent": {
+      "name": "PromotionBanner"
+    },
+    "clickEvent": {
+      "name": "PromotionBanner",
+      "selector": "[class*=BannerAnchorTag]"
+    }
+  }
+}
+
+But when I open the page I cannot see any of the events in Snowplow.
+
+The Banner on Vogue:
+https://stag.vogue.com/fashion?journey-branch=woldt
+
+Maybe I'm blind?
+Maybe my analytics code is buggy?
+
+Can someone help me? And push me into the right direction?
+
+
+Tracking visible at snowplow app:
+
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=gfrrcpjtki4nc7cr&unitKey=2o7e5vzeqpbek6nv&brandId=12&brandSlug=vogue
+OneNavRibbonVariationPromotionForVogue should be available in snowplow at 2:00pm - 2 June 2025:
+https://stag.vogue.com/article/loewe-puzzle-10-year-anniversary
+
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=nue3t5j34vhugf8w&unitKey=03fa2gymeeb7lhtk&brandId=22&brandSlug=architectural-digest
+OneNavRibbonVariationPromotionAD should be available in snowplow at 2:10pm - 2 June 2025:
+https://stag.architecturaldigest.com/
+
+
+This ticket seems to be a 5 minute task as the only topic is to add the analytics code to the journey units.
+But I had to face some unforseen challenges:
+1. Delay
+Changes in journey are about 4 hours later available in verso
+2. Active
+In order to find out which unit is active for which page I had to check mostly all units for a brand by:
+- which channels are active
+- do the channels match with the copilot channels (at the moment I have no idea if matching works with slug or name)
+- which unit was changed latest
+- is the campaign active
+It exists no overview were we can see it in one time.
+3. Permamnent Errors
+multiverso, staging and local throw permanent errors (timeout, 404 and service not available alternating). That makes it more or less impossible to test. Both for me and for everyone I have to work with.
+
+
+regarding this PR:
+https://github.com/CondeNast/verso/pull/31480/files#diff-c1dafdd98762ca5703430931bc9773191ebc10554fa5d587a465764475ffa39f
+
+The channel files for ribbon testing are removed here.
+Does that mean we no longer test/develop/work with the ribbon/banner?
+
+Option 1: We already have several copilot/verso solutions for that (LinkBanner, EventBanner, Ticker, whatever). And someone decided this is not the way to walk.
+When we try to re-implement something like that we either start to refactor existing components or start development from scratch. Both means we will not have reasonably working components for prime day.
+
+
+
+
+src/tenants/architectural-digest/channels/one-cover.ts
+src/tenants/vogue/channels/one-cover.ts
+src/tenants/architectural-digest/channels/_default.ts
+
+components/templates/article-page/ArticlePage.js#L197
+components/templates/article-page/ArticlePage.js#L211
+
+components/compositions/one-cover/OneCover.tsx
+components/compositions/one-cover/enum.ts
+components/compositions/one-cover/type.ts
+components/compositions/one-cover/hooks.ts#L18
+
+Hi Team,
+I need approvals for this PR:
+https://github.com/CondeNast/verso/pull/31629
+It's about removing deprecated variation from OneCover.
+
+
+    // enableGqlForLinkBanner will be removed with the OneNav launch on production:
+    // https://cnissues.atlassian.net/browse/LS4-936
+    enableGqlForLinkBanner: process.env.APP_ENV === 'production',
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1328
+Are there already active banners for all the brands?
+Or will you create some?
+Or should I?
+
+https://cnissues.atlassian.net/wiki/spaces/LIF/pages/16779608157/HowTo+create+a+Banner
+
+import { BannerType } from '../../../../components/compositions/journey/components/OneNavBanner';
+
+    {
+      columns: 'auto',
+      rowType: RowType.NO_STYLE,
+      areas: [
+        {
+          justifyContent: Alignment.CENTER,
+          items: [
+            {
+              component: Component.BANNER,
+              type: BannerType.RIBBON
+            }
+          ]
+        }
+      ]
+    },
+
+
+    {
+      columns: 'auto',
+      rowType: RowType.NO_STYLE,
+      areas: [
+        {
+          justifyContent: Alignment.CENTER,
+          items: [
+            {
+              component: Component.BANNER,
+              type: BannerType.CURATION_BANNER
+            }
+          ]
+        }
+      ]
+    },
+
+Visit our
+Latest News
+
+News
+Culture
+
+https://multiverso.gq-magazine.co.uk/culture?branch=LS4-1328
+https://multiverso.them.us/culture?branch=LS4-1328
+https://multiverso.architecturaldigest.com/culture-lifestyle?branch=LS4-1328
+https://multiverso.vogue.com/culture?branch=LS4-1328
+https://multiverso.wired.com/gallery/best-usb-microphones/?branch=LS4-1328
+https://multiverso.vanityfair.com/style?branch=LS4-1328
+
+GQ US
+Culture
+https://www.gq-magazine.co.uk/culture
+News
+https://www.gq-magazine.co.uk/
+
+Them
+Culture
+https://www.them.us/culture
+News
+https://www.them.us/
+
+AD US
+Culture
+https://www.architecturaldigest.com/culture-lifestyle
+News
+https://www.architecturaldigest.com/
+
+Vogue US
+Culture
+https://www.vogue.com/culture
+News
+https://www.vogue.com/
+
+WIRED US
+Culture
+https://www.wired.com/gallery/best-usb-microphones/
+News
+https://www.wired.com/
+
+VF US
+Culture
+https://www.vanityfair.com/style
+News
+https://www.vanityfair.com/
+
+
+I am happy to work with this ticket ;-)
+https://cnissues.atlassian.net/browse/LS4-1328
+
+...because 1328 is the founding year of the Augustiner Brewery and that is of course something special for a Munich resident :-)
+
+
+One or two comments for this ticket:
+https://cnissues.atlassian.net/browse/LS4-1344
+
+1. migrate means copy and paste.
+2. either we get a tool to whipe the component with all units out or we should leave them as they are...
+3. as CurationBanner is not part of OneNav and the data source is not configureable we need another approach:
+  We need to free CurationBanner from the embrace of Journey and adapt it to the new data source. To do this, we also need to decide where the new component should be located, because it will no longer be part of Journey.
+
+
+Hi there,
+
+I have a campaign with two active units in journey:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?campaignKey=bzycd2d5d6u5t2zl&brandId=1&brandSlug=vanity-fair
+
+But they don't appear at verso:
+https://multiverso.vanityfair.com/style?branch=LS4-1328
+
+Nor on the page neither at the plugin.
+
+Please can someone take a look and tell me what I did wrong.
+
+It's me again...
+
+I have a campaign for Vogue with some units active:
+https://stag-interfaces.conde.io/apps/journey/editCampaign?campaignKey=gfrrcpjtki4nc7cr&brandId=12&brandSlug=vogue
+
+But I cannot see any journey data at multiverso:
+https://multiverso.vogue.com/culture?branch=LS4-1328
+
+What I am doing wrong?
+Have I upset Journey so much that it no longer talks to me?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1285
+
+As we have to refactor CurationBanner and change data source I guess we should postpone this ticket.
+Right?
+
+
+story.list.divider.color
+story.list.divider.height
+
+
+I'm happy to tell you that I was able to open all multiverso links for this PR:
+https://github.com/CondeNast/verso/pull/31644
+
+Please take the chance to test and review as long as multiverso is merciful to us.
+It's about enabling banners for some brands.
+
+For GQ we have a channel "OneNav Ribbon":
+https://github.com/CondeNast/verso/blob/main/src/tenants/gq/channels/one-nav-ribbon.ts
+
+And a OneNav configuration for this channel:
+https://github.com/CondeNast/verso/blob/main/src/tenants/gq/channels/navigation/_one-nav-with-ribbon-gq.ts
+
+I did that two month ago for testing purposes.
+I guess we don't need that anymore. Right?
+So I will remove it now.
+
+
+https://www.vogue.com/shopping/womens/clothing/jeans
+https://multiverso.vogue.com/shopping/womens/clothing/jeans?branch=LS4-1326
+
+We have a bundle on staging that is not working.
+Please can someone take a look what happens:
+
+https://stg-copilot.condenast.io/vogue/bundles/64c25c983a74fead8c2424a0
+https://stag.vogue.com/shopping/womens/clothing/jeans
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1326
+
+No one can test and verify if the Vogue Jeand bundle works as expected:
+https://multiverso.vogue.com/shopping/womens/clothing/jeans?branch=LS4-1326
+
+...as the page does not work at all.
+Therefore I would prefer to wait with merging until someone fixed the page on staging.
+What do you say?
+
+Hallo and good day,
+
+this is Christian from Munich.
+
+...and I have a question:
+
+In here you adapted the renderHeaderOrPlaceholder functionality from the article-page:
+https://github.com/CondeNast/verso/blob/main/src/components/templates/gallery-page/GalleryPage.js#L155
+
+Right?
+
+So...
+1. Why did you copy and paste instead of export/import? Or even better: Moving the function to a place where each template can access?
+2. What is the added value of renaming enableExperimentPlaceholder to shouldEnableExperimentPlaceholder?
+
+enableExperimentPlaceholder
+shouldEnableExperimentPlaceholder
+
+https://multiverso.vogue.com/shop/women/clothing?branch=LS4-1326
+https://multiverso.vogue.com/article/dorsey-paracord-launch?branch=LS4-1326
+
+
+Somehow I don't quite understand what is happening. Perhaps you have a test link (stag or prod) where I can see this:
+https://github.com/CondeNast/verso/blob/main/src/components/templates/gallery-page/GalleryPage.js#L1354
+
+When I look at 'gallery', for example, I don't find itemsCount under gallery.header.itemsCount but under gallery.itemsCount.
+socialMedia is in gallery.socialMedia and not in gallery.header.socialMedia.
+
+hasNativeShareButton and shouldEnableNativeShareOnDesktop are both not part of gallery but are located in featureFlags.
+
+And can you send me the right link to the ticket? 'cause the link in the PR:
+https://cnissues.atlassian.net/browse/2442
+leads me to a page that says "Project Does Not Exist".
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1255
+Do you remember which gallery you used when you recognized missing lede rubric or contributorImage crashes the page?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1255
+
+Ganz offensichtlich ist es möglich, Galerien ohne Bild (lede) anzulegen.
+Darauf ist OneCover nicht ausgelegt. Weder technisch in verso, noch optisch in Figma.
+Ich für meinen Teil möchte eigentlich nicht anfangen, wild neue props, Variationen oder if/else Schleifen einzuführen.
+
+Was ich mir vorstellen kann:
+Wir erstellen eine einzige neue Variation 'NoAsset', die aufgebaut ist wie 'AssetTop' nur ohne den asset (lede, caption) Container. Diese Variante dient als Fallback, wenn kein Bild vorhanden ist.
+
+AssetTop:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/one-cover/variations.ts#L73
+
+Was meint ihr?
+
+00340434755491245682
+
+On the other hand: We have already a fix waiting for merging:
+https://cnissues.atlassian.net/browse/LS4-1288
+
+CURATION BANNER
+
+Tap to scroll on mobile allows for vertical and horizontal scroll (iOS, safari)
+Needs to be just vertical
+-> done
+
+https://multiverso.vogue.com/shopping?branch=LS4-1351
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/31546/files
+
+As in the meantime we did some changes for OneNav I had to resolve some merge conflicts.
+I hope I did it well... but please test everything again.
+Especially the scrollConfig behaviour.
+(as soon as multiverso is updated)
+Thank you.
+
+Wouldn't it be a good idea to move this definition to a more global location:
+const READ_MORE_PLACEHOLDER = 'READ_MORE_PLACEHOLDER';
+
+For example, here:
+src/constants/
+
+Because defining the same thing in two different places is always a bit messy and vulnerable to errors.
+
+The channel config hast to be:
+homestays
+
+instead of:
+'home-stay': homestays
+
+https://github.com/CondeNast/verso/pull/31767/files#diff-5ba2be4e17e2e697f427b86b2f7b5f65940deeb4cf333df72a7b08b57572b9a3R22
+
+Because it has to match with the copilots slug:
+https://stg-copilot.condenast.io/cntin/category-manager/684aad576f1947e474650c77/edit
+
+
+Once you pulled the branch your local URL is of course:
+http://localhost:7777/conde-nast-traveler-india-staging/home-stay/
+
+On multiverso it will be:
+https://multiverso.cntraveller.in/home-stay?branch=LS2-1056-CNTIN-FB
+
+Once merged and deployed it will be available here:
+https://stag.cntraveller.in/home-stay
+
+Don't mix up the channels slug 'homestays' with copilots Publish URL 'home-stay'.
+
+
+Journey trap... and we all trapped in.
+
+It it the wrong component: OneNavCountdownRibbon
+
+The right component is: RibbonBanner / variation: EventBanner
+https://stag-interfaces.conde.io/apps/journey/editComponent?id=52&brandId=12&brandSlug=vogue
+
+"Gut gehen" ist ja manchmal relativ. Aber ja, es geht mir gut.
+Ich hatte eine kleine OP und habe mich daheim verbarrikadiert.
+
+Am Samstag braue ich mit Holger im Richelbräu.
+Leider kann ich nicht sagen, ob wir da eigenes Bier zum ausschenken da haben.
+Wenn du aber magst, dann kannst du gerne vorbei schauen, irgend ein Bier gibt es sicher:
+Richelstr. 26
+
+https://www.richelbraeu.de/
+
+Hi Team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/31757
+
+It's about enabling OneCover for galleries.
+@Sardar: Please have a look and please test if that fits your requirements as well.
+@gapur @suren I would be happy if you can take a look as well.
+
+
+Nehmt das nicht zu ernst, ich denke nur laut...
+Vielleicht können wir noch mal ein altes, aber bewährtes Modell aufgreifen. Nämlich, dass es einen Entwickler gibt, der sich um ein Projekt kümmert und dafür dann auch Ansprechpartner ist.
+
+
+
+The aim of OneCover is to replace all old ContentHeaders with a simple, clean, maintainable and reusable component.
+In this respect, it is essential not to continue using any of these old and hopefully soon obsolete props. It is immensely important that no dependencies exist or are created between old and new components.
+
+
+Hi Team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/31757
+It's about enabling OneCover for galleries.
+
+I did some improvements so whould be plesed if you will have a second look:
+@in_ksardar and @Suren
+
+
+But now it is confusing:
+(enableOneNav || navPattern === 'OneNav') && oneNavConfig
+what means you can set or remove the enableOneNav featureFlag and nothing will happen because navPattern is set to OneNav. what means for me we should not have navPattern: 'OneNav'.
+
+Test links for:
+AD
+http://multiverso.architecturaldigest.com/shopping?branch=LS4-1288-v2
+
+GQ
+http://multiverso.gq.com/story/mikey-madison-gq-hype?branch=LS4-1288-v2
+
+Them
+
+Vanity Fair
+
+Vogue
+http://multiverso.vogue.com/magazine?branch=LS4-1288-v2
+http://multiverso.vogue.com/fashion?branch=LS4-1288-v2
+
+Wired
+https://multiverso.wired.com/?branch=LS4-1288-v2
+
+Please can you take over this issue:
+https://github.com/CondeNast/verso/pull/31750
+
+I talked with Elena and the AD launch has more priority for me.
+
+The problem I see here is:
+The BannerLink container is a bout 2 pixel higher thant the BannerLinks wrapper.
+I don't know why. Maybe because of borders. Maybe because of wrong paddings.
+
+What does this mean:
+'Add AD IT Yourself logo to bundle'
+https://docs.google.com/spreadsheets/d/19LmrcIIG78vf6VIin1cV9qt4XmnOiBzzgRnyTGnYfn4/edit?gid=1683128934#gid=1683128934
+
+As now all my questions are answered here is my roadmap:
+
+Roadmap for AD launch
+1. waiting for ribbon improvement PR to be ready to merge -> Christian
+2. merge PR -> Christian
+3. waiting for verso-em review -> Elena
+4. upload logo to DIY -> Christian
+5. notification in engineering channel ->  Marylou
+6. merge config -> Christian
+7. when deployed, purge cache in Interfaces -> Christian
+8. enable Banners in Journey / Verso Settings for Curation Banner -> Marylou & Elena
+9. post in technology-shoutouts channel -> Marylou
+
+
+
+"because we think it's a bit much to post every time we launch a market"
+
+Oh... and yet Tobi said yesterday that in this company it's really important to do something like this to get noticed.
+
+
+===
+As soon as the tests are completed, please approve this PR in good time:
+https://github.com/CondeNast/verso/pull/31697
+
+It's about activating the OneNav for AD.
+
+Can you do that?
+You would be doing me, my team and the entire AD a big favour.
+===
+
+And because of the enabled banners in journey:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=bzycd2d5d6u5t2zl&unitKey=bigofudw1wsatfoq&brandId=1&brandSlug=vanity-fair
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=bzycd2d5d6u5t2zl&unitKey=wislaoy0muum2hop&brandId=1&brandSlug=vanity-fair
+
+
+====
+I whould say:
+Try it local. I cannot say what all the special settings will make with bundles over all.
+
+If it does not work:
+Try it with section 'filterableBundle' or 'versoFilterableBundle' instead of 'default'.
+Im not sure if that works but I remember we created something like that to several bundle pages:
+https://github.com/CondeNast/verso/blob/main/src/tenants/glamour/channels/_default.ts#L486
+
+If it does not work:
+Why not use a special channel for it? I've seen that there are a lot of weird channels. One more or less doesn't matter...
+
+
+What I mean:
+You can add as much channnels a s you want to each page.
+So you can try to add 'hotels-and-homestays' as primary channel for product team.
+And 'homestays' with the settings for FilterableBundles. Im not sure if that works but you can give it a try when section 'filterableBundle' or 'versoFilterableBundle' not work.
+====
+
+Question:
+How is this page reachable?
+https://www.architecturaldigest.com/adpro
+
+I cannot find a link in OneNav.
+Or should this page not be available?
+
+===
+I don't want to worry you, but when I was confronted with the - probably the same - problem, I got this answer:
+
+Broken bundles on staging are a known issue and are atm a "will not fix".
+
+https://condenast.slack.com/archives/C0SU8V086/p1740737164642409
+
+But I am very curious to see if there is a solution in the meantime.
+===
+
+It's a bit confusing for me.
+I did the fix for the AD as part of the AD launch and was now a little unsure what was going on with the other brands.
+At the same time, Gapur also made the fix for AD (and all other brands).
+While the gradient for CurationBanner has been fixed under composition/journey, the CurationBanner has been copied elsewhere.
+The solution for the vertical scrolling has been handled differently in three branches, I had to fix that quickly before the launch.
+... and must now be tested quickly.
+
+As CurationBanner is now part of OneNav, can we delete this asap please:
+https://github.com/CondeNast/verso/tree/main/src/components/compositions/journey/components/OneNavBanner/CurationBanner
+
+You did the changes here:
+
+https://github.com/CondeNast/verso/blob/37780ba9692c932f085c510e5c6b38f0f25b8af1/src/components/compositions/journey/components/OneNavBanner/CurationBanner/styles.ts
+
+But I guess this is the right place:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/one-nav/components/CurationBanner/styles.ts#L100
+
+Isn't it?
+
+A few questions about the AD launch:
+
+"purge cache in Interfaces"
+As far as I know we are only able to purge the cache for one URL at a time.
+Is there a new mechanism to clear the entire cache at once?
+
+"Enable Banners in Journey"
+As there is no module and no units for OneNav Ribbon: Who will create that
+
+"Verso Settings for Curation Banner"
+Who will do that?
+
+
+process.env.APP_ENV !== 'production' ? 'OneNav' : 'SiteHeader',
+// For testing only. Remove before merging ticket https://cnissues.atlassian.net/browse/LS4-1350
+import {
+  OneCoverVariation,
+  TextAlign
+} from '../../../components/compositions/one-cover/enum';
+
+          // For testing only. Remove before merging ticket https://cnissues.atlassian.net/browse/LS4-1350
+          ...(process.env.APP_ENV !== 'production' && {
+            headerComponent: 'OneCover',
+            oneCover: {
+              alignment: {
+                textAlign: TextAlign.CENTER
+              },
+              variation: OneCoverVariation.ASSET_RIGHT
+            }
+          }),
+
+
+
+        ArticlePage: {
+          settings: {
+            headerComponent: 'OneCover',
+            oneCover: {
+              alignment: {
+                textAlign: TextAlign.CENTER
+              },
+              variation: OneCoverVariation.ASSET_RIGHT
+            }
+          }
+        },
+
+
+
+Test links for OneCover:
+
+Glamour
+http://localhost:7777/glamour/gallery/tummy-control-swimsuits
+https://multiverso.glamour.com/gallery/tummy-control-swimsuits?branch=LS4-1255-II
+
+AD
+http://localhost:7777/architectural-digest-staging/story/72-hours-in-joanna-gainess-waco
+http://localhost:7777/architectural-digest-staging/gallery/lauren-bacall-and-humphrey-bogart-at-home-the-golden-age-power-couples-offscreen-life-in-photos
+
+http://localhost:7777/architectural-digest/gallery/napa-valley-california-wine-country-slideshow
+https://multiverso.architecturaldigest.com/gallery/napa-valley-california-wine-country-slideshow?branch=LS4-1255-II
+
+GQ
+http://localhost:7777/gq/gallery/best-dressed-nba-draft-2018
+http://localhost:7777/gq/story/saluting-marc-maron-a-podcast-pioneer-whos-getting-out-just-in-time
+https://stag.gq.com/gallery/best-dressed-nba-draft-2018?branch=LS4-1255-II
+https://stag.gq.com/story/saluting-marc-maron-a-podcast-pioneer-whos-getting-out-just-in-time?branch=LS4-1255-II
+
+Vogue
+http://localhost:7777/vogue/article/addressed-a-guide-to-layering-jewelry
+http://localhost:7777/vogue/slideshow/caa-tony-weekend-bash-2025
+https://multiverso.vogue.com/article/addressed-a-guide-to-layering-jewelry?branch=LS4-1255-II
+https://multiverso.vogue.com/slideshow/caa-tony-weekend-bash-2025?branch=LS4-1255-II
+
+Self
+https://multiverso.self.com/story/reasons-why-people-cheat?branch=LS4-1255-II
+https://multiverso.self.com/gallery/anna-paquin-workout-slideshow?branch=LS4-1255-II
+
+Can someone tell me what this 'Untitled / Cypress Superadmin / 10 June 2025 at 12:05' pages are?
+https://stg-copilot-app.condenast.io/vogue/search?page=2&types=gallery
+
+Is it necessary?
+
+It is hard enough to work with copilot staging at all. So please don't add scripts, robots or AI to create senseless and useless items.
+
+
+You wrote... and you are right:
+
+'In future, could we stick to one PR per ticket. Makes it easier to review, troubleshoot, and if necessary, to rollback'
+https://github.com/CondeNast/verso/pull/31757
+
+In most cases - about 95% - I follow this way. This two tickets are more or less the same. Long running and part of at least two sprints. So it was important for me and may team to keep track of things.
+
+
+Hi Bianca,
+this is Christian from Munich.
+We did the launch of OnNav for AD today and I have a question:
+
+Are there any Ribbons aka CurationBanner or EventBanner in journey created and activated?
+If so can you point me to them? 'Cause we cannot see any.
+
+
+Someone told me you might hav information for me :-)
+
+Hi there,
+
+I need help with a css issue.
+Is it possible - and how - to align all text in the collection card to the top of the grid-area here:
+https://stag2.wired.com/verso-homepage/collage/
+
+I created a ticket to improve the structure of the collage card:
+https://cnissues.atlassian.net/browse/LS4-1363
+It may be a small improvement, but I think it's better to do this in a separate ticket so that the changes don't clash with Suren's work.
+
+You have to add showDiscountPercentLabel to the story-data
+showDiscountPercentLabel: true,
+or
+showDiscountPercentLabel: false,
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/unified-product-card/story-data.js#L2
+
+And at stories file to getControls:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/unified-product-card/UnifiedProductCard.stories.js#L9C7-L9C18
+
+    showDiscountPercentLabel: {
+      control: 'boolean',
+      name: 'showDiscountPercentLabel'
+    },
+
+and to getValues:
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/unified-product-card/UnifiedProductCard.stories.js#L43
+
+const getValues = (extraControlValues) => {
+  const { showDiscountPercentLabel, image, brand, dangerousHed, dangerousDek, url, offers } = storyData;
+  return {
+    showDiscountPercentLabel,
+    image,
+    brand,
+    dangerousHed,
+    dangerousDek,
+    url,
+    offers,
+    showOfferUrl: true,
+    ...extraControlValues
+  };
+};
+
+This gallery is tagges with the channel 'runway':
+https://copilot-app.condenast.io/vogue/galleries/670845ed7ca6ee970d89e7a7
+
+And 'runway' has StackedNavigation:
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue/channels/runway.ts#L21
+
+I can see... but is this something I wantet to see? I guess no.
+The runway channel config contains a ChannelNavigation. And this special kind of navigation only appears in bundle pages
+
+===
+But sometimes that's really difficult. Then I get lost in the thoughts of the psychopathic murderer and have to force myself to stop researching. Otherwise I fear for my own mental health.
+
+I checked again why you said there was no stacked navigation on this runway page. There is this additional ChannelNavigation.
+However, it is only displayed if it is present and hasChannelNavigation is set to true.
+
+This is the case for both runway channels. Accordingly and as expected, this ChannelNavigation is also displayed here:
+https://www.vogue.com/fashion-shows
+
+But why this is not the case here...:
+https://www.vogue.com/slideshow/the-best-street-style-photos-from-the-spring-2025-shows-in-shanghai
+
+...and now the moment has come when I have to stop because it's getting too disturbing.
+
+If you get my drift.
+===
+
+Mybe I'm wrong. If so please gnore me.
+But I found this unit and it looks like if itd designed for wired OneNav:
+https://interfaces.conde.io/apps/journey/editUnit?campaignKey=3zir9w9jigv5ae7w&unitKey=kn5dbxsuk9bnqkx1&brandId=2&brandSlug=wired
+
+One question for @sevenseas:
+Can OneNav render the gif?
+
+Another question to journey team:
+What does "Entitled: false" do?
+
+
+Hi Olivier,
+
+how are you? What about your 'Schafkopf' skills?
+I have a question... or two.
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1333
+
+It says 'add missing styling and token for the following layout'.
+Can you provide me that?
+
+Color & Style token
+Collage text:
+- Collage hed
+- Collage dek
+- Card hed / title
+- Card Rubric
+- Card Headline
+- Card Subhead
+- Card
+- Card dek / description
+- Card Byline
+- Card HighlightLabel
+- Card ItemsCount
+- Card PublishedDate
+- Card
+- Card
+color: ${getColorToken('colors.consumption.body.standard.subhed')};
+color: ${getColorToken('colors.discovery.body.white.heading')};
+
+Ich habe gerade einen Knopf im Hirn.
+Kannst du mir erklären, was ein colors.discovery.body.white.heading token sein soll?
+Ist das dann eine Überschrift, die eigentlich weiß ist, weil eine weiße Schrift auf weißem Hintergrund aber schwer leserlich ist, dann doch nicht weiß ist?
+Ich bin ja im allgemeinen recht einfach gestrickt, ich wäre aber nie auf die Idee gekommen, etwas, das in der Regel nicht weiß ist, "weiß" zu nennen.
+
+Habe ich schon gesagt, dass mich Condé Nast auch nach 10 Jahren immer wieder erstaunt?
+Und das nicht immer im Positiven.
+
+Was würdest du dazu sagen, wenn wir - ähnlich zu OneNav - neue Tokens für die Collage einführen?
+Mit guten und beschreibenden Bennenungen. Die auch für "inverted" funktionieren können.
+
+Ich weiß, dass wir das nicht eben mal über's Knie brechen können. Aber jetzt ist der Moment, wo wir etwas gerade ziehen können, was uns sonst die nächsten hundert Jahre Bauchschmerzen bereitet.
+
+
+e80
+e61
+
+13
+Summer Breeze
+Finsternis
+Pralles Pils
+Melonen IPA
+
+
+
+2,49 Eis
+6,99 Kohle
+145,30 Fleisch
+9,87 Halloumi
+2,49 Halloumi
+167,14 Zwischensumme
+40 Getränke
+207,14
+
+
+Notification banner Mark Yaggy
+Shweta
+
+As we have some Shwetas at Condé Nast... which one is the journey Shweta?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1367
+
+about a OneCover vs. ContentHeader experiment.
+
+I prepared a multiverso link with enableExperimentPlaceholder enabled:
+https://multiverso.vogue.com/article/gwen-stefani-new-single?branch=LS4-1367
+
+...but nothing happens. I can see OneCover and thats it.
+Is there something missing?
+How can I check if the settings a right?
+
+Can me please help and support someone?
+
+
+        media: {
+          hasAsset: true,
+          iconBadge: {
+            position: MediaBlockContentPosition.BOTTOM_RIGHT
+          }
+        },
+
+
+Maybe you can point me to the right way...
+Here you can see iconBadge is set:
+https://github.com/CondeNast/verso/blob/501af550c9287f699dd9340e373f07c842876199/src/tenants/wired/channels/collage/1-4/lists/list1.ts#L43
+
+But on multiverso there is no iconBadge:
+https://multiverso.wired.com/verso-homepage/test-collage/?branch=LS4-1333
+
+Am I getting something wrong?
+Do I need to configure something else?
+
+I'm asking 'caus for iconBadge the token is missing.
+
+
+Sag mal, interessiert sich Sarah für so Vogue Klamotten:
+https://shop.vogue.de/
+
+Weil ich habe da einen Gutschein zu meinem 10 jährigen Condé Nast Jubiläum bekommen.
+Und ganz ehrlich, kannst du dich mich mit einem Hotpink Sweatshirt vorstellen?
+...ich nicht.
+
+
+Now my next questions.
+
+We have iconBadge and textBadge as you can see here at the big picture:
+https://multiverso.wired.com/verso-homepage/test-collage/?branch=LS4-1333
+
+but I cannot see them in figma.
+
+textBadge has
+color: white;
+background-color: rgba(0, 0, 0, 0.9);
+
+iconBadge has:
+background-color: rgb(0, 0, 0, 0.5);
+
+Can you give me the correct tokens?
+
+===
+For example:
+
+The rubric should use globalEditorial.context-primary
+In figma line-height has the value 20.02px but brand identity shows up with 1.3333333333333333
+===
+
+If I have understood this correctly, our task is roughly as follows:
+
+During Amazon Prime Day (APD) there is a code freeze and interfaces and journeys are blocked as well.
+Since experience has shown that it is necessary to change links during APD or there are problems with the configuration of the EventBanner, we need supporters who are able to make these changes during this time. This is usually taken care of by @marylou. If she is not there, then one of us should step in. That's what I do and if I'm unavailable, it would be great if you could take over.
+
+Of course, this requires that we both have the appropriate authorisations. @marylou will take care of that.
+
+Questions?
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1367
+
+About the Vogue OneCover experiment.
+Are there any new informations for me?
+My question in #publishing-destination-quality-ab-tests has no answer so far.
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/31861
+
+One comment about type-0: Overly -> Overlay
+For me it looks technically fine.
+The design? Awefull.
+Is it expected this way? The color? The paddings?
+
+
+isReadViewShopViewEnabled
+
+
+
+====
+I have a small problem with missing pubDate at CuratedList items.
+
+The pubDate does not exist there. Not for articles. Not for galleries either.
+I know how to get the date - I would just have to add it to the graphql query - but if I do that, I can't say what effects it will have in general. In other words, where the date suddenly appears...
+
+Here are the queries where pubDate is missing:
+
+Article (curatedArticleData):
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/queries.js#L608
+
+Gallery (curatedGalleryData):
+https://github.com/CondeNast/verso/blob/main/src/presenters/bundles/queries.js#L661
+
+Can someone say why we don't grab the pubDate for CuratedList items?
+And whether I can safely add this?
+====
+Following issue:
+
+'Vogue wrote last night that they want to use the Promo Banner starting Monday to promote their latest cover'
+...but we had to disable PromotionBanner for Vogue because of reasons.
+
+As the PromotionBanner is tenant config controlled we have to enable it on monday again by merging this PR:
+
+As I'm not allowed to do so because of code freeze I ask you if you would be so kind to help me with this?
+
+====
+Add PromotionBanner fields to ticket.
+
+
+Do you have an idea if and how it is possible to switch from overlay-to-top to overlay-to-bottom at a certain breakpoint as shown in the screenshot?
+
+What about this "Option B" ticket:
+https://cnissues.atlassian.net/browse/LS4-1369
+
+Should I merge this today, tomorrow or never?
+
+
+Ich versuche mal kurz die Probleme mit dem "alten" EventBanner zusammen zu fassen:
+- Sehr umständlich zu konfigurieren
+- Nicht selbsterklärend
+-
+
+npm run test-unit-component src/components/compositions/one-nav/components/OneNav/OneNav.spec.js
+
+
+npx jest valencia/integration/onenav.spec.js
+npm run test -- valencia/integration/onenav.spec.js
+
+
+The weather is good. I'm expecting a gilthead for the barbecue this afternoon. Maybe one or two beer.
+So... yes, all good.
+
+However, if you are referring to work... pah... I promised to provide a quickfix for our EventBanner problem. But the quickfix is starting to turn into a ‘I don't know how long it can take’ thing.
+
+Here is the PR for the height of OneNavBanner:
+https://github.com/CondeNast/verso/pull/31980
+
+It works for EventBanner as well as PromotionBanner as both of them have the same issue.
+To avoid an empty slot it has to be disabled by OneNav config.
+
+That means we shoud remove the BANNER row from all OneNav configs where no BANNER is defined in journey.
+
+@marylou do you have an overview which brands will have a BANNER and which ones not?
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1369
+
+I have already enough approvements.
+How to proceed? Who will test it?
+
+
+I need your (engineers) help with this...
+
+Please open both pages in tablet view:
+https://multiverso.self.com/gallery/anna-paquin-workout-slideshow?branch=LS4-1255-II
+https://multiverso.self.com/gallery/thoughtful-gifts-friend-has-everything?branch=LS4-1255-II
+
+Can someone find out why the 'True Blood' image is small and the 'Thoughtful Gifts' is fullBleed?
+fullBleed is the right one.
+
+Ad overlaps article:
+https://www.vogue.de/artikel/anti-stress-cocktail-rezept-cortisol-drink
+
+Last change of the impressum... will be in the future:
+https://www.vogue.de/info/impressum
+
+====
+Hi Fran,
+
+because of reasons we have to merge this two PRs while code freeze:
+
+Set height for OneNavBanner:
+https://github.com/CondeNast/verso/pull/31980
+
+As soon as I get the OK from @marylou. Maybe today or tomorrow or even first on monday.
+
+Enable PromotionBanner for Vogue:
+https://github.com/CondeNast/verso/pull/32007
+
+Has to be on production on monday as soon as the relating PromotionBanner data is ready on journey.
+
+Don't ask why this is urgent and late...
+
+Will you help me get both tasks on the road?
+====
+
+Hi team,
+
+now I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/31915
+
+It's about configurations for different collages on wired.
+
+
+Alright team, time to channel your inner hero — one more approval and we're good to go!
+Don’t leave me hanging 😅
+
+https://condenast.slack.com/archives/C04MC8HGJJJ/p1751527639547899
+
+
+Please can someone take a look here:
+
+Why does this one nav ribbon:
+https://stag-interfaces.conde.io/apps/journey/editUnit?campaignKey=nue3t5j34vhugf8w&unitKey=ajn3k8pelui2wyew&brandId=22&brandSlug=architectural-digest
+
+Not show up here:
+https://stag.architecturaldigest.com/shopping?journey-branch=woldt
+
+As far as I can see:
+- The ribbon is enabled
+- The ribbon has valid data
+- The ribon has the right targetting
+- The [module] OneNav Ribbon is active
+
+
+
+verso:
+https://multiverso.wired.com/verso-homepage/test-collage-overlay/?branch=LS4-1333
+
+copilot:
+https://stg-copilot.condenast.io/wrd/bundles/6865307b94a98377d35c888e
+
+
+Der eine PR der die Höhe der OneNav Row auf 41px setzt und gleichzeitig die Banner für Them, Vanity Fair, Vogue und Vogue Shopping entfernt.
+Der PR soll live gehen, sobald die Banner für Wired, AD und GQ Journey bereit sind.
+
+feat(all): set height for OneNavBanner
+https://github.com/CondeNast/verso/pull/31980
+
+Der zweite PR aktiviert dann die OneNav Row wieder für Vogue und soll live gehen, sobald der entsprechende CurationBanner in Journey bereit ist.
+Auch hier ist noch einmal der Teil mit den 41px integriert.
+
+feat(vogue): enable PromotionBanner for Vogue
+https://github.com/CondeNast/verso/pull/32007
+
+Einen genauen Zeitpunkt kann ich dir nicht sagen, weil das von der Journey Konfiguration abhängig ist.
+
+Sag mal, dieser Cizmar und die Viswanathan, was sind denn das für Vögel?
+Haben die monatelang geschlafen?
+Oder wollen die einfach nur Marylou auf den Zeiger gehen?
+Boa ey. Was bin ich froh, dass ich mich mit so was nicht auseinander setzen muss.
+
+
+====
+Hello Vikrant,
+this is Christian from Munich.
+
+Tobi told me you will help us to get two PRs about the new OneNav banners online.
+And Tobi also told me I should brief you about that.
+
+So, here is the briefing:
+
+This are the two PRs:
+
+The one PR that sets the height of OneNav Row to 41px while removing the banners for Them, Vanity Fair, Vogue and Vogue Shopping.
+The PR should go live as soon as the banners for Wired, AD and GQ Journey are ready.
+
+feat(all): set height for OneNavBanner
+https://github.com/CondeNast/verso/pull/31980
+
+The second PR then activates OneNav Row for Vogue again and should go live as soon as the corresponding CurationBanner is ready in Journey.
+The part with the 41px is also integrated here again.
+
+feat(vogue): enable PromotionBanner for Vogue
+https://github.com/CondeNast/verso/pull/32007
+
+My last work on Monday 7th will be update the PRs with main, take care all test are done and both are ready to merge.
+At 9:30 IST the PRs should be merged.
+
+What should happen? How can you see everything is fine?
+
+After pageload there will be (for a short time) an empty row above the navigation as shown here:
+
+After a short time there should appear an EventBanner as shown here:
+
+====
+
+Ich fasse jetzt mal zusammen:
+1. Der PromotionBanner für Vogue soll am Montag gegen 2:00pm unserer Zeit live gehen. Ich bereite den PR vor. Tobi oder Elena mergen sobald die Journey Daten verfügbar sind. Ob die Daten verfügbar sind, kann ich kontrollieren.
+2. Der EventBanner für Wired, GQ und AD soll am Dienstag 6:00am unserer Zeit live gehen. Ich bereite den PR am Montag vor. Vikrant merget.
+
+Ist das richtig so?
+
+Fragen:
+- Wer stellt sicher, dass die Daten für Wired, GQ und AD verfügbar sind?
+
+Add On:
+Ich stelle PRs bereit, mit denen sich die Banner für einzelne Brands wieder deaktivieren lassen.
+
+
+
+    {
+      scrollConfig: {
+        showOnlyOnTop: true
+      },
+      columns: 'auto',
+      rowType: RowType.NO_STYLE,
+      areas: [
+        {
+          justifyContent: Alignment.CENTER,
+          items: [
+            {
+              component: Component.BANNER,
+              type: BannerType.RIBBON
+            }
+          ]
+        }
+      ]
+    },
+
+
+
+
+Before I start debugging in a panic... it is possible that the test banners for these two pages have been deactivated:
+
+https://multiverso.gq.com/story/mikey-madison-gq-hype?branch=event-banner-height
+https://multiverso.architecturaldigest.com/story/in-the-hamptons-a-young-family-conjures-a-classic-summer-getaway?branch=event-banner-height
+
+
+Should have Banner:
+https://multiverso.vogue.com/fashion?branch=event-banner-height
+https://multiverso.gq.com/style?branch=event-banner-height
+https://multiverso.wired.com/category/gear/deals/?branch=event-banner-height
+https://multiverso.architecturaldigest.com/verso-channel/culture-lifestyle?branch=event-banner-height
+
+Should have Banner:
+https://multiverso.vogue.com/fashion?branch=enable-promotionbanner-for-vogue
+
+Should no have Banner:
+https://multiverso.gq.com/style?branch=enable-promotionbanner-for-vogue
+https://multiverso.wired.com/category/gear/deals/?branch=enable-promotionbanner-for-vogue
+https://multiverso.architecturaldigest.com/verso-channel/culture-lifestyle?branch=enable-promotionbanner-for-vogue
+
+
+Ich möchte dir für die Zeit, die du in unserem Team verbracht hast danken. Ich habe in der kurzen Zeit sehr... sehr, sehr viel von dir gelernt. Du hattest Probleme oft schon gelöst, wenn ich gerade erst angefangen habe, das Problem zu verstehen. Du hast darauf geachtet, dass der Code sauber und funktional entwickelt wurde. Du hast dich wie ein Fels gegen unnötige Komplexität gestemmt.
+Ich finde es unendlich schade, dass du weiter ziehst, ich kann es dir nicht verübeln. Möge deine nächste Station im Arbeitsleben deine Talente mehr würdigen, als Condé Nast das konnte.
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1350
+
+I changed the behaviour of the image.
+Please check again.
+
+
+Uff... vielen Dank. Jetzt ist mir ein Stein vom Herzen gefallen.
+
+Wenn ich dir irgendwie helfen oder unterstützen kann, sag mir Bescheid.
+
+valencia/integration/onenav.spec.js
+
+This PR contains changes from my branch that needs to go live today on 7 July 2025 at 2:00am MST / 8:00am EST.
+I would like to request the following:
+If it cannot be ensured that this PR will go live at the exact time stated, my changes should be removed from this PR.
+
+
+Hi there,
+at this PR:
+https://github.com/CondeNast/verso/pull/32035
+valencia tests permanent break. Not because of buggy tests but because of 502 response errors.
+Please can someone take a look?
+
+Please take a look at the PR:
+https://github.com/CondeNast/verso/pull/32007
+
+Once live the Vogue should start with a 41px height slot for a PromotionBanner on top of the page.
+As soon as the associated journey data is available (should be only miliseconds) the banner shoul appear.
+
+Acceptance criteria:
+No CLS gap visible with Banner row.
+
+npm run test-unit-component src/components/compositions/one-nav/utils/SnowplowEvent/SnowplowEvent.spec.js
+
+
+Now it's time to merge:
+https://github.com/CondeNast/verso/pull/32007
+
+Hi team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/32035
+It's about improvement of the CurationBanner tracking.
+
+Ich kann mir jetzt folgende Szenarien vorstellen:
+
+1. Wir gehen mit dem PR live, dann haben GQ und AD ihre Banner und Wired hat einen leeren Slot bis um 10:30
+2. Wir gehen erst um 10:30 live, dann hat Wired keinen leeren Slot, GQ und AD aber auch keine Banner
+3. Wir bauen den Banner für Wired so um, dass der von jetzt bis 10:30 auf eine vorhandene Seite zeigt und ab 10:30 auf die gewünschte.
+4. Ich baue jetzt so schnell wie möglich zwei neue PRs: Einen für GQ und AD und einen für Wired. Und wir versuchen die irgendwie durch zu bringen.
+
+
+Ich brauche ein quadratisches Bild von einem stark schwitzenden Mann in einem düsteren Maschinenraum, der Kohle in einen hell lodernden Ofen schaufelt.
+
+
+What we need for all banners:
+- Start time
+- End time
+Exact description how that works.
+A solution without empty slots.
+
+https://www.architecturaldigest.com/
+https://www.gq.com/about/amazon-prime-day
+https://www.wired.com/
+
+https://www.allure.com/verso/static/allure-us/assets/countdown-clock-prime-day.svg
+
+alt text:
+Allure's Prime Day Picks
+
+AD
+
+pro (should NOT have ribbon slot):
+https://www.architecturaldigest.com/adpro
+https://multiverso.architecturaldigest.com/adpro?branch=LS4-1381
+http://localhost:7777/architecturaldigest/adpro
+
+Vogue
+
+storefront & storefront-plp (should NOT have ribbon slot):
+https://www.vogue.com/shopping/new-arrivals
+https://multiverso.vogue.com/shopping/new-arrivals?branch=LS4-1381
+http://localhost:7777/vogue/shopping/new-arrivals
+
+https://stag.vogue.com/verso-channel/double-check-missing-objects-at-features-vogue-shopping
+https://multiverso.vogue.com/verso-channel/double-check-missing-objects-at-features-vogue-shopping?branch=LS4-1381
+http://localhost:7777/vogue-staging/verso-channel/double-check-missing-objects-at-features-vogue-shopping
+
+https://www.vogue.com/shopping/beauty/makeup
+https://multiverso.vogue.com/shopping/beauty/makeup?branch=LS4-1381
+http://localhost:7777/vogue/shopping/beauty/makeup
+
+https://www.vogue.com/shopping/womens/clothing/dresses
+https://multiverso.vogue.com/shopping/womens/clothing/dresses?branch=LS4-1381
+http://localhost:7777/vogue/shopping/womens/clothing/dresses
+
+https://www.vogue.com/shopping/womens/clothing/dresses
+https://multiverso.vogue.com/shopping/womens/clothing/dresses?branch=LS4-1381
+http://localhost:7777/vogue/shopping/womens/clothing/dresses
+
+wedding (should NOT have ribbon slot):
+https://www.vogue.com/weddings
+https://multiverso.vogue.com/weddings?branch=LS4-1381
+http://localhost:7777/vogue/weddings
+
+Wired
+
+gear (should have ribbon slot):
+https://www.wired.com/category/gear/
+https://multiverso.wired.com/category/gear/?branch=LS4-1381
+http://localhost:7777/wired/category/gear/
+
+culture (should have ribbon slot):
+https://www.wired.com/category/culture/
+https://multiverso.wired.com/category/culture/?branch=LS4-1381
+http://localhost:7777/wired/category/culture/
+
+homepage (should have ribbon slot):
+https://www.wired.com/
+https://multiverso.wired.com/?branch=LS4-1381
+http://localhost:7777/wired/
+
+
+Ich brauche ein quadratisches Bild von einem stark schwitzenden, jedoch eleganten Mann mit Gehrock und Zylinder, der in einem düsteren Maschinenraum Kohle in einen hell lodernden Ofen schaufelt.
+
+
+Hundert Blumen Brauerei Brotbier gebraut mit dunklem Altbrot der Bäckerei Szihn 5,1%
+Six Beers Brewing Tropic Ale sehr fruchtiges American Pale Ale 5,4%
+Drunken Unicorn Beer Factory Chamäleon Imp. Mikstout mit Kaffee und Tonkabohne 6,9%
+Herzogs Hopfinator mit 18 Hopfensorten und 3 verschiedenen Hefen gebraut, sehr hopfig 9,5%
+
+
+Unfortunately I have to call in sick for today and tomorrow.
+I am full of hope that I will be back on my feet on Friday to take over the APD support.
+
+1. content type of the url
+...but we don't have the information what content type the target of the url has.
+
+2. impression event
+What do you mean with 'impression event'?
+
+3. items.content_url
+Unfortunately we don't have something like the 'full url'. We can just track what we get from verso settings and that looks like this:
+https://interfaces.conde.io/apps/versosettings/#/vogue/settings/curationBanner/channel-override/shopping
+
+
+Hi team,
+I need some urgent reviews for this PR:
+https://github.com/CondeNast/verso/pull/32072
+It's about OneNav config changes for APD.
+
+Gibt es einen eindrücklichen Song, der eine tiefe Verzweiflung ausdrückt und dennoch oder trotzdem zu einer wild ausgelassenen Party einläd?
+
+
+https://github.com/CondeNast/verso/blob/5635b473b1db8bce2bf3ae752d1c84d53ff09f8b/src/tenants/vogue/channels/storefront.ts#L3
+
+Was ist mit diesen Zutaten für ein Ergebnis zu erwarten:
+
+Schüttung:
+Pale Ale Malz: 5 kg
+Münchner Malz: 0,5 kg
+Cara Münch II: 0,3 kg
+Sauer Malz: 0,3 kg
+
+Hopfen:
+Amarillo: 0,10 kg
+Huell Melon: 0,10 kg
+Huell Melon: 0,10 kg
+Huell Melon: 0,15 kg
+
+Hauptguss: 18 Liter
+Nachguss: 12 Liter
+
+I have to add OneNavShopping to channel storefront-plp as well because of primary channel.
+Is that ok?
+
+hasAsset: true
+hideAsset: false
+
+hasAsset: false
+hideAsset: true
+
+What about our collage PRs:
+https://cnissues.atlassian.net/browse/LS4-1386
+
+Will you merge them all?
+Or should I do it?
+
+https://stag.vogue.com/vogue-club/see-inside-vogue-clubs-after-hours-tour-of-naomi-in-fashion-at-londons-victoria-and-albert-museum
+https://multiverso.vogue.com/vogue-club/see-inside-vogue-clubs-after-hours-tour-of-naomi-in-fashion-at-londons-victoria-and-albert-museum?branch=LS4-1362
+http://localhost:7777/vogue-staging/vogue-club/see-inside-vogue-clubs-after-hours-tour-of-naomi-in-fashion-at-londons-victoria-and-albert-museum
+
+https://stag.vogue.com/slideshow/best-summer-weddings-in-vogue
+https://multiverso.vogue.com/slideshow/best-summer-weddings-in-vogue?branch=LS4-1362
+http://localhost:7777/vogue-staging/slideshow/best-summer-weddings-in-vogue
+
+https://stag.architecturaldigest.com/gallery/best-statement-plates
+https://multiverso.architecturaldigest.com/gallery/best-statement-plates?branch=LS4-1362
+http://localhost:7777/architecturaldigest/gallery/best-statement-plates
+
+  console.log('usedVariation::', usedVariation);
+  console.log('hideBylines::', hideBylines);
+
+
+npm run test-unit-server src/presenters/articles/transformers.spec.js
+
+Another question:
+What is the future goal: 1. to bring this to staging but not prodution or 2. to bring it to production as well?
+If the goal is 1. this is right:
+https://github.com/CondeNast/verso/pull/31993/files#diff-7f784fd49c329802645fdfc255bbd814602670243e16de42c92911397cc79362R49
+Otherwise you don't need the APP_ENV switch. Just the 'do not merge' label on github.
+What do you say?
+
+
+I know I'm annoying, but I have one more:
+
+    {
+      columns: 'auto',
+      rowType: RowType.NO_STYLE,
+      scrollConfig: {
+        showOnlyOnTop: true
+      },
+      areas: [
+        {
+          justifyContent: Alignment.CENTER,
+          items: [
+            {
+              component: Component.BANNER,
+              type: BannerType.RIBBON
+            }
+          ]
+        }
+      ]
+    },
+
+This is problematic because it creates a 41px high white space at the top of the page. We are currently revising the ribbon. Until this is done, the ribbon should only be used if content is also stored in journey.
+
+
+Hi team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/32149
+It's about enabling OneCover for galleries at AD, Vogue and Vogue Club.
+
+@Gapur @Noman
+Please can you take a look at this ticket please:
+https://cnissues.atlassian.net/browse/LS4-1386
+What is the status of your tickets in here?
+
+
+To your comments:
+
+First Collage:
+a. Hero Card has double description.
+-> resolved; it was the subhead thingy.
+
+b. other card has description which are missing on staging here and it seems they are not enabled through dangerouslySetInnerHTML
+-> resolved; it was the subhead thingy as well.
+
+Second Collage:
+a. Hero Card is missing.
+-> yes and no. yes, because you can't see anything. no, because you can't see anything... as all single part is disable by hide prop.
+
+b. other Cards also has dek
+-> resolved; it was the subhead thingy as well.
+
+So everything is now fine and works as expected.
+If you want to have it somehow other, let me know and I will change it.
+
+
+
+Oh sorry, I have to apollogize.
+The required color token 'colors.consumption.lead.standard.body-deemphasized' isn't available at TNY brand identity here:
+https://github.com/CondeNast/verso/blob/main/src/brand-identity/brands/thenewyorker-us/brand-identity.json#L92
+
+
+Regarding your comment here:
+https://github.com/CondeNast/verso/pull/32035
+
+Why impression event is deleted? I see no info about this in the ticket?
+
+I've added a comment to the ticket, 'cause Ioana recommended:
+
+'and we can remove the impression event as the pageview already counts as an impression for this banner'
+
+https://cnissues.atlassian.net/browse/LS4-1378
+
+
+What about this ticket:
+https://cnissues.atlassian.net/browse/LS4-1378
+
+Can you test it?
+Do you need something from me?
+
+======
+
+Wir benötigen für alle Banner (EventBanner, PromotionBanner, CurationBanner) jeweils ein dateSwitchOn und ein dateSwitchOff.
+Damit können Banner unabhängig von ihrem tatsächlichen Einsatz vorgeplant werden.
+Eventuell ist es auch sinnvoll, einen URL-Parameter einzuführen, mit dem verschiedene Staus simuliert werden können. Um die Banner auf Production testen zu können.
+
+Vielleicht müssen wir auch den EventBanner noch mal auf Tauglichkeit abklopfen. Und wenn es nur die Dokumentation ist. Weil der ist ja eigentlich so gedacht, dass es den Countdown bis zum Beginn des Events anzeigt. Jetzt wollte - ich glaube Wired wars - eine Marke dass der Countdown das Ende des Events anzeigt. Das geht natürlich, sollte dann aber von den Bezeichnungen her angepasst werden.
+
+Klingt das alles sinnvoll?
+Sollen wir Tickets daraus machen?
+
+
+I would say it's high time for a next Engineers Dinner.
+Therefore I start doodle again to find the next best fitting date.
+
+The plan is to go out for a paella at Los Faroles / Nordendstraße 26
+https://www.losfaroles.de/
+
+Please vote:
+https://doodle.com/group-poll/participate/bqLgYLya
+==========================================================================================================================================================
+
+The ribbon slot was removed for AD US, GQ US and Wired US.
+Why? Because when there is no banner in journey active the entire page will start with 41px whitespace at the beginning.
+When you need the slot back because you have an active banner, it is no big thing to bring it back.
+Please tell me: Is the banner active for the entire page? Or just for some channels?
+Please send me the journey link.
+
+
+Update item styles so items look like bullets.
+Update color tokens for item’s default and hover state.
+Default state token: navigation.standard.background-primary
+Hover state token: navigation.standard.hover
+
+Fix line-height.
+Add text-trim mixin for CurationBanner.
+
 
 
 
 TODO:
-- Dokument vom Noman durchgehen
-- Skill Liste
-- Test Links für default props
-
-
+ok - Engineers Dinner: Paella / Los Faroles
+ok - Start/End date to Elena
+- gift for Rakshita
+- Check with Noman: https://cnissues.atlassian.net/browse/LS4-1386
 
 TODO:
-- Stürminger
-- emaz Newsletter
+- Antwort an Stefan Hetzler
+- Antwort an Peter Seyferth
+- Arcade Schrank anbieten
+- Rückenkratzer
+- Brauanlage für daheim
+- Bürste für Bierleitung
+- Maischekessel
+- Gärtank
+- Kühlspirale
+
+
+
+Ja, wenn..
+- etwas ab ist, was dran sein sollte
+- etwas drin ist, was draußen sein sollte
+- etwas sich bewegen lässt, was sich nicht bewegen sollte
+- sich garnichts mehr bewegt
+
+Ein Flaschenetikett im Jugendstil.
+Im Zentrum steht ein kupferner Sudkessel im Steampunk Stil.
+Links wird die Szene umrankt von Jugenstil Dekor mit Melone.
+Rechts wird die Szene umrankt von Jugenstil Dekor mit Hopfen.
+In Jugenstil Schrift steht als Überschrift "Melonaut I".
+In Jugenstil Schrift steht als Unterschrift "IPA".
+
+
+So Leute, ich versuche jetzt seit über drei Stunden einen PR zu mergen.
+Wenn alle tests durchgelaufen sind bekommen ich ständig die Meldung, dass der branch out-of-date ist.
+Aktualisiere ich den branch, dann laufen natürlich auch alle Tests wieder. Und wenn die Tests durch sind... wieder out-of-date.
+Was wäre in diesem Fall denn das beste Vorgehen?
 
 ==============================================
 Restaurant Liste für SevenSeas Engineer Dinner:
+Georgisches Restaurant - Belgradstraße
 Iranisches Restaurant
 Pakistanisches Restaurant
 Georgisch: Restaurant Vazi
@@ -19561,13 +23319,8 @@ https://restaurante-portugal-muenchen.de/index.php
 
 
 TODO:
-- Kontakt zu dem Polsinelli Mann / Vielleicht mal treffen?
-- Nächstes Engineering Dinner organisieren (Mai, wenn Noman da ist)
-- Termin: Stürminger
-- Termin: Zahnarzt
 - 3D Drucker um kleine Leute herzustellen?
 - EMAZ Krug
-- EMAZ Newsletter
 - Paul Balthasar Fotos:
   - Weißbier/Korn
   - Standbild für Miniatur
@@ -19575,8 +23328,6 @@ TODO:
   http://dasistdiezukunft.rent-an-artwork.de/
   https://dasistdiezukunft.rent-an-artwork.de/wp-login.php
   http://dasistdiezukunft.rent-an-artwork.de/wp-login.php
-- Spiele Linux für Arcade Schrank
-- Termin: ConDrops
 - Stempel bestellen
 - Griegstraße: Wer muss Bad streichen?
 
