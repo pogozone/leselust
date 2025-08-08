@@ -7,6 +7,7 @@ for components:
 npm run test-unit-component [/path/to/test]
 
 new:
+npm run test-unit-component-react-18 [/path/to/test]
 npm run tdd-component -- GlobalNavigation.spec.js
 npm run tdd-component -- GlobalNavigation.spec.js -u
 

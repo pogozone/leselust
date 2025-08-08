@@ -23261,18 +23261,943 @@ Fix line-height.
 Add text-trim mixin for CurationBanner.
 
 
+Regading this PR:
+https://github.com/CondeNast/verso/pull/32178
+I changed the type definition because of your comment.
+Thank you for being so attentive.
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1390
+
+Please have a look at multiverso here:
+https://multiverso.vogue.com/shopping?branch=LS4-1390
+
+I changed the color tokens and the spacing.
+Because of the odd line height I chnaged the paddings a bit. For me it lokks ok now.
+The textBoxTrimMixin aka Thoms alignment fix has no positive effect.
+
+What do you mean?
+
+npm run test-unit-component src/components/compositions/bundle-header/BundleHeader.RTL.spec.tsx
+
+I implemented your requests:
+
+The Codeowner:
+https://github.com/CondeNast/verso/pull/32178/files#diff-3d36a1bf06148bc6ba1ce2ed3d19de32ea708d955fed212c0d27c536f0bd4da7R52
+
+The hard coded color:
+https://github.com/CondeNast/verso/pull/32178/files#diff-ac5800e7ff783452b64e0cece52e475dad6b3cc0c583ef9dd7e9399be65ca6f7R109
+
+The divider:
+https://github.com/CondeNast/verso/pull/32178/files#diff-e0300c579d7c93e6c4206bcc0b94547dd2b4c68f04add63dcc2e451fc1134e86L19
+
+Ok so?
+
+And as it is not completely self explanatory...
+
+When this time is reached, countdown will appear:
+bannerStartTimeStamp
+
+When this time is reached, countdown will disappear and timeUpMessage appears:
+eventTimeStamp
+
+When this time is reached, the whole banner disappears:
+bannerExpiryTimeStamp
+
+
+If we come across something like this along the way: shouldOverrideBundleHeaderDekText
+For example, when migrating unit tests.
+
+Should we collect this somewhere to ask if we can remove it?
+Should we simply remove it without asking?
+Should we continue to keep it with us?
+
+In this case, it is a prop that is used by exactly one brand (GQ). After a quick search, I've seen that obviously all bundles tagged with the channel that sets shouldOverrideBundleHeaderDekText are inactive.
+
+Before anyone asks:
+If shouldOverrideBundleHeaderDekText is set, the dek text is not overwritten.
+Styles (text-align, font-size, margin-bottom) are set.
+
+
+I have a question for someone who is more familiar with RTL unit tests than I am:
+In enzyme, we can query whether individual props are passed through and what values they have (Example). This is not possible with RTL.
+How should we deal with this? Not use the corresponding tests? Or is there a way to test the behaviour of the props in a more indirect way?
+
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/bundle-header/BundleHeader.enzyme.spec.js#L347
+
+===
+Eher nicht.
+
+Am nächsten kommt vielleicht noch der letzte Test:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/commenting/Commenting.spec.js#L109
+
+Allerdings wird da nicht der Prop abgefragt, sondern was er auslöst: Nämlich wenn hasHideCommunityFunctionalTag gesetzt ist, wird keine Überschrift ausgegeben. Das kann abgefragt werden.
+
+Nicht aber, ob der Prop gesetzt ist oder nicht.
+===
+Hallo Michaela,
+
+ich hätte jetzt zwei Anliegen.
+Zum einen das mit der Altersvorsorge und zum anderen die Aufteilung meines Gehalts.
+
+Zur Altersvorsorge:
+Nach langem Hin und Her habe ich mich entschieden das zu machen. Ich habe die Unterlagen dabei und wenn ich das richtig verstanden habe, dann brauche ich da Unterschriften von Condé Nast.
+Zur Gehaltsaufteilung:
+Ich würde jetzt gerne von der Aufteilung mit Urlaubs- und Weihnachtsgeld auf 12 gleiche Gehälter umstellen.
+
+Wann kann ich denn dazu bei dir vorbei kommen?
+
+
+Hi,
+ich schreibe dir jetzt privat und außerhalb der Gartengruppe.
+Ich, respektive wir, haben ebenfalls eine (ehemals zugeschweisste) Tür zur Isar. Die Tür ist mittlerweile offen. Ohne Absegnung von irgendwem.
+Weil: Offiziell müssen die Türen zu sein, weil das von der Schlösser- und Seenverwaltung so gewollt ist. Das heisst, du wirst auch keine offizielle Genehmigung bekommen. Es besteht vielmehr die Gefahr, dass dann alle mittlerweile offenen Türen wieder verschweißt werden, was recht schade wäre.
+Hilft dir das weiter?
+Mit besten Grüßen,
+Christian (Gartennummer weiß ich nicht)
+
+Ich habe ein Element, das mit zwei verschiedenen Schriftarten dargestellt werden kann:
+
+<a href="/shopping/evening-wear-edit" class="BannerAnchorTag-dpKFuo BannerLink-eqmiyM dNdNJC eatavn">The Wedding Guest Edit</a>
+
+Eine Schriftart benötigt padding: 0.75rem 0.75rem 0.5rem; damit sie vertikal mittig dargestellt wird.
+Die andere Schriftart hingegen padding: 0.75rem 0.5rem;
+
+Gibt es eine Möglichkeit mit einer einzigen Styleanweisung beide Schriften zu zentrieren?
+
+
+padding: ${calculateSpacing(1.5)} ${calculateSpacing(1.5)}
+${calculateSpacing(1)};
+
+
+
+
+Hi Dan,
+
+Tobi told me to ask you... so I will ask you.
+
+A DX app suddenly popped up asking me to take part in a survey. Now I have no problems taking part in surveys. However, I would like to know what it is all about.
+
+Perhaps you can help me and answer a few questions:
+
+What is this DX survey for?
+Are the answers anonymous?
+Who is invited to take part?
+Is the survey optional or mandatory?
+Who gets to see the answers and analyses?
+Can I view the analyses?
+
+
+
+
+Hello Vikram,
+
+maybe you remember me from one of you Munich visits.
+
+A DX app suddenly popped up asking me to take part in a survey. Now I have no problems taking part in surveys. However, I would like to know what it is all about.
+
+As my team lead can not answer my questions I turn to you as your name appears within the app.
+
+Perhaps you can help me and answer a few questions:
+
+What is this DX survey for?
+Are the answers anonymous?
+Who is invited to take part?
+Is the survey optional or mandatory?
+Who gets to see the answers and analyses?
+Can I have insights to analyses?
+
+I would be delighted if you have the answers for me.
+
+
+http://localhost:7777/vogue/shopping
+http://localhost:7777/architectural-digest/story/how-a-food-stylist-designed-a-45000-dollar-kitchen-for-a-quarter-of-the-price
+http://localhost:7777/wired/category/gear/deals/
+
+https://multiverso.architecturaldigest.com/story/how-a-food-stylist-designed-a-45000-dollar-kitchen-for-a-quarter-of-the-price?branch=LS4-1390
+https://multiverso.wired.com/category/gear/deals/?branch=LS4-1390
+https://multiverso.vogue.com/shopping?branch=LS4-1390
+
+${getTypographyStyles(`typography.definitions.navigation.text-secondary`)}
+${getTypographyStyles(`typography.definitions.navigation.standard.item-primary`)}
+
+
+Please have another look:
+https://github.com/CondeNast/verso/pull/32208
+
+Now I use the right token.
+...but I have to override height and line-height.
+If you think the dimensions and alignment of the links are correct, then I'll try to make it token-compliant with Kyle.
+
+
+https://multiverso.vogue.com/vogue-club/see-inside-vogue-clubs-after-hours-tour-of-naomi-in-fashion-at-londons-victoria-and-albert-museum?branch=LS4-1394
+https://multiverso.vogue.com/slideshow/best-summer-weddings-in-vogue?branch=LS4-1394
+https://multiverso.architecturaldigest.com/gallery/best-statement-plates?branch=LS4-1394
+
+
+
+https://www.wired.com/story/the-kremlin-has-entered-the-chat/
+https://multiverso.wired.com/story/the-kremlin-has-entered-the-chat/?branch=LS4-1404
+http://localhost:7777/wired/story/the-kremlin-has-entered-the-chat/
+
+Copilot staging has no images:
+https://stg-copilot-app.condenast.io/ad/galleries/665773a18d9e6544988b520a
+
+And verso staging has pemanent "Oops":
+https://stag.architecturaldigest.com/gallery/dark-bedroom-ideas
+
+Can please someone take a look.
+
+
+You can't see it in copilot as the OneCover variations are configured at tenant config.
+
+But this is a gallery that shows up with ASSET_BOTTOM:
+https://stg-copilot-app.condenast.io/ad/galleries/6859b8c69458a29422908388
+https://stag.architecturaldigest.com/gallery/best-shower-curtains-on-amazon
+
+ASSET_TOP is not available so far.
+
+Please reopen this two channels as well:
+
+verso-pr-review
+platform-engineering-questions
+
+Wen need it for out daily work and they has to be searchable by all Condé Nast members.
+
+Vielleicht mag sich das mal jemand ansehen, der sich mit css besser auskennt als ich:
+https://cnissues.atlassian.net/browse/LS4-1390
+
+Es will mir einfach nicht gelingen, die Schrift vertikal mittig auszurichten.
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1404
+
+As videos work out of the box I created two test pages:
+
+https://stag2.wired.com/gallery/best-air-fryer/
+https://stag2.wired.com/story/the-kremlin-has-entered-the-chat/
+
+Is it enough? Or do you want to have more test cases with different variations?
+
+
+Jetzt ist es so:
+Wenn ihr schnell seid und die Kiste morgen in München abholen kommt, dann ist sie eure.
+
+
+LS4-1371-full
+http://localhost:7777/architectural-digest-staging/verso-channel/ad-it-yourself2?eventBannerStatus=WAITING
+http://localhost:7777/architectural-digest-staging/verso-channel/ad-it-yourself2?eventBannerStatus=BEFORE
+http://localhost:7777/architectural-digest-staging/verso-channel/ad-it-yourself2?eventBannerStatus=LIVE
+http://localhost:7777/architectural-digest-staging/verso-channel/ad-it-yourself2?eventBannerStatus=AFTER
+
+http://multiverso.architecturaldigest.com/verso-channel/ad-it-yourself2?branch=LS4-1394&eventBannerStatus=WAITING
+http://multiverso.architecturaldigest.com/verso-channel/ad-it-yourself2?branch=LS4-1394&eventBannerStatus=BEFORE
+http://multiverso.architecturaldigest.com/verso-channel/ad-it-yourself2?branch=LS4-1394&eventBannerStatus=LIVE
+http://multiverso.architecturaldigest.com/verso-channel/ad-it-yourself2?branch=LS4-1394&eventBannerStatus=AFTER
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1335
+
+When I follow the figma link I see this and this doesn't seem to be a valid layout for something called "3 col / 5 items ( 1 + 2 + 2 )" as you can see at the screenshot.
+
+Is it a wrong link?
+Is figma broken?
+Or do I missunderstand it somehow?
+
+Spannende Zeiten kommen auf dich und deine Familie zu
+
+
+Ich freu mich total für dich und bin sicher, das wird eine spannende Zeit. Für dich. Für deine Familie.
+Hier wirst du auf jeden Fall fehlen – als Kollegin. Als Mensch.
+Genieß jede Minute (auch die mit wenig Schlaf 😉). Freue dich an und mit deinem Kind.
+Jeden Tag ein Lächeln. Jeden Tag ein Lachen.
+Bis bald – ich freu mich jetzt schon auf ein Wiedersehen!
+
+
+
+==================
+collage-list-card
+list: 1,2,3,4,5,...
+card:
+  overlay: true|false
+  asset: left|right|center
+  alignment: left|right|center
+  size: big|medium|small
+
+list1-card-OverlayFalse-AssetRight-AlignLeft-SizeBig-list2-card-OverlayFalse-AssetRight-AligLeft-SizeSmall
+
+CollageWith2Lists_List1_OverlayBigCard_CenterImage_LeftText_SmallCard_RightImage_CenterText_List2_OverlayMediumCard_LeftImage_RightText
+
+CollageWith2Lists
+  _List1
+    _OverlayBigCard_CenterImage_LeftText
+    _SmallCard_RightImage_CenterText
+  _List2
+    _OverlayMediumCard_LeftImage_RightText
+
+==
+
+If you and your brain have enough capacity to crack the following brain teaser, then let's dive into the decision-making process for naming the new Collage Toolkit sets.
+
+Let’s go: :bulb::brain:
+
+To describe a collage within our new Collage Toolbox we need something like this:
+
+Collage_Title[true|false]_{ListCount}Lists
+  _List{number}_Sibling[bottom|left|right]_Title[true|false]
+    _Card{number}_Overlay[true|false]_Size[big|medium|small]_Asset[left|right|center]_TextAlign[left|right|center]_TextValign[top|middle|bottom]
+
+Means we have to describe lists, cards and their attributes.
+
+For the following examples, which are still quite simple, it would look something like this:
+
+========
+
+Hero Asset Right:
+https://stag2.wired.com/verso-homepage/test-collage/
+
+Collage_TitleTrue_2Lists
+  _1List_TitleFalse
+    _1Card_OverlayFalse_SizeBig_AssetRight_AlignTextLeft_ValignTextTop
+  _2List_TitleFalse_BottomSibling
+    _1Card_OverlayFalse_SizeSmall_AssetRight_AlignTextLeft_ValignTextTop
+
+
+Wired Collage Overlay Text Top
+https://stag2.wired.com/verso-homepage/test-collage-overlay/
+
+Collage_TitleTrue_3Lists
+  _1List_TitleFalse
+    _1Card_OverlayTrue_SizeBig_AssetCenter_AlignTextLeft_ValignTextBottom
+  _2List_TitleFalse_SiblingBottom
+    _1Card_OverlayTrue_SizeSmall_AssetRight_AlignTextLeft_ValignTextTop
+  _3List_TitleFalse_SiblingRight
+    _1Card_OverlayTrue_SizeSmall_AssetRight_AlignTextLeft_ValignTextTop
+
+========
+
+I am sure - and I'm sure as well you will go along with me - that we cannot expect copilot users to deal with the resulting monstrous words.
+
+So here's my suggestion:
+
+We need mapping. Copilot users need something that is intuitively understandable. For example, icons, as is done with ContentHeader. Maybe we can offer something similar. And for us at Verso... well, we can work with these monsters.
+
+Do I miss something?
+Do you have other, better, simpler ideas?
+
+Please reply and let's discuss this in the thread.
+If you need more information, let me know.
+
+==
+
+
+
+
+Wir haben eine Collage, die sich aus ein bis neun Listen zusammensetzen kann.
+Jede Liste kann beliebig viele Karten enthalten.
+Jede Karte kann filgende Attribute haben:
+  overlay: true|false
+  asset: left|right|center
+  alignment: left|right|center
+  size: big|medium|small
+Jetzt soll die Collage mit einem Namen versehen werden, der all diese Informationen beinhaltet.
+Dazu benötige ich eine möglichst einfache Namenskonvention, die nachvollziehbar ist und beliebige Konstellationen der Listen, Karten und Attribute wieder gibt.
+
+
+Before I can continue creating more collage variants, we need to make an important decision: naming the variants.
+Currently, we are using funny names that come from the minds of the engineers, but these cannot be delivered to Copilot users (see screenshot).
+
+I would appreciate very much when you are able to suggest terms we can use for Copilot. The we will create a mapping something bizarre that we can use on verso side.
+
+And with bizarre I mean monster terms like this:
+
+Wired Collage Overlay Text Top
+https://stag2.wired.com/verso-homepage/test-collage-overlay/
+
+Collage_TitleTrue_3Lists
+  _1List_TitleFalse
+    _1Card_OverlayTrue_SizeBig_AssetCenter_AlignTextLeft_ValignTextBottom
+  _2List_TitleFalse_SiblingBottom
+    _1Card_OverlayTrue_SizeSmall_AssetRight_AlignTextLeft_ValignTextTop
+  _3List_TitleFalse_SiblingRight
+    _1Card_OverlayTrue_SizeSmall_AssetRight_AlignTextLeft_ValignTextTop
+
+==================
+
+npm run tdd-component -- ./src/components/patterns/event-header/EventHeader-rtl.spec.js
+npm run test-unit-component-react-18 ./src/components/patterns/event-header/EventHeader-rtl.spec.js
+
+jest -c ./test/jest.config-components.js --useReact18=true --useReact16=false src/components/patterns/visual-story --coverage --collectCoverageFrom=src/components/patterns/visual-story/**/*.js --coverageReporters=text
+
+jest -c ./test/jest.config-components.js --useReact18=true --useReact16=false compositions/bundle-header/BundleHeader-rtl.spec.js
+npm run test-unit-component-react-18 -- compositions/bundle-header/BundleHeader-rtl.spec.js
+
+npm run test-unit-component src/components/patterns/visual-story/Story.spec.js
+npm run test-unit-component -- -u src/components/compositions/filtered-content-controls/FilteredContentControls.spec.js
+
+Weil irgend jemand angefangen hat die neuen RTL basierenden Test Dateien mit dem Zusatz "-rtl" zu versehen, fände ich es ganz gut, wenn wir uns auf eine einheitliche Namenkonvention einigen könnten. Was meinst du?
+Ich möchte dabei nicht auf "-rtl" bestehen. Aber einheitlich, das fände ich sehr schön.
+
+https://github.com/CondeNast/verso/blob/main/src/components/elements/consent-banner/ConsentBanner-rtl.spec.js
+
+
+I already merged this PR:
+https://github.com/CondeNast/verso/pull/32232/files
+
+I tested against test-unit-component-react-18 from this PR:
+https://github.com/CondeNast/verso/pull/32329/files
+
+All tests work fine, what is realy nice.
+But... the snapshots must be updated.
+
+With other words the tests will fail as soon as the react-18 PR is merged and the new tests will be active.
+
+How to proceed?
+Should we revert the PR?
+
+Maybe it's not only my test that will fail.
+
+====
+
+But the PR is linked to a document that says:
+
+Create a duplicate file with the same name just appending -rtl to the end of the file name. Eg SocialIcon.spec.js → SocialIcon-rtl.spec.js
+
+https://docs.google.com/document/d/1JVmpA7E2QPVWLqVhwv-1nGLj3uIom1qelnP6NhXwsqU/edit?tab=t.0
+
+We should agree on one source of truth so that we don't end up in chaos again.
+What do you think?
+
+====
+
+Regarding you PR:
+https://github.com/CondeNast/verso/pull/32325
+
+Whouldn't it be better to not render anything when there is no content?
+
+Something like this:
+
+{!hidePublishDate && publishDate && (
+  <OneCoverPublishDate>{publishDate}</OneCoverPublishDate>
+)}
+
+And try to avoid manipulation styles as well?
+
+
+Weil was nach 10 Jahren ist, ist mir wurst, weil da bin ich nämlich in Rente und konzentriere mich auf ganz andere Dinge.
+Zum Beispiel das Brauereiwesen. Oder Schnaps brennen. Oder ökologischen Landbau in der Großstadt. Vielleicht schreibe ich auch ein Buch.
+Aber bis dahin ist noch etwas Zeit.
+
+
+===
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1394
+
+...and all the comments.
+As this ticket is about 'Launch OneCover' and now some ...or let's say more and more issues raise.
+And we have at least two parallel tickets to fix some issues:
+https://cnissues.atlassian.net/browse/LS4-1408
+https://cnissues.atlassian.net/browse/LS4-1397
+
+So I guess we must decide somehow how to proceed.
+
+Suggestion:
+We postpone my ticket for a while until the other tickets are merged and done.
+Then I will update my branch and we test again.
+
+What do you say?
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1335
+
+It says 'card with background colour'.
+What does this mean?
+Is it about the gradient for overlay?
+Or does this really mean to have a card without image. Something like NoAsset_WithBackground.
+
+====
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1335
+
+Please have a look at the first collage here:
+https://multiverso.wired.com/verso-homepage/test-collage/?branch=LS4-1335
+
+When I configure one card only this is how it looks out of the box.
+It doesn't fit to figma. Especially the space between rubric and headline.
+I guess the specs come from brand identity so we shouldn't override it by css.
+
+What do you say?
+How should we proceed?
+
+And another question:
+
+The ticket says 'card with background colour'.
+What does this mean?
+Is it about the gradient for overlay?
+Or does this really mean to have a card without image. Something like NoAsset_WithBackground.
+
+=
+About Collage Toolkit:
+
+Is it expected if the list count does not fit to the config that collage toolkit looks broken?
+
+If yes, shouldnt we catch this somehow?
+=
+
+
+Ich möchte folgendes Layout mit grid-template-areas umsetzen:
+Ich habe:
+- 1 Element, das soll sich groß über vier Spalten erstrecken
+- 1 Liste, die beliebig viele Elemente enthalten kann. Dabei sollen jeweils zwei Elemente nebeneinander angezeigt werden. Und zwar in den ersten beiden Spalten.
+- 1 Liste, die beliebig viele Elemente enthalten kann. Dabei sollen die Elemente untereinander angezeigt werden. Und zwar in den letzten beiden Spalten.
+
+Die HTML Struktur sieht so aus:
+
+<div class="CollageWrapper">
+  <div class="ListWrapper"></div>
+  <div class="ListWrapper"></div>
+  <div class="ListWrapper"></div>
+</div>
+
+Die areas sollen ebenfalls mit grid-template-areas umgesetzt werden.
+
+Die Elemente in den areas sollen als Karten dargestellt werden, die einzeln angesteuert werden.
+Also etwa so:
+
+grid-template-areas:
+  "card1 card2 card3 card4"
+  "card5 card6 card7 card8";
+
+We are not going to re-use collage configs across tenants
+
+Das halte ich für einen großen Fehler.
+
+Das würde nämlich bedeuten, dass wir bei 237 tenants, die jeweils nur 3 verschiedene Collagen einsetzen 711 Konfigurationen, die gepflegt werden müssen.
+Da jede Konfiguration aus mehreren Konfigurationsdateien bestehen kann, sind wir schnell bei 1000, 2000 Dateien.
+Wenn diese Konfigurationen obendrein keiner Konvention folgen und - als Konsequenz daraus - bei jedem tenant anders benannt, oder auch gleich benannt, aber unterschiedlich eingerichtet werden können, haben wir einen unübersehbaren Wildwuchs, der nicht mehr beherrschbar ist.
+
+Das halte ich nicht für praktikabel.
+
+Wenn ihr meint, meine Befürchtungen sind unbegründet und mir darlegen könnt, wie das in der Realität einfach zu handhaben ist, bin ich sofort still und behaupte das Gegenteil.
+
+Ich möchte nur meine Bedenken geäußert haben.
+
+71 x 3 = 213
+Sorry. It just 71 tenants. What means we have to handle with only 600 or 1000 files.
+
+
+Let me explain it with this example:
+
+https://multiverso.wired.com/verso-homepage/test-collage-overlay/?branch=LS4-1335
+
+Let's take this collage:
+"Wired Collage Overlay Text Top"
+
+I called this collage "OVERLAY_text_top".
+Three config files are in use:
+- overlay/index.ts
+- overlay/lists/small_text_bottom
+- overlay/lists/small_text_top
+
+Now I can imagine GQ want's to have something like this:
+
+"OVERLAY_text_top":
+- overlay/index.ts
+- overlay/lists/small_text_bottom
+- overlay/lists/small_text_left
+
+And Glamour want's something like that:
+
+"OVERLAY_text_top":
+- overlay/index.ts
+- overlay/lists/small_text_bottom
+- overlay/lists/small_text_left
+- overlay/lists/small_text_right
+
+And for AD it looks like that:
+
+"OVERLAY_hero":
+- overlay/index.ts
+- overlay/lists/small_text_bottom
+- overlay/lists/small_text_top
+
+...and now no one has the slightest idea what is meant by "OVERLAY_text_top".
+
+
+Why do you need 14 files per tenant
+
+14 files might be worst case... but:
+
+We have 71 tenants. Each tenant wants to have at least three different collages.
+-> Result: 213 collage configs
+
+Each collage can have one or more lists.
+For each list we have one config file where defined is how the cards are arranged.
+
+Let's assume each collage contains exact 2 lists:
+-> Result: 3 collages x 2 lists = 6 files per tenant minimum
+-> Result: minimum 426 config files
+
+But I'm pretty sure most collages will contain three or more lists.
+
+Example for 3 collages with three lists each:
+-> Result: 3 collages x 3 lists = 9 files per tenant minimum
+-> Result: minimum 639 config files
+
+Collages can - of course - contain more lists, what means we will have more files to maintain.
+
+
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8"
+      "card9 card10"
+      "card11 card12"
+
+
+
+Probleme mit der aktuellen Umsetzung:
+- Man kann nicht beliebig viele Elemente in eine Liste Packen. Für jedes Element muss in der config ein "card" Eintrag sein, anderen Falls bricht die Collage.
+- Man kann Blöcke in den Karten nicht Breakpoint basiert ein oder ausblenden
+- Durch die Nutzung von grid-template-areas und gap haben wir zwischen den Blöcken fixe Abstände, die ein Feinjustieren erschweren bzw unmöglich machen.
+- Overlay Text Top: gradient muss überarbeitet werden
+
+
+Was fehlt:
+- framing und background color
+
+
+Now I fixed the image aspect ratio for:
+Overlay Hero Only
+Overlay Text Bottom -> the small cards
+
+
+Elena asked me to ask you to make final tests for our two tickets:
+https://cnissues.atlassian.net/browse/LS4-1335
+https://cnissues.atlassian.net/browse/LS4-1336
+
+...and write comments to the ticket that we can go on with it and - if necessary - create follow up tickets.
+
+
+I want to show and discuss with you these issues:
+1. Naming of Collages
+-> CoPilot
+-> tenant config
+
+2. Amount of configurations
+
+3. How to manage spacing between blocks in cards
+->
+
+
+===
+
+Sorry, but this is correct and expected behaviour.
+
+The banner is active:
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue/channels/navigation/_one-nav-vogue.ts#L19
+
+There is a banner in journey:
+https://interfaces.conde.io/apps/journey/editUnit?campaignKey=x41dk93chq46zt6e&unitKey=7obw8hwajrknvd3j&brandId=6&brandSlug=vogue
+
+It is restricted to specific channels. What means if a page isn't assigned to one of these channels there is an empty slot.
+
+
+position: relative;
+text-box: text alphabetic;
+
+Check asset breakpoints for collage.
+Check if clips work out of the box.
+
+https://multiverso.vogue.com/shopping?branch=LS4-1390
+https://multiverso.architecturaldigest.com/shopping?branch=LS4-1390
+https://multiverso.wired.com/category/gear/?branch=LS4-1390
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1390
+
+You wrote:
+"Vogue has both the image and the text fixed elements now included. We shouldn’t have both here"
+
+It is very easy to solve:
+Don't add both.
+
+I did it just for testing.
+
+
+Because of "pain points":
+Some time ago, I did some calculations...
+
+It takes 3 minutes to restart Verso.
+If I restart Verso 5 times a day, that's 15 minutes.
+That's 1 hour 15 minutes a week.
+That's 5 hours a month.
+That means I spend at least 60 hours a year waiting for Verso to restart.
+Not bad, isn't it?
+
+Reloading after a change takes 20 seconds.
+If Verso has to reload 5 times an hour, that's 100 seconds.
+About 14 minutes a day.
+Any questions...
+
+And that's not even taking into account timeouts, resolve config errors and API not found.
+
+
+#!/bin/bash
+
+pkill nginx
+
+rm -rf ./node_modules
+rm -rf ./build/*
+
+export NVM_DIR="$HOME/.nvm"
+[ -s '$NVM_DIR/nvm.sh' ] && \. '$NVM_DIR/nvm.sh'
+
+export NODE_OPTIONS="--max-old-space-size=8064"
+
+nvm use && npm run clean && npm run clobber && npm i && npm run dev
+
+Regarding this ticket:
+https://github.com/CondeNast/verso/pull/32208
+About CurationBanner fixes.
+
+Because it bothered me, I did some more research and think I found the problem: incorrectly set padding.
+Now I need another reviews.
+
+In the past, over 200 years ago, the Isar was a raging river that was also used for transport purposes.
+As recently as the 19th century, the Isar occasionally swept away bridges (Ludwigsbrücke, Luitpoldbrücke and Max-Josef Brücke). This resulted in many deaths and injuries.
+Looking at the river today, which mostly flows calmly, it is hard to imagine this.
+Since the beginning of the 20th century, many of the Isar's tributaries have been rerouted for the purpose of generating electricity (especially the Walchensee power plant). In addition, the water level can be regulated by the Sylvenstein reservoir and additional floodplains so that there is no longer any significant flooding in Munich.
+
+====================
+
+Now... please check the two tickets:
+
+Here you can see what the collage toolkit does out of the box:
+https://multiverso.wired.com/verso-homepage/test-collage/?branch=LS4-1335
+
+Hero Asset Left Two Sizes:
+https://cnissues.atlassian.net/browse/LS4-1336
+
+Hero Only
+https://cnissues.atlassian.net/browse/LS4-1335
+
+"XXXL headline size, card with background colour"
+We don't have "XXXL headline size". If you can provide this part for BI I can of course add it.
+An background color is not possible at the moment. We need a ticket for it.
+
+
+With the actual grid system it's hard (or impossible) to set proper spaces (gap) between blocks.
+Im unsure how to proceed. And I don't know what you have discussed and decided with Suren and Elena.
+Please have a look that we can develop a plan how to proceed.
+
+Please add comments to the tickets. I will take care. Either fixing it and/or creating a follow up ticket.
+Thank you.
+
+====================
+Hero only
+
+Collage with one element.
+Text overlay, centered and with restricted width.
+
+
+Hero Asset Left Two Sizes
+
+Collage with one hero elemnt and two lists with different sizes.
+Her with text vertical center aligned
+====================
+
+Did you try searching something like "XXXL headline size".
+In the past slack was cute enough to deliver chats with deactivated accounts as well.
+
+And another Question:
+Here I can see a one element collage with just a black background:
+https://www.figma.com/design/9RiwNdMFumEqtKqzugioU0/Cards---Lists---Collages-2.0?node-id=2625-65626&m=dev
+
+Is the black background a black image?
+Or should we invent something to make a collage look like this without image?
+
+
+Regarding "rubric / headline spacing":
+As far as I can see Suren didn't implement this at all.
+I'm fine with both approaches: Doing it by collage config or by BI.
+
+collage config means we can set spacing for each list individually. Thats a lot of flexibility. But it causes also a lot of maintainment.
+BI means we are limited but have less eford to maintain.
+
+
+I would find it most beautiful if we could write the following into the source code:
+padding-bottom: 0.5rem;
+...and this would then apply to all collages, lists, and cards for all brands.
+You should know if that could work.
+
+If it doesn't work, let's write it into the collage config, then we'll be flexible and won't have to mess around.
+
+...now it's your turn again :-)
+
+
+Do you already have an example for "framed and backfground color"?
+'cause I can't see it in the code.
+Maybe it should be something like an inverted theme?
+
+
+Wenn du kurz vor der Verzweiflung stehst, gerne schreiend durch die Straßen laufen oder den Computer aus dem Fenster werfen willst, rentiert es sich oft, mich zu fragen. Weil es gibt in diesem Laden kaum eine Situation, die geeignet ist, einen in den Wahnsinn zu teriben, die ich noch nicht erlebt habe ;-)
+
+To calm down your confusion a bit:
+The initial ticket says the old variation is TextAboveCenterFullBleed the new one is AssetBottom:
+https://cnissues.atlassian.net/browse/LS4-1362
+
+But I guess it doesn't matter a lot 'cause in a short time there will be a widget at copilot where the people can choose layout whatever they want.
+
+
+Thom is concerned about lack of spacing above the rubric on XXL:
+https://cnissues.atlassian.net/browse/LS4-1394?focusedCommentId=1740290
+
+I'm concened too. But would say it's not lack of spacing above the rubric but lack of spacing below OneNav.
+Ticket? Bug ticket? Need of discussion?
+
+What do you say?
+
+
+Regarding your comment here:
+https://github.com/CondeNast/verso/pull/32341
+
+I discussed that with Olivier. We had three options:
+
+1. Add a fixed bottomSpacing what is maximal unflexible but no effort to maintain
+2. Add design tokens for it. A bit more flexible as it could be different for brands. And a bit more effort to maintain.
+3. Add it to collage config. Maximum of flexibility. But also the most effort to maintain.
+
+I'm ok with all three choices.
+I'm also open for other suggestions.
+
+Now the moment is here... I've lost the overview complete.
+
+You asked for a "test link with all of them on a same page for review".
+I guess this are the most variations on one page I can provide at the moment:
+https://multiverso.wired.com/verso-homepage/test-collage/?branch=LS4-1335
+
+Can you tell me which ones you miss?
+...and I will give my very best to add them tomorrow morning as soon as possible.
+
+
+If someone faces this error today:
+
+Resolved config not found
+
+Then you need to update your local branch with main (rebase or merge).
+
+10:39
+
+
+  /*
+  * Was soll passieren?
+  * 1. wenn eventBannerStatus gesetzt ist
+  * - WAITING: show nothing
+  * - BEFORE: manipulate countdown time
+  * - LIVE: show live data
+  * - AFTER: show after data
+  * 2. wenn eventBannerStatus nicht gesetzt ist
+  * - WAITING
+  * - BEFORE
+  * - LIVE
+  * - AFTER
+  *
+  * */
+
+Hi team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/32441
+It's about EventBanner: Add query params to emulate states
+
+
+Regarding your comment here:
+https://github.com/CondeNast/verso/pull/32441
+
+Here is the condition to make sure these params don’t run on production:
+https://github.com/CondeNast/verso/blob/333830f9515bca0035ebc91006a54b6a0d32d795/src/plugins/navigation/one-navigation/utils/prepareNavigationData.ts#L160
+
+The param is only set in staging environment.
+Do you think we need it in an other way?
+Or do you have an information - I didn't find anything - how it's done in verso usually?
+
+
+npm run test-unit-component-react-18 src/components/compositions/one-nav/components/Clickable/Banners/EventBanner/EventBanner.spec.js
+npm run test-unit-component-react-18 src/components/compositions/one-nav/components/Clickable/Banners/CurationBanner/CurationBanner.spec.js
+npm run test-unit-server src/plugins/navigation/transformers.spec.js
+npm run test-unit-component-react-18 src/plugins/navigation/transformers.spec.js
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1390
+I changed the design token thingy.
+I asked already for an verso-em review.
+Thomas alredy did a design review.
+So I'm filled with hope that that there will be no further issues.
+And I will hand over this ticket to you... if you don't object.
+
+BTW:
+If you are running unit tests local with this command and it does not work:
+npm run test-unit-component [/path/to/test]
+
+Use that from now on:
+npm run test-unit-component-react-18 [/path/to/test]
+
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/32208/files
+
+I have the strange feeling now we have a funny mixture of old color tokens like
+${({ theme }) =>
+    getColorToken(
+      `colors.navigation.${theme.curationBannerTheme}.background-primary`
+    )};
+
+And the new design thingy like:
+var(${Design.Color.SurfaceNavigationElevated})
+
+As I have no plan how the new thingy works:
+1. Can we have a documentation for that?
+2. Can someone take a look who knows about "Design"?
+
+At the moment for me it looks like "translate the cryptic but in the meantime well known tokens to somethin more cryptic"...
+
+
+@Elena Unianina @de_nsyed
+As I had to resolve merge conflicts, please review this PR once again:
+https://github.com/CondeNast/verso/pull/32208
+
+http://localhost:7777/architectural-digest-staging/verso-channel/ad-it-yourself2?eventBannerStatus=waiting
+http://localhost:7777/architectural-digest-staging/verso-channel/ad-it-yourself2?eventBannerStatus=before
+http://localhost:7777/architectural-digest-staging/verso-channel/ad-it-yourself2?eventBannerStatus=live
+http://localhost:7777/architectural-digest-staging/verso-channel/ad-it-yourself2?eventBannerStatus=after
+
+function getEventBannerStatus({ request }: WorkflowContext) {
+  if (request.env !== 'staging') return undefined;
+
+  return (request.query?.eventBannerStatus as EventBannerStatus) ?? undefined;
+}
+
+
+
+  console.log('status::', status);
+  console.log('eventBannerStatus::', eventBannerStatus);
+  console.log('effectiveStatus::', effectiveStatus);
+
 
 
 TODO:
-ok - Engineers Dinner: Paella / Los Faroles
-ok - Start/End date to Elena
 - gift for Rakshita
-- Check with Noman: https://cnissues.atlassian.net/browse/LS4-1386
 
 TODO:
+- Los Faroles klar machen
+- Vorbereitung für Treffen im Richelbräu
+in process - Arcade noch einmal anpreisen (oder abholen und zerlegen)
+ok - Urlaub: Eintragen und Alex Bescheid geben
 - Antwort an Stefan Hetzler
 - Antwort an Peter Seyferth
-- Arcade Schrank anbieten
+in process - Arcade Schrank anbieten
 - Rückenkratzer
 - Brauanlage für daheim
 - Bürste für Bierleitung
@@ -23288,18 +24213,9 @@ Ja, wenn..
 - etwas sich bewegen lässt, was sich nicht bewegen sollte
 - sich garnichts mehr bewegt
 
-Ein Flaschenetikett im Jugendstil.
-Im Zentrum steht ein kupferner Sudkessel im Steampunk Stil.
-Links wird die Szene umrankt von Jugenstil Dekor mit Melone.
-Rechts wird die Szene umrankt von Jugenstil Dekor mit Hopfen.
-In Jugenstil Schrift steht als Überschrift "Melonaut I".
-In Jugenstil Schrift steht als Unterschrift "IPA".
 
 
-So Leute, ich versuche jetzt seit über drei Stunden einen PR zu mergen.
-Wenn alle tests durchgelaufen sind bekommen ich ständig die Meldung, dass der branch out-of-date ist.
-Aktualisiere ich den branch, dann laufen natürlich auch alle Tests wieder. Und wenn die Tests durch sind... wieder out-of-date.
-Was wäre in diesem Fall denn das beste Vorgehen?
+
 
 ==============================================
 Restaurant Liste für SevenSeas Engineer Dinner:
