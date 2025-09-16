@@ -24181,14 +24181,848 @@ function getEventBannerStatus({ request }: WorkflowContext) {
 
 
 
-  console.log('status::', status);
-  console.log('eventBannerStatus::', eventBannerStatus);
-  console.log('effectiveStatus::', effectiveStatus);
+console.log('status::', status);
+console.log('eventBannerStatus::', eventBannerStatus);
+console.log('effectiveStatus::', effectiveStatus);
+
+
+None of those...
+The config:
+
+sortConfig: {
+  type: 'SimpleSortModel',
+  setup: {
+    active: { sortBy: 'fullName' },
+    options: { sortFields: ['lastName', 'fullName', 'createdAt'] }
+  }
+}
+
+It is sortet by 'createdAt'.
+Articles and galleries don't have sortFields 'lastName' and 'fullName'.
+As far as I remember is this the sort config for content type contributor as this content type has 'lastName' and 'fullName'.
+
+Maybe something like this would be better:
+active: { sortBy: 'publishedAt' },
+options: { sortFields: ['publishedAt', 'title'] }
+
+But as I have a lack of time I'm sorry I can't test it for you.
+
+Next question:
+la-cucina-italiana-italy should have TextOverlay and TextAbove at the same time.
+But thats not possible. Not by config and not physically.
+Whick variation should we use?
+
+
+Good question...
+
+I have no idea about LCI.
+Thats because... I have no idea which frontend LCI uses.
+I only know: It's not verso:
+https://copilot-app.condenast.io/lci/articles/5e5e1837eb83d90009016acc
+https://www.lacucinaitaliana.com/trends/healthy-food/finding-authentic-buffalo-mozzarella-in-california-ramini
+
+And we have another brand/tenant: LCIIT.
+It has the ContentHeader Widget what means all variants are possible:
+https://copilot-app.condenast.io/lciit/articles/6786177284729e4bce6a8a9f
+https://www.lacucinaitaliana.it/article/formaggi-a-latte-crudo-sicurezza-alimentare-risponde-esperto/
+
+
+Please can someone tell me
+https://stg-copilot-app.condenast.io/wrduk/galleries/6475b2494886bcd5335a0ebd
+https://stag.wired.co.uk/gallery/kelly-wearstlers-design-travel-guide-to-paris
+
+
+Aaaaannnd... next question:
+
+Are we sure this tenants should be TextAbove?
+'Cause now the use an overlay variation.
+
+vogue-in
+https://stag.vogue.in/culture-and-living/gallery/best-feel-good-movies-that-are-guaranteed-to-boost-your-mood
+
+vogue-me
+https://stag.voguemiddleeast.com/gallery/all-the-arab-it-girls-taking-over-the-streets-of-paris-for-couture-week
+
+vogue-mx
+https://stag.vogue.mx/galeria/vestidos-elegantes-de-beatrice-borromeo-que-la-convierten-en-un-icono-de-estilo
+
+vogue-tw
+https://stag.vogue.com.tw/galerie/the-best-street-style-photos-from-the-spring-2025-shows-in-copenhagen
+
+vogue-uk
+https://stag.vogue.co.uk/gallery/chef-stephanie-nass-wedding
+
+For Vogue UK I can see TextOverlay at tenant config:
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue-uk/channels/_default.ts#L550
+Same for ME.
+
+Vogue TW, MX and IN it's defined at the vogue-international config:
+https://github.com/CondeNast/verso/blob/main/src/tenants/vogue-international/channels/_default.ts#L491
+
+Once more a typical Condé Nast thingy:
+All tenants of a brand should have the same (default or basic) configuration.
+Therefore a vogue-international config is invented.
+Because this configuration can be overridden, of course it will be overridden.
+In the end, that leaves us with yet another configuration to maintain, maximum confusion all around, and nobody has a clue what’s going on anymore.
+I’m telling you…
+
+
+BTW: TextOverlay works with video.
+But not the best. Video control does not work and the coloring seems to be not ok.
+
+
+Hi Kyle,
+
+can you tell me which color token the publish date should have?
+At the moment there is none and it looks bad at OneCover TextOverlay:
+
+https://multiverso.gq-magazin.de/mode/galerie/amazon-prime-day-2024-die-schoensten-uhren-2?branch=LS4-1427
+
+
+Im a bit confused...
+Can someone tell me where I can find this gallery on verso?
+local, staging and multiverso.
+And how to distinguish if it's a Wired UK or a Wired US page.
+
+https://stg-copilot-app.condenast.io/wrduk/galleries/606d9fae20fc96acca6d3b4b
+
+Because
+http://localhost:7777/wired-uk-stg/gallery/los-glaciares-national-park-80-pictures
+https://multiverso.wired.com/gallery/los-glaciares-national-park-80-pictures/?branch=LS4-1427
+
+@marylou
+
+@tobe
+I’ve gone to extraordinary lengths to unearth this page especially for you—
+…because I know how much you love wiggly gifs on our pages ;-)
+
+https://multiverso.vogue.fr/galerie/sans-titre-prakhar-sharma-19-mai-2023-a-1405?branch=LS4-1427
+
+Let me say so:
+If there are no issues outside the config I see no problems.
+If there are issuses outside the config - eg styling or functionality - it might be a blocker that we can't solve within the ticket.
+
+
+About the video issue:
+The OneCoverTextWrapper in TextOverlay variant overlays the video what means - of course - it also overlaps the control elements.
+Quickfix: Adding a margint to the OneCoverTextWrapper container.
+margin: 0 66px;
+
+http://localhost:7777/gq-germany-staging/technik/galerie/amazon-prime-day-deal-days-2024-technik-deals-2
+
+Hi Marco,
+
+FYI: We lowered the z-index of the OneCoverTextWrapper that is part of the new OneCover.
+It's because of the play/pause button of the header video.
+You can see it here:
+
+https://multiverso.gq-magazin.de/technik/galerie/amazon-prime-day-deal-days-2024-technik-deals-2?branch=LS4-1427
+
+Regarding this PR:
+https://github.com/CondeNast/verso/pull/32652
+
+build_push_gp_prod faild:
+https://github.com/CondeNast/verso/actions/runs/17261488490/job/48985208415
+
+Can someone take a look and tell me what todo?
+
+Vogue MX
+Wired
+
+headerComponent: process.env.APP_ENV !== 'production' ? 'OneCover' : 'ContentHeader',
+
+gallery:
+https://multiverso.vogue.mx/galeria/street-style-alta-costura-otono-2024?branch=LS4-1417
+
+article:
+https://multiverso.vogue.mx/articulo/sandalias-teva-y-como-llevar-en-verano-2024?branch=LS4-1417
+
+gallery:
+https://multiverso.wired.com/gallery/best-instant-coffee/?branch=LS4-1417
+https://stg-copilot-app.condenast.io/wrd/galleries/6635236949cf07db4d8588a2
+
+article:
+https://multiverso.wired.com/2012/06/geeks-guide-seanan-mcguire/?branch=LS4-1417
+https://stg-copilot-app.condenast.io/wrd/articles/5932dafaf682204f73697d2f
+
+npm run test-unit-server-react-18 src/presenters/articles/transformers.spec.js
+
+https://multiverso.architecturaldigest.com/gallery/exterior-house-colors?branch=one-cover-theming
+https://multiverso.vogue.com/slideshow/heres-what-taylor-swift-should-wear-to-her-wedding?branch=one-cover-theming
+
+npm run test-unit-component-react-18 -- -u src/components/compositions/smart-component/smart-item/implementations/focus-unit/FocusUnit.enzyme.spec.js
+npm run test-unit-component -- -u src/components/compositions/smart-component/smart-item/implementations/focus-unit/FocusUnit.enzyme.spec.js
+npm run test-unit-component -- -u components src/components/compositions/smart-component/smart-container/SmartContainer.enzyme.spec.js
+npm run test-unit-component-react-18 src/transformer-helpers/set-one-cover.spec.ts
+
+Wenn eslint und augment miteinander spielen:
+
+eslint:
+252:43 error Unnecessary optional chain on a non-nullish value
+
+augment:
+Die Datei hat nur 240 Zeilen, aber der Fehler ist in Zeile 252.
+Behoben!
+
+eslint:
+253:8 error Unnecessary conditional, value is always truthy
+
+Da ist noch ein bisschen Luft nach oben, bis augment wirklich hilfreich ist...
+
+Question: Do we now have a definition/specification/decision about the naming of collages?
+Because, to be honest, TwoListsTwoRowsLeft sounds a bit odd.
+
+Please use either existin notation even it might be suboptimal or change existing notation to new notation. Don't invent a new one without aligning the olds.
+
+Abgesehen davon, dass ich dieses neue Design System für echt schwierig halte, weil nachträgliche Änderungen oder bugfixes erheblichen Aufwand verursachen... ja, das geht in die richtige Richtung.
+
+Regarding this bug ticket:
+https://cnissues.atlassian.net/browse/LS4-1425
+Isn't this a OneNav issue? Or a StickyHeroAd issue? To add padding-bottom or margin-bottom.
+Don't we follow the approach adding spaces at the bottom of a component anymore?
+
+Here I can see spacing between StickyHeroAd and OneCover:
+https://stag.architecturaldigest.com/gallery/best-statement-plates
+
+Here I can see spacing between StickyHeroAd and EventBanner:
+https://stag.vogue.com/slideshow/best-summer-weddings-in-vogue
+...but not between EventBanner and OneCover.
+
+We should be very careful when and where to add spacings.
+
+
+Hi tema,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/32688
+It's about enabling all breakpoints for Responsive Asset Component
+
+Hi Team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/32658
+It's about a fallback mechanism from old ContentHeader to new OneCover.
+
+
+Why not TextBadgeProps as it defines props for TextBadge?
+
+
+Once the Colour Theming is merged to main each brand will have it automatically of course.
+
+In an ideal world I'll be with you. But we are not in an ideal world. We live in a verso universe. And there it can happen you change one color token and the whole page breaks down. Thats my learning over the last few years.
+In this special case: When I implement something to make the OneCover AssetOverly variant working and the Colour Theming does it in a different way we have to align that afterwards. And when we do that afterwards we have to align that with our sakeholders again.
+
+Once Colour Theming is merged into main, each brand will automatically get it, of course.
+
+In an ideal world, I’d be fully with you — but we don’t live in an ideal world, we live in the Verso universe. And here, changing a single color token can sometimes break an entire page — that’s been my experience over the past few years.
+
+In this particular case: if I implement something to make the OneCover AssetOverlay variant work and Colour Theming handles it differently, we will need to adjust it afterwards. And once we have done that, we will need to align this with our stakeholders again.
+
+
+Your comment here:
+https://github.com/CondeNast/verso/pull/32688
+
+What does it mean to me?
+Should I wait with merging 'til you were able to verify your suspicion?
+Or can I merge and you keep me in touch if issues raise?
+
+Regarding your PR:
+https://github.com/CondeNast/verso/pull/32565/files#diff-ade7aba5b9fd90a58ca65762143fad161e066064085c30d3a4635198629d967dR126
+
+You use --color-text and --color-surface here.
+phpstorm complains "Cannot resolve '--color-surface' custom property".
+How can I fix this?
+
+
+Ich hatte befürchtet, dass das jemand bemängelt.
+Ich habe bereits fast einen Tag damit zugebracht, ping pong mit eslint and valencia tests zu verbringen.
+Funktioniert das eine, wirft das andere Fehler.
+Wenn dir dazu eine geschickte Lösung einfällt wäre ich dir sehr verbunden.
+
+Alle Lösungen, die mir eingefallen sind, bedeuten erheblichen Mehraufwand und Umbauten innerhalb der Templatestruktur. Nachdem OneCover in den content type Templates eingefügt wird, müssen die oneCover Informationen auch dort vorhanden sein. Also von BasePage dahin übergeben werden.
+Wenn dir eine einfache und geschickte Lösung einfällt... ich bin sehr offen dafür.
+
+===
+Regarding your comments here:
+https://github.com/CondeNast/verso/pull/32658
+
+eslint-disable-next-line
+I was afraid someone would complain about that.
+I've already spent almost a day playing ping pong with eslint and valencia tests.
+When one works, the other throws errors.
+If you can think of a clever solution, I would be very grateful.
+
+All the solutions I have come up with involve considerable extra work and modifications to the template structure. Once OneCover has been inserted into the content type templates, the OneCover information must also be available there. In other words, it must be transferred there from BasePage.
+If you can think of a simple and clever solution, I am very open to it.
+===
+
+FYI:
+I will not be able to move this ticket forward today:
+https://cnissues.atlassian.net/browse/LS4-1417
+Reason:
+Too many eslint errors to be fixed.
+
+===
+
+Ich brauche euren Rat.
+An dieser Stelle wirft eslint einen Fehler:
+https://github.com/CondeNast/verso/blob/main/src/plugins/base-page/transformers.ts#L591
+
+Code:
+
+export const setEngagementChatbotConfig: Transformer = {
+  path: 'engagementChatbotConfig',
+
+  transform: (workflowContext: WorkflowContext) => {
+    if (!workflowContext.config.engagementChatbot) {
+      return null;
+    }
+    const engagementChatbotConfig = workflowContext.config.engagementChatbot;
+    return engagementChatbotConfig;
+  }
+};
+
+Error:
+
+Unnecessary conditional, value is always falsy
+
+Weil ich unser System kenne, bin ich mir sicher, diese Abfrage hat der Autor aus einem guten Grund eingebaut. Nämlich weil workflowContext.config.engagementChatbot nicht immer falsy ist.
+Entsprechend kann ich diese Abfrage auch nicht einfach entfernen, damit eslint eine Ruhe gibt.
+
+Wie gehen wir damit um?
+
+===
+
+// to fix some eslint errors
+if (!category.hierarchy || category.hierarchy.length === 0) {
+  return;
+}
+
+
+
+Habe ich heute schon gesagt, dass mich verso in den Wahnsinn treibt? Habe ich nicht?
+Dann also: Verso treibt mich in den Wahnsinn.
+Da teste ich alle möglichen und unmöglchen möglichkeiten, um OneCover fallback zu integrieren und wundere mich, warum das Ergebnis nicht zur Konfiguration passt.
+...bis ich schließlich und endlich merke, dass in der tenant config etwas eingestellt ist, dass eigentlich gar nicht vorhanden sein dürfte.
+Boah ey...
+
+Nina hat sich die Mühe gemacht, eine Liste mit ContentHeadern zusammen zu stellen:
+https://docs.google.com/spreadsheets/d/16ZZTQNXtGukrMLivFoEl39GwbT9w4IvibP4PlyqQ074/edit?gid=521271051#gid=521271051
+...und ich weiß, dass das kein Spaß ist.
+Ich habe jetzt zu jeder einzelnen Variante ein Mapping erstellt:
+https://github.com/CondeNast/verso/pull/32658/files#diff-e0cb9cc8e900f8b4a54dd19879c9df2ba6125d156d309ac54ca52c535131c3de
+und teste... und teste... und teste...
+Und schaue zuguterletzt in der tenant config nach und da steht "TextOverlay" drinnen:
+https://github.com/CondeNast/verso/blob/main/src/tenants/gq-espana/channels/_default.ts#L442
+Und "TextOverlay" kommt weder in der Liste, noch in meinem Mapping vor.
+
+
+Ich weiss jetzt, was passiert ist:
+Nachdem endlich alles funktioniert hat - eslint Fehler behoben, unit tests gefixt - hat eslint einen letzten Fehler bemängelt und zwar, dass eine alte Funktion zu komplex wäre.
+Ich habe dann also die Funktion zerlegt und dabei ist mir ein dummer Fehler unterlaufen, der max-width, min-width und das Image für den breakpoint sm falsch erstellt hat.
+Ich denke, ich sollte mir angewöhnen, dass ich mit einem Ticket sofort aufhöre, wenn eslint anfängt mich zu nerven. Weil sonst über kurz oder lang die Aufmerksamkeit nachlässt und dabei blöde Fehler passieren.
+
+I now know what happened:
+
+After everything finally worked – eslint errors fixed, unit tests fixed – eslint found one last error, namely that an old function was too complex.
+So I broke down the function and made a bad mistake, which created the max-width, min-width and image for the breakpoint sm incorrectly.
+
+I think I should get into the practice of stopping immediately with a ticket when eslint starts to annoy me. Otherwise, sooner or later my attention will fade and dumb mistakes will happen.
+
+I'm sorry for the trouble.
+
+If you want to check the gradient ticket again:
+I've added a tech note where you can take a first look.
+https://cnissues.atlassian.net/browse/LS4-1396
+
+
+nvm use && npm run test-unit-component-react-18 -- -u src/components/patterns/responsive-cartoon/ResponsiveCartoon.spec.js
+nvm use && npm run test-unit-component-react-18 -- -u src/components/compositions/bundle-header/BundleHeader.spec.js
+nvm use && npm run test-unit-component-react-18 -- -u src/components/compositions/summary-spotlight/SummarySpotlight.spec.js
+nvm use && npm run test-unit-component-react-18 -- -u src/components/templates/universal-bundle-page/UniversalBundlePage.spec.js
+nvm use && npm run test-unit-component-react-18 -- -u src/components/elements/responsive-image/ResponsiveImage.spec.js
+
+nvm use && npm run test-unit-component -- -u src/components/patterns/gallery-recirc-cards/GalleryRecircCards.enzyme.spec.js
+nvm use && npm run test-unit-component -- -u src/components/patterns/ticker/Ticker.enzyme.spec.js
+nvm use && npm run test-unit-component -- -u src/components/templates/caption-contest-page/contest-header/ContestHeader.enzyme.spec.js
+nvm use && npm run test-unit-component -- -u src/components/compositions/contributor-spotlight/SmallDeviceContributorFeaturedStories/SmallDeviceFeaturedStories.enzyme.spec.js
+nvm use && npm run test-unit-component -- -u src/components/compositions/verso-issue-feature/VersoIssueFeature.enzyme.spec.js
+nvm use && npm run test-unit-component -- -u src/components/compositions/contributor-spotlight/ContributorSpotlight.enzyme.spec.js
+nvm use && npm run test-unit-component -- -u src/components/compositions/contributor-spotlight/ContributorSpotlightMainSection/ContributorSpotlightMainSection.enzyme.spec.js
+nvm use && npm run test-unit-component -- -u src/components/compositions/smart-component/smart-container/SmartContainer.enzyme.spec.js
+
+nvm use && npm run test-unit-component -- -u src/components/templates/gallery-page/GalleryPage.enzyme.spec.js
+
+nvm use && npm run test-unit-component-react-18 -- -u src/components/patterns/event-banner/EventBanner.spec.js
+
+npx jest valencia/integration/onenav.spec.js
+
+
+valencia/integration/contributor.spec.js
+
+feat(all): Add more breakpoints for Responsive Asset Component
+https://github.com/CondeNast/verso/pull/32769
+
+feat(OneCover): Prepare Fallback mechanism
+https://github.com/CondeNast/verso/pull/32658
+
+
+    Expected the element to have attribute:
+      media="(max-width: 1023px)"
+    Received:
+      media="(min-width: 1024px)"
+
+
+    dingens:: [
+      {
+        media: '(max-width: 767px)',
+        sources: [ [Object], [Object] ],
+        sizes: '100vw',
+        srcset: undefined
+      },
+      {
+        media: '(min-width: 1024px)',
+        sources: [ [Object], [Object] ],
+        sizes: '25vw',
+        srcset: undefined
+      },
+      {
+        media: '(max-width: 1023px)',
+        sources: [ [Object] ],
+        sizes: '100vw',
+        srcset: undefined
+      }
+    ]
+
+
+
+Some additional test links to be sure non OneCover images work as expected:
+https://multiverso.wired.com/story/psychological-tricks-can-get-ai-to-break-the-rules/?branch=LS4-1403-I
+https://multiverso.architecturaldigest.com/shopping/lainey-wilson-open-door?branch=LS4-1403-I
+https://multiverso.bonappetit.com/gallery/boquerones-marinated-white-anchovies-recipes-ideas?branch=LS4-1403-I
+
+=============================================
+I'm sorry but I have to ask again for reviews here:
+https://github.com/CondeNast/verso/pull/32802
+
+It's about enabling all breakpoints for Responsive Asset.
+My last PR contained some changes that did not come from me. Based on my recent experiences, I do not want them in my PR.
+So here is a clean, new branch.
+=============================================
+
+
+Hi Team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/32769
+
+It's about enabling all breakpoints for Responsive Asset.
+
+After my PR went terribly wrong last week, I would like to ask you to test this PR a little more intensively.
+In particular, all images that are not part of OneCover must work as usual.
+
+
+https://multiverso.wired.com/story/psychological-tricks-can-get-ai-to-break-the-rules/?branch=LS4-1417
+https://multiverso.architecturaldigest.com/shopping/lainey-wilson-open-door?branch=LS4-1417
+https://multiverso.bonappetit.com/gallery/boquerones-marinated-white-anchovies-recipes-ideas?branch=LS4-1417
+
+Hi Team,
+as I fixed some eslint errors after last round of reviewing I have to ask for reviews again.
+Please take a look at this PR:
+https://github.com/CondeNast/verso/pull/32658
+It's about a fallback mechanism from old ContentHeader to new OneCover.
+
+Insbesondere würde ich mich freuen, wenn sich die Kollegen, die mit dem PR bereits vertraut sind, noch einmal einen Blick darauf werfen könnetn:
+
+I’ve already updated my work with main, and it’s working quite well. So I’d say everything looks good for me.
+You can see and check it here:
+https://github.com/CondeNast/verso/pull/32641
+Now I'm waiting 'til Marylou is back. Then we can start the rollout.
+
+Und wegen merge Konflikten und besonders den eslint Fehlern kann ich euch sagen: Es war ein Höllenritt...
+
+Wegen des nächsten Engineers Dinner:
+https://doodle.com/meeting/organize/id/dwg9Vpzd
+
+Ich habe mit Elena gesprochen und sie kann ihre Termine nicht verschieben, so denn die Frage an dich:
+Kannst du es irgendwie arrangieren, dass du am 23. doch kannst?
+
+===
+
+There are three ways to reach a multiverso page in Copilot.
+
+The best option might be the browser plugin:
+https://chromewebstore.google.com/detail/global-dev-chrome-extensi/algjbopbdkdlohlkampjffoljmiogjoh
+
+The second best is to search for the page ID in copilot.
+
+Or is that not what you’re looking for?
+
+And here the links for a wired test page:
+https://multiverso.gq-magazin.de/mode/galerie/amazon-prime-day-2024-die-schoensten-uhren-2?branch=LS4-1427
+https://stg-copilot-app.condenast.io/gqde/galleries/62cd72a1197172de3f482f10
+
+===
+eslint complains at the EventBanner:
+Arrow function has a complexity of 31. Maximum allowed is 20
+
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/event-banner/EventBanner.js#L60
+
+And now?
+Refactor?
+Disable somwhow?
+Report and wait for third party support (Fran/Norman)?
+
+===
+
+https://multiverso.vogue.com/verso/static/vogue-global/assets/logo.svg
+https://multiverso.vogue.com
+/verso/static/vogue-global/assets/us/vogue-tiffany-logo.svg
+/verso/src/brand-identity/brands/vogue-global/assets/us/vogue-tiffany-logo.svg
+
+Please have a look at this PR:
+https://github.com/CondeNast/verso/pull/32796
+
+It's about customisation of the old, deprecated EventBanner.
+It a quick and dirty solution. But I guess at the moment it's not worth value to do a propper and future proof one...
+
+I'm happy to announce the next Engineers Dinner that will happen on 23.11.2025
+We will go to Los Faroles for some Paella.
+Or - if you really can't stand paella - soem other Spanish specialities.
+
+https://www.losfaroles.de/wp-content/uploads/Faroles-Speisekarte-Januar-2024.pdf
+
+
+Here another attempt for the EventBanner as a Clickable inside OneNav:
+https://github.com/CondeNast/verso/pull/32820
+https://multiverso.vogue.com/slideshow/aaron-tveit-and-ericka-yang-wedding?branch=LS4-1433-OneNav
+
+Doesn't work proper either.
+Has anyone an idea how we can adjust height of OneNav? And the weird scrolling behavoiur?
+
+
+Who is our contact person there? And above all: if it cannot be guaranteed that a background will always be set, then that is a rather wobbly situation.
+I'm just saying...
+
+As far as I can see there is no background set in verso.
+Not at OneNav. Not even as a fallback.
+Neither at the ad template.
+That means it comes from the ad itself.
+
+Fix eslint error for the old and deprecated EventBanner component.
+
+eslint complains:
+Arrow function has a complexity of 31. Maximum allowed is 20
+
+https://github.com/CondeNast/verso/blob/main/src/components/patterns/event-banner/EventBanner.js#L60
+
+Tech Note
+
+Fix from Vikrant:
+https://github.com/CondeNast/verso/tree/LS4-1433-OneNav-2
+
+
+DoD
+eslint error is fixed
+
+Eine kurze Zusammenfassung:
+- EventBanner wird für Seiten mit OneNav nicht mehr unterstützt
+-
+
+Für mich beruhigend... für One Nav zu beunruhigend...
+Wir haben das Problem live und auf allen Seiten.
+Der ContentHeader verschwindet unter der SitickyHeroAd, bevor die Anzeige nach oben weg scrollt.
+Das ist bisher wohl noch niemandem aufgefallen. Beim EventBanner springt das allerdings sehr ins Auge.
+
+
+
+Do you have access to figma?
+https://www.figma.com/design/n9MoWtrBsErZJw5YoJjXzC/OneCover%C2%AE-2025?node-id=83-6781&m=dev
+
+There you can see that the Dek in the overlay variant is provided within the overlay.
+
+
+==============================
+OneCover rollout for galleries / Phase I & II
+
+https://stag.gqjapan.jp/gallery/motorcycles
+https://multiverso.gqjapan.jp/gallery/motorcycles?branch=LS4-1427
+http://localhost:7777/gq-japan-staging/gallery/motorcycles
+
+==============================
+OneCover rollout for galleries / Phase III & IV
+
+
+TextBelow:
+
+epicurious
+https://stag.epicurious.com/recipes-menus/most-saved-recipes-june-2025
+https://multiverso.epicurious.com/recipes-menus/most-saved-recipes-june-2025?branch=LS4-1428
+http://localhost:7777/epicurious-staging/recipes-menus/most-saved-recipes-june-2025
+
+glamour-uk
+https://stag.glamourmagazine.co.uk/gallery/best-medik8-products
+https://multiverso.glamourmagazine.co.uk/gallery/best-medik8-products?branch=LS4-1428
+http://localhost:7777/glamour-uk-staging/gallery/best-medik8-products
+
+glamour-de
+https://stag.glamour.de/galerie/testing-videos-abdus-sathar-28-march-2025-at-1711
+https://multiverso.glamour.de/galerie/testing-videos-abdus-sathar-28-march-2025-at-1711?branch=LS4-1428
+http://localhost:7777/glamour-germany-staging/galerie/testing-videos-abdus-sathar-28-march-2025-at-1711
+
+glamour
+https://stag.glamour.com/gallery/kate-middleton-is-embracing-a-whole-new-look
+https://multiverso.glamour.com/gallery/kate-middleton-is-embracing-a-whole-new-look?branch=LS4-1428
+http://localhost:7777/glamour-staging/gallery/kate-middleton-is-embracing-a-whole-new-look
+
+vanity-fair-fr
+https://stag.vanityfair.fr/mode/diaporama/6-marques-de-jeunes-creatrices-de-pret-a-porter-pour-femmes-a-suivre/28509
+https://multiverso.vanityfair.fr/mode/diaporama/6-marques-de-jeunes-creatrices-de-pret-a-porter-pour-femmes-a-suivre/28509?branch=LS4-1428
+http://localhost:7777/vanity-fair-france-staging/mode/diaporama/6-marques-de-jeunes-creatrices-de-pret-a-porter-pour-femmes-a-suivre/28509
+
+vanity-fair-es
+https://stag.revistavanityfair.es/galerias/the-best-dressed-stars-of-the-week-dialed-up-the-drama
+https://multiverso.revistavanityfair.es/galerias/the-best-dressed-stars-of-the-week-dialed-up-the-drama?branch=LS4-1428
+http://localhost:7777/vanity-fair-espana-staging/galerias/the-best-dressed-stars-of-the-week-dialed-up-the-drama
+
+vanity-fair
+https://stag.vanityfair.com/style/photos/giorgio-armanis-greatest-red-carpet-looks-over-the-years
+https://multiverso.vanityfair.com/style/photos/giorgio-armanis-greatest-red-carpet-looks-over-the-years?branch=LS4-1428
+http://localhost:7777/vanity-fair-staging/style/photos/giorgio-armanis-greatest-red-carpet-looks-over-the-years
+
+TextAbove:
+
+bon-appetit
+https://stag.bonappetit.com/gallery/most-popular-recipes-august-2025
+https://multiverso.bonappetit.com/gallery/most-popular-recipes-august-2025?branch=LS4-1428
+http://localhost:7777/bon-appetit-staging/gallery/most-popular-recipes-august-2025
+
+SplitScreen:
+
+
+Default Fallback:
+
+bon-appetit/healthyish.ts
+https://stag.bonappetit.com/gallery/encore-parrot-refactor-mvp-testing-7
+https://multiverso.bonappetit.com/gallery/encore-parrot-refactor-mvp-testing-7?branch=LS4-1428
+http://localhost:7777/bon-appetit-staging/gallery/encore-parrot-refactor-mvp-testing-7
+
+conde-nast-traveller-india
+https://stag.cntraveller.in/gallery/beautiful-homestays-in-the-hills-in-south-india/
+https://multiverso.cntraveller.in/gallery/beautiful-homestays-in-the-hills-in-south-india/?branch=LS4-1428
+http://localhost:7777/conde-nast-traveler-india-staging/gallery/beautiful-homestays-in-the-hills-in-south-india/
+
+gq/gq-style.ts
+https://stag.gq.com/gallery/the-track-jackets-comeback-2015
+https://multiverso.gq.com/gallery/the-track-jackets-comeback-2015?branch=LS4-1428
+http://localhost:7777/gq-staging/gallery/the-track-jackets-comeback-2015
+
+pitchfork/thepitch.ts
+???
+
+wired-es
+https://stag.es.wired.com/galerias/las-9-armas-avanzadas-en-china-ha-presentado-ante-el-mundo-en-su-desfile-militar
+https://multiverso.es.wired.com/galerias/las-9-armas-avanzadas-en-china-ha-presentado-ante-el-mundo-en-su-desfile-militar?branch=LS4-1428
+http://localhost:7777/wired-en-espanol-staging/galerias/las-9-armas-avanzadas-en-china-ha-presentado-ante-el-mundo-en-su-desfile-militar
+
+... and other unmapped tenants.
+???
+
+
+import {
+  OneCoverVariation,
+  TextAlign
+} from '../../../components/compositions/one-cover/enums';
+
+
+ASSET_TOP
+ASSET_BOTTOM
+
+GalleryPage: {
+  settings: {
+    headerComponent: 'OneCover',
+    oneCover: {
+      alignment: {
+        textAlign: TextAlign.CENTER
+      },
+      variation: OneCoverVariation.ASSET_BOTTOM,
+      fullBleed: true
+    }
+  }
+}
+GalleryPage: {
+  settings: {
+    headerComponent: 'OneCover',
+    oneCover: {
+      alignment: {
+        textAlign: TextAlign.CENTER
+      },
+      variation: OneCoverVariation.ASSET_TOP,
+      fullBleed: true
+    }
+  }
+}
+GalleryPage: {
+  settings: {
+    headerComponent: 'OneCover'
+  }
+},
+
+headerComponent: 'OneCover',
+
+
+
+            headerComponent: 'OneCover',
+            oneCover: {
+              alignment: {
+                textAlign: TextAlign.CENTER,
+                justifyContent: JustifyContent.BOTTOM
+              },
+              variation: OneCoverVariation.ASSET_OVERLAY,
+              fullBleed: true
+            }
+
+
+Regarding the OneCover rollout.
+https://github.com/CondeNast/verso/pull/32857
+
+What I did:
+- I collected all tenants in one PR (phase I, II, III & IV)
+- I created some - but not all - test links
+- I hope I've got all the configs
+
+TODO:
+- creating missing test links
+- check multiverso & staging and adjust if necessary
+- split PR if necessary
+
+I will continue on Monday. Especially with testing and adjusting variants.
+If you could provide me with the missing test links, you would be doing me a big favour.
+
+Es ist ein klein wenig komplizierter: Die Überschrift ist per justify-content: end am unteren Ende des Titelbildes ausgerichtet. Unter bestimmten Umständen läuft das Titelbild unten über das Browser Fenster hinaus. Dabei soll die Überschrift sichtbar bleiben.
+
+
+https://multiverso.cntraveler.com/gallery/best-new-hotels-in-usa-hot-list?branch=LS4-1428
+http://localhost:7777/conde-nast-traveler-staging/gallery/best-new-hotels-in-usa-hot-list
+
+https://stag.allure.com/gallery/best-tubing-mascaras
+http://localhost:7777/allure-staging/gallery/best-tubing-mascaras
+
+https://stag.worldofinteriors.com/gallery/topic/woi-arcade/artistic-impressions
+http://localhost:7777/world-of-interiors-staging/gallery/topic/woi-arcade/artistic-impressions
+
+https://stag.architecturaldigest.com/gallery/walton-goggins-and-nadia-conners-imagine-a-new-life-in-the-hudson-valley
+https://multiverso.architecturaldigest.com/gallery/walton-goggins-and-nadia-conners-imagine-a-new-life-in-the-hudson-valley?branch=LS4-1428
+
+Du bist in die gleiche Falle getappt wie ich. theme steckt nicht in OneCoverConfig. Das ist Falsch und muss berichtigt werden. Wenn ich das richtig sehe, wird theme in BasePage per ThemingContext.Provider gesetzt:
+src/components/templates/base-page/BasePage.js
+
+
+
+I guess we have an issue with the theming.
+I've seen OneCover tries to get "theme" from OneCoverContent. But OneCoverContent does not have "theme".
+
+Now I try to get "theme" from
+useContext(ThemingContext)
+
+'cause it's set at BasePage:
+https://github.com/CondeNast/verso/blob/main/src/components/templates/base-page/BasePage.js#L694
+
+But it seems some tokens such as background for OneCoverTextWrapper are missing or they work in another way I don't see...
+
+
+grid-template-areas
+
+
+As far as I could see yout tried to get theme from oneCoverContent:
+https://github.com/CondeNast/verso/blob/main/src/components/compositions/one-cover/OneCover.tsx#L41
+
+But this theme is never set. Not in ArticlePage nor in GalleryPage.
+
+I try to use it like this:
+https://github.com/CondeNast/verso/pull/32857/files#diff-5e2040a11672a945da3c4c01394842288f17d1f38f3c4524448093d10fbf7a14R50
+
+What do you think?
+
+Why do you think it's scary?
+...and what whould be a reasonable, futureproof alternative?
+
+I need your advice...
+What do you think, can we do this to get the theme here:
+https://github.com/CondeNast/verso/pull/32857/files#diff-5e2040a11672a945da3c4c01394842288f17d1f38f3c4524448093d10fbf7a14R50
+
+If not - maybe it's deprecated - do have a better solution?
+===
+Please can you take a look why inverted theme doesn't work here:
+https://multiverso.cntraveler.com/gallery/best-new-hotels-in-usa-hot-list?branch=LS4-1428
+
+The OneCoverTextWrapper should be inverted but it isn't.
+
+The PR:
+https://github.com/CondeNast/verso/pull/32857
+
+
+No one - especially me - recognized that Story Image and Story Video are complete different things and - of course - work different.
+
+At the moment we have the issue that Story Video aka CNEVideo does not work with OneCover as you can see here:
+https://stg-copilot-app.condenast.io/ad/galleries/67a3d41d2d6c05cbd4b7d008
+https://stag.architecturaldigest.com/gallery/walton-goggins-and-nadia-conners-imagine-a-new-life-in-the-hudson-valley
+
+Paolo Michelangelo Genta has already a fix. I will implement it. And I hope we can go ahead...
+
+===
+
+
+Issues with OneCover:
+- xxxl: text disappears at the bottom
+- what about social icons
+
+==============================
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1428
+
+One more...
+
+The ticket says pitchforks channle "thepitch" should have OneCover.
+But I can't find a channel "The Pitch" at pitchfork:
+https://copilot-app.condenast.io/p4k/category-manager/5afc7ea2f4b00a291ac3bd8b
+Can you help me?
+
+And the ticket says "and other unmapped tenants".
+It's a bit unspecific. Does that mean "all tenants" or "all US tenants"?
+Please can I have a list?
+
+It says bon-appetit should have variation TextBelow.
+But at the moment it has TextAbove:
+
+https://stag.bonappetit.com/gallery/most-popular-recipes-august-2025
+
+Should I follow the ticket or the live page?
+
+
+It says gq/gq-style.ts should have OneCover.
+But the first example page I opened has "Style" as primary channel:
+https://copilot-app.condenast.io/gq/galleries/5584f2e409f0bee564440796
+
+Question:
+Should have channel "Style" OneCover as well?
+
+
+
+
+
+TODO 10.9.2025:
+- Testlink: EventBanner within OneNav
+- Report/Summarize breakpoints for Responsive Asset:
+  - ask for review
+- reserve Los Faroles
+
+
+
 
 
 
 TODO:
 - gift for Rakshita
+- offsite team event
 
 TODO:
 - Los Faroles klar machen

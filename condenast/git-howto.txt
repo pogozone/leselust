@@ -17,3 +17,9 @@ git branch -D LS4-1111
 git fetch origin
 git checkout -b LS4-1111 origin/LS4-1111
 
+========================================
+
+Eine einzelne Datei aus einem remote branch holen
+
+git checkout [branch] -- path/to/file.txt
+git checkout main -- path/to/file.txt
