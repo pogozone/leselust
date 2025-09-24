@@ -25006,13 +25006,287 @@ Question:
 Should have channel "Style" OneCover as well?
 
 
+Hi Team,
+I need reviews for this PR:
+https://github.com/CondeNast/verso/pull/32802
+
+It's abut adding more breakpoints for ResponsiveImage.
+Please review and test carefully and accurate and report anything that strikes you.
+Thank you.
+
+hideLede
+lede
+isLedeOverride
+
+https://multiverso.gqjapan.jp/gallery/motorcycles?branch=LS4-1427
+https://stag.gqjapan.jp/gallery/motorcycles
+
+
+Regarding this ticket:
+https://cnissues.atlassian.net/browse/LS4-1417
+It's about the fallback mechanism for OneCover.
+
+I have all approvals for the PR:
+https://github.com/CondeNast/verso/pull/32658
+
+@elena Should I merge it? Or are there blockers?
+
+
+Regarding the OneCover rollout today:
+
+- It's planned to merge the PR at 1:00 pm
+- Vijay is informed
+- I can see deployment to production lasts between 30 minutes and more than an hour
+
+Any comments, ideas, concerns?
+If not I will proceed then.
+
+
+Please can someone help me with this:
+https://github.com/CondeNast/verso/actions/runs/17793520529/job/50576354510?pr=32923
+
+How can I fix this errors?
 
 
 
-TODO 10.9.2025:
+Und wenn du denkst, die hast jetzt wirklich alle Eventualitäten bedacht, alle Fallen umschifft und bist auf der sicheren Seite... dann schleicht sich das Schicksal von hinten an und zieht dir dermassen einen mit dem Baseballschläger über den Schädel.
+
+Der PR, den es mir gerade um die Ohren gehauen hat, funktioniert bei allen Seiten, die aus copilot kommen. Also bei etwa 99,99% aller Seiten.
+Und dann gibt es zwei oder drei Seiten, die verso selbst per Route erzeugt - und bäm, voll auf die Fresse - und die natürlich komplett anders funktionieren und vor allem keine graphql Daten, keine Metadaten und keinen contentType haben.
+
+Ich sags euch...
+
+And just when you think you’ve really thought of every last edge case, managed all the traps, and secured yourself a safe path… fate sneaks up from behind and whacks you across the skull with a baseball bat.
+
+The PR that just blew up in my face works perfectly on all the pages that come out of copilot — which is, like, 99.99% of all pages.
+And then… there are two or three special snowflakes that Verso itself creates via routes — and bam, right in the face. Of course, they work completely differently, and naturally, they don’t have GraphQL data, no metadata, no contentType.
+
+I swear…
+
+npm run test-unit-server-react-18 src/plugins/base-page/transformers.spec.js
+
+
+More specific question:
+
+To which brand identity?
+
+https://github.com/CondeNast/verso/tree/main/src/brand-identity/brands/allure-bestofbeauty
+https://github.com/CondeNast/verso/tree/main/src/brand-identity/brands/allure-us
+
+But that means the file is available but will never appear in verso. Right?
+
+Another question:
+Should I take over the EventBanner:
+https://cnissues.atlassian.net/browse/LS4-1456
+
+Two notes:
+
+1. this is not OneCover... no idea why. I'm not able to clear the cache for this page.
+In preview you can see the page with OneCover:
+https://www.gqjapan.jp/preview/galleries/68cb47b9c0b7e80a454fce43?status=draft&t=1758187006885
+
+2. this is right, the image has set "HyperFocal: 0" as caption:
+https://copilot-app.condenast.io/gqjp/photos/68cb486ac53c5a485f1daafb
+
+
+
+https://pitchfork.com/news/met-gala-2025-photos/
+https://multiverso.pitchfork.com/news/met-gala-2025-photos/?branch=LS4-1417-fix-for-graphql
+https://multiverso.pitchfork.com/news/met-gala-2025-photos/?branch=LS4-1403-II
+
+https://www.lacucinaitaliana.it/galleries/gait79130/
+https://multiverso.lacucinaitaliana.it/galleries/gait79130/?branch=LS4-1417-fix-for-graphql
+https://multiverso.lacucinaitaliana.it/galleries/gait79130/?branch=LS4-1403-II
+
+https://www.tatler.com/article/marie-antoinette-style-opens-and-the-v-and-a
+https://multiverso.tatler.com/article/marie-antoinette-style-opens-and-the-v-and-a?branch=LS4-1417-fix-for-graphql
+https://multiverso.tatler.com/article/marie-antoinette-style-opens-and-the-v-and-a?branch=LS4-1403-II
+
+https://www.newyorker.com/galleries/gallery-love-in-the-fast-lane
+https://multiverso.newyorker.com/galleries/gallery-love-in-the-fast-lane?branch=LS4-1417-fix-for-graphql
+https://multiverso.newyorker.com/galleries/gallery-love-in-the-fast-lane?branch=LS4-1403-II
+
+https://www.newyorker.com/gallery/cartoons-from-the-september-22-2025-issue
+https://multiverso.newyorker.com/gallery/cartoons-from-the-september-22-2025-issue?branch=LS4-1417-fix-for-graphql
+https://multiverso.newyorker.com/gallery/cartoons-from-the-september-22-2025-issue?branch=LS4-1403-II
+
+
+
+Das hört sich nach genau dem Fall an, den ich gestern offenbar nicht richtig rüber bringen konnte. Das tut mir leid.
+Vielleicht gelingt es mir schriftlich besser:
+
+Das bestehende Widget funktioniert mit der CamelCase Schreibweise der Optionen.
+
+Yesterday we decided to postpone AD India, Wired ES and Wired US.
+We have first to discuss and decide if and how we will do this special layouts.
+
+
+Utkarsh
+
+I have an issue. Maybe you can help me with this.
+
+At this point eslint comlains "Unnecessary optional chain on a non-nullish value":
+https://github.com/CondeNast/verso/blob/main/src/plugins/base-page/transformers.ts#L171
+
+Do you remember why you added the ? query to both variables?
+
+
+src/tenants/vogue-mx/channels/_default.ts
+
+
+===============================================================
+Q and A:
+
+1. can learn more be changed to explore now
+-> yes
+
+2. and watch now be changed to live blog please
+-> no. The Notify Button has only one field in versosettings and that does not change during event.
+There is one possibility, but it's really unpleasant and I would be very, very unhappy to do it: We could misuse and twist ‘Time Up Url’.
+(how many millions are we talking about?)
+
+3. and happening now changed to Read the live coverage now on Vogue Runway
+-> yes
+
+You can see the latest version now on multiverso:
+https://multiverso.vogue.com/slideshow/aaron-tveit-and-ericka-yang-wedding?branch=LS4-1433
+
+Here you can see there is the "Notify Button". And it has no before/during/after event status such as the new EventBanner has:
+For sure someone can go to verso settings and change that manual and well in time.
+
+https://interfaces.conde.io/apps/versosettings/#/vogue-staging/settings/eventBanner
+
+That means: If it is absolutely necessary for us to invent something, then that is a really dirty hack.
+
+If you say it's necessary, then I'll do it. But I reject any responsibility...
+
+git checkout origin/main -- package-lock.json
+git checkout origin/main -- package.json
+git checkout origin/main -- src/components/templates/runway-show-page/story-data.js
+
+npm run test-unit-component-react-18 -- -u src/components/elements/responsive-image/helpers.spec.js
+npm run test-unit-component-react-18 -- -u src/helpers/map-sources-to-segmented-sources.spec.js
+npm run test-unit-component-react-18 -- -u src/components/patterns/event-banner/EventBanner.spec.js
+
+Now I added some tests here:
+https://github.com/CondeNast/verso/pull/32802
+Please re-review.
+
+Let me quick explain the Hack:
+The EventBanner has two link options. Notify Button and Time Up Url.
+Before the event starts (while countdown is running) the CTA button on the right shows the Notify Button data.
+As we don't use the Time Up Url for Tiffany I misuse it now für the CTA button during the event.
+Questions?
+
+@here
+Last call for the Engineers Dinner next Tuesday.
+We currently only have four confirmations. That's a bit low, I think...
+
+
+Problembeschreibung:
+Ich habe einen Menu Bereich mit einem Container, der eine Anzeige enthalten kann. Dieser Container hat einen transparenten Hintergrund. Die Anzeige füllt nicht den ganzen Container.
+Dann habe ich einen zweiten Container mit den Seiteninhalt, der sich beim nach unten scrollen hinter den ersten schiebt. Dabei wird der Inhalt von der Anzeige teilweise verdeckt. Das ist unschön. Gibt es eine Möglichkeit per css dafür zu sorgen, dass die Inhalte des zweiten Container ausgeblendet werden, sobald sie hinter den ersten Container laufen?
+
+
+We have an issue with OneNav HeroAd and the EventBanner on Vogue. As the HeroAd row has no background the EventBanner run under it and thats a pity.
+Now my question: Can someone give the row a background-color? Or are we allowed to do that?
+You can see and test it here:
+https://multiverso.vogue.com/slideshow/aaron-tveit-and-ericka-yang-wedding?branch=LS4-1433-I
+
+Small shell script to start vero:
+
+#!/bin/bash
+
+
+pkill nginx
+
+rm -rf ./node_modules
+rm -rf ./build/*
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+export NODE_OPTIONS="--max-old-space-size=8064"
+
+nvm use && npm run clean && npm run clobber && npm i && npm run dev
+
+
+
+So that means Sales didn't sell the event banner to Tiffany at all, but something that doesn't even exist in Verso. It would have been great if they had told us that from the beginning, because then we could have
+- either been able to hire an agency, because they specialise in this kind of thing
+- or we could have developed something ourselves, instead of patching together the EventBanner with enormous effort, gaffer tape, glue and staples
+
+But anyway, be that as it may, I'll do my best and try to make it work somehow.
+Are these the final changes or is there more to come?
+
+
+Which field does what:
+Time up message
+-> The text that appears during event instead of countdown
+
+Notify Button
+-> Button text before event / right of countdown
+
+Time Up Url
+-> Button text during event / right of countdown
+
+Url
+-> Text below button / before and duing event / below button
+
+Hard Coded:
+-> "The September To Remember" on the left
+-> "Sponsored by Tiffany & Co." on the right
+
+
+        EventBanner: {
+          settings: {
+            isTiffanyCampaign: true
+          }
+        },
+
+FYI:
+I merged the PR about adding more breakpoints for Responsive Asset Component:
+https://github.com/CondeNast/verso/pull/32802
+
+The PR has been well tested, so I don't expect any problems.
+But you never know...
+
+Please can someone checkout the branch to this PR:
+https://github.com/CondeNast/verso/pull/32969
+
+Call this page:
+http://localhost:7777/vogue-staging/article/gwen-stefani-new-single
+
+And send me a screenshot like this:
+
+
+
+TODO:
+ok - Kieser absagen
+ok - Brenner Porto überweisen
+
+===============================================================
+PRs to merge:
+
+feat(OneCover): Prepare Fallback mechanism
+LS4-1417-fix-for-graphql
+https://github.com/CondeNast/verso/pull/32927
+
+feat(all): Add more breakpoints for Responsive Asset Component
+LS4-1403-II
+https://github.com/CondeNast/verso/pull/32802/files
+===============================================================
+DONE:
+
+feat(OneCover): OneCover rollout
+LS4-1427
+https://github.com/CondeNast/verso/pull/32641
+===============================================================
+
+
+TODO 16.9.2025:
+- Ticket for theme
 - Testlink: EventBanner within OneNav
-- Report/Summarize breakpoints for Responsive Asset:
-  - ask for review
 - reserve Los Faroles
 
 
@@ -25027,11 +25301,7 @@ TODO:
 TODO:
 - Los Faroles klar machen
 - Vorbereitung für Treffen im Richelbräu
-in process - Arcade noch einmal anpreisen (oder abholen und zerlegen)
-ok - Urlaub: Eintragen und Alex Bescheid geben
 - Antwort an Stefan Hetzler
-- Antwort an Peter Seyferth
-in process - Arcade Schrank anbieten
 - Rückenkratzer
 - Brauanlage für daheim
 - Bürste für Bierleitung
